@@ -1,0 +1,10 @@
+.blue-gradient {
+    background: linear-gradient(
+      180deg, 
+      rgba(16, 18, 54, 0) 31.14%, 
+      #101235 100%
+    );
+  }
+  .bg {
+    background-image: url("/images/footer/bg.svg");
+  }

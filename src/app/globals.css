@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  /* font-family: "DM Sans", sans-serif; */
+  color: #fff;
+  background: #060F19;
+  overflow-x: hidden;
+  font-family: Figtree;
+  
+
+}
+.full-width {
+  @apply xl:max-w-screen-3xl md:w-5/6 md:mx-auto px-4 items-center max-md:mx-4;
+  }
+
+.btn-blue {
+  @apply xl:py-3 xl:px-8 px-6 py-2 bg-[#0B43A3] text-white text-center cursor-pointer rounded-3xl;
+
+}
+
+.hero-bg {
+  background-image: url("/images/home/bg.svg");
+
+}
+
+.card-bg {
+  background-image: url("/images/home/whyT2C/bg.svg");
+  /* height: 160vh */
+}
+@layer base {
+  h1 {
+    @apply 6xl:text-[150px] 3xl:text-[90px] 2xl:text-[77px] xl:text-[64px] lg:text-[52px] md:text-[36px] text-[32px]  md:tracking-[-1.92px] tracking-[-0.96px] leading-tight xl:leading-tight font-semibold 2xl:leading-tight;
+  }
+
+  h2 {
+    @apply 6xl:text-[100px] 2xl:text-[56px] xl:text-[44px] lg:text-[36px] md:text-[32px] text-2xl md:tracking-[-0.96px] font-semibold 2xl:leading-tight;
+  }
+
+  h3 {
+    @apply 2xl:text-[48px] xl:text-4xl lg:text-3xl md:text-2xl text-xl md:tracking-[-1.28px] tracking-[-0.64px] font-bold 2xl:leading-[120%];
+  }
+
+  h4 {
+    @apply 2xl:text-2xl md:text-xl text-lg font-semibold xl:leading-tight md:leading-tight leading-tight;
+  }
+
+  h5 {
+    @apply md:text-2xl text-xl font-medium leading-tight;
+  }
+
+  h6 {
+    @apply lg:text-xl md:text-lg text-base font-medium leading-[110%];
+  }
+
+  p {
+    @apply 2xl:text-lg md:text-base text-sm;
+    /* @apply 6xl:text-3xl 4xl:text-2xl xl:text-lg   md:text-base text-sm; */
+  }
+}
