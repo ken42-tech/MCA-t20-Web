@@ -25,16 +25,15 @@ body {
 
 .hero-bg {
   background-image: url("/images/home/bg.svg");
-
 }
 .text-color{
   color:#909DC1;
 }
 
 .test-bg {
-  background-image: url("/images/home/testimonial/bg.png");
-  width:fit-content;
-
+  background-image: url("/images/home/testimonial/bgg.png");
+  border-radius: 10px;
+ 
 }
 
 .test-gradient{
@@ -43,11 +42,12 @@ body {
 }
 
 .card-bg {
-  background-image: url("/images/home/whyT2C/bg.svg");
-  background-size: cover; /* Ensure the background scales appropriately */
-  background-repeat: no-repeat; /* Avoid background tiling */
+  background-image: url("/images/home/whyT2C/bg.png");
+  background-size: cover; 
+  background-repeat: no-repeat; 
   position: relative;
-  isolation: isolate; /* Prevent blending with outer elements */
+  isolation: isolate; 
+  border-radius: 10px;
 }
 
 @layer base {

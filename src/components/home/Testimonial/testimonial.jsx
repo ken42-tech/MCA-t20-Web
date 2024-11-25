@@ -49,7 +49,7 @@ const TestimonialsCarousel = () => {
                     {testimonials.slice(currentIndex, currentIndex + 3).map((testimonial, index) => (
                         <div
                             key={index}
-                            className="rounded-lg p-6 relative test-gradient border-2 border-lightBlue"
+                            className="rounded-lg p-6 relative test-bg  border-[#C6C6C6] border-2"
                         >
                             <p className="text-[#C7C9D1] text-left mb-16">“{testimonial.text}”</p>
                             <div className="flex items-center mt-4">

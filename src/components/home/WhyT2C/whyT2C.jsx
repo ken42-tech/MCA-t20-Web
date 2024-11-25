@@ -17,7 +17,7 @@ const WhyT2C = () => {
                 {/* Cards Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8 lg:px-20 ">
                     {/* Card 1: Tech & Talent Unified */}
-                    <div className="card-bg">
+                    <div className="card-bg ">
                         <div
                             className="rounded-xl p-6 text-white text-center  flex flex-col relative"
                             style={{ mixBlendMode: "luminosity" }}
@@ -37,7 +37,7 @@ const WhyT2C = () => {
                                 Access every technology, every skill set, and every tool – fully integrated and ready to execute.
                             </p>
                             {/* Image Below */}
-                            <div className="mt-6 absolute top-[150px]">
+                            <div className="mt-8 ">
                                 <Image
                                     src="/images/home/whyT2C/i1.svg"
                                     width={300}
@@ -69,7 +69,7 @@ const WhyT2C = () => {
                                 Access every technology, every skill set, and every tool - fully integrated and ready to execute.
                             </p>
                             {/* Image Below (Slightly Out of the Box) */}
-                            <div className="mt-6 absolute top-[150px] pr-3">
+                            <div className="mt-8">
                                 <Image
                                     src="/images/home/whyT2C/i2.svg"
                                     width={300}
@@ -100,7 +100,7 @@ const WhyT2C = () => {
                                 Access every technology, every skill set, and every tool - fully integrated and ready to execute.
                             </p>
                             
-                            <div className="mt-6 absolute top-[150px]">
+                            <div className="mt-8">
                                 <Image
                                     src="/images/home/whyT2C/i3.svg"
                                     width={300}
@@ -131,7 +131,7 @@ const WhyT2C = () => {
                                 Access every technology, every skill set, and every tool - fully integrated and ready to execute.
                             </p>
                             {/* Image Below (Slightly Out of the Box) */}
-                            <div className="mt-6">
+                            <div className="mt-8">
                                 <Image
                                     src="/images/home/whyT2C/i4.svg"
                                     width={300}
