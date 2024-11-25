@@ -1,17 +1,19 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
 body {
-  /* font-family: "DM Sans", sans-serif; */
+  @apply font-figtree;
   color: #fff;
   background: #060F19;
   overflow-x: hidden;
-  font-family: Figtree;
-  
-
 }
+
 .full-width {
   @apply xl:max-w-screen-3xl md:w-5/6 md:mx-auto px-4 items-center max-md:mx-4;
   }
@@ -25,11 +27,29 @@ body {
   background-image: url("/images/home/bg.svg");
 
 }
+.text-color{
+  color:#909DC1;
+}
+
+.test-bg {
+  background-image: url("/images/home/testimonial/bg.png");
+  width:fit-content;
+
+}
+
+.test-gradient{
+  background: linear-gradient(135deg, rgb(23, 32, 48), rgb(30, 40, 60));
+
+}
 
 .card-bg {
   background-image: url("/images/home/whyT2C/bg.svg");
-  /* height: 160vh */
+  background-size: cover; /* Ensure the background scales appropriately */
+  background-repeat: no-repeat; /* Avoid background tiling */
+  position: relative;
+  isolation: isolate; /* Prevent blending with outer elements */
 }
+
 @layer base {
   h1 {
     @apply 6xl:text-[150px] 3xl:text-[90px] 2xl:text-[77px] xl:text-[64px] lg:text-[52px] md:text-[36px] text-[32px]  md:tracking-[-1.92px] tracking-[-0.96px] leading-tight xl:leading-tight font-semibold 2xl:leading-tight;

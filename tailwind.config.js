@@ -21,6 +21,9 @@ module.exports = {
         'blue-gradient': 'linear-gradient(90deg, rgba(68, 68, 68, 1) 0%, rgba(23, 74, 140, 1) 50%, rgba(255, 255, 255, 1) 100%)',
         'text-gradient': 'linear-gradient(90deg, #909DC1 0%, #3663DE 100%)',
       },
+      fontFamily: {
+        figtree: ['Figtree', 'sans-serif'], // Add Figtree as a custom font
+      },
     },
   },
   plugins: [],

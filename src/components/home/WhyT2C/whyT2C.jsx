@@ -18,7 +18,10 @@ const WhyT2C = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8 lg:px-20 ">
                     {/* Card 1: Tech & Talent Unified */}
                     <div className="card-bg">
-                        <div className="rounded-xl  p-6 text-white text-center border border-gray-700 flex flex-col  relative">
+                        <div
+                            className="rounded-xl p-6 text-white text-center  flex flex-col relative"
+                            style={{ mixBlendMode: "luminosity" }}
+                        >
                             {/* Icon and Title */}
                             <div className="flex items-center space-x-3">
                                 <Image
@@ -33,12 +36,12 @@ const WhyT2C = () => {
                             <p className="text-[#A7B2CF] text-left mt-4">
                                 Access every technology, every skill set, and every tool – fully integrated and ready to execute.
                             </p>
-                            {/* Image Below (Slightly Out of the Box) */}
-                            <div className="mt-6">
+                            {/* Image Below */}
+                            <div className="mt-6 absolute top-[150px]">
                                 <Image
                                     src="/images/home/whyT2C/i1.svg"
                                     width={300}
-                                    height={300}
+                                    height={350}
                                     alt="Card Illustration"
                                     className="shadow-lg"
                                 />
@@ -46,9 +49,11 @@ const WhyT2C = () => {
                         </div>
                     </div>
 
+
                     {/* Card 2: Scale Right, Scale Fast */}
                     <div className="card-bg">
-                        <div className="rounded-xl  p-6 text-white text-center border border-gray-700 flex flex-col  relative">
+                        <div className="rounded-xl  p-6 text-white text-center flex flex-col  relative"
+                        style={{ mixBlendMode: "luminosity" }}>
                             {/* Icon and Title */}
                             <div className="flex items-center space-x-3">
                                 <Image
@@ -61,10 +66,10 @@ const WhyT2C = () => {
                             </div>
                             {/* Paragraph */}
                             <p className="text-[#A7B2CF] text-left mt-4">
-                            Access every technology, every skill set, and every tool - fully integrated and ready to execute.
+                                Access every technology, every skill set, and every tool - fully integrated and ready to execute.
                             </p>
                             {/* Image Below (Slightly Out of the Box) */}
-                            <div className="mt-6">
+                            <div className="mt-6 absolute top-[150px] pr-3">
                                 <Image
                                     src="/images/home/whyT2C/i2.svg"
                                     width={300}
@@ -78,7 +83,8 @@ const WhyT2C = () => {
 
                     {/* Card 3: AI-Powered Innovation */}
                     <div className="card-bg">
-                        <div className="rounded-xl  p-6 text-white text-center border border-gray-700 flex flex-col  relative">
+                        <div className="rounded-xl  p-6 text-white text-center  flex flex-col  relative"
+                        style={{ mixBlendMode: "luminosity" }}>
                             {/* Icon and Title */}
                             <div className="flex items-center space-x-3">
                                 <Image
@@ -91,10 +97,10 @@ const WhyT2C = () => {
                             </div>
                             {/* Paragraph */}
                             <p className="text-[#A7B2CF] text-left mt-4">
-                            Access every technology, every skill set, and every tool - fully integrated and ready to execute.
+                                Access every technology, every skill set, and every tool - fully integrated and ready to execute.
                             </p>
-                            {/* Image Below (Slightly Out of the Box) */}
-                            <div className="mt-6">
+                            
+                            <div className="mt-6 absolute top-[150px]">
                                 <Image
                                     src="/images/home/whyT2C/i3.svg"
                                     width={300}
@@ -108,7 +114,8 @@ const WhyT2C = () => {
 
                     {/* Card 4: Supercharge Your Product */}
                     <div className="card-bg">
-                        <div className="rounded-xl  p-6 text-white text-center border border-gray-700 flex flex-col  relative">
+                        <div className="rounded-xl  p-6 text-white text-center flex flex-col  relative"
+                        style={{ mixBlendMode: "luminosity" }} >
                             {/* Icon and Title */}
                             <div className="flex items-center space-x-3">
                                 <Image
@@ -121,7 +128,7 @@ const WhyT2C = () => {
                             </div>
                             {/* Paragraph */}
                             <p className="text-[#A7B2CF] text-left mt-4">
-                            Access every technology, every skill set, and every tool - fully integrated and ready to execute.
+                                Access every technology, every skill set, and every tool - fully integrated and ready to execute.
                             </p>
                             {/* Image Below (Slightly Out of the Box) */}
                             <div className="mt-6">
