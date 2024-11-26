@@ -1,0 +1,28 @@
+/* Custom Border Styles */
+.custom-border {
+    border: 0.5px solid #333333; /* Grey border */
+  }
+  
+  /* Custom Input Styles */
+  .custom-input {
+    border: 2.56px solid #FFFFFF0D; /* Custom top border */
+    background-color: transparent;
+    color: white; /* Ensure the text is visible */
+  }
+  
+  
+  /* Card Background Color */
+  .card-background {
+    background-color: #0E0F13; /* Dark background for the cards */
+  }
+  /* custom-styles.css */
+.custom-heading {
+    font-family: var(--fontfamilyFont1);
+    font-size: 30px;
+    font-weight: 400;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    letter-spacing: 1px;
+  }
+  

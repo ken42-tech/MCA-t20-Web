@@ -17,11 +17,11 @@ const Solutions = () => {
                 <div className="flex-1 lg:max-w-[40%] rounded-xl border border-gray-700 flex flex-col">
   <div className="border-b border-gray-700">
     <Image
-      src="/images/home/solution/i1.svg"
+      src="/images/home/solution/f1.png"
       width={600}
       height={300}
       alt="Plug and Play solutions"
-      className="w-full h-full"
+      // className="w-full h-full"
     />
   </div>
   <div className="grid grid-cols-12 gap-4 px-8 pt-6 pb-6">

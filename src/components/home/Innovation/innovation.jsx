@@ -15,7 +15,7 @@ const Innovation = () => {
     
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
                 {/* Card 1 */}
-                <div className="bg-gradient-to-b from-black to-[#173068] p-8 rounded-xl text-white shadow-lg border-[lightBlue] border-2">
+                <div className="bg-gradient-to-b from-black to-[#173068] p-8 rounded-xl text-white shadow-lg border-l-[1px] border-r-[1px] border-b-[1px] border-[#fff]">
                     <Image
                         src="/images/home/innovation/ken42.svg"
                         alt="Feature 1"
@@ -34,7 +34,14 @@ const Innovation = () => {
                 </div>
                 
                 {/* Card 2 */}
-                <div className="bg-gradient-to-b from-black to-[#173068] p-8 rounded-xl text-white shadow-lg border-[lightBlue] border-2 bg-black">
+                <div
+  className="bg-gradient-to-b from-black to-[#173068] p-8 rounded-xl text-white shadow-lg"
+  style={{
+    borderLeft: '0.5px solid #fff',
+    borderRight: '0.5px solid #fff',
+    borderBottom: '0.5px solid #fff',
+  }}
+>
                     <Image
                         src="/images/home/innovation/ken421.svg"
                         alt="Feature 2"
