@@ -5,7 +5,7 @@ import { navLinks } from "./data";
 
 const Navbar = () => {
   return (
-    <div className="sticky top-0 bg-white z-50 shadow-md hero-bg ">
+    <div className="bg-transparent fixed top-0 w-full z-50">
       <nav className="w-full px-6 lg:px-20 py-4 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0">
@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden lg:flex flex-grow justify-center">
+        <div className="hidden lg:flex flex-grow justify-center pl-8">
           <ul className="flex items-center gap-6 bg-black px-8 py-4 rounded-full">
             {navLinks.map((item, i) => (
               <li key={i}>

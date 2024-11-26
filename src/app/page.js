@@ -7,17 +7,23 @@ import WhyT2C from "@/components/home/WhyT2C/whyT2C.jsx";
 import Technology from "@/components/home/Technology/tech.jsx";
 import Solutions from "@/components/home/Solutions/solution";
 import Testimonial from "@/components/home/Testimonial/testimonial";
+import Contact from "@/components/home/contact/contact.jsx";
 export default function Home() {
   return (
     <>
       <Navbar />
+      <div className="hero-bg">
       <Hero />
+      <div className="pt-8 mt-8" style={{"background":'transparent'}}>
       <Innovation/>
+      </div>
+      </div>
       <AboutT2C/>
      < WhyT2C/>
      <Technology/>
      <Solutions/>
      <Testimonial/>
+     <Contact/>
       <Footer />
     </>
   );

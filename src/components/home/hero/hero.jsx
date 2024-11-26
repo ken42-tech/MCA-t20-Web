@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+// import Innovation from "@/components/home/Innovation/innovation";
 
 const Hero = () => {
   return (
@@ -61,6 +62,7 @@ const Hero = () => {
           />
         </div> */}
       </div>
+      {/* <Innovation/> */}
     </div>
   );
 };

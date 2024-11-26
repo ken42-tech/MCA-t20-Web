@@ -4,16 +4,14 @@ import "./style.css";
 
 const Innovation = () => {
     return (
-        <div className="bg-black">
-            <div className="">
-            <h3 className="text-center text-transparent bg-clip-text bg-text-gradient  ">
+         <div className="mt-8">
+           <h3 className="text-center text-transparent bg-clip-text bg-text-gradient  ">
                     Innovation in Action
                 </h3>
                 <p className="text-[#909DC1] text-center mb-8">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nulla velit, maximus sit amet <br/>
                     suscipit in, fermentum id est. Suspendisse consequat ornare elit.
                 </p>
-                </div>
     
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-7xl mx-auto">
                 {/* Card 1 */}
@@ -26,7 +24,7 @@ const Innovation = () => {
                         className="rounded-md"
                     />
                     <div className="px-6">
-                    <h4 className="text-center mt-6">
+                    <h4 className="text-center mt-6 px-8">
                         Revolutionized Kenverse’s AI capabilities in just 6 months
                     </h4>
                     </div>
@@ -36,7 +34,7 @@ const Innovation = () => {
                 </div>
                 
                 {/* Card 2 */}
-                <div className="bg-gradient-to-b from-black to-[#173068] p-8 rounded-xl text-white shadow-lg border-[lightBlue] border-2">
+                <div className="bg-gradient-to-b from-black to-[#173068] p-8 rounded-xl text-white shadow-lg border-[lightBlue] border-2 bg-black">
                     <Image
                         src="/images/home/innovation/ken421.svg"
                         alt="Feature 2"
@@ -44,7 +42,7 @@ const Innovation = () => {
                         height={400}
                         className="rounded-md"
                     />
-                    <h4 className="text-center mt-6">
+                    <h4 className="text-center mt-6 px-8">
                         Optimized PiChain’s onboarding to reduce friction & boost efficiency
                     </h4>
                     <p className="text-gray-400 mt-4 text-center">
@@ -52,7 +50,8 @@ const Innovation = () => {
                     </p>
                 </div>
             </div>
-            </div>
+
+           </div>
             
         
     );
