@@ -56,7 +56,7 @@ const Hero = () => {
         </div>
         <div className="pl-8 ml-32 pb-8">
         <Image
-  src="/images/home/hero/c1.png"
+  src="/images/home/hero/hero1.png"
   alt="Tech Future"
   width={500}
   height={400}
