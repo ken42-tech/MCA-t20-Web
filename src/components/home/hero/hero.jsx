@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
+import Navbar from "@/components/layout/navbar/navbar";
 // import Innovation from "@/components/home/Innovation/innovation";
 
 const Hero = () => {
   return (
-    <div className="hero-bg px-6 lg:px-20 py-36 text-white">
+    <div className="px-6 lg:px-20 py-36 text-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
           <h1 className="text-4xl lg:text-5xl">
@@ -53,14 +54,20 @@ const Hero = () => {
             />
           </div>
         </div>
-        {/* <div>
-          <Image
-            src="/images/home/hero/cards.svg"
-            alt="Tech Future"
-            width={500}
-            height={400}
-          />
-        </div> */}
+        <div className="pl-8 ml-32 pb-8">
+        <Image
+  src="/images/home/hero/c1.png"
+  alt="Tech Future"
+  width={500}
+  height={400}
+  className="pl-8 pb-8"
+  style={{
+    background: "transparent",
+
+  }}
+/>
+
+        </div>
       </div>
       {/* <Innovation/> */}
     </div>

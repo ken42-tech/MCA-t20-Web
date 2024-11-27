@@ -25,7 +25,12 @@ body {
 
 .hero-bg {
   background-image: url("/images/home/bg.svg");
+  /* background-position: center; Center the image within the container */
+  background-repeat: no-repeat; /* Prevents repeating the image */
+  background-color: black;
+  /* padding-left: "-32px";  */
 }
+
 .text-color{
   color:#909DC1;
 }

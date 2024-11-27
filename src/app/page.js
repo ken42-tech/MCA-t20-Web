@@ -11,7 +11,7 @@ import Contact from "@/components/home/contact/contact.jsx";
 export default function Home() {
   return (
     <>
-      <Navbar />
+    <Navbar />
       <div className="hero-bg">
       <Hero />
       <div className="pt-8 mt-8" style={{"background":'transparent'}}>

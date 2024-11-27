@@ -29,7 +29,7 @@ const Solutions = () => {
       <h6 className="text-white mb-4">Plug and Play solutions</h6>
       <p
         className="text-color"
-        style={{ fontSize: "16px", textAlign: "left" }}
+        style={{ fontSize: "15px", textAlign: "left" }}
       >
         <b>Instant Integration, Immediate Impact:</b>
         <br />
@@ -62,13 +62,14 @@ const Solutions = () => {
       className="w-full h-auto object-contain"
     />
   </div>
-  <div className="grid grid-cols-12 gap-4 px-8 pt-6 pb-6">
+  <div className="grid grid-cols-12 gap-4 px-4 pt-6 pb-6">
     <div className="col-span-8">
       <h6 className="text-white mb-4">Customizable Solutions</h6>
-      <p className="text-color" style={{ fontSize: "16px", textAlign: "left" }}>
-        Customizable Solutions designed for your business's unique demands & growth trajectory.
-      </p>
-      <p className="text-color" style={{ fontSize: "16px", textAlign: "left" }}>
+      <p className="text-color text-[15px] text-left whitespace-nowrap w-full">
+  Customizable Solutions designed for business's unique demands & growth trajectory.
+</p>
+
+      <p className="text-color pt-2" style={{ fontSize: "15px", textAlign: "left" }}>
         <strong>Build, Expand: </strong>
         <br />
         Engineered for long-term evolution, these solutions ensure your technology infrastructure grows as dynamically as your business.
