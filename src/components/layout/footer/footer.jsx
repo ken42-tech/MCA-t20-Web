@@ -4,12 +4,10 @@ import "./style.css";
 
 const Footer = () => {
   return (
-    < div className="bg">
-      
-      <div className="text-[#BCC3D7] px-32">
+    <div className="bg">
+      <div className="text-[#BCC3D7] px-8 sm:px-16 md:px-32">
         <div className="section-width py-10 lg:py-14">
           <div className="lg:flex justify-between lg:gap-12 max-lg:space-y-12">
-            
             <div className="max-w-md">
               <Image
                 src="/images/home/logo.svg"
@@ -19,12 +17,14 @@ const Footer = () => {
                 className="mb-6"
               />
               <p className="not-italic text-sm text-[#BCC3D7] mb-4">
-                TSquaredC Ltd.<br />
-                161, Basavanagar,<br />
+                TSquaredC Ltd.
+                <br />
+                161, Basavanagar,
+                <br />
                 Bangalore, Karnataka.
               </p>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 <Link href="#">
                   <Image
                     src="/images/footer/linkedin.svg"
@@ -61,7 +61,7 @@ const Footer = () => {
             </div>
 
             {/* Right Section */}
-            <div className="lg:flex lg:gap-12 space-y-8 lg:space-y-0">
+            <div className="flex flex-col lg:flex-row lg:gap-20 space-y-8 lg:space-y-0 mr-20">
               {/* Product Links */}
               <div>
                 <h6 className="text-white text-sm font-semibold mb-4">
@@ -89,10 +89,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      href="#"
-                      className="text-[#BCC3D7] hover:text-white"
-                    >
+                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
                       Contact
                     </Link>
                   </li>
@@ -131,12 +128,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border border-[#5F5F5FB2] px-32"></div>
+
+      <hr className="border-t border-[#5F5F5FB2] w-[calc(100%-16rem)] mx-auto px-32" />
+
       {/* Bottom Bar */}
-      <div className="px-32">
+      <div className="px-8 sm:px-16 md:px-32 pb-10">
         <div className="section-width flex flex-col md:flex-row justify-between items-center py-4 text-sm text-[#BCC3D7]">
           <span>© 2024 TSquaredC | All Rights Reserved.</span>
-          <div className="flex gap-4">
+          <div className="flex gap-4 mt-4 md:mt-0">
             <Link href="#" className="hover:text-white">
               Privacy Policy
             </Link>

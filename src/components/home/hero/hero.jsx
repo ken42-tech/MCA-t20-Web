@@ -5,15 +5,18 @@ import Navbar from "@/components/layout/navbar/navbar";
 
 const Hero = () => {
   return (
-    <div className="px-6 lg:px-20 py-36 text-white">
+    <div className="px-6 py-20 lg:px-20 lg:py-36 text-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="space-y-6">
-          <h1 className="text-4xl lg:text-5xl">
+        {/* Left Section */}
+        <div className="space-y-6 mt-[8vh] lg:mt-[18vh] text-center lg:text-left">
+          <h1 className="mb-10">
             The Future of Tech
             <br />
-            <span className="text-color pt-4">Starts Here</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#82AAFF] pt-4">
+              Starts Here
+            </span>
           </h1>
-          <p className="text-lg pb-8">
+          <p className="text-lg pb-8 w-full sm:w-[80%] mx-auto lg:mx-0">
             From concept to market, T&C supercharges your tech journey with
             top-tier talent, cutting-edge tools, and rapid execution. Let's
             build groundbreaking solutions that define tomorrow.
@@ -22,8 +25,9 @@ const Hero = () => {
             Let's Build Something Extraordinary
           </button>
 
-          <h3 className="text-lg pt-40">Trusted by the Best</h3>
-          <div className="flex space-x-24">
+          {/* Hide Trusted by the Best section on mobile */}
+          <h6 className="pt-40 hidden lg:block">TRUSTED BY THE BEST</h6>
+          <div className="flex flex-wrap justify-start gap-8 hidden lg:flex">
             <Image
               src="/images/home/hero/ts-bridge-logo.svg"
               alt="TS Bridge"
@@ -54,22 +58,29 @@ const Hero = () => {
             />
           </div>
         </div>
-        <div className="pl-8 ml-32 pb-8">
-        <Image
-  src="/images/home/hero/hero1.png"
-  alt="Tech Future"
-  width={500}
-  height={400}
-  className="pl-8 pb-8"
-  style={{
-    background: "transparent",
 
-  }}
-/>
-
+        {/* Right Section (Image) */}
+        <div className="pb-8 flex justify-center m-2 sm:m-0 sm:pl-8 sm:ml-32">
+          <picture>
+            {/* For mobile screens, the srcset will serve the mobile image */}
+            <source
+              media="(max-width: 767px)"
+              srcSet="/images/home/hero/mobileimage.png"
+            />
+            {/* For larger screens, this image will be used */}
+            <Image
+              src="/images/home/hero/hero1.png"
+              alt="Tech Future"
+              width={800}
+              height={1273}
+              className="rounded-md w-full sm:w-auto"
+              style={{
+                background: "transparent",
+              }}
+            />
+          </picture>
         </div>
       </div>
-      {/* <Innovation/> */}
     </div>
   );
 };

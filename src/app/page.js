@@ -16,11 +16,12 @@ export default function Home() {
       <Hero />
       <div className="pt-8 mt-8" style={{"background":'transparent'}}>
       <Innovation/>
+      <Technology/>
       </div>
       </div>
       <AboutT2C/>
      < WhyT2C/>
-     <Technology/>
+    
      <Solutions/>
      <Testimonial/>
      <Contact/>
