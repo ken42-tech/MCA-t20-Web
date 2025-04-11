@@ -11,20 +11,16 @@ import Contact from "@/components/home/contact/contact.jsx";
 export default function Home() {
   return (
     <>
-    <Navbar />
-      <div className="hero-bg">
+    {/* <Navbar /> */}
+      <div >
       <Hero />
-      <div className="pt-8 mt-8" style={{"background":'transparent'}}>
       <Innovation/>
       <Technology/>
-      </div>
       </div>
       <AboutT2C/>
      < WhyT2C/>
     
      <Solutions/>
-     <Testimonial/>
-     <Contact/>
       <Footer />
     </>
   );

@@ -5,43 +5,45 @@ import { navLinks } from "./data";
 
 const Navbar = () => {
   return (
-    <div className="bg-transparent fixed top-0 w-full z-50">
-      <nav className="w-full px-6 lg:px-20 py-4 flex items-center justify-between">
+    <div className="bg-transparent  top-0 w-full z-50 px-28 ">
+      <nav className="w-full py-4 px-16 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <Image
             src={"/images/home/logo.svg"}
             alt="logo"
-            className="h-auto w-auto"
-            width={120}
-            height={60}
+            className="h-w-28 w-28"
+            width={50}
+            height={50}
           />
         </div>
 
         {/* Navigation Links */}
-        <div className="hidden lg:flex flex-grow justify-center pl-8">
-          <ul className="flex items-center gap-6 bg-black px-8 py-4 rounded-full">
-            {navLinks.map((item, i) => (
-              <li key={i}>
-                <Link
-                  href={item.path}
-                  className="text-white text-sm lg:text-base"
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className="flex items-center justify-center gap-10">
+          <div className="hidden lg:flex flex-grow justify-center ">
+            <ul className="flex items-center gap-10 bg-[#ffffff1f] px-10 py-4 rounded-full">
+              {navLinks.map((item, i) => (
+                <li key={i}>
+                  <Link
+                    href={item.path}
+                    className="text-white text-sm lg:text-lg"
+                  >
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Get Started Button */}
-        <div className="flex-shrink-0">
-          <Link
-            href="/get-started"
-            className="btn btn-blue text-white px-6 py-2 bg-blue-700 rounded-full"
-          >
-            Get Started
-          </Link>
+          {/* Get Started Button */}
+          <div className="flex-shrink-0">
+            <Link
+              href="/get-started"
+              className="btn  text-white px-6 py-4 bg-[#E07E27] rounded-full"
+            >
+              About Us
+            </Link>
+          </div>
         </div>
       </nav>
     </div>

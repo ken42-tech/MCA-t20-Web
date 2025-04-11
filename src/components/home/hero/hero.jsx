@@ -1,84 +1,87 @@
 "use client";
 import Image from "next/image";
 import Navbar from "@/components/layout/navbar/navbar";
-// import Innovation from "@/components/home/Innovation/innovation";
 
 const Hero = () => {
   return (
-    <div className="px-6 py-20 lg:px-20 lg:py-36 text-white">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Left Section */}
-        <div className="space-y-6 mt-[8vh] lg:mt-[18vh] text-center lg:text-left">
-          <h1 className="mb-10">
-            The Future of Tech
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-[#82AAFF] pt-4">
-              Starts Here
-            </span>
-          </h1>
-          <p className="text-lg pb-8 w-full sm:w-[80%] mx-auto lg:mx-0">
-            From concept to market, T&C supercharges your tech journey with
-            top-tier talent, cutting-edge tools, and rapid execution. Let's
-            build groundbreaking solutions that define tomorrow.
-          </p>
-          <button className="bg-black text-white px-6 py-3 rounded-2xl">
-            Let's Build Something Extraordinary
-          </button>
-
-          {/* Hide Trusted by the Best section on mobile */}
-          <h6 className="pt-40 hidden lg:block">TRUSTED BY THE BEST</h6>
-          <div className="flex flex-wrap justify-start gap-8 hidden lg:flex">
-            <Image
-              src="/images/home/hero/ts-bridge-logo.svg"
-              alt="TS Bridge"
-              width={120}
-              height={70}
-              className="h-auto"
-            />
-            <Image
-              src="/images/home/hero/pichain.svg"
-              alt="pichain"
-              width={120}
-              height={70}
-              className="h-auto"
-            />
-            <Image
-              src="/images/home/hero/ken42.svg"
-              alt="ken42"
-              width={120}
-              height={70}
-              className="h-auto"
-            />
-            <Image
-              src="/images/home/hero/optimile.svg"
-              alt="optimile"
-              width={120}
-              height={70}
-              className="h-auto"
-            />
+    <div className="w-full h-[120vh] relative">
+      <Image
+        src="/images/home/bg.svg"
+        alt="background"
+        fill
+        className="object-cover z-0"
+      />
+      <div className="relative z-10 px-6 py-8 h-full w-full flex-col overflow-hidden lg:px-20 justify-between text-white flex">
+        <Navbar />
+        <div className="w-full h-[50%] flex items-center justify-between ">
+          <div className="w-[60%] h-full flex flex-col gap-6 px-10">
+            <p className="font-bold text-xl">01 Jul, 2025</p>
+            <p className="text-5xl font-extrabold leading-snug">
+              Mumbai won two tournaments in three years because of T20 Mumbai
+            </p>
+            <button className="bg-[#E07E27] w-52 h-12 flex items-center justify-evenly">
+              View highlights{" "}
+              <span>
+                <Image
+                  src="/images/home/hero/buttonIcon.svg"
+                  alt="button icon"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6"
+                />
+              </span>
+            </button>
           </div>
-        </div>
 
-        {/* Right Section (Image) */}
-        <div className="pb-8 flex justify-center m-2 sm:m-0 sm:pl-8 sm:ml-32">
-          <picture>
-            {/* For mobile screens, the srcset will serve the mobile image */}
-            <source
-              media="(max-width: 767px)"
-              srcSet="/images/home/hero/mobileimage.png"
-            />
-            {/* For larger screens, this image will be used */}
-            <Image
-              src="/images/home/hero/hero1.png"
-              alt="Tech Future"
-              width={800}
-              height={1273}
-              className="rounded-md w-full sm:w-auto"
-              style={{
-                background: "transparent",
-              }}
-            />
-          </picture>
+          <div className="w-[50%] h-full flex items-start justify-end">
+            <div className="rounded-l-xl border-l-[2.5px] border-t-[2px] border-b-[2px] border-[#E07E27] h-60 w-72 -mr-20 flex flex-col">
+              <div
+                className="h-[30%] w-full flex overflow-hidden items-center rounded-tl-lg"
+                style={{
+                  background:
+                    "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
+                }}
+              >
+                <Image
+                  src="/images/home/hero/image 51.svg"
+                  alt="team icon"
+                  width={64}
+                  height={64}
+                  className="w-28 h-28"
+                />
+                <div className="flex flex-col justify-between">
+                  <p className="text-[#E07E27] text-sm">North MUMBAI PANTHERS</p>
+                  <p
+                    className="text-[10px] font-extralight"
+                    style={{ fontStyle: "italic" }}
+                  >
+                    VS
+                  </p>
+                  <p className="text-sm">AAkash Tigers</p>
+                </div>
+              </div>
+
+              <div className="h-[50%] w-full flex items-center justify-center gap-4 ">
+                <p className="font-bold text-2xl text-[#E07E27]">03</p>
+                <p className="font-bold text-xl">:</p>
+                <p className="font-bold text-2xl text-[#E07E27]">10</p>
+                <p className="font-bold text-xl">:</p>
+                <p className="font-bold text-2xl text-[#E07E27]">24</p>
+                <p className="font-bold text-xl">:</p>
+                <p className="font-bold text-2xl text-[#E07E27]">36</p>
+              </div>
+
+              <div
+                className="h-[20%] w-full flex items-center justify-center rounded-bl-lg"
+                style={{
+                  background:
+                    "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
+                }}
+              >
+                <p>Upcoming Match</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

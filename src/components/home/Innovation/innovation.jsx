@@ -4,57 +4,96 @@ import "./style.css";
 
 const Innovation = () => {
   return (
-    <div className="mt-0">
-      <h2 className="text-center text-transparent bg-clip-text bg-gradient-to-r from-white to-[#82AAFF]">
-        Innovation in Action
-      </h2>
-      <p className="text-[#909DC1] text-center mb-8">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nulla
-        velit, maximus sit amet <br />
-        suscipit in, fermentum id est. Suspendisse consequat ornare elit.
-      </p>
+    <div className="w-full  bg-white">
+      <div className=" w-full px-32 py-16 text-black flex flex-col gap-4">
+        <p className="text-4xl font-bold">FIXTURES</p>
+        <p className="text-[#616161] text-base font-bold">View all  Fixtures</p>
+        
+      <div className="w-full flex justify-between items-center mt-4">
+          <Card isLive={true}/>
+          <Card/>
+          <Card/>
+      </div>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 max-w-7xl mx-auto">
-        {/* Card 1 */}
-        <div className="bg-gradient-to-b from-black to-[#173068] p-8 rounded-xl text-white shadow-lg border-l-[1px] border-r-[1px] border-b-[1px] border-[#fff]">
-          <Image
-            src="/images/home/innovation/ken42.svg"
-            alt="Feature 1"
-            width={700}
-            height={400}
-            className="rounded-md w-full h-auto"
-          />
-          <div className="px-6">
-            <h4 className="text-center mt-6 px-8">
-              Revolutionized Kenverse’s AI capabilities in just 6 months
-            </h4>
+    </div>
+  );
+};
+
+const Card = ({isLive}) => {
+  return (
+    <div className="w-[32%] h-64 border-2 rounded-lg overflow-hidden">
+      <div className={`w-full h-[20%] bg-[#E07E27]  flex items-center justify-between px-6`}>
+        <p className="font-bold text-black text-sm">24 MAR, 2025</p>
+        <p className="font-bold text-black text-sm">SEASON 1 2025</p>
+      </div>
+      <div
+        className={`w-full h-full  text-white ${isLive ? "bg-black" : "bg-[#F5F5F5]"}`}
+      >
+        <div className="w-full h-[80%] flex items-center justify-between px-4">
+          <div className="w-[35%] h-full flex flex-col items-center justify-between gap-2 py-2">
+            <div className="flex h-[80%] flex-col items-center justify-center gap-2">
+              {" "}
+              <Image
+                src={"/images/home/innovation/image 24.svg"}
+                width={20}
+                height={20}
+                className="w-14 h-14"
+              />
+              <p
+                className={` text-[12px] font-medium leading-none text-center ${
+                  !isLive && "text-black"
+                }`}
+              >
+                TRIUMPH KNIGHTS MUMBAI NORTH EAST
+              </p>
+              {isLive && (
+                <>
+                  <p className="text-base">219/6 (20)</p>
+                  <p className=" text-[10px] leading-none text-center">
+                    WON BY 18 Runs
+                  </p>{" "}
+                </>
+              )}
+            </div>
+            <div>
+              <p className="text-[#E07E27] text-[10px] font-bold">MUMBAI, INDIA</p>
+            </div>
           </div>
-          <p className="text-gray-400 mt-4 text-center">
-            From concept to deployment, T²C engineered an AI transformation that
-            positioned Kenverse as a market leader.
-          </p>
-        </div>
-
-        {/* Card 2 */}
-        <div className="bg-gradient-to-b from-black to-[#173068] p-8 rounded-xl text-white shadow-lg">
-          <Image
-            src="/images/home/innovation/ken421.svg"
-            alt="Feature 2"
-            width={700}
-            height={400}
-            className="rounded-md w-full h-auto"
-          />
-          <h4 className="text-center mt-6 px-8">
-            Optimized PiChain’s onboarding to reduce friction & boost efficiency
-          </h4>
-          <p className="text-gray-400 mt-4 text-center">
-            We automated their workflows and integrated powerful AI tools,
-            resulting in seamless user experiences.
-          </p>
+          <div className="w-[20%] h-full flex flex-col items-center justify-center">
+            <p className=" text-[#E07E27] ">vs</p>
+            <p className="text-[#868686] text-[10px]">24 out of 74</p>
+          </div>
+          <div className="w-[35%] h-full flex flex-col items-center justify-between gap-2 py-2">
+            <div className="flex h-[80%] flex-col items-center justify-center gap-2">
+              {" "}
+              <Image
+                src={"/images/home/innovation/image 19.svg"}
+                width={20}
+                height={20}
+                className="w-14 h-14"
+              />
+              <p
+                className={` text-[12px] font-medium leading-none text-center ${
+                  !isLive && "text-black"
+                }`}
+              >
+                Eagle THANE STRIKERS
+              </p>
+              {isLive && (
+                <>
+                  <p className="text-base">201/5 (20)</p>
+                </>
+              )}
+            </div>
+            <div>
+              <p className="text-[#E07E27] text-[10px] font-bold">MATCH INFO</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Innovation;

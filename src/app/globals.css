@@ -11,6 +11,7 @@ body {
   @apply font-figtree;
   color: #fff;
   background: #060F19;
+  background-size: fill;
   overflow-x: hidden;
 }
 
@@ -24,7 +25,7 @@ body {
 }
 
 .hero-bg {
-  background-image: url("/images/home/bg.svg");
+  background-image: url("/images/home/bg2.png");
   /* background-position: center; Center the image within the container */
   background-repeat: no-repeat; /* Prevents repeating the image */
   background-color: black;
