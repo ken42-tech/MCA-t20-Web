@@ -1,0 +1,154 @@
+"use client";
+import Image from "next/image";
+import Navbar from "@/components/layout/navbar/navbar";
+
+const Hero = () => {
+  return (
+    <div className="w-full relative">
+      <Image
+        src="/images/home/bg.svg"
+        alt="background"
+        fill
+        className="object-cover z-0"
+      />
+      <div className="relative z-10  pt-8 h-full w-full flex-col overflow-hidden justify-between text-white flex gap-24">
+        <Navbar />
+        <div className="w-full h-[60%] flex flex-col items-start justify-between bg-transparent gap-20">
+          <div className="h-full flex flex-col gap-6 px-32">
+            <p className="text-5xl font-extrabold leading-snug">
+              T20 MUMBAI TEAMS
+            </p>
+
+            <p className="text-xl font-bold ">
+              Aakash Tigers Mumbai Western Suburbs
+            </p>
+          </div>
+          <div className="w-full h-[60%] bg-black p-10 my-8 flex flex-col gap-8 relative px-32">
+            <p className="text-4xl font-bold leading-snug">TEAMS</p>
+            <div className="w-full flex flex-col gap-7 relative">
+              <div className="w-full overflow-x-auto whitespace-nowrap flex items-center space-x-4 gap-12 py-8">
+                <CarouselCard />
+                <CarouselCard />
+                <CarouselCard />
+                <CarouselCard />
+                <CarouselCard />
+                <CarouselCard />
+              </div>
+              <div className="w-full flex justify-between py-4 absolute bottom-0">
+                <Image
+                  src={"/images/teams/hero/line-md_arrow-up.svg"}
+                  width={10}
+                  height={10}
+                  className="w-4 h-4 "
+                />
+                <Image
+                  src={"/images/teams/hero/line-md_arrow-up (1).svg"}
+                  width={10}
+                  height={10}
+                  className="w-4 h-4"
+                />
+              </div>
+            </div>
+            <div className="w-full flex flex-col items-center justify-center mt-6 gap-8">
+                <p className="text-2xl fonr-bold uppercase">upcoming matches</p>
+                <div className="w-full flex gap-6">
+                <Card isLive={true}/>
+                <Card isLive={true}/>
+                <Card isLive={true}/>
+                <Card isLive={true}/>
+                <Card isLive={true}/>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const CarouselCard = () => {
+  return (
+    <div>
+      <div className="flex gap-5 group">
+        <div className="w-24 h-24 rounded-full group-hover:bg-white transition-all duration-1000 bg-[#291C18] flex items-center justify-center p-4">
+          <Image
+            src={"/images/teams/hero/image 18.svg"}
+            width={100}
+            height={100}
+            className="w-full h-full object-cover rounded-full"
+            alt="Logo"
+          />
+        </div>
+        <div className="w-auto h-28 flex items-center justify-center">
+          <p className="text-[10px] uppercase leading-snug">
+            Aakash Tigers Mumbai <br /> Western Suburbs
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Card = ({isLive}) => {
+  return (
+    <div className="w-[20%] h-28 border-[0.5px] rounded-lg overflow-hidden">
+      <div className={`w-full h-[20%] bg-[#E07E27]  flex items-center justify-between px-6`}>
+        <p className="font-bold text-white text-[8px] uppercase">SEASON 1 2025</p>
+        <p className="font-bold text-white text-[8px] uppercase">3 mONTHS TO GO</p>
+      </div>
+      <div
+        className={`w-full h-full  text-white ${isLive ? "bg-black" : "bg-[#F5F5F5]"}`}
+      >
+        <div className="w-full h-[80%] flex items-center justify-between px-2">
+          <div className="w-[35%] h-full flex flex-col items-center justify-between gap-2 py-2">
+            <div className="flex h-[80%] flex-col items-center justify-center gap-2">
+              {" "}
+              <Image
+                src={"/images/home/innovation/image 24.svg"}
+                width={1}
+                height={1}
+                className="w-7 h-7"
+              />
+              <p
+                className={` text-[7.411px] font-medium leading-none text-center ${
+                  !isLive && "text-black"
+                }`}
+              >
+                TRIUMPH KNIGHTS MUMBAI NORTH EAST
+              </p>
+            </div>
+            <div>
+              <p className="text-[#E07E27] text-[6px] font-bold">MUMBAI, INDIA</p>
+            </div>
+          </div>
+          <div className="w-[20%] h-full flex flex-col items-center justify-center">
+            <p className=" text-[#E07E27] text-[6px]">vs</p>
+          </div>
+          <div className="w-[35%] h-full flex flex-col items-center justify-between gap-2 py-2">
+            <div className="flex h-[80%] flex-col items-center justify-center gap-2">
+              {" "}
+              <Image
+                src={"/images/home/innovation/image 19.svg"}
+                width={1}
+                height={1}
+                className="w-7 h-7"
+              />
+              <p
+                className={` text-[7.411px] font-medium leading-none text-center ${
+                  !isLive && "text-black"
+                }`}
+              >
+                Eagle THANE STRIKERS
+              </p>
+            </div>
+            <div>
+              <p className="text-[#E07E27] text-[6px] font-bold">MATCH INFO</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Hero;

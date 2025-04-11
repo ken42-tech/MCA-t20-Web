@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./data";
 
+
 const Navbar = () => {
   return (
     <div className="bg-transparent  top-0 w-full z-50 px-28 ">

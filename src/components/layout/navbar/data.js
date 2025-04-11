@@ -7,7 +7,7 @@ export const navLinks = [
   },
   {
     title: "Teams",
-    path: `${routes.about}`,
+    path: `${routes.teams}`,
   },
 
   {

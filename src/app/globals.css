@@ -55,6 +55,22 @@ body {
   isolation: isolate; 
   border-radius: 10px;
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+::-webkit-scrollbar {
+  width: 1px; 
+  height: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+::-webkit-scrollbar-track {
+  background: #4e4e4e; 
+}
+
 
 @layer base {
   h1 {

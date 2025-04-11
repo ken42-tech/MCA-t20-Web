@@ -71,7 +71,7 @@ const PlayerCard = () => {
   return (
     <div className="w-1/2 h-full border-2 bg-[linear-gradient(180deg,_#14344F_0%,_#1C5C90_38.76%,_#14344F_77.52%)] flex flex-col items-center justify-between text-white">
       <p className="py-4 text-xl font-bold">TOP BATSMAN</p>
-      <div className="w-full h- p-10">
+      <div className="w-full h- px-10 pb-10">
         <div className=" border border-[#E07E27]">
           <Image
             src={"/images/home/about/Player card.svg"}
@@ -79,7 +79,7 @@ const PlayerCard = () => {
             height={100}
             className="w-full h-full object-cover"
           />
-          <div className="bg-black flex items-center justify-between px-6">
+          <div className="bg-black flex items-center justify-between px-6 py-4">
             <Image
               src={"/images/home/innovation/image 24.svg"}
               width={10}

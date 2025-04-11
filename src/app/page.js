@@ -20,8 +20,6 @@ export default function Home() {
       <AboutT2C/>
      < WhyT2C/>
     
-     <Solutions/>
-      <Footer />
     </>
   );
 }

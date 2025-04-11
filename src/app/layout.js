@@ -1,4 +1,6 @@
+import Footer from "@/components/layout/footer/footer";
 import "./globals.css";
+import Solutions from "@/components/home/Solutions/solution";
 
 // import Metrics from "./metrics";
 
@@ -18,6 +20,9 @@ export default function RootLayout({ children }) {
           {/* <Navbar /> */}
           {children}
           {/* <Footer /> */}
+          
+     <Solutions/>
+      <Footer />
         </>
       </body>
     </html>
