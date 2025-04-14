@@ -4,6 +4,7 @@ const routes = {
     about: "#",
     features: "#",
     pricing: "#",
+    teams:"/teams",
   
     // navbar buttons
     signIn: "#",

@@ -2,29 +2,25 @@ import routes from "@/utilis/route.js";
 
 export const navLinks = [
   {
-    title: "Home",
+    title: "Latest Updates",
     path: `${routes.home}`,
   },
   {
-    title: "About",
-    path: `${routes.about}`,
+    title: "Teams",
+    path: `${routes.teams}`,
   },
 
   {
-    title: "Services",
+    title: "Trackers",
     path: `${routes.features}`,
   },
   {
-    title: "Blog",
+    title: "Statistics",
     path: `${routes.blog}`,
   },
   {
-    title: "News",
+    title: "Media",
     path: `${routes.News}`,
-  },
-  {
-    title: "Contact",
-    path: `${routes.signIn}`,
   },
 ];
 export const NavButtons = [

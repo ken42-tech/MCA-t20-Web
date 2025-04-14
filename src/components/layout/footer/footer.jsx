@@ -4,93 +4,39 @@ import "./style.css";
 
 const Footer = () => {
   return (
-    <div className="bg">
-      <div className="text-[#BCC3D7] px-8 sm:px-16 md:px-32">
-        <div className="section-width py-10 lg:py-14">
+    <div>
+      <div className="bg-black px-8 sm:px-16 md:px-32">
+        <div className="section-width  lg:py-14">
           <div className="lg:flex justify-between lg:gap-12 max-lg:space-y-12">
             <div className="max-w-md">
               <Image
                 src="/images/home/logo.svg"
-                alt="TSquaredC Logo"
-                width={120}
-                height={40}
-                className="mb-6"
+                alt="t20mumbai Logo"
+                width={200}
+                height={280}
+                className="mb-6 pl-6"
               />
-              <p className="not-italic text-sm text-[#BCC3D7] mb-4">
-                TSquaredC Ltd.
-                <br />
-                161, Basavanagar,
-                <br />
-                Bangalore, Karnataka.
-              </p>
-
-              <div className="flex gap-4 flex-wrap">
-                <Link href="#">
-                  <Image
-                    src="/images/footer/linkedin.svg"
-                    width={24}
-                    height={24}
-                    alt="LinkedIn"
-                  />
-                </Link>
-                <Link href="#">
-                  <Image
-                    src="/images/footer/twitter.svg"
-                    width={24}
-                    height={24}
-                    alt="Twitter"
-                  />
-                </Link>
-                <Link href="#">
-                  <Image
-                    src="/images/footer/discord.svg"
-                    width={24}
-                    height={24}
-                    alt="Discord"
-                  />
-                </Link>
-                <Link href="#">
-                  <Image
-                    src="/images/footer/zoom.svg"
-                    width={24}
-                    height={24}
-                    alt="Zoom"
-                  />
-                </Link>
-              </div>
             </div>
-
-            {/* Right Section */}
-            <div className="flex flex-col lg:flex-row lg:gap-20 space-y-8 lg:space-y-0 mr-20">
-              {/* Product Links */}
-              <div>
-                <h6 className="text-white text-sm font-semibold mb-4">
-                  Product
+            <div className="flex flex-col lg:flex-row lg:gap-8 space-y-8 lg:space-y-0 mr-8 pl-24">
+              <div className="flex flex-col gap-0.5">
+                <h6 className="text-[#E07E27] text-sm font-normal font-Inter whitespace-nowrap mt-1">
+                  LATEST UPDATES
                 </h6>
-                <ul className="space-y-3">
+                <ul className="leading-none">
                   <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      Home
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Standings
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      Services
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      FAQ
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      Contact
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Fixtures
                     </Link>
                   </li>
                 </ul>
@@ -98,50 +44,195 @@ const Footer = () => {
 
               {/* Company Links */}
               <div>
-                <h6 className="text-white text-sm font-semibold mb-4">
-                  Company
+                <h6 className="text-[#E07E27] text-sm font-normal font-Inter whitespace-nowrap mt-1">
+                  TEAMS
                 </h6>
-                <ul className="space-y-3">
+                <ul className="leading-none">
                   <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      Vision
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] whitespace-nowrap hover:text-white"
+                    >
+                      Aakash Tigers MWS
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      Mission
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Arcs Andheri
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      Values
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Eagle Thane Strikers
                     </Link>
                   </li>
                   <li>
-                    <Link href="#" className="text-[#BCC3D7] hover:text-white">
-                      Team
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] whitespace-nowrap hover:text-white"
+                    >
+                      Namo Bandra Blasters
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Sobo Supersonics
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h6 className="text-[#E07E27] text-sm font-normal font-Inter whitespace-nowrap mt-1">
+                  POINTS TABLE
+                </h6>
+                <ul className="leading-none">
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Points Table
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Play Offs
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h6 className="text-[#E07E27] text-sm font-normal font-Inter whitespace-nowrap mt-1">
+                  STATISTICS
+                </h6>
+                <ul className="leading-none">
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Game Stats
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Player Stats
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Overall Statistics
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h6 className="text-[#E07E27] text-sm font-normal font-Inter whitespace-nowrap mt-1 ">
+                  ABOUT US
+                </h6>
+                <ul className="leading-none">
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      About
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light  text-[8px] hover:text-white"
+                    >
+                      We Stand For
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px]  whitespace-nowrap hover:text-white"
+                    >
+                      Code of Conduct
                     </Link>
                   </li>
                 </ul>
               </div>
             </div>
+            <div className="flex flex-wrap gap-2 justify-center h-8 pt-3 items-center">
+              <Link href="#">
+                <Image
+                  src="/images/footer/Link.svg"
+                  width={110}
+                  height={80}
+                  alt="Zo"
+                />
+              </Link>
+
+              <Link href="#">
+                <Image
+                  src="/images/footer/Image.svg"
+                  width={110}
+                  height={80}
+                  alt="Zom"
+                />
+              </Link>
+            </div>
           </div>
-        </div>
-      </div>
+          <div className="flex justify-between items-center text-[8px] px-4">
+            <div className="w-1/4 text-left pt-0.5">
+              <p className="not-italic text-sm text-[#BCC3D7] mb-20 pr-9">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                ac neque sit amet sem varius feugiat eget at quam.
+              </p>
+            </div>
 
-      <hr className="border-t border-[#5F5F5FB2] w-[calc(100%-16rem)] mx-auto px-32" />
+            <div className="text-[8px] font-Inter font-thin text-xs text-center">
+              Terms and Conditions | Privacy Policy | Contact Us
+            </div>
 
-      {/* Bottom Bar */}
-      <div className="px-8 sm:px-16 md:px-32 pb-10">
-        <div className="section-width flex flex-col md:flex-row justify-between items-center py-4 text-sm text-[#BCC3D7]">
-          <span>© 2024 TSquaredC | All Rights Reserved.</span>
-          <div className="flex gap-4 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-white">
-              Terms of Service
-            </Link>
+            <div className="flex items-center gap-x-1.5 text-[8px] font-Inter font-thin text-xs">
+              <span>Connect with us:</span>
+              <Image
+                src="/images/footer/mdi_instagram.svg"
+                alt="Instagram Logo"
+                width={17}
+                height={17}
+              />
+              <Image
+                src="/images/footer/line-md_twitter.svg"
+                alt="Twitter Logo"
+                width={17}
+                height={17}
+              />
+              <Image
+                src="/images/footer/line-md_youtube.svg"
+                alt="YouTube Logo"
+                width={17}
+                height={17}
+              />
+            </div>
+
+            <div className="font-Inter font-extralight text-[8px] text-xs text-right pr-18">
+              © Copyright 2025 T20 Mumbai 2025
+            </div>
           </div>
         </div>
       </div>

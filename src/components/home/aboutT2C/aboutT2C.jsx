@@ -3,44 +3,119 @@ import Image from "next/image";
 // import "./style.css";
 const AboutT2C = () => {
   return (
-    <div className="bg-black px-6 sm:px-10 lg:px-32">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-auto pt-16 sm:pt-24 lg:pt-48">
-        {/* Card 1 */}
-        <div className="text-white">
-          <div>
-            <h2 className="text-left mt-6 text-transparent bg-clip-text bg-text-gradient">
-              About TSquaredC
-            </h2>
+      <div className="pb-10 pt-10  h-auto w-full bg-white">
+      <div className=" w-full h-full px-32  text-black flex flex-col gap-4">
+        <p className="text-4xl font-bold ">THE GAME IN NUMBERS</p>
+        <p className="text-[#616161] text-base font-bold">View All Updates</p>
+        <div className="w-full flex gap-5 mt-4">
+          <div className="w-[38%]">
+            <GroupsCard/>
+            <GroupsCard/>
           </div>
-          <p className="text-[#909DC1] text-xl mt-8 text-left">
-            Once you've selected or configured an agent team, begin chatting
-            with your built-in project manager to describe your goal, provide
-            relevant information, give feedback, and approve results.
-            <br />
-            <br />
-            Gone are the days of doing the legwork yourself - just engage your
-            on-demand AI workforce and relax as you watch your ideas come to
-            life.
-          </p>
+          <div className="w-[60%] flex gap-4 ">
+          <PlayerCard/>
+          <PlayerCard/>
+          </div>
         </div>
+    </div>
+    </div>
+  );
+};
 
-        {/* Card 2 */}
-        <div className="relative">
-          {/* Background blur effect */}
-          <div className="w-[800px] sm:w-[100px] h-[400px] bg-[#041570] absolute left-0 right-0 top-0 bottom-10 m-auto blur-[200px] md:block hidden z-0"></div>
-          <div className="p-8 rounded-xl text-white shadow-lg z-10">
+const PlayerInfo = [{
+  sl:"02",
+  name:"Aditya Tare"
+},
+{
+  sl:"03",
+  name:"Jay Bista"
+},
+{
+  sl:"04",
+  name:"Akhil Herwadkar"
+},
+{
+  sl:"05",
+  name:"Parag Khanapurkar"
+},
+]
+
+const GroupsCard = () => {
+  return (
+    <div className="w-full  ">
+      <div className="w-full h-[20%] bg-[#E07E27] flex items-center px-7 py-6">
+        <p className="text-blxck text-xl font-bold">GROUP - A STANDINGS</p>
+      </div>
+      <div className="w-full h-[80%] bg-black text-white">
+        {PlayerInfo.map((item, index) => (
+          <div key={index}>
+            {" "}
+            <div className="w-full h-[25%] flex items-center px-3 gap-6 py-[14px]" >
+              <p>{item.sl}</p>
+              <Image
+                src={"/images/home/about/image 92.svg"}
+                width={100}
+                height={100}
+                className="w-10 h-10"
+              />
+              <p>{item.name}</p>
+            </div>
+            <div className="w-full h-px bg-gray-300 scale-y-[0.3] origin-top" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+const PlayerCard = () => {
+  return (
+    <div className="w-1/2 h-full border-2 bg-[linear-gradient(180deg,_#14344F_0%,_#1C5C90_38.76%,_#14344F_77.52%)] flex flex-col items-center justify-between text-white">
+      <p className="py-4 text-xl font-bold">TOP BATSMAN</p>
+      <div className="w-full h- px-10 pb-10">
+        <div className=" border border-[#E07E27]">
+          <Image
+            src={"/images/home/about/Player card.svg"}
+            width={100}
+            height={100}
+            className="w-full h-full object-cover"
+          />
+          <div className="bg-black flex items-center justify-between px-6 py-4">
             <Image
-              src="/images/home/about/space .svg"
-              alt="Feature 2"
-              width={800}
-              height={430}
-              className="rounded-md w-full sm:w-auto"
+              src={"/images/home/innovation/image 24.svg"}
+              width={10}
+              height={10}
+              className="w-8 h-8"
+            />
+            Prithvi Shaw
+            <Image
+              src={"/images/home/about/BatIcon.svg"}
+              width={10}
+              height={10}
+              className="w-8 h-8"
             />
           </div>
         </div>
       </div>
+      <div className="w-full h-full bg-black">
+        {PlayerInfo.map((item, index) => (
+          <div key={index}>
+            {" "}
+            <div className="w-full h-[25%] flex items-center px-3 gap-6 py-1">
+              <p>{item.sl}</p>
+              <Image
+                src={"/images/home/about/image 92.svg"}
+                width={100}
+                height={100}
+                className="w-10 h-10"
+              />
+              <p>{item.name}</p>
+            </div>
+            <div className="w-full h-px bg-gray-300 scale-y-[0.3] origin-top" />
+          </div>
+        ))}
+      </div>
     </div>
   );
-};
+}
 
 export default AboutT2C;
