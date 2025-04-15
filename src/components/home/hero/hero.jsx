@@ -11,8 +11,7 @@ const Hero = () => {
         fill
         className="object-cover z-0"
       />
-      <div className="relative z-10 px-6 py-8 h-full w-full flex-col overflow-hidden lg:px-20 justify-between text-white flex">
-        <Navbar />
+      <div className="relative z-10 px-6 py-8 h-full w-full flex-col overflow-hidden lg:px-20 justify-end text-white flex">
         <div className="w-full h-[50%] flex items-center justify-between ">
           <div className="w-[60%] h-full flex flex-col gap-6 px-10">
             <p className="font-bold text-xl">01 Jul, 2025</p>

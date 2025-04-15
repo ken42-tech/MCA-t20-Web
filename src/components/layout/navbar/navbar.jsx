@@ -6,7 +6,7 @@ import { navLinks } from "./data";
 
 const Navbar = () => {
   return (
-    <div className="bg-transparent  top-0 w-full z-50 px-28 ">
+    <div className="bg-transparent  w-full z-50 px-16 absolute top-10">
       <nav className="w-full py-4 px-16 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0">
@@ -34,16 +34,6 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-          </div>
-
-          {/* Get Started Button */}
-          <div className="flex-shrink-0">
-            <Link
-              href="/get-started"
-              className="btn  text-white px-6 py-4 bg-[#E07E27] rounded-full"
-            >
-              About Us
-            </Link>
           </div>
         </div>
       </nav>
