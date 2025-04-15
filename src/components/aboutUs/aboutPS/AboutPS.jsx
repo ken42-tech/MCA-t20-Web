@@ -26,6 +26,7 @@ const AboutPS = () => {
           width={1000}
           height={100}
           className="w-full  object-cover"
+          alt='img'
         />
       </div>
     </div>

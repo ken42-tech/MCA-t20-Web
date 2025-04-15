@@ -139,19 +139,14 @@ const SeasonFixturesCard = () => {
 
   {matchData.map((match, index) => (
     <div key={index} className="rounded-md border overflow-hidden text-black">
-      {/* Header */}
       <div className="relative bg-[#E07E27] text-white text-sm font-semibold px-4 py-2 flex justify-between  items-center">
         <span>{match.season}</span>
-        <div className="absolute top-0 right-0 h-full w-[120px] md:w-[150px] bg-black text-white flex items-center justify-center clip-slant text-xs font-bold">
+        <div className="absolute top-0 right-0 h-full w-[120px] md:w-[150px] bg-black text-white flex items-center justify-center clip-slant text-xs font-bold" style={{clipPath: "polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)"}}>
           {match.status}
         </div>
       </div>
-
-      {/* Main content */}
       <div className="flex flex-col lg:flex-row w-full">
-        {/* Teams Info */}
         <div className="flex-1 flex flex-col md:flex-row items-center justify-between  py-3">
-          {/* Team 1 */}
           <div className="flex items-center gap-3 w-full md:w-[35%]">
             <Image
               src={match.team1.logo}
@@ -164,8 +159,6 @@ const SeasonFixturesCard = () => {
               {match.team1.name}
             </div>
           </div>
-
-          {/* Team 1 Score */}
           <div className="text-center">
             <div className="font-bold text-sm md:text-3xl text-[#894B14AB]">{match.team1.score}</div>
             <div className="text-[10px] md:text-xs text-[#894B14AB]">
@@ -173,10 +166,7 @@ const SeasonFixturesCard = () => {
             </div>
           </div>
 
-          {/* VS Text */}
           <div className="text-sm md:text-lg font-semibold">vs</div>
-
-          {/* Team 2 Score */}
           <div className="text-center">
             <div className="font-bold text-sm md:text-3xl text-[#E07E27]">
               {match.team2.score}
@@ -185,8 +175,6 @@ const SeasonFixturesCard = () => {
               ({match.team2.overs})
             </div>
           </div>
-
-          {/* Team 2 */}
           <div className="flex items-center gap-3 w-full md:w-[30%] justify-end">
             <Image
               src={match.team2.logo}
@@ -200,8 +188,6 @@ const SeasonFixturesCard = () => {
             </div>
           </div>
         </div>
-
-        {/* Match Info */}
         <div className="w-full lg:w-[28%] bg-[#F5F5F5] px-12 py-8 flex flex-col justify-center">
           <div className="text-[10px] md:text-base font-bold text-[#E07E27] mb-1">
             MATCH INFO

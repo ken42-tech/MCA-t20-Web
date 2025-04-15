@@ -57,6 +57,7 @@ const GroupsCard = () => {
                 width={100}
                 height={100}
                 className="w-10 h-10"
+                alt="img"
               />
               <p>{item.name}</p>
             </div>
@@ -78,6 +79,7 @@ const PlayerCard = () => {
             width={100}
             height={100}
             className="w-full h-full object-cover"
+            alt="img"
           />
           <div className="bg-black flex items-center justify-between px-6 py-4">
             <Image
@@ -85,6 +87,7 @@ const PlayerCard = () => {
               width={10}
               height={10}
               className="w-8 h-8"
+              alt="img"
             />
             Prithvi Shaw
             <Image
@@ -92,6 +95,7 @@ const PlayerCard = () => {
               width={10}
               height={10}
               className="w-8 h-8"
+              alt="img"
             />
           </div>
         </div>
@@ -107,6 +111,7 @@ const PlayerCard = () => {
                 width={100}
                 height={100}
                 className="w-10 h-10"
+                alt="img"
               />
               <p>{item.name}</p>
             </div>

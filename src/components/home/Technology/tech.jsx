@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const Technology = () => {
@@ -10,7 +11,7 @@ const Technology = () => {
     <div className="pb-10  h-[120vh] w-full bg-white">
       <div className=" w-full h-full px-32 pt-10 text-black flex flex-col gap-4">
         <p className="text-4xl font-bold">LATEST UPDATES</p>
-        <p className="text-[#616161] text-base font-bold">View all Updates</p>
+        <Link href={"/latestUpdates"}> <p className="text-[#616161] text-base font-bold">View all Updates</p></Link>
 
         <div className="w-full h-full flex flex-col justify-between  mt-4 bg-black">
           <div className="w-full h-24 text-white flex items-center cursor-pointer ">
@@ -54,6 +55,7 @@ const Technology = () => {
                 width={100}
                 height={100}
                 className="w-full h-full object-cover absolute z-0"
+                alt="img"
               />
               <div className="w-[50%] h-full z-10 flex flex-col  justify-end text-white relative p-10 ">
                 <p className="text-3xl font-bold ">
@@ -66,6 +68,7 @@ const Technology = () => {
                       width={10}
                       height={10}
                       className="h-1 w-1"
+                      alt="img"
                     />{" "}
                     Sumeet Dhekale
                   </p>
@@ -75,6 +78,7 @@ const Technology = () => {
                       width={10}
                       height={10}
                       className="h-1 w-1"
+                      alt="img"
                     />{" "}
                     12 Jan, 2025
                   </p>
@@ -100,7 +104,7 @@ const UpdatesCard = () => {
         <button className="bg-[#E07E278A] group-hover:bg-[rgba(50,13,0,0.46)] transition-all duration-700 mt-3 text-[10px] flex items-center justify-center px-3 py-1 rounded-md">Read More</button>
       </div>
       <div className="w-[35%] h-full">
-        <Image src={"/images/home/tech/img1.png"} width={100} height={100} className="w-full h-full object-cover"/>
+        <Image src={"/images/home/tech/img1.png"} width={100} height={100} className="w-full h-full object-cover" alt="img"/>
       </div>
   </div>
 }

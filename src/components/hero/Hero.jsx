@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import TeamSection from "../teams/teamSec/TeamSection";
 
 const Hero = ({imgUrl, heading, subheading}) => {
   return (
@@ -19,7 +18,7 @@ const Hero = ({imgUrl, heading, subheading}) => {
             </p>
 
             <p className="text-xl font-bold uppercase">
-              {subheading}
+              {subheading || " "} 
             </p>
           </div>
         </div>

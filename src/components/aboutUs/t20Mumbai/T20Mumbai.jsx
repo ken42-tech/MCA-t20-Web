@@ -20,7 +20,7 @@ const T20Mumbai = () => {
         </p>
       </div>
       <div className="w-[58%] ">
-        <Image src={"/images/aboutUs/T20Mumbai/image1.svg"} width={1000} height={1000} className='w-full h-full object-cover'/>
+        <Image src={"/images/aboutUs/T20Mumbai/image1.svg"} width={1000} height={1000} className='w-full h-full object-cover' alt='img'/>
       </div>
     </div>
   );

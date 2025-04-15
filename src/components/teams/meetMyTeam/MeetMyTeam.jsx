@@ -34,6 +34,7 @@ const MeetMyTeam = () => {
                       width={20}
                       height={20}
                       className="w-full h-full"
+                      alt='img'
                     />
                   </div>
                 </td>
@@ -44,6 +45,7 @@ const MeetMyTeam = () => {
                     width={35}
                     height={35}
                     className="w-10 h-10"
+                    alt='img'
                   />
                 </td>
                 <td className="py-2 pl-16 text-lg">{player.role}</td>
@@ -54,6 +56,7 @@ const MeetMyTeam = () => {
                       width={20}
                       height={20}
                       className="w-full h-full"
+                      alt='img'
                     />
                   </div>
                 </td>
@@ -73,6 +76,7 @@ const MeetMyTeam = () => {
                       width={20}
                       height={20}
                       className="w-full h-full"
+                      alt='img'
                     />
                   </div>
                 </td>
@@ -83,6 +87,7 @@ const MeetMyTeam = () => {
                     width={35}
                     height={35}
                     className="w-10 h-10"
+                    alt='img'
                   />
                 </td>
                 <td className="py-2 pl-16 text-lg">{player.role}</td>
@@ -93,6 +98,7 @@ const MeetMyTeam = () => {
                       width={20}
                       height={20}
                       className="w-full h-full"
+                      alt='img'
                     />
                   </div>
                 </td>

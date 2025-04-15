@@ -117,6 +117,7 @@ const page = () => {
             <DropDown
               label={"Sort by"}
               options={["This Week", "This Month"]}
+              bg={"white"}
             />
           </div>
         </div>
@@ -138,7 +139,7 @@ const page = () => {
 }
 
 const Card = ({item}) => {
-  return <div className='w-[23%] h-80 rounded-md bg-black relative'>
+  return <div className='w-[22%] h-80 rounded-md bg-black relative'>
     <Image src={item.imgUrl} width={1000} height={1000} className='w-full h-full object-cover absolute z-0' alt='img'/>
     <div className='w-full h-full flex items-end p-8 z-10 text-white justify-between relative'>
       <div className='w-[80%] flex flex-col justify-between '>
@@ -146,38 +147,51 @@ const Card = ({item}) => {
         <p className='text-[#F6F9FF] text-base'>{item.subTitle}</p>
       </div>
       <div className='w-12 h-12 bg-[#D25F28E5] rounded-full flex items-center justify-center' >
-        <Image src={"/images/latestUpdates/arrow.svg"} width={2} height={2} className='w-4 h-4'/>
+        <Image src={"/images/latestUpdates/arrow.svg"} width={2} height={2} className='w-4 h-4' alt='img'/>
       </div>
     </div>
   </div>
 }
 
-const DropDown = ({ label, options }) => {
+const DropDown = ({ label, options, bg }) => {
+  const bgColor = bg === "white" ? "bg-white" : "bg-[#E07E27]";
+  const textColor = bg === "white" ? "text-[#E07E27]" : "text-white";
+
   return (
     <>
-      <div className="flex  items-center gap-2 w-[30%]">
+      <div className="flex items-center gap-2 w-60 relative">
         <label
           htmlFor="dropdown"
-          className="text-base font-semibold uppercase text-[#6A6A6A] mb-2 w-[30%]"
+          className="text-sm font-semibold uppercase text-[#6A6A6A] mb-2 w-[50%]"
         >
           {label}
         </label>
         <select
           id="dropdown"
-          className="px-4 py-2 bg-white w-36 text-[#E07E27] border border-[#E07E27] text-sm"
+          className={`appearance-none ${bgColor} ${textColor} px-4 py-4 w-full border border-[#E07E27] text-base rounded`}
         >
           <option value="" disabled>
             Select a Season
           </option>
-          {options && options.map((item, index) => (
-            <option key={index} value={item}>
-              {item}
-            </option>
-          ))}
+          {options &&
+            options.map((item, index) => (
+              <option key={index} value={item}>
+                {item}
+              </option>
+            ))}
         </select>
+        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center justify-center">
+          <Image
+            src={bg === "white" ? "/images/standings/dropdown.svg" : "/images/standings/dropdownwhite.svg"}
+            width={10}
+            height={10}
+            alt="Dropdown Icon"
+          />
+        </div>
       </div>
     </>
   );
 };
+
 
 export default page

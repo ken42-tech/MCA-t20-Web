@@ -1,5 +1,6 @@
 "use client";
 import Hero from "@/components/hero/Hero";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const Stats = () => {
@@ -45,15 +46,18 @@ const Stats = () => {
             <DropDown
               label={"filter by"}
               options={["Season 1", "Season 2", "Season 3", "Season 4"]}
+              bg={"white"}
             />
             <DropDown 
             label={"sort by"}
             options = {["Most Runs", "Least Runs", "Most Centuries", "Most Half Centuries"]}
+            bg={"white"}
 
             />
             <DropDown
             label={"team"}
             options={["All", "Team 1", "Team 2", "Team 3"]}
+            bg={"white"}
              />
           </div>
         </div>
@@ -65,33 +69,46 @@ const Stats = () => {
   );
 };
 
-const DropDown = ({ label, options }) => {
+const DropDown = ({ label, options, bg }) => {
+  const bgColor = bg === "white" ? "bg-white" : "bg-[#E07E27]";
+  const textColor = bg === "white" ? "text-[#E07E27]" : "text-white";
+
   return (
     <>
-      <div className="flex  items-center gap-2 w-[40%]">
+      <div className="flex items-center gap-2 w-60 relative">
         <label
           htmlFor="dropdown"
-          className="text-sm font-semibold uppercase text-[#6A6A6A] mb-2 w-[30%]"
+          className="text-sm font-semibold uppercase text-[#6A6A6A] mb-2 w-[50%]"
         >
           {label}
         </label>
         <select
           id="dropdown"
-          className="px-4 py-2 bg-white w-36 text-[#E07E27] border border-[#E07E27] text-sm"
+          className={`appearance-none ${bgColor} ${textColor} px-4 py-2 w-full border border-[#E07E27] text-base rounded`}
         >
           <option value="" disabled>
             Select a Season
           </option>
-          {options && options.map((item, index) => (
-            <option key={index} value={item}>
-              {item}
-            </option>
-          ))}
+          {options &&
+            options.map((item, index) => (
+              <option key={index} value={item}>
+                {item}
+              </option>
+            ))}
         </select>
+        <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center justify-center">
+          <Image
+            src={bg === "white" ? "/images/standings/dropdown.svg" : "/images/standings/dropdownwhite.svg"}
+            width={10}
+            height={10}
+            alt="Dropdown Icon"
+          />
+        </div>
       </div>
     </>
   );
 };
+
 
 const playerData = [
   { pos: 1, player: "Prithvi Shaw", mat: 5, no: 0, runs: 43, hs: "27 VS SPL", ave: 10.60, sr: 155.88, hundreds: 0, fifties: 0, sixes: 7, fours: 2, ducks: 2 },

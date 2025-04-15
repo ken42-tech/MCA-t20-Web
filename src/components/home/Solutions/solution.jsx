@@ -74,7 +74,7 @@ const Solutions = () => {
                 width={130}
                 height={80}
               />
-              <div className="hidden md:block w-px bg-black h-16 self-center" />
+              <div className="block w-px bg-black h-16 self-center" />
               <Image
                 src="/images/home/sponsorship/image 70.svg"
                 alt="Wardwiz"
