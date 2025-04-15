@@ -77,7 +77,7 @@ const Footer = () => {
           <div className="flex  gap-1 ">
           <div className="flex   gap-5">
             <div className="font-inter font-bold text-[12px] leading-[18px] tracking-normal align-middle">
-             Connect with us:
+             Connect with us :
             </div>
             <div className="flex gap-4">
             <Image src="/images/footer/insta.svg" alt="Google" width={24} height={24} />
