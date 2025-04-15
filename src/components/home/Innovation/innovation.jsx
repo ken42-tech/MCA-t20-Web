@@ -36,6 +36,7 @@ const Card = ({isLive}) => {
               {" "}
               <Image
                 src={"/images/home/innovation/image 24.svg"}
+                alt="background"
                 width={20}
                 height={20}
                 className="w-14 h-14"
@@ -69,6 +70,7 @@ const Card = ({isLive}) => {
               {" "}
               <Image
                 src={"/images/home/innovation/image 19.svg"}
+                alt="img"
                 width={20}
                 height={20}
                 className="w-14 h-14"
