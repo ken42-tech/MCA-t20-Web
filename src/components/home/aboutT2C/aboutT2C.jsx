@@ -54,10 +54,10 @@ const GroupsCard = () => {
               <p>{item.sl}</p>
               <Image
                 src={"/images/home/about/image 92.svg"}
+                alt="img"
                 width={100}
                 height={100}
                 className="w-10 h-10"
-                alt="img"
               />
               <p>{item.name}</p>
             </div>
@@ -76,26 +76,26 @@ const PlayerCard = () => {
         <div className="w-full  border border-[#E07E27]">
           <Image
             src={"/images/home/about/Player card.svg"}
+            alt="img"
             width={100}
             height={100}
             className="w-full h-[70%] object-cover"
-            alt="img"
           />
           <div className="bg-black flex items-center justify-between px-6 py-4">
             <Image
               src={"/images/home/innovation/image 24.svg"}
+              alt="img"
               width={10}
               height={10}
               className="w-8 h-8 object-cover"
-              alt="img"
             />
             Prithvi Shaw
             <Image
               src={"/images/home/about/BatIcon.svg"}
+              alt="img"
               width={10}
               height={10}
               className="w-8 h-8"
-              alt="img"
             />
           </div>
         </div>
@@ -108,10 +108,10 @@ const PlayerCard = () => {
               <p>{item.sl}</p>
               <Image
                 src={"/images/home/about/image 92.svg"}
+                alt="img"
                 width={100}
                 height={100}
                 className="w-10 h-10"
-                alt="img"
               />
               <p>{item.name}</p>
             </div>

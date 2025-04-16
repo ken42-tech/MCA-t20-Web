@@ -37,6 +37,16 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
+
+          {/* Get Started Button */}
+          <div className="flex-shrink-0">
+            <Link
+              href="/about"
+              className="btn  text-white px-6 py-4 bg-[#E07E27] rounded-full"
+            >
+              About Us
+            </Link>
+          </div>
         </div>
       </nav>
     </div>

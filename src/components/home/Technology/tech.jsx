@@ -52,10 +52,10 @@ const Technology = () => {
             <div className="w-[65%] relative">
               <Image
                 src={"/images/home/tech/bg.svg"}
+                alt="img"
                 width={100}
                 height={100}
                 className="w-full h-full object-cover absolute z-0"
-                alt="img"
               />
               <div className="w-[50%] h-full z-10 flex flex-col  justify-end text-white relative p-10 ">
                 <p className="text-3xl font-bold ">
@@ -65,20 +65,20 @@ const Technology = () => {
                   <p className="text-[#E07E27] pt-3 text-sm flex items-center justify-center gap-2">
                     <Image
                       src={"/images/home/tech/Dot.svg"}
+                      alt="img"
                       width={10}
                       height={10}
                       className="h-1 w-1"
-                      alt="img"
                     />{" "}
                     Sumeet Dhekale
                   </p>
                   <p className="text-[#E07E27] pt-3 text-sm flex items-center justify-center gap-2">
                     <Image
                       src={"/images/home/tech/Dot.svg"}
+                      alt="img"
                       width={10}
                       height={10}
                       className="h-1 w-1"
-                      alt="img"
                     />{" "}
                     12 Jan, 2025
                   </p>
@@ -104,7 +104,7 @@ const UpdatesCard = () => {
         <button className="bg-[#E07E278A] group-hover:bg-[rgba(50,13,0,0.46)] transition-all duration-700 mt-3 text-[10px] flex items-center justify-center px-3 py-1 rounded-md">Read More</button>
       </div>
       <div className="w-[35%] h-full">
-        <Image src={"/images/home/tech/img1.png"} width={100} height={100} className="w-full h-full object-cover" alt="img"/>
+        <Image src={"/images/home/tech/img1.png"} alt="img" width={100} height={100} className="w-full h-full object-cover"/>
       </div>
   </div>
 }
