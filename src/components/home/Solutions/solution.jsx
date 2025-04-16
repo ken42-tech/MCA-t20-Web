@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Solutions = () => {
   return (
-    <div className="bg-white w-full pt-6 pb-20 px-10">
+    <div className="bg-white w-full pt-6 pb-20 px-10 section-width">
       <div className="px-6 md:pl-24 flex flex-col gap-[4px]">
         <div className="font-semibold text-4xl md:text-[29.22px] uppercase text-black leading-none">
           SPONSORSHIP

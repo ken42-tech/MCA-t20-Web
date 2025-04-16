@@ -16,9 +16,9 @@ export default function Home() {
       <Hero />
       <Innovation/>
       <Technology/>
-      </div>
       <AboutT2C/>
      < WhyT2C/>
+     </div>
     
     </>
   );

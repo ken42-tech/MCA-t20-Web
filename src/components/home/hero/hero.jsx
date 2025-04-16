@@ -4,7 +4,7 @@ import Navbar from "@/components/layout/navbar/navbar";
 
 const Hero = () => {
   return (
-    <div className="w-full h-[120vh] relative">
+    <div className="w-full h-[120vh] relative section-width">
       <Image
         src="/images/home/bg.svg"
         alt="background"

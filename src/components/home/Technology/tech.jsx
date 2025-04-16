@@ -8,7 +8,7 @@ const Technology = () => {
   const [selectedTab, setSelectedTab ]= useState("All")
 
   return (
-    <div className="pb-10  h-[120vh] w-full bg-white">
+    <div className="pb-10  h-[120vh] w-full bg-white section-width">
       <div className=" w-full h-full px-32 pt-10 text-black flex flex-col gap-4">
         <p className="text-4xl font-bold">LATEST UPDATES</p>
         <Link href={"/latestUpdates"}> <p className="text-[#616161] text-base font-bold">View all Updates</p></Link>

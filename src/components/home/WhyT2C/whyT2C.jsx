@@ -140,7 +140,7 @@ const Page = () => {
       : items.filter((item) => item.type === "image");
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-white section-width">
       <div className="px-32 py-20 flex flex-col gap-6">
         <p className="text-4xl font-bold mb-4 text-black uppercase">GALLERY</p>
 

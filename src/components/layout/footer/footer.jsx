@@ -5,7 +5,7 @@ import "./style.css";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-black px-8 sm:px-16 md:px-32 abso">
+      <div className="bg-black px-8 sm:px-16 md:px-32 abso section-width">
         <div className="section-width  lg:py-14">
           <div className="lg:flex justify-between lg:gap-12 max-lg:space-y-12">
             <div className="max-w-md">

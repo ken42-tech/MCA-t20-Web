@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Innovation = () => {
   return (
-    <div className="w-full  bg-white">
+    <div className="w-full  bg-white section-width">
       <div className=" w-full px-32 py-16 text-black flex flex-col gap-4">
         <p className="text-4xl font-bold">FIXTURES</p>
         <Link href={"/fixtures"}><p className="text-[#616161] text-base font-bold">View all  Fixtures</p></Link>
