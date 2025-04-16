@@ -4,6 +4,43 @@ import "./style.css";
 
 const Footer = () => {
   return (
+    <div>
+      <div className="bg-black px-8 sm:px-16 md:px-32 abso">
+        <div className="section-width  lg:py-14">
+          <div className="lg:flex justify-between lg:gap-12 max-lg:space-y-12">
+            <div className="max-w-md">
+              <Image
+                src="/images/home/logo.svg"
+                alt="t20mumbai Logo"
+                width={200}
+                height={280}
+                className="mb-6 pl-6"
+              />
+            </div>
+            <div className="flex flex-col lg:flex-row lg:gap-8 space-y-8 lg:space-y-0 mr-8 pl-24">
+              <div className="flex flex-col gap-0.5">
+                <h6 className="text-[#E07E27] text-sm font-normal font-Inter whitespace-nowrap mt-1">
+                  LATEST UPDATES
+                </h6>
+                <ul className="leading-none">
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Standings
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="#"
+                      className="text-[#FFFFFF] font-Inter font-light text-[8px] hover:text-white"
+                    >
+                      Fixtures
+                    </Link>
+                  </li>
+                </ul>
+              </div>
     <div className=  " main bg-black h-[475px] px-8 sm:px-16 md:px-32 flex justify-center items-center gap-[20px]">
       <div className="footer-main flex justify-between items-center w-[90%] h-[90%] flex-row gap-[60px]">
 
