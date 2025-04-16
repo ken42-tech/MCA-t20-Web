@@ -1,13 +1,14 @@
 "use client";
 import Image from "next/image";
 import "./style.css";
+import Link from "next/link";
 
 const Innovation = () => {
   return (
-    <div className="w-full  bg-white">
+    <div className="w-full  bg-white section-width">
       <div className=" w-full px-32 py-16 text-black flex flex-col gap-4">
         <p className="text-4xl font-bold">FIXTURES</p>
-        <p className="text-[#616161] text-base font-bold">View all  Fixtures</p>
+        <Link href={"/fixtures"}><p className="text-[#616161] text-base font-bold">View all  Fixtures</p></Link>
         
       <div className="w-full flex justify-between items-center mt-4">
           <Card isLive={true}/>

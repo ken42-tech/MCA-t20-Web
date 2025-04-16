@@ -5,7 +5,7 @@ import "./style.css";
 const Footer = () => {
   return (
     <div>
-      <div className="bg-black px-8 sm:px-16 md:px-32 abso">
+      <div className="bg-black px-8 sm:px-16 md:px-32 abso section-width">
         <div className="section-width  lg:py-14">
           <div className="lg:flex justify-between lg:gap-12 max-lg:space-y-12">
             <div className="max-w-md">
@@ -40,6 +40,7 @@ const Footer = () => {
                     </Link>
                   </li>
                 </ul>
+              </div>
               </div>
     <div className=  " main bg-black h-[475px] px-8 sm:px-16 md:px-32 flex justify-center items-center gap-[20px]">
       <div className="footer-main flex justify-between items-center w-[90%] h-[90%] flex-row gap-[60px]">
@@ -130,6 +131,10 @@ const Footer = () => {
            </div>
 
         </div>
+      </div>
+      </div>
+      </div>
+      </div>
       </div>
   );
 };

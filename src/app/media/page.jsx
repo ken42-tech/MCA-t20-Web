@@ -1,7 +1,7 @@
 "use client";
 
-import Hero from '@/components/hero/Hero'
-import React, { useState } from 'react'
+import Hero from '@/components/hero/Hero';
+import React, { useState } from 'react';
 import MediaAll from '@/components/media/MediaAll';
 
 const tabs = ["All", "View Videos", "View Images"];
@@ -44,13 +44,13 @@ const items = [
     type: 'image',
     title: 'Match 19: NBB vs ETS',
     date: '22 May, 2025',
-    img: '/images/coming-soon.jpg',
+    img: '/images/media/video1.svg',
   },
   {
     type: 'video',
     title: 'Dreams do come true:',
     date: '27 May, 2025',
-    img: '/images/dhoni-thumb.jpg',
+    img: '/images/media/video1.svg',
   },
   {
     type: 'video',
@@ -82,38 +82,38 @@ const items = [
     type: 'image',
     title: 'Match 19: NBB vs ETS',
     date: '22 May, 2025',
-    img: '/images/coming-soon.jpg',
+    img: '/images/media/video1.svg',
   },
   {
     type: 'video',
     title: 'Dreams do come true:',
     date: '27 May, 2025',
-    img: '/images/dhoni-thumb.jpg',
+    img: '/images/media/video1.svg',
   },
   {
     type: 'image',
     title: 'T20 Mumbai Promo',
     date: '',
-    img: '/images/t20-promo.jpg',
+    img: '/images/media/video1.svg',
     views: 1500,
   },
   {
     type: 'image',
     title: 'Match 19: NBB vs ETS',
     date: '22 May, 2025',
-    img: '/images/coming-soon.jpg',
+    img: '/images/media/video1.svg',
   },
   {
     type: 'video',
     title: 'Dreams do come true:',
     date: '27 May, 2025',
-    img: '/images/dhoni-thumb.jpg',
+    img: '/images/media/video1.svg',
   },
   {
     type: 'image',
     title: 'T20 Mumbai Promo',
     date: '',
-    img: '/images/t20-promo.jpg',
+    img: '//images/media/video1.svg',
     views: 1500,
   },
   {
@@ -130,9 +130,14 @@ const items = [
   },
 ];
 
-
 const Page = () => {
   const [activeTab, setActiveTab] = useState("All");
+  const filteredItems =
+    activeTab === "All"
+      ? items
+      : activeTab === "View Videos"
+      ? items.filter((item) => item.type === "video")
+      : items.filter((item) => item.type === "image");
 
   return (
     <div className="w-full bg-white">
@@ -141,10 +146,12 @@ const Page = () => {
         heading="Videos"
         subheading="Gallery"
       />
+
       <div className="px-32 py-20 flex flex-col gap-6">
         <p className="text-4xl font-bold mb-4 text-black uppercase">GALLERY</p>
+
         <div className="w-full bg-black">
-          <div className="w-full flex items-center ">
+          <div className="w-full flex items-center">
             {tabs.map((tab, index) => (
               <div
                 key={index}
@@ -157,13 +164,13 @@ const Page = () => {
               </div>
             ))}
           </div>
-          <div className='w-full  flex items-center justify-center'>
-            {activeTab == "All" ? <MediaAll items={items}/> : ""}
+          <div className="w-full flex items-center justify-center">
+            <MediaAll items={filteredItems} />
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Page;

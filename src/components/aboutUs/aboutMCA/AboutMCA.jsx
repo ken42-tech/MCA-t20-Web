@@ -5,7 +5,7 @@ const AboutMCA = () => {
   return (
     <div className="w-full bg-black flex ">
       <div className="w-1/2 p-12 pb-20 pr-32 flex items-center justify-center">
-      <Image src={"/images/aboutUs/aboutMCA/image 118.svg"} width={1000} height={100} className='w-full h-full object-cover' /></div>
+      <Image src={"/images/aboutUs/aboutMCA/image 118.svg"} width={1000} height={100} className='w-full h-full object-cover' alt='img' /></div>
       <div className="w-1/2 flex flex-col py-8 gap-4">
         <p className="text-4xl font-bold uppercase">About MCA</p>
         <p className="text-lg text-[#B3B3B3]">

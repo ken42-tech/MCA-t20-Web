@@ -6,17 +6,19 @@ import { navLinks } from "./data";
 
 const Navbar = () => {
   return (
-    <div className="bg-transparent  w-full z-50 px-16 absolute top-10">
+    <div className="bg-transparent  w-full z-50 px-44 absolute top-10 section-width">
       <nav className="w-full py-4 px-16 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex-shrink-0">
-          <Image
-            src={"/images/home/logo.svg"}
-            alt="logo"
-            className="h-w-28 w-28"
-            width={50}
-            height={50}
-          />
+        <Link href="/">
+            <Image
+              src={"/images/home/logo.svg"}
+              alt="logo"
+              className="h-w-28 w-28"
+              width={50}
+              height={50}
+            />
+          </Link>
         </div>
 
         {/* Navigation Links */}

@@ -3,7 +3,7 @@ import Image from "next/image";
 // import "./style.css";
 const AboutT2C = () => {
   return (
-      <div className="pb-10 pt-10  h-auto w-full bg-white">
+      <div className="pb-10 pt-10  h-auto w-full bg-white section-width">
       <div className=" w-full h-full px-32  text-black flex flex-col gap-4">
         <p className="text-4xl font-bold ">THE GAME IN NUMBERS</p>
         <p className="text-[#616161] text-base font-bold">View All Updates</p>
@@ -42,7 +42,7 @@ const PlayerInfo = [{
 
 const GroupsCard = () => {
   return (
-    <div className="w-full  ">
+    <div className="w-full  h-[48vh]">
       <div className="w-full h-[20%] bg-[#E07E27] flex items-center px-7 py-6">
         <p className="text-blxck text-xl font-bold">GROUP - A STANDINGS</p>
       </div>
@@ -70,16 +70,16 @@ const GroupsCard = () => {
 }
 const PlayerCard = () => {
   return (
-    <div className="w-1/2 h-full border-2 bg-[linear-gradient(180deg,_#14344F_0%,_#1C5C90_38.76%,_#14344F_77.52%)] flex flex-col items-center justify-between text-white">
+    <div className="w-1/2 h-[96vh] border-2 bg-[linear-gradient(180deg,_#14344F_0%,_#1C5C90_38.76%,_#14344F_77.52%)] flex flex-col items-center justify-between text-white overflow-hidden">
       <p className="py-4 text-xl font-bold">TOP BATSMAN</p>
-      <div className="w-full h- px-10 pb-10">
-        <div className=" border border-[#E07E27]">
+      <div className="w-full h-[70%] px-10 pb-10">
+        <div className="w-full  border border-[#E07E27]">
           <Image
             src={"/images/home/about/Player card.svg"}
             alt="img"
             width={100}
             height={100}
-            className="w-full h-full object-cover"
+            className="w-full h-[70%] object-cover"
           />
           <div className="bg-black flex items-center justify-between px-6 py-4">
             <Image
@@ -87,7 +87,7 @@ const PlayerCard = () => {
               alt="img"
               width={10}
               height={10}
-              className="w-8 h-8"
+              className="w-8 h-8 object-cover"
             />
             Prithvi Shaw
             <Image
@@ -100,7 +100,7 @@ const PlayerCard = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-full bg-black">
+      <div className="w-full h-[30%] bg-black">
         {PlayerInfo.map((item, index) => (
           <div key={index}>
             {" "}

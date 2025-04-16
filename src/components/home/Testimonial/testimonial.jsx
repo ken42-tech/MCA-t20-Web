@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import "./style.css"; // Make sure this file contains global styles or is used correctly
 
 const TestimonialsCarousel = () => {
   const testimonials = [
@@ -47,7 +46,7 @@ const TestimonialsCarousel = () => {
             .map((testimonial, index) => (
               <div
                 key={index}
-                className="rounded-lg p-12 relative test-bg card" // Apply CSS class from `style.css`
+                className="rounded-lg p-12 relative test-bg card"
               >
                 <p className="text-[#C7C9D1] text-left mb-8 sm:mb-12">
                   “{testimonial.text}”
@@ -69,7 +68,6 @@ const TestimonialsCarousel = () => {
             ))}
         </div>
 
-        {/* Navigation Button */}
         <div className="absolute top-1/2 right-4 transform -translate-y-1/2 md:right-0">
           <button
             onClick={handleNext}

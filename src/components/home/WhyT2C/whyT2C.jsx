@@ -1,99 +1,184 @@
 "use client";
-import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from 'react';
+import Gallery from './components/Gallery';
+import Image from 'next/image';
+import Link from 'next/link';
 
-const WhyT2C = () => {
-  const images = [
-    {
-      type: 'image',
-      src: '/images/home/whyT2C/Link.svg',
-    },
-    {
-      type: 'image',
-      src: '/images/t20mumbai.jpg',
-    },
-    {
-      type: 'image',
-      src: '/images/coming-soon.jpg',
-    },
-    {
-      type: 'image',
-      src: '/images/player1.jpg',
-    },
-    {
-      type: 'image',
-      src: '/images/batsman1.jpg',
-    },
-    {
-      type: 'image',
-      src: '/images/captain.jpg',
-    }
-  ];
-  const [filter, setFilter] = useState('ALL');
+const tabs = ["All", "View Videos", "View Images"];
 
-  const filtered = images.filter(img => {
-    if (filter === 'ALL') return true;
-    if (filter === 'VIDEOS') return img.type === 'video';
-    if (filter === 'IMAGES') return img.type === 'image';
-    return true;
-  });
-  
+const items = [
+  {
+    type: 'video',
+    title: 'Final: SS vs NMP',
+    date: '27 May, 2025',
+    img: '/images/media/video1.svg',
+    views: 1289,
+  },
+  {
+    type: 'image',
+    title: 'T20 Mumbai Promo',
+    date: '',
+    img: '/images/media/image1.svg',
+    views: 1500,
+  },
+  {
+    type: 'image',
+    title: 'Match 19: NBB vs ETS',
+    date: '22 May, 2025',
+    img: '/images/media/image2.svg',
+  },
+  {
+    type: 'video',
+    title: 'Dreams do come true:',
+    date: '27 May, 2025',
+    img: '/images/media/image3.svg',
+  },
+  {
+    type: 'image',
+    title: 'T20 Mumbai Promo',
+    date: '',
+    img: '/images/media/image4.svg',
+    views: 1500,
+  },
+  {
+    type: 'image',
+    title: 'Match 19: NBB vs ETS',
+    date: '22 May, 2025',
+    img: '/images/media/video1.svg',
+  },
+  {
+    type: 'video',
+    title: 'Dreams do come true:',
+    date: '27 May, 2025',
+    img: '/images/media/video1.svg',
+  },
+  {
+    type: 'video',
+    title: 'Final: SS vs NMP',
+    date: '27 May, 2025',
+    img: '/images/media/video1.svg',
+    views: 1289,
+  },
+  {
+    type: 'image',
+    title: 'T20 Mumbai Promo',
+    date: '',
+    img: '/images/media/image1.svg',
+    views: 1500,
+  },
+  {
+    type: 'image',
+    title: 'Match 19: NBB vs ETS',
+    date: '22 May, 2025',
+    img: '/images/media/image2.svg',
+  },
+  {
+    type: 'video',
+    title: 'Dreams do come true:',
+    date: '27 May, 2025',
+    img: '/images/media/image3.svg',
+  },
+  {
+    type: 'image',
+    title: 'Match 19: NBB vs ETS',
+    date: '22 May, 2025',
+    img: '/images/media/video1.svg',
+  },
+  {
+    type: 'video',
+    title: 'Dreams do come true:',
+    date: '27 May, 2025',
+    img: '/images/media/video1.svg',
+  },
+  {
+    type: 'image',
+    title: 'T20 Mumbai Promo',
+    date: '',
+    img: '/images/media/video1.svg',
+    views: 1500,
+  },
+  {
+    type: 'image',
+    title: 'Match 19: NBB vs ETS',
+    date: '22 May, 2025',
+    img: '/images/media/video1.svg',
+  },
+  {
+    type: 'video',
+    title: 'Dreams do come true:',
+    date: '27 May, 2025',
+    img: '/images/media/video1.svg',
+  },
+  {
+    type: 'image',
+    title: 'T20 Mumbai Promo',
+    date: '',
+    img: '//images/media/video1.svg',
+    views: 1500,
+  },
+  {
+    type: 'image',
+    title: 'Match 19: NBB vs ETS',
+    date: '22 May, 2025',
+    img: '/images/coming-soon.jpg',
+  },
+  {
+    type: 'video',
+    title: 'Dreams do come true:',
+    date: '27 May, 2025',
+    img: '/images/dhoni-thumb.jpg',
+  },
+];
+
+const Page = () => {
+  const [activeTab, setActiveTab] = useState("All");
+  const filteredItems =
+    activeTab === "All"
+      ? items
+      : activeTab === "View Videos"
+      ? items.filter((item) => item.type === "video")
+      : items.filter((item) => item.type === "image");
+
   return (
-    <>
-      <div className="pb-10 pt-10  h-auto w-full bg-white ">
-        <div className=" w-full h-full px-32  text-black flex flex-col gap-4">
-          <p className="text-4xl font-bold ">GALLERY</p>
-          <div className="bg-black">
-            <div className="flex items-center gap-4 mb-6 p-4 text-white">
-              <button
-                className={`px-4 py-1 text-sm  ${
-                  filter === "ALL" ? "bg-orange-500" : ""
-                }`}
-                onClick={() => setFilter("ALL")}
-              >
-                ALL
-              </button>
-              <button
-                className={`px-4 py-1 text-sm  ${
-                  filter === "VIDEOS" ? "bg-orange-500" : ""
-                }`}
-                onClick={() => setFilter("VIDEOS")}
-              >
-                VIEW VIDEOS
-              </button>
-              <button
-                className={`px-4 py-1 text-sm  ${
-                  filter === "IMAGES" ? "bg-orange-500" : ""
-                }`}
-                onClick={() => setFilter("IMAGES")}
-              >
-                VIEW IMAGES
-              </button>
-            </div>
+    <div className="w-full bg-white section-width">
+      <div className="px-32 py-20 flex flex-col gap-6">
+        <p className="text-4xl font-bold mb-4 text-black uppercase">GALLERY</p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {filtered.map((item, idx) => (
-                <div key={idx} className="relative w-full h-[250px] group">
-                  <Image
-                    src={item.src}
-                    alt="gallery-img"
-                    fill
-                    className="object-cover rounded"
-                  />
-                </div>
-              ))}
-            </div>
+        <div className="w-full bg-black">
+          <div className="w-full flex items-center">
+            {tabs.map((tab, index) => (
+              <div
+                key={index}
+                className={`h-full cursor-pointer ${
+                  activeTab === tab
+                    ? "bg-[#E07E27] text-white"
+                    : "text-[#E07E27]"
+                } border-l border-[#E07E27] px-6 m-2 py-1 uppercase`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+              </div>
+            ))}
           </div>
-          
-          <div className="">
-              <button className="bg-orange-500 text-white px-6 py-2 hover:bg-orange-600">
-                VIEW GALLERY
-              </button>
-            </div>
+          <div className="w-full flex items-center justify-center">
+            <Gallery items={filteredItems} />
+          </div>
         </div>
+        <Link href={"/media"}>
+          <div className="w-48 bg-[#E07E27] flex items-center justify-between py-3 px-6">
+            <p className="text-sm font-bold">View Gallery</p>
+            <Image
+              src={"/images/home/whyT2C/octicon_play-24 (1).svg"}
+              width={100}
+              height={100}
+              className="w-6 h-6"
+              alt="img"
+            />
+          </div>
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 
-export default WhyT2C;
+export default Page;

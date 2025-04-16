@@ -16,8 +16,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       
-      <body>
-        <>
+      <body className="relative flex flex-col items-center justify-center">
+        <div>
         <Navbar/>
           {/* <Navbar /> */}
           {children}
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
           
      <Solutions/>
       <Footer />
-        </>
+        </div>
       </body>
     </html>
   );

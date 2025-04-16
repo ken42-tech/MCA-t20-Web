@@ -4,17 +4,15 @@ import Image from 'next/image';
 const layoutConfig = [
   [1, 3, 1, 2],
   [1, 3, 3],
-  [1, 3, 1, 2],
 ];
 
-
-const MediaAll = ({ items }) => {
+const Gallery = ({ items }) => {
   let currentIndex = 0;
 
   return (
-    <div className="w-full h-[150vh] flex flex-col gap-3 p-3">
+    <div className="w-full h-[100vh] flex flex-col gap-3 p-3">
       {layoutConfig.map((row, rowIndex) => (
-        <div key={rowIndex} className="h-[32%] w-full">
+        <div key={rowIndex} className="h-[49%] w-full">
           <div className="grid w-full h-full grid-cols-7 gap-4">
             {row.map((span, colIndex) => {
               const item = items[currentIndex];
@@ -42,32 +40,31 @@ const MediaAll = ({ items }) => {
                     )}
                   </div>
 
-                  {item.type === "video" && (
+                  {item.type === 'video' && (
                     <div className="absolute inset-0 flex items-center justify-center">
                       <Image
                         src="/images/home/whyT2C/vidLogo.svg"
                         width={100}
                         height={100}
                         className="w-16 h-16"
-                        alt="img"
+                        alt='img'
                       />
                     </div>
                   )}
 
-                  {item.views && item.type === "image" && (
+                  {item.views && item.type === 'image' && (
                     <div className="absolute top-2 right-2">
                       <Image
                         src="/images/home/whyT2C/imgIcon.svg"
                         width={100}
                         height={100}
-                        alt="img"
+                        alt='img'
                         className="w-8 h-8"
                       />
                     </div>
                   )}
-
-                  {item.type === "coming-soon" && (
-                    <div className="absolute top-2 left-2 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
+                  {item.type === 'coming-soon' && (
+                    <div className="absolute top-0 left-0 bg-white text-black text-xs px-2 py-1 rounded font-semibold">
                       COMING SOON
                     </div>
                   )}
@@ -77,9 +74,8 @@ const MediaAll = ({ items }) => {
           </div>
         </div>
       ))}
-      <div className="hidden col-span-1 col-span-2 col-span-3 col-span-4 col-span-5 col-span-6 col-span-7" />
     </div>
   );
 };
 
-export default MediaAll;
+export default Gallery;

@@ -21,12 +21,14 @@ const TeamSection = () => {
                           width={10}
                           height={10}
                           className="w-4 h-4 "
+                          alt='img'
                         />
                         <Image
                           src={"/images/teams/hero/line-md_arrow-up (1).svg"}
                           width={10}
                           height={10}
                           className="w-4 h-4"
+                          alt='img'
                         />
                       </div>
                     </div>
@@ -87,6 +89,7 @@ const CarouselCard = () => {
                   width={1}
                   height={1}
                   className="w-7 h-7"
+                  alt='img'
                 />
                 <p
                   className={` text-[7.411px] font-medium leading-none text-center ${
@@ -111,6 +114,7 @@ const CarouselCard = () => {
                   width={1}
                   height={1}
                   className="w-7 h-7"
+                  alt='img'
                 />
                 <p
                   className={` text-[7.411px] font-medium leading-none text-center ${
