@@ -11,7 +11,6 @@ import Contact from "@/components/home/contact/contact.jsx";
 export default function Home() {
   return (
     <>
-    {/* <Navbar /> */}
       <div >
       <Hero />
       <Innovation/>

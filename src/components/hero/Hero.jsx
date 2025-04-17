@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Hero = ({imgUrl, heading, subheading}) => {
   return (
-    <div className="w-full relative flex justify-end py-14">
+    <div className="w-full relative flex justify-end py-14 section-width">
       <Image
         src={imgUrl}
         alt="background"

@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const Solutions = () => {
   return (
-    <div className="bg-white w-full pt-6 pb-20 h-[80vh] px-32">
-      <div className="px-6 md:pl-24 flex flex-col gap-[4px]">
+    <div className="bg-white w-full pt-6 pb-20 h-[80vh] px-32 section-width">
+      <div className=" flex flex-col gap-[4px]">
         <div className="font-plusjakarta h-[40px]  font-bold text-[44.22px] leading-[85px] tracking-normal uppercase text-black">
           SPONSORSHIP
         </div>
@@ -78,7 +78,7 @@ const Solutions = () => {
     </div>
 
     {/* ASSOCIATE SPONSORS */}
-    <div className="flex flex-col items-center text-center">
+    <div className="flex flex-col items-center text-center ">
       <p className="font-plusjakarta font-bold text-[13.82px] leading-[22.36px] tracking-normal text-black mb-4">
         ASSOCIATE SPONSORS
       </p>
