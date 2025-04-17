@@ -2,29 +2,29 @@
 import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "./data";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
 const Navbar = () => {
   return (
-    <div className="bg-transparent  w-full z-50 px-44 absolute top-10 section-width">
-      <nav className="w-full py-4 px-16 flex items-center justify-between">
+    <div className="bg-transparent  w-full z-50  absolute top-2 md:top-5 xl:top-10 section-width">
+      <nav className="w-full sm:py-4 px-8 md:px-20 xl:px-32 flex items-center justify-between ">
         {/* Logo Section */}
         <div className="flex-shrink-0">
         <Link href="/">
             <Image
               src={"/images/home/logo.svg"}
               alt="logo"
-              className="h-w-28 w-28"
+              className="h-16 w-16 md:h-28 md:w-28"
               width={50}
               height={50}
             />
           </Link>
         </div>
 
-        {/* Navigation Links */}
-        <div className="flex items-center justify-center gap-10">
-          <div className="hidden lg:flex flex-grow justify-center ">
-            <ul className="flex items-center gap-10 bg-[#ffffff1f] px-10 py-4 rounded-full">
+        <div className=" items-center justify-center gap-10 md:flex hidden ">
+          <div className="flex flex-grow justify-center ">
+            <ul className="flex items-center gap-5 lg:gap-10 bg-[#ffffff1f] px-5 xl:px-10 py-4 rounded-full">
               {navLinks.map((item, i) => (
                 <li key={i}>
                   <Link
@@ -37,16 +37,9 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-
-          {/* Get Started Button */}
-          <div className="flex-shrink-0">
-            <Link
-              href="/about"
-              className="btn  text-white px-6 py-4 bg-[#E07E27] rounded-full"
-            >
-              About Us
-            </Link>
-          </div>
+        </div>
+        <div className="md:hidden block">
+              <RxHamburgerMenu size={30}/>
         </div>
       </nav>
     </div>

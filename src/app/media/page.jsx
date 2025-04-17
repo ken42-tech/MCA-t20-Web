@@ -140,7 +140,7 @@ const Page = () => {
       : items.filter((item) => item.type === "image");
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full ">
       <Hero
         imgUrl={"/images/stats/bg.svg"}
         heading="Videos"

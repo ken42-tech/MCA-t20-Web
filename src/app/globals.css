@@ -10,7 +10,7 @@
 body {
   @apply font-figtree;
   color: #fff;
-  background: #060F19;
+  background: white;
   background-size: fill;
   overflow-x: hidden;
 }
@@ -73,7 +73,7 @@ body {
 
 @layer components {
   .section-width {
-    @apply xl:max-w-screen-2xl md:w-5/6 mx-auto px-4 items-center;
+    @apply xl:max-w-screen-2xl md:w-5/6 mx-auto  items-center;
   }
 }
 @layer base {
