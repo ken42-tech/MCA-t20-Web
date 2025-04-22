@@ -1,8 +1,0 @@
-.card {
-    border: 0.5px solid rgba(56, 52, 52, 0.5); /* Semi-transparent border */
-    border-radius: 0.5rem; 
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
-    backdrop-filter: blur(5px); /* Adds a blur effect for blending */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-}

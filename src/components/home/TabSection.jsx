@@ -6,7 +6,7 @@ const layoutConfig = [
   [1, 3, 3],
 ];
 
-const Gallery = ({ items }) => {
+const TabSection = ({ items }) => {
   let currentIndex = 0;
 
   return (
@@ -78,4 +78,4 @@ const Gallery = ({ items }) => {
   );
 };
 
-export default Gallery;
+export default TabSection;

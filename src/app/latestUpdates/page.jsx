@@ -1,7 +1,7 @@
 "use client"
 import Hero from '@/components/hero/Hero'
 import Image from 'next/image';
-import React, { useState } from 'react'
+import { useState } from 'react';
 
 const page = () => {
   const CardData = [

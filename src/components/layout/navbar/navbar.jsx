@@ -4,14 +4,13 @@ import Link from "next/link";
 import { navLinks } from "./data";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-
 const Navbar = () => {
   return (
-    <div className="bg-transparent  w-full z-50  absolute top-2 md:top-5 xl:top-10 section-width">
-      <nav className="w-full sm:py-4 px-8 md:px-20 xl:px-32 flex items-center justify-between ">
+    <div className="bg-transparent z-50 absolute top-[5%] w-full">
+      <nav className="flex justify-between items-center container mx-auto section-width">
         {/* Logo Section */}
         <div className="flex-shrink-0">
-        <Link href="/">
+          <Link href="/">
             <Image
               src={"/images/home/logo.svg"}
               alt="logo"
@@ -22,9 +21,10 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className=" items-center justify-center gap-10 md:flex hidden ">
-          <div className="flex flex-grow justify-center ">
-            <ul className="flex items-center gap-5 lg:gap-10 bg-[#ffffff1f] px-5 xl:px-10 py-4 rounded-full">
+        {/* Navigation Links */}
+        <div className="items-center md:flex hidden">
+          <div className="flex justify-center">
+            <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-[#ffffff1f] px-5 xl:px-10 py-4 rounded-full">
               {navLinks.map((item, i) => (
                 <li key={i}>
                   <Link
@@ -38,8 +38,10 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <div className="md:hidden block">
-              <RxHamburgerMenu size={30}/>
+
+        {/* Mobile Menu Icon - Only visible on mobile */}
+        <div className="md:hidden">
+          <RxHamburgerMenu className="text-white text-2xl" />
         </div>
       </nav>
     </div>

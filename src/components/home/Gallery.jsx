@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import Gallery from './components/Gallery';
+import TabSection from './TabSection';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -161,7 +161,7 @@ const Page = () => {
             ))}
           </div>
           <div className="w-full flex items-center justify-center">
-            <Gallery items={filteredItems} />
+            <TabSection items={filteredItems} />
           </div>
         </div>
         <Link href={"/media"}>
