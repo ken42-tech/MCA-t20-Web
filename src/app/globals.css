@@ -1,11 +1,9 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 body {
   @apply font-figtree;
@@ -17,11 +15,10 @@ body {
 
 .full-width {
   @apply xl:max-w-screen-3xl md:w-5/6 md:mx-auto px-4 items-center max-md:mx-4;
-  }
+}
 
 .btn-blue {
   @apply xl:py-3 xl:px-8 px-6 py-2 bg-[#0B43A3] text-white text-center cursor-pointer rounded-3xl;
-
 }
 
 .hero-bg {
@@ -32,34 +29,32 @@ body {
   /* padding-left: "-32px";  */
 }
 
-.text-color{
-  color:#909DC1;
+.text-color {
+  color: #909dc1;
 }
 
 .test-bg {
   background-image: url("/images/home/testimonial/bgg.png");
   border-radius: 10px;
- 
 }
 
-.test-gradient{
+.test-gradient {
   background: linear-gradient(135deg, rgb(23, 32, 48), rgb(30, 40, 60));
-
 }
 
 .card-bg {
   background-image: url("/images/home/whyT2C/bg.png");
-  background-size: cover; 
-  background-repeat: no-repeat; 
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
-  isolation: isolate; 
+  isolation: isolate;
   border-radius: 10px;
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 ::-webkit-scrollbar {
-  width: 1px; 
+  width: 1px;
   height: 1px;
 }
 
@@ -68,12 +63,12 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #4e4e4e; 
+  background: #4e4e4e;
 }
 
 @layer components {
   .section-width {
-    @apply xl:max-w-screen-2xl md:w-5/6 mx-auto  items-center;
+    @apply xl:max-w-screen-2xl md:w-5/6 mx-auto px-4 items-center;
   }
 }
 @layer base {
@@ -107,13 +102,11 @@ body {
   }
 }
 
-
-
 /* HTML: <div class="parallelogram"></div> */
 .parallelogram {
   --p: 90px; /* control the shape (can be percentage) */
   height: 200px;
   aspect-ratio: 5/2;
-  clip-path: polygon(0 0,calc(100% - var(--p)) 0,100% 100%,var(--p) 100%);
-  background: #D95B43;
+  clip-path: polygon(0 0, calc(100% - var(--p)) 0, 100% 100%, var(--p) 100%);
+  background: #d95b43;
 }
