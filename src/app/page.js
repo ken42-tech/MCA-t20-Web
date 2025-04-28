@@ -6,14 +6,13 @@ import LatestUpdates from "@/components/home/LatestUpdates.jsx";
 export default function Home() {
   return (
     <>
-      <div >
+      <div>
         <Hero />
-        <Fixtures />
+        {/* <Fixtures />
         <LatestUpdates />
         <AboutT2C />
-        <Gallery />
+        <Gallery /> */}
       </div>
-
     </>
   );
 }
