@@ -5,15 +5,18 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className="w-full bg-white">
-      <Hero
+    <>
+    
+    <Hero
         imgUrl={"/images/stats/bg.svg"}
         heading="Standings"
         subheading="Player Profile"
       />
+    <div className=" bg-white section-width">
       <PlayerProfile />
       <MeetMyTeam />
     </div>
+    </>
   );
 }
 

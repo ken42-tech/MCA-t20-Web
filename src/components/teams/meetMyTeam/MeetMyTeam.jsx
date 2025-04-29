@@ -1,114 +1,104 @@
+import TitleComponent from '@/components/common/TitleComponent';
 import Image from 'next/image';
 import React from 'react';
 
+const batsmen = [
+  { id: '01', name: 'Ajay Pandey', role: 'Batsman' },
+  { id: '02', name: 'Kunalbhai Parmar', role: 'Batsman' },
+  { id: '03', name: 'TP Patel', role: 'Batsman' },
+  { id: '04', name: 'Devkumar S', role: 'Batsman' },
+  { id: '05', name: 'Suryadevi Shinde', role: 'Batsman' }
+];
+
+const bowlers = [
+  { id: '06', name: 'Dhawal Kulkarni', role: 'Bowler' },
+  { id: '07', name: 'Bohara Lalit', role: 'Bowler' },
+  { id: '08', name: 'Anjibhai Lal', role: 'Bowler' },
+  { id: '09', name: 'Het Patel', role: 'Bowler' },
+  { id: '10', name: 'Syedwar Osman', role: 'Bowler' }
+];
+
+const allRounders = [
+  { id: '11', name: 'Arjun Tendulkar', role: 'All Rounder' },
+  { id: '12', name: 'Sanjana Khan', role: 'All Rounder' },
+  { id: '13', name: 'Mehul Lakhanbhai', role: 'All Rounder' },
+  { id: '14', name: 'Siddarth Akre', role: 'All Rounder' },
+  { id: '15', name: 'Akash Rohit Sonaw', role: 'All Rounder' },
+  { id: '16', name: 'Bhavesh Thakkar', role: 'All Rounder' },
+  { id: '17', name: 'Tushar N Patel', role: 'All Rounder' },
+  { id: '18', name: 'Tushar N Patel', role: 'All Rounder' }
+];
+
+const wicketKeepers = [
+  { id: '19', name: 'Prakock S S', role: 'Wicket Keeper' },
+  { id: '20', name: 'Ankit Anand', role: 'Wicket Keeper' }
+];
+
 const MeetMyTeam = () => {
-  const teamData = [
-    { id: '02', name: 'Aditya Tare', points: '89', role: 'Batsman' },
-    { id: '03', name: 'Jay Bista', points: '', role: 'All Rounder' },
-    { id: '04', name: 'Akhil Herwadkar', points: '', role: 'Batsman' },
-    { id: '05', name: 'Parag Khanapurkar', points: '', role: 'Wicket Keeper' },
-    { id: '02', name: 'Aditya Tare', points: '', role: 'All Rounder' },
-    { id: '02', name: 'Aditya Tare', points: '522', role: 'Bowler' },
-    { id: '03', name: 'Jay Bista', points: '', role: 'Batsman' },
-    { id: '04', name: 'Akhil Herwadkar', points: '', role: 'All Rounder' },
-    { id: '05', name: 'Parag Khanapurkar', points: '', role: 'Batsman' },
-  ];
+  
 
   return (
-    <div className="w-full px-32 bg-white py-20 flex flex-col gap-12">
-      <div className="w-full">
-        <p className="w-full uppercase text-black text-4xl font-bold">
-          Meet The Team
-        </p>
+    <div className="bg-white  py-10">
+      <TitleComponent title="Meet the Team" />
+      <div className='w-full flex flex-col md:flex-row justify-between'>
+      <div className=" w-full md:w-[48%] lg:w-[48%] flex flex-col gap-4 mt-6">
+       <Table role="batsman" PlayerData={batsmen}/>
+       <Table role="bowlers" PlayerData={bowlers}/>
       </div>
-      <div className="overflow-x-auto flex gap-[2px]">
-        <table className="w-1/2 bg-black text-white ">
-          <tbody>
-            {teamData.map((player, index) => (
-              <tr key={index} className="border-b border-gray-700">
-                <td className="py-2 px-4">{player.id}</td>
-                <td className="">
-                  <div className="h-12 w-12 rounded-full bg-[#242424] flex items-center justify-center overflow-hidden">
-                    <Image
-                      src={"/images/teams/meetmyteam/image 117.svg"}
-                      width={20}
-                      height={20}
-                      className="w-full h-full"
-                      alt='img'
-                    />
-                  </div>
-                </td>
-                <td className="py-2 px-4 text-lg">{player.name}</td>
-                <td className="py-2 px-4 text-center">
-                  <Image
-                    src={"/images/teams/meetmyteam/Layer_1 (1).svg"}
-                    width={35}
-                    height={35}
-                    className="w-10 h-10"
-                    alt='img'
-                  />
-                </td>
-                <td className="py-2 pl-16 text-lg">{player.role}</td>
-                <td className="py-2 px-4 flex justify-end">
-                  <div className="h-10 w-6 flex items-center justify-center overflow-hidden">
-                    <Image
-                      src={"/images/teams/meetmyteam/uil_arrow.svg"}
-                      width={20}
-                      height={20}
-                      className="w-full h-full"
-                      alt='img'
-                    />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <table className="w-1/2 bg-black text-white ">
-          <tbody>
-            {teamData.map((player, index) => (
-              <tr key={index} className="border-b border-gray-700">
-                <td className="py-2 px-4">{player.id}</td>
-                <td className="">
-                  <div className="h-12 w-12 rounded-full bg-[#242424] flex items-center justify-center overflow-hidden">
-                    <Image
-                      src={"/images/teams/meetmyteam/image 117.svg"}
-                      width={20}
-                      height={20}
-                      className="w-full h-full"
-                      alt='img'
-                    />
-                  </div>
-                </td>
-                <td className="py-2 px-4 text-lg">{player.name}</td>
-                <td className="py-2 px-4 text-center">
-                  <Image
-                    src={"/images/teams/meetmyteam/Layer_1 (1).svg"}
-                    width={35}
-                    height={35}
-                    className="w-10 h-10"
-                    alt='img'
-                  />
-                </td>
-                <td className="py-2 pl-16 text-lg">{player.role}</td>
-                <td className="py-2 px-4 flex justify-end">
-                  <div className="h-10 w-6 flex items-center justify-center overflow-hidden">
-                    <Image
-                      src={"/images/teams/meetmyteam/uil_arrow.svg"}
-                      width={20}
-                      height={20}
-                      className="w-full h-full"
-                      alt='img'
-                    />
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className=" w-full md:w-[48%] lg:w-[48%] flex flex-col gap-4 mt-6">
+       <Table role="all rounders" PlayerData={allRounders}/>
+       <Table role="Wicket Keeper" PlayerData={wicketKeepers}/>
+      </div>
       </div>
     </div>
   );
 };
+
+const Table = ({role, PlayerData}) => {
+  return           <div  className=" overflow-hidden">
+  <div className="bg-[#F28C28] p-3 xl:p-6 font-bold text-black text-2xl md:text-3xl xl:text-4xl uppercase">{role}</div>
+  <div className="bg-black text-white">
+    {PlayerData.map((player, index) => (
+      <div key={index} className='flex items-center justify-between border-b border-gray-700 py-2 px-3 xl:px-6'>
+      <div
+        className=" flex items-center gap-5 xl:gap-10 "
+      >
+        <span>{player.id}</span>
+        <div className="h-16 w-16 rounded-full bg-[#242424] flex items-center justify-center overflow-hidden">
+          <Image
+            src="/images/teams/meetmyteam/image 117.svg"
+            alt="avatar"
+            width={50}
+            height={50}
+            className='w-full h-full'
+          />
+        </div>
+        
+        </div>
+        <div className=" flex items-center justify-start w-[30%]">
+          <p className='xl:text-xl'>{player.name}</p>
+        </div>
+        <div className='w-[40%] flex items-center justify-between'>
+        <Image
+          src={role == "batsman" ? "/images/teams/meetmyteam/Layer_1 (1).svg" : role == "bowlers" ? "/images/teams/meetmyteam/svg8.svg" : role == "all rounders" ? "/images/teams/meetmyteam/Layer_1 (3).svg":"/images/teams/meetmyteam/Layer_1 (4).svg"}
+          alt="bat"
+          width={350}
+          height={350}
+          className="mr-2 w-10 h-10"
+        />
+        <span className="xl:text-xl">{player.role}</span>
+        <Image
+          src="/images/teams/meetmyteam/uil_arrow.svg"
+          alt="arrow"
+          width={20}
+          height={20}
+          className="ml-2 w-7 h-7"
+        />
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+}
 
 export default MeetMyTeam;
