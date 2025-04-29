@@ -139,9 +139,9 @@ const TeamDetailLogo = ({ image }) => {
 
 const MatchCard = ({ date = "24 MAR, 2025", time = "7:30 pm IST", status = "UPCOMING" }) => {
   return (
-    <div className="bg-white shadow-lg justify-between rounded-lg h-80 flex flex-col">
+    <div className="bg-white shadow-lg rounded-xl justify-between border-[rgba(194,194,194,1)] border-[2px] rounded-lg h-80 flex flex-col">
       {/* Header */}
-      <div className="relative h-1/4 w-full flex overflow-hidden">
+      <div className="relative h-1/4 w-full rounded-t-xl flex overflow-hidden">
 
         <div
           className="flex flex-col justify-center px-4 text-white w-[55%] h-full z-10 px-6 gap-1"
@@ -170,17 +170,17 @@ const MatchCard = ({ date = "24 MAR, 2025", time = "7:30 pm IST", status = "UPCO
 
       {/* Content */}
       <div className="flex h-3/4 flex-row justify-center gap-10 text-center items-center p-10">
-        <div className='flex flex-col justify-center items-center gap-6'>
+        <div className='w-[33%] flex flex-col justify-center items-center gap-6'>
           <img src="/images/teams/hero/teamLogo/arcs.svg" alt="arcs" />
           <span className='text-sm font-semibold text-black'>ARCS ANDHERI</span>
         </div>
-        <div className='flex flex-col justify-center items-center gap-6'>
+        <div className='w-[33%] flex flex-col justify-center items-center gap-6'>
           <span className='text-[rgba(224,126,39,1)] font-bold italic tracking-widest'>VS</span>
           <span className='text-[rgba(134,134,134,1)] text-xs font-semibold'>MATCH 25/74</span>
         </div>
-        <div className='flex flex-col justify-center items-center gap-6'>
+        <div className='w-[33%] flex flex-col justify-center items-center gap-6'>
           <img src="/images/teams/hero/teamLogo/thane.svg" alt="arcs" />
-          <span className='text-sm font-semibold text-black'>ARCS ANDHERI</span>
+          <span className='text-sm font-semibold text-black'>EAGLE THANE STRIKERS</span>
         </div>
       </div>
     </div>
