@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import TabSection from "./TabSection";
 import Image from "next/image";
 import Link from "next/link";
+import TitleComponent from "../common/TitleComponent";
 
 const tabs = ["All", "View Videos", "View Images"];
 
@@ -141,12 +142,9 @@ const Page = () => {
 
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat">
-      <div className="section-width padding-top">
+      <div className="section-width section-padding">
         <div className="  flex flex-col gap-6">
-          <p className="text-4xl font-bold mb-4 text-black uppercase">
-            GALLERY
-          </p>
-
+          <TitleComponent orange title={"Gallery"} />
           <div className="w-full bg-black">
             <div className="w-full flex items-center">
               {tabs.map((tab, index) => (

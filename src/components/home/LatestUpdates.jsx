@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import TitleComponent from "../common/TitleComponent";
 
 const tabs = ["All", "Latest", "Reviews", "NewSection"];
 
@@ -22,61 +23,75 @@ const LatestUpdates = () => {
 
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat">
-      <div className="section-width padding-top">
-        <div className="relative h-fit px-8 py-2 bg-[#DE6927]   xl:w-[480px] lg:w-[320px] rounded-md mb-12">
-          <Image
-            src={"/images/elements/header-element.png"}
-            width={50}
-            height={50}
-            className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
-            alt="Logo"
-          />
-          <h2 className="text-white">Latest Updates</h2>
-        </div>
-
+      <div className="section-width section-padding">
+        <TitleComponent title={"Latest Updates"} orange />
         <div className="w-full flex flex-col gap-7 relative">
-          <div className="w-full overflow-x-auto py-8 scrollbar-hide">
-            <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 ">
-              {/* {teamsDataHomePage.map((item, i) => {
-                console.log(item.gradient.from, "first");
-                return (
-                  <div
-                    // bg-gradient-to-b from-[${item.gradient.from}] to-[${item.gradient.to}]
-                    className={`p-4 rounded-xl  flex justify-center relative `}
-                    key={i}
-                    style={{
-                      background: `linear-gradient(to bottom, ${item.gradient.from}, ${item.gradient.to})`,
-                    }}
-                  >
-                    <Image
-                      src={"/images/elements/teamCardRoundElement.png"}
-                      width={100}
-                      height={100}
-                      className="w-full h-full absolute top-0 left-0 rounded-xl opacity-60"
-                      alt="Logo"
-                    />
-                    <Image
-                      src={"/images/elements/teamCardElement.png"}
-                      width={100}
-                      height={100}
-                      className="w-full h-full absolute top-0 left-0 rounded-xl"
-                      alt="Logo"
-                    />
-                    <div className="relative">
-                      <Image
-                        src={item.logo}
-                        width={100}
-                        height={100}
-                        className="w-auto xl:h-32 h-28 mx-auto"
-                        alt="Logo"
+          <div className="w-full overflow-x-auto  scrollbar-hide">
+            <div className="relative w-full h-fit ">
+              <div className="  w-full h-[600px]   top-0 left-0 flex">
+                <div className="h-full flex-[60%]  flex">
+                  <Image
+                    src={"/images/home/latestUpdateImage.jpg"}
+                    alt=""
+                    width={1000}
+                    height={800}
+                    className="h-auto w-full"
+                  />
+                  <div className="p-10 absolute bottom-0 max-w-sm mt-auto">
+                    <h3>
+                      Meet the new face <br /> for T20 Mumbai Season 3
+                    </h3>
+                    <p></p>
+                    <ul className="list-disc ml-5 text-[#E07E27] text-base flex gap-8 mt-12">
+                      <li> Launch Event Press Conference</li>
+                      <li>22 April, 2025</li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="bg-green-300    flex-[40%] flex flex-col">
+                  <div className="flex-1 flex bg-[#BB4B24] hover:bg-[#E07E27] h-">
+                    <div className=" ">
+                      <h5>
+                        Two new teams now officially on board T20 Mumbai season
+                        3
+                      </h5>
+                    </div>
+                    <div>
+                      <img
+                        src="/images/home/latestUpdate1.jpg"
+                        className="h-[200px] w-[200px]"
+                        alt="img"
                       />
-                      <p className="text-white text-center mt-10">
-                        {item.team}
-                      </p>
                     </div>
                   </div>
-                );
-              })} */}
+                  <div className="flex-1 bg-[#BB4B24] hover:bg-[#E07E27] flex">
+                    {" "}
+                    <h5>
+                      Two new teams now officially on board T20 Mumbai season 3
+                    </h5>
+                    <div>
+                      <img
+                        src="/images/home/latestUpdate1.jpg"
+                        className="h-[200px] w-[200px]"
+                        alt="img"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex-1 bg-[#BB4B24] hover:bg-[#E07E27] flex">
+                    {" "}
+                    <h5>
+                      Two new teams now officially on board T20 Mumbai season 3
+                    </h5>
+                    <div>
+                      <img
+                        src="/images/home/latestUpdate1.jpg"
+                        className="h-[200px] w-[200px]"
+                        alt="img"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
