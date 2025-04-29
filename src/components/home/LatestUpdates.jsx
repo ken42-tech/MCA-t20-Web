@@ -6,15 +6,25 @@ import TitleComponent from "../common/TitleComponent";
 
 const tabs = ["All", "Latest", "Reviews", "NewSection"];
 
-const updates = [
+const updateItems = [
   {
-    title: "Prithvi Shaw has helped improve my game.",
-    author: "Sumeet Dhekale",
-    date: "12 Jan, 2025",
-    bgImg: "/images/home/tech/bg.svg",
-    avatarDot: "/images/home/tech/Dot.svg",
+    title: "Two new teams now officially on board T20 Mumbai season 3",
+    date: "22 April, 2025",
+    img: "/images/home/latestUpdate1.jpg",
+    bordered: true,
   },
-  // …more items
+  {
+    title: "Introducing the fierce contenders for Season 3",
+    date: "20 April, 2025",
+    img: "/images/home/latestUpdate2.jpg",
+    bordered: true,
+  },
+  {
+    title: "Opening ceremony to feature Mumbai icons",
+    date: "18 April, 2025",
+    img: "/images/home/latestUpdate3.jpg",
+    bordered: false,
+  },
 ];
 
 const LatestUpdates = () => {
@@ -24,72 +34,50 @@ const LatestUpdates = () => {
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat">
       <div className="section-width section-padding">
-        <TitleComponent title={"Latest Updates"} orange />
+        <TitleComponent title="Latest Updates" orange />
         <div className="w-full flex flex-col gap-7 relative">
-          <div className="w-full overflow-x-auto  scrollbar-hide">
-            <div className="relative w-full h-fit ">
-              <div className="  w-full h-[600px]   top-0 left-0 flex">
-                <div className="h-full flex-[60%]  flex">
-                  <Image
-                    src={"/images/home/latestUpdateImage.jpg"}
-                    alt=""
-                    width={1000}
-                    height={800}
-                    className="h-auto w-full"
-                  />
-                  <div className="p-10 absolute bottom-0 max-w-sm mt-auto">
-                    <h3>
+          <div className="w-full overflow-x-auto scrollbar-hide">
+            <div className="relative w-full h-fit">
+              <div className="w-full top-0 left-0 lg:flex">
+                {/* Left Block */}
+                <div className="xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/home/latestUpdateImage.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px]">
+                  <div className="p-10 bottom-0 max-w-lg mt-auto">
+                    <h3 className="text-white xl:text-3xl sm:text-2xl text-xl font-semibold">
                       Meet the new face <br /> for T20 Mumbai Season 3
                     </h3>
-                    <p></p>
-                    <ul className="list-disc ml-5 text-[#E07E27] text-base flex gap-8 mt-12">
-                      <li> Launch Event Press Conference</li>
+                    <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
+                      <li>Launch Event Press Conference</li>
                       <li>22 April, 2025</li>
                     </ul>
                   </div>
                 </div>
-                <div className="bg-green-300    flex-[40%] flex flex-col">
-                  <div className="flex-1 flex bg-[#BB4B24] hover:bg-[#E07E27] h-">
-                    <div className=" ">
-                      <h5>
-                        Two new teams now officially on board T20 Mumbai season
-                        3
-                      </h5>
+
+                {/* Right Block (Mapped) */}
+                <div className="xl:flex-[40%] lg:flex-[45%] flex flex-col">
+                  {updateItems.map((item, index) => (
+                    <div
+                      key={index}
+                      className={`flex-1 flex justify-between items-center bg-[#BB4B24] hover:bg-[#E07E27] ${
+                        item.bordered ? "border-b border-[#E07E27]" : ""
+                      }`}
+                    >
+                      <div className="max-w-72 p-4">
+                        <h5 className="mb-2 text-white 2xl:text-2xl xl:text-xl lg:text-base text-sm font-medium">
+                          {item.title}
+                        </h5>
+                        <p className="text-black xl:text-base sm:text-sm text-xs font-medium">
+                          {item.date}
+                        </p>
+                      </div>
+                      <div>
+                        <img
+                          src={item.img}
+                          className="xl:max-h-[200px] xl:max-w-[200px] sm:max-w-[150px] max-w-[120px] h-auto object-cover"
+                          alt="latest update"
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <img
-                        src="/images/home/latestUpdate1.jpg"
-                        className="h-[200px] w-[200px]"
-                        alt="img"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex-1 bg-[#BB4B24] hover:bg-[#E07E27] flex">
-                    {" "}
-                    <h5>
-                      Two new teams now officially on board T20 Mumbai season 3
-                    </h5>
-                    <div>
-                      <img
-                        src="/images/home/latestUpdate1.jpg"
-                        className="h-[200px] w-[200px]"
-                        alt="img"
-                      />
-                    </div>
-                  </div>
-                  <div className="flex-1 bg-[#BB4B24] hover:bg-[#E07E27] flex">
-                    {" "}
-                    <h5>
-                      Two new teams now officially on board T20 Mumbai season 3
-                    </h5>
-                    <div>
-                      <img
-                        src="/images/home/latestUpdate1.jpg"
-                        className="h-[200px] w-[200px]"
-                        alt="img"
-                      />
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -97,6 +85,7 @@ const LatestUpdates = () => {
         </div>
       </div>
     </div>
+
     // <section className="min-h-screen w-full bg-white px-4 md:px-8 lg:px-16 py-8">
     //   {/* Header */}
     //   <header className="mb-6 flex flex-col md:flex-row md:justify-between md:items-center gap-2">
