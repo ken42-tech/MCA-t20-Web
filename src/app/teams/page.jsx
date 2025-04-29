@@ -7,7 +7,6 @@ import React from 'react'
 const Teams = () => {
   return (
     <div>
-      <Hero imgUrl="/images/teams/hero/bg.svg" heading="T20 Mumbai teams" subheading="Aakash Tigers Mumbai Western Suburbs"/>
       <TeamSection/>
       <MeetMyTeam/>
       <AboutT2C/>

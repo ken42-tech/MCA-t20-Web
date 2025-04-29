@@ -18,7 +18,7 @@ const Hero = ({imgUrl, heading, subheading}) => {
             </p>
 
             <p className="text-xl font-bold uppercase">
-              {subheading || " "} 
+              {subheading || " "}
             </p>
           </div>
         </div>
