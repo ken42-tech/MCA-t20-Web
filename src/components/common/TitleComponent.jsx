@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const TitleComponent = ({ title, orange = false }) => {
   return (
     <>
@@ -21,7 +23,7 @@ const TitleComponent = ({ title, orange = false }) => {
             className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
             alt="Logo"
           />
-          <h2 className="text-white">Teams</h2>
+          <h2 className="text-white">{title}</h2>
         </div>
       )}
     </>

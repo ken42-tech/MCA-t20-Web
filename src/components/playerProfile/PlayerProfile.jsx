@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import React from 'react';
+import TitleComponent from '../common/TitleComponent';
 
 const PlayerProfile = () => {
   return (
-    <div className='w-full '>
-    <div className='w-full text-black flex flex-col gap-10'>
+    <div className='w-full py-10 md:py-20'>
+    <div className='w-full text-black flex flex-col gap-3 md:gap-10'>
       <div className='w-full flex flex-col gap-4'>
-        <p className='text-4xl font-bold uppercase'>Player Profile</p>
+        <TitleComponent title="Player Profile"  />
       </div>
-      <div className=" overflow-hidden flex items-stretch justify-between bg-black">
+      <div className=" overflow-hidden flex flex-col  md:flex-row items-stretch justify-between bg-black">
         <PlayerCard />
         <PlayerTable />
       </div>
@@ -75,19 +76,19 @@ const battingData = [
 
 const PlayerTable = () => {
   return (
-    <div className="w-[70%] flex flex-col  text-white bg-black overflow-hidden">
-      <div className='  px-6 py-2'>
-        <p className='text-2xl font-bold py-3 uppercase'>Player Details</p>
+    <div className="w-full flex flex-col gap-4  text-white bg-black overflow-hidden">
+      <div className='px-2 md:px-6 py-2'>
+        <p className='text-xl md:text-2xl font-bold py-3 uppercase'>Player Details</p>
         <div className='w-full flex flex-wrap gap-4'>
           {playerDataArray.map((item, index) => (
             <div key={index} className='flex items-center  lg:w-[30%]'>
-              <p className='text-base'>{item.label}</p>
-              <p className='text-base'>:{item.value}</p>
+              <p className='text-sm md:text-base'>{item.label}</p>
+              <p className='text-sm md:text-base'>:{item.value}</p>
             </div>
           ))}
         </div>
       </div>
-      <div className='w-full h-full flex flex-col bg-black '>
+      <div className='w-full h-full flex flex-col bg-black overflow-x-auto'>
       <Table/>
       <Table/>
       </div>
@@ -97,61 +98,66 @@ const PlayerTable = () => {
 };
 
 const Table = () => {
-    return <div className="h-1/2 w-full">
-    <table className=" w-full h-full bg-black ">
-      <thead className="text-black">
-        <tr className='text-sm '>
-          <th className=" py-5 text-left px-4   bg-[#E07E27] uppercase w-60">bATTING & FIELDING</th>
-          <th className=" text-center  bg-[#E07E27]">MAT</th>
-          <th className=" text-center  bg-[#E07E27]">NO</th>
-          <th className=" text-center  bg-[#E07E27]">RUNS</th>
-          <th className=" text-center  bg-[#E07E27]">HS</th>
-          <th className=" text-center  bg-[#E07E27]">AVE</th>
-          <th className=" text-center  bg-[#E07E27]">S/R</th>
-          <th className=" text-center  bg-[#E07E27]">100S</th>
-          <th className=" text-center  bg-[#E07E27]">50S</th>
-          <th className=" text-center  bg-[#E07E27]">6S</th>
-          <th className=" text-center  bg-[#E07E27]">4S</th>
-          <th className=" text-center  bg-[#E07E27]">CT</th>
-          <th className=" text-center  bg-[#E07E27]">ST</th>
-        </tr>
-      </thead>
-      <tbody className="text-[#D8D8D8]">
-        {battingData.map((player, index) => (
-          <tr key={index} className="border-b border-[#222222] ">
-            <td className=" px-4 text-left border-r text-sm  border-[#222222]">{player.season}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.mat}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.no}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.runs}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.hs}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.ave}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.sr}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.hundreds}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.fifties}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.sixes}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.fours}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.ct}</td>
-            <td className=" text-center border-r text-[10px] border-[#222222]">{player.st}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-}
+  return (
+    <div className="w-full h-full overflow-x-auto">
+      <div className="min-w-[500px] h-full">
+        <table className="w-full h-full bg-black">
+          <thead className="text-black">
+            <tr>
+              <th className="text-xs xl:text-sm p-3 md:py-3 xl:py-6 text-left xl:px-4 bg-[#E07E27] uppercase w-32 md:w-44 xl:w-52">BATTING & FIELDING</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">MAT</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">NO</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">RUNS</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">HS</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">AVE</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">S/R</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">100S</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">50S</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">6S</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">4S</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">CT</th>
+              <th className="text-xs xl:text-sm text-center bg-[#E07E27]">ST</th>
+            </tr>
+          </thead>
+          <tbody className="text-[#D8D8D8]">
+            {battingData.map((player, index) => (
+              <tr key={index} className="border-b border-[#222222]">
+                <td className="p-3 xl:px-4 text-left border-r text-sm border-[#222222]">{player.season}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.mat}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.no}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.runs}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.hs}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.ave}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.sr}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.hundreds}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.fifties}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.sixes}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.fours}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.ct}</td>
+                <td className="text-center border-r text-[8px] xl:text-[10px] border-[#222222]">{player.st}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
 
 const PlayerCard = () => {
   return (
-    <div className="w-[30%]  text-white flex flex-col items-center justify-center ">
+    <div className="w-full xl:w-[40%]  text-white flex flex-col items-center justify-between ">
       <div
-        className="w-full px-10 py-6 flex flex-col justify-between gap-0 "
+        className="w-full p-10 flex flex-col justify-between gap-0 "
         style={{
           background: "linear-gradient(180deg, #14344F 0%, #1C5C90 38.76%, #14344F 77.52%)",
         }}
       >
         <Image
           src={"/images/playerProfile/Player card (1).svg"}
-          height={100}
-          width={100}
+          height={600}
+          width={600}
           className="h-full w-full "
           alt='img'
         />
