@@ -6,7 +6,17 @@ import { useState } from "react";
 const page = () => {
   const CardData = [
     {
-      imgUrl: "/images/latestUpdates/sachin.svg",
+      imgUrl: "/images/latestUpdates/p1.jpg",
+      Title: "Investors",
+      subTitle: "VC funds, Angel Investors and networks",
+    },
+    {
+      imgUrl: "/images/latestUpdates/p2.jpg",
+      Title: "Investors",
+      subTitle: "VC funds, Angel Investors and networks",
+    },
+    {
+      imgUrl: "/images/latestUpdates/p3.jpg",
       Title: "Investors",
       subTitle: "VC funds, Angel Investors and networks",
     },
@@ -16,7 +26,17 @@ const page = () => {
       subTitle: "VC funds, Angel Investors and networks",
     },
     {
-      imgUrl: "/images/latestUpdates/sachin.svg",
+      imgUrl: "/images/latestUpdates/p1.jpg",
+      Title: "Investors",
+      subTitle: "VC funds, Angel Investors and networks",
+    },
+    {
+      imgUrl: "/images/latestUpdates/p2.jpg",
+      Title: "Investors",
+      subTitle: "VC funds, Angel Investors and networks",
+    },
+    {
+      imgUrl: "/images/latestUpdates/p3.jpg",
       Title: "Investors",
       subTitle: "VC funds, Angel Investors and networks",
     },
@@ -26,42 +46,17 @@ const page = () => {
       subTitle: "VC funds, Angel Investors and networks",
     },
     {
-      imgUrl: "/images/latestUpdates/sachin.svg",
+      imgUrl: "/images/latestUpdates/p1.jpg",
       Title: "Investors",
       subTitle: "VC funds, Angel Investors and networks",
     },
     {
-      imgUrl: "/images/latestUpdates/sachin.svg",
+      imgUrl: "/images/latestUpdates/p2.jpg",
       Title: "Investors",
       subTitle: "VC funds, Angel Investors and networks",
     },
     {
-      imgUrl: "/images/latestUpdates/sachin.svg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
-    },
-    {
-      imgUrl: "/images/latestUpdates/sachin.svg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
-    },
-    {
-      imgUrl: "/images/latestUpdates/sachin.svg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
-    },
-    {
-      imgUrl: "/images/latestUpdates/sachin.svg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
-    },
-    {
-      imgUrl: "/images/latestUpdates/sachin.svg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
-    },
-    {
-      imgUrl: "/images/latestUpdates/sachin.svg",
+      imgUrl: "/images/latestUpdates/p3.jpg",
       Title: "Investors",
       subTitle: "VC funds, Angel Investors and networks",
     },
@@ -142,7 +137,8 @@ const page = () => {
 
 const Card = ({ item }) => {
   return (
-    <div className="w-full h-[370px] bg-black rounded-md relative">
+    <div className="w-full h-[370px] rounded-md relative overflow-hidden">
+      {/* Image */}
       <Image
         src={item.imgUrl}
         width={1000}
@@ -150,7 +146,12 @@ const Card = ({ item }) => {
         className="w-full h-full object-cover absolute z-0 rounded-md"
         alt="img"
       />
-      <div className="w-full h-full flex items-end p-8 z-10 text-white justify-between relative">
+
+      {/* Dark overlay simulating linear-gradient rgba */}
+      <div className="absolute inset-0 bg-black opacity-30 z-10 rounded-md" />
+
+      {/* Content */}
+      <div className="w-full h-full flex items-end p-8 z-20 text-white justify-between relative">
         <div className="w-[80%] flex flex-col justify-between">
           <p className="font-bold text-xl">{item.Title}</p>
           <p className="text-[#F6F9FF] text-base">{item.subTitle}</p>
@@ -161,7 +162,7 @@ const Card = ({ item }) => {
             width={10}
             height={10}
             className="w-3 h-3 lg:w-5 lg:h-5 md:h-4 md:w-4 sm:h-3 sm:w-3"
-            alt="img"
+            alt="arrow"
           />
         </div>
       </div>
