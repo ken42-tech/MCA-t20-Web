@@ -1,6 +1,5 @@
 "use client";
 
-import Image from 'next/image';
 import React, { useState } from 'react';
 import { teamDetails, teamsLogo } from './teamLogo';
 
@@ -93,13 +92,13 @@ const TeamLogo = ({ image, onClick, isSelected }) => {
   return (
     <div
       onClick={onClick}
-      className={`flex items-center justify-center rounded-[4.5px] cursor-pointer transition-all duration-300
-    border-2 ${isSelected ? "border-[#E07E27] shadow-[0_0_10px_#E07E27]" : "border-transparent hover:border-[#E07E27] hover:shadow-[0_0_6px_#E07E27]"}`}
+      className={`flex items-center justify-center rounded-[4.5px]`}
     >
       <img
         src={image}
         alt="team-logo"
-        className="w-full h-full object-contain"
+        className={`w-full h-full rounded-[4.5px] object-contain cursor-pointer transition-all duration-300
+                    border-2 ${isSelected ? "border-none shadow-[0_2px_8px_#E07E27]" : "border-none hover:border-none hover:shadow-[0_3px_8px_#E07E27]"}`}
       />
     </div>
   );

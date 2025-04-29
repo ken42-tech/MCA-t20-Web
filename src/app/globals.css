@@ -1,11 +1,9 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 body {
   @apply font-figtree;
@@ -17,11 +15,10 @@ body {
 
 .full-width {
   @apply xl:max-w-screen-3xl md:w-5/6 md:mx-auto px-4 items-center max-md:mx-4;
-  }
+}
 
 .btn-blue {
   @apply xl:py-3 xl:px-8 px-6 py-2 bg-[#0B43A3] text-white text-center cursor-pointer rounded-3xl;
-
 }
 
 .hero-bg {
@@ -32,34 +29,32 @@ body {
   /* padding-left: "-32px";  */
 }
 
-.text-color{
-  color:#909DC1;
+.text-color {
+  color: #909dc1;
 }
 
 .test-bg {
   background-image: url("/images/home/testimonial/bgg.png");
   border-radius: 10px;
- 
 }
 
-.test-gradient{
+.test-gradient {
   background: linear-gradient(135deg, rgb(23, 32, 48), rgb(30, 40, 60));
-
 }
 
 .card-bg {
   background-image: url("/images/home/whyT2C/bg.png");
-  background-size: cover; 
-  background-repeat: no-repeat; 
+  background-size: cover;
+  background-repeat: no-repeat;
   position: relative;
-  isolation: isolate; 
+  isolation: isolate;
   border-radius: 10px;
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
 ::-webkit-scrollbar {
-  width: 1px; 
+  width: 1px;
   height: 1px;
 }
 
@@ -68,21 +63,52 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #4e4e4e; 
+  background: #4e4e4e;
 }
 
 @layer components {
   .section-width {
-    @apply xl:max-w-screen-2xl md:w-5/6 mx-auto  items-center;
+    @apply xl:max-w-screen-2xl md:w-5/6 mx-auto px-4 items-center;
+  }
+  .section-padding {
+    @apply py-14 md:py-20 lg:py-24;
+  }
+  .padding-top {
+    @apply pt-14 md:pt-20 lg:pt-24;
+  }
+  .padding-bottom {
+    @apply pb-14 md:pb-20 lg:pb-24;
+  }
+  .margin-top {
+    @apply mt-14 md:mt-20 lg:mt-24;
+  }
+  .margin-bottom {
+    @apply mb-14 md:mb-20 lg:mb-24;
+  }
+  .btn-primary {
+    @apply px-4 py-2 md:px-6 md:py-3 rounded-lg bg-[#E07E27]   text-white text-sm md:text-base text-center cursor-pointer;
+  }
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full border-2 border-white bg-white text-blue-600 font-medium text-base;
+  }
+  .btn-black {
+    @apply inline-block px-6 py-2 rounded-full bg-black text-white text-sm md:text-base;
+  }
+  .sub-heading {
+    @apply text-red-600 text-sm lg:text-base xl:text-lg font-normal;
+  }
+  .section-width2 {
+    @apply w-full max-w-screen-xl mx-auto px-4;
   }
 }
+
 @layer base {
   h1 {
-    @apply 6xl:text-[150px] 3xl:text-[90px] 2xl:text-[77px] xl:text-[64px] lg:text-[52px] md:text-[36px] text-[32px]  md:tracking-[-1.92px] tracking-[-0.96px] leading-tight xl:leading-tight font-semibold 2xl:leading-tight;
+    @apply 2xl:text-[64px] xl:text-[54px] lg:text-[48px] md:text-[36px] text-[28px]  md:tracking-[-1.92px] tracking-[-0.96px] leading-tight xl:leading-tight font-semibold 2xl:leading-tight;
   }
 
   h2 {
-    @apply 6xl:text-[100px] 2xl:text-[56px] xl:text-[44px] lg:text-[36px] md:text-[32px] text-2xl md:tracking-[-0.96px] font-semibold 2xl:leading-tight;
+    @apply 2xl:text-[40px] xl:text-[36px] lg:text-[32px] md:text-[28px] text-2xl md:tracking-[-0.96px] font-semibold 2xl:leading-tight;
   }
 
   h3 {
@@ -107,13 +133,11 @@ body {
   }
 }
 
-
-
 /* HTML: <div class="parallelogram"></div> */
 .parallelogram {
   --p: 90px; /* control the shape (can be percentage) */
   height: 200px;
   aspect-ratio: 5/2;
-  clip-path: polygon(0 0,calc(100% - var(--p)) 0,100% 100%,var(--p) 100%);
-  background: #D95B43;
+  clip-path: polygon(0 0, calc(100% - var(--p)) 0, 100% 100%, var(--p) 100%);
+  background: #d95b43;
 }

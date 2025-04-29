@@ -6,8 +6,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 const Navbar = () => {
   return (
-    <div className="bg-transparent z-50 absolute top-[5%] w-full">
-      <nav className="flex justify-between items-center container mx-auto section-width">
+    <div className="bg-transparent z-50 absolute top-[20px] w-full">
+      <nav className="flex justify-between items-center  section-width">
         {/* Logo Section */}
         <div className="flex-shrink-0">
           <Link href="/">

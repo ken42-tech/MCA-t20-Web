@@ -3,17 +3,18 @@ import Hero from "@/components/home/hero";
 import AboutT2C from "@/components/home/aboutT2C";
 import Gallery from "@/components/home/Gallery.jsx";
 import LatestUpdates from "@/components/home/LatestUpdates.jsx";
+import HomeTeamSection from "@/components/home/HomeTeamSection";
 export default function Home() {
   return (
     <>
-      <div >
+      <div>
         <Hero />
-        <Fixtures />
+        <HomeTeamSection />
         <LatestUpdates />
-        <AboutT2C />
         <Gallery />
+        {/* <Fixtures /> */}
+        {/* <AboutT2C /> */}
       </div>
-
     </>
   );
 }
