@@ -15,7 +15,7 @@ const MeetMyTeam = () => {
   ];
 
   return (
-    <div className="w-full px-32 bg-white py-20 flex flex-col gap-12">
+    <div className="w-full  bg-white  flex flex-col gap-12">
       <div className="w-full">
         <p className="w-full uppercase text-black text-4xl font-bold">
           Meet The Team
