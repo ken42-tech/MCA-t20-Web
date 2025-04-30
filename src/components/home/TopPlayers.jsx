@@ -1,6 +1,7 @@
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 
+
 const topPlayersData = {
   batsman: {
     rank: 1,
@@ -133,10 +134,12 @@ const TopPlayers = () => {
           maidens={topPlayersData.bowler.maidens}
           leaderboard={topPlayersData.bowler.leaderboard}
         />
+
       </div>
     </div>
   );
 };
+
 
 const TopPlayerCard = ({
   type = "batsman",
