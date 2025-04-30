@@ -36,7 +36,7 @@ const CountdownTimer = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="w-full flex items-center justify-center gap-2 md:gap-4 py-6 bg-[#FDFDFD12]">
+    <div className="w-full flex items-start justify-center gap-2 md:gap-4 py-6 bg-[#FDFDFD12]">
       <TimeBlock label="Days" value={timeLeft.days} />
       <Separator />
       <TimeBlock label="Hours" value={timeLeft.hours} />
