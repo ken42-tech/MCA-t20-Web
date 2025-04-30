@@ -91,17 +91,13 @@ const Page = () => {
 
   return (
     <div className="w-full ">
-      <Hero
-        imgUrl={"/images/stats/bg.svg"}
-        heading="Videos"
-        subheading="Gallery"
-      />
-      <p className="text-4xl py-20 font-bold mb-4 text-black uppercase  section-width ">
+      <Hero imgUrl={"/images/stats/bg.svg"} heading="Gallery" subheading="" />
+      {/* <p className="text-4xl py-20 font-bold mb-4 text-black uppercase  section-width ">
         GALLERY
-      </p>
-      <div className=" pb-20 flex flex-col gap-6 section-width ">
+      </p> */}
+      <div className="flex flex-col gap-6 section-width section-padding ">
         <div className="w-full bg-black">
-          <div className="w-full flex items-center">
+          {/* <div className="w-full flex items-center">
             {tabs.map((tab, index) => (
               <div
                 key={index}
@@ -115,7 +111,7 @@ const Page = () => {
                 {tab}
               </div>
             ))}
-          </div>
+          </div> */}
           <div className="w-full flex items-center justify-center">
             <MediaAll items={filteredItems} />
           </div>

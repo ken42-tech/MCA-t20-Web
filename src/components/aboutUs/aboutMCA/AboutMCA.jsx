@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutMCA = () => {
   return (
-    <div className="w-full bg-black lg:flex  p-10 section-width ">
+    <div className="w-full bg-black lg:flex  p-10 section-width margin-bottom">
       <div className=" lg:w-1/2 w-full p-12 pb-20 pr-32 flex items-center justify-center">
         <Image
           src={"/images/aboutUs/aboutMCA/image 118.svg"}

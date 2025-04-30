@@ -4,24 +4,25 @@ import "./style.css";
 
 const Footer = () => {
   return (
-    <div className=" w-full bg-black h-auto px-8 flex justify-center items-center gap-[20px]">
-      <div className=" flex justify-between  section-width flex-col md:flex-row gap-[60px] py-12   ">
-        <div className="footer-col-1 md:w-[20%] h-full flex justify-center  items-start flex-col pt-[20px] gap-[30px]  ">
+    <div className=" w-full bg-black h-auto  flex justify-center items-center gap-[20px]">
+      <div className=" flex justify-between items-center section-width flex-col md:flex-row gap-[60px] py-8   ">
+        <div className="footer-col-1 md:w-[20%] h-full flex justify-center  items-start flex-col   gap-[30px]  ">
           <div className="footer-logo">
             <Image
               src="/images/footer/t20logo.svg"
               alt="T20 Mumbai"
+              className="h-32 w-auto"
               width={203}
               height={100}
             />
           </div>
-          <div className="text-[#999999] font-plusjakarta font-medium  text-[19.47px] leading-[34.07px] tracking-normal">
+          {/* <div className="text-[#999999] font-plusjakarta font-medium  text-[19.47px] leading-[34.07px] tracking-normal">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ac
             neque sit amet sem varius feugiat eget at quam.{" "}
-          </div>
+          </div> */}
         </div>
         <div className="footer-col-2 w-[80%] h-full">
-          <div className=" w-full grid lg:grid-cols-6 md:grid-cols-3 grid-cols-1 gap-5 ">
+          {/* <div className=" w-full grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-5 ">
             <div>
               <h4 className="text-[#E07E27] mb-2 font-inter font-normal text-[20px] leading-[22.5px] tracking-[-0.045em] align-middle uppercase">
                 LATEST UPDATES
@@ -72,7 +73,7 @@ const Footer = () => {
                 <li>Code of Conduct</li>
               </ul>
             </div>
-            <div>
+             <div>
               <div className="footer-image flex justify-center flex-col gap-[20px] ">
                 <Image
                   src="/images/footer/Appstore.svg"
@@ -87,8 +88,8 @@ const Footer = () => {
                   height={100}
                 />
               </div>
-            </div>
-          </div>
+            </div> 
+          </div> */}
           <div className="flex-wrap w-full  flex justify-between items-center flex-row gap-[20px] pt-[50px]">
             <div className="flex   gap-1">
               <a
@@ -118,24 +119,39 @@ const Footer = () => {
                   Connect with us:
                 </div>
                 <div className="flex gap-4">
-                  <Image
-                    src="/images/footer/insta.svg"
-                    alt="Google"
-                    width={24}
-                    height={24}
-                  />
-                  <Image
-                    src="/images/footer/twitter.svg"
-                    alt="Google"
-                    width={24}
-                    height={24}
-                  />
-                  <Image
-                    src="/images/footer/youtube.svg"
-                    alt="Google"
-                    width={24}
-                    height={24}
-                  />
+                  <a
+                    target="_blank"
+                    href={"https://www.facebook.com/T20Mumbai"}
+                  >
+                    <Image
+                      src="/images/footer/insta.svg"
+                      alt="Google"
+                      width={24}
+                      height={24}
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={"https://www.facebook.com/T20Mumbai"}
+                  >
+                    <Image
+                      src="/images/footer/twitter.svg"
+                      alt="Google"
+                      width={24}
+                      height={24}
+                    />
+                  </a>
+                  <a
+                    target="_blank"
+                    href={"https://www.facebook.com/T20Mumbai"}
+                  >
+                    <Image
+                      src="/images/footer/youtube.svg"
+                      alt="Google"
+                      width={24}
+                      height={24}
+                    />
+                  </a>
                 </div>
               </div>
             </div>

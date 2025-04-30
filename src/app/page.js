@@ -17,14 +17,15 @@ export default function Home() {
         <HomeTeamSection />
         <LatestUpdates />
         <Socials />
+
         <Gallery />
-        <News />
- 
+        {/* <News /> */}
+
         {/* <IconPlayers /> */}
         {/* <Sponsorship /> */}
- 
-        <TopPlayers/>
- 
+
+        {/* <TopPlayers/> */}
+
         {/* <Fixtures />
         <AboutT2C /> */}
       </div>

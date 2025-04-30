@@ -10,6 +10,7 @@ const routes = {
   latestUpdates: "/latest-updates",
   aboutUs: "/aboutUs",
   media: "/media",
+  gallery: "/gallery",
 
   // navbar buttons
   signIn: "#",

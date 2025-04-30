@@ -11,7 +11,7 @@ const page = () => {
       <div className="flex flex-col gap-28">
         <T20Mumbai />
         <AboutMCA />
-        <AboutPS />
+        {/* <AboutPS /> */}
       </div>
     </div>
   );
