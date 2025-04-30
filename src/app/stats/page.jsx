@@ -34,7 +34,7 @@ const Stats = () => {
         {/* Tab and Filter Section */}
         <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-4 cursor-pointer">
           {/* Tabs Section */}
-          <div className="w-full md:w-[30%] flex items-center justify-start gap-4 md:gap-2 overflow-x-auto">
+          <div className="w-full md:w-[30%] flex items-center justify-start gap-4 md:gap-6 overflow-x-auto">
             <p
               className={`font-semibold text-xl uppercase pb-2 whitespace-nowrap ${
                 selected == "batting"
@@ -808,13 +808,13 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer }) => {
               <td className="py-2 px-4 border-r text-center border-[#222222]">
                 {player.runs}
               </td>
-              <td className="py-2 px-4 border-r text-center bg-[#0B1220] border-[#222222]">
+              <td className="py-2 px-4 border-r text-center  border-[#222222]">
                 {player.wkts}
               </td>
               <td className="py-2 px-4 border-r text-center border-[#222222]">
                 {player.bbi}
               </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
+              <td className="py-2 px-4 border-r text-center bg-[#0B1220] border-[#222222]">
                 {player.avg}
               </td>
               <td className="py-2 px-4 border-r text-center border-[#222222]">

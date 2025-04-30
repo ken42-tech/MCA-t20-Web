@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/footer/footer";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar/navbar";
+import Solutions from "@/components/home/solutions/Solution";
 
 export const metadata = {
   openGraph: {
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         {children}
+        <Solutions />
         <Footer />
       </body>
     </html>

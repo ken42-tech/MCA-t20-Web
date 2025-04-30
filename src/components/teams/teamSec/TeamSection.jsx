@@ -1,7 +1,7 @@
 "use client";
 
-import Image from 'next/image';
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
 const TeamSection = () => {
   return (
@@ -39,7 +39,9 @@ const TeamSection = () => {
         </div>
 
         <div className="w-full flex flex-col items-center justify-center mt-6 gap-8">
-          <p className="text-2xl font-bold uppercase text-white">upcoming matches</p>
+          <p className="text-2xl font-bold uppercase text-white">
+            upcoming matches
+          </p>
           <div className="w-full flex gap-6">
             <Card isLive={true} />
             <Card isLive={true} />
@@ -80,10 +82,18 @@ const Card = ({ isLive }) => {
   return (
     <div className="w-[20%] h-28 border-[0.5px] rounded-lg overflow-hidden">
       <div className="w-full h-[20%] bg-[#E07E27] flex items-center justify-between px-6">
-        <p className="font-bold text-white text-[8px] uppercase">SEASON 1 2025</p>
-        <p className="font-bold text-white text-[8px] uppercase">3 MONTHS TO GO</p>
+        <p className="font-bold text-white text-[8px] uppercase">
+          SEASON 1 2025
+        </p>
+        <p className="font-bold text-white text-[8px] uppercase">
+          3 MONTHS TO GO
+        </p>
       </div>
-      <div className={`w-full h-full text-white ${isLive ? "bg-black" : "bg-[#F5F5F5]"}`}>
+      <div
+        className={`w-full h-full text-white ${
+          isLive ? "bg-black" : "bg-[#F5F5F5]"
+        }`}
+      >
         <div className="w-full h-[80%] flex items-center justify-between px-2">
           {/* Team A */}
           <div className="w-[35%] h-full flex flex-col items-center justify-between gap-2 py-2">
@@ -95,7 +105,11 @@ const Card = ({ isLive }) => {
                 className="w-7 h-7"
                 alt="team-a"
               />
-              <p className={`text-[7.411px] font-medium leading-none text-center ${!isLive && "text-black"}`}>
+              <p
+                className={`text-[7.411px] font-medium leading-none text-center ${
+                  !isLive && "text-black"
+                }`}
+              >
                 TRIUMPH KNIGHTS MUMBAI NORTH EAST
               </p>
             </div>
@@ -115,7 +129,11 @@ const Card = ({ isLive }) => {
                 className="w-7 h-7"
                 alt="team-b"
               />
-              <p className={`text-[7.411px] font-medium leading-none text-center ${!isLive && "text-black"}`}>
+              <p
+                className={`text-[7.411px] font-medium leading-none text-center ${
+                  !isLive && "text-black"
+                }`}
+              >
                 Eagle THANE STRIKERS
               </p>
             </div>
