@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React from "react";
 import TeamCard from "../common/TeamCard";
+import TitleComponent from "../common/TitleComponent";
 
 const teamsDataHomePage = [
   {
@@ -74,17 +75,7 @@ const HomeTeamSection = () => {
   return (
     <>
       <div className="section-width padding-top">
-        <div className="relative h-fit px-8 py-2 bg-gradient-to-r from-black to-[#213375] xl:w-[480px] lg:w-[320px] rounded-md mb-12">
-          <Image
-            src={"/images/elements/header-element.png"}
-            width={50}
-            height={50}
-            className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
-            alt="Logo"
-          />
-          <h2 className="text-white">Teams</h2>
-        </div>
-
+        <TitleComponent title={"Teams"} />
         <div className="w-full flex flex-col gap-7 relative">
           <div className="w-full overflow-x-auto py-8 scrollbar-hide">
             <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 ">

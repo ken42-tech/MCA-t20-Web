@@ -9,7 +9,6 @@ const Teams = () => {
     <div>
       <TeamSection/>
       <MeetMyTeam/>
-      <AboutT2C/>
     </div>
   )
 }
