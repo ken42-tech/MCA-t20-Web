@@ -232,7 +232,13 @@ const Gallery = () => {
   // View Gallery button component
   const ViewGalleryButton = () => (
     <Link href={"/media"}>
-      <div className="w-48 bg-[#E07E27] flex items-center justify-between py-3 px-6">
+      <div
+        className="w-48  flex items-center justify-between py-3 px-6"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
+        }}
+      >
         <p className="text-sm font-bold">View Gallery</p>
         <Image
           src={"/images/home/whyT2C/octicon_play-24 (1).svg"}
