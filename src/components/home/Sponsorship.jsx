@@ -1,7 +1,7 @@
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 
-const News = () => {
+const Sponsorship = () => {
   const newsData = [
     {
       img: "/images/home/news1.png",
@@ -19,7 +19,7 @@ const News = () => {
   ];
   return (
     <div className="section-width section-padding">
-      <TitleComponent title={"News"} />
+      <TitleComponent title={"Sponsorship"} />
 
       <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8  mx-auto">
         {newsData.map((item, index) => (
@@ -30,9 +30,7 @@ const News = () => {
               backgroundImage: `url(${item.img})`,
             }}
           >
-            {/* If you prefer using <Image> instead of background-image: */}
-            {/* <Image src={item.img} fill className="rounded-xl object-cover" alt="social img" /> */}
-
+            {/* <Image src={"/images/logo/mcaLogo.png"} /> */}
             <div className="bg-black h-24 from-black from-[50%] to-transparent to-[10%] mt-auto p-5   rounded-b-xl absolute bottom-0 w-full">
               <h6 className="text-white text-center max-w-sm mx-auto 2xl:text-xl md:text-base text- font-normal">
                 {item.title}
@@ -40,15 +38,9 @@ const News = () => {
             </div>
           </div>
         ))}
-
-        {/* <div className="">
-          <div className="bg-[#E07E27] px-5 py-5 rounded-t-xl">
-            <p>@t20mumbai</p>
-          </div>
-        </div> */}
       </div>
     </div>
   );
 };
 
-export default News;
+export default Sponsorship;

@@ -117,7 +117,7 @@ const Gallery = () => {
         setLayoutConfig([
           [1, 3, 1, 2], // 4 images
           [1, 3, 3], // 3 images
-          [1, 3, 1, 2], // 4 images
+          // [1, 3, 1, 2], // 4 images
         ]);
       }
     }
@@ -156,7 +156,7 @@ const Gallery = () => {
           }
 
           return (
-            <div key={rowIndex} className="h-[30vh] w-full">
+            <div key={rowIndex} className="h-[300px] w-full">
               <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
                 {row.map((span, colIndex) => {
                   // Stop rendering if we've shown all items

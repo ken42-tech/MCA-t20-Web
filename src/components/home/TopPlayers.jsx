@@ -1,7 +1,7 @@
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 
-const News = () => {
+const TopPlayers = () => {
   const newsData = [
     {
       img: "/images/home/news1.png",
@@ -19,7 +19,7 @@ const News = () => {
   ];
   return (
     <div className="section-width section-padding">
-      <TitleComponent title={"News"} />
+      <TitleComponent title={"Top Players"} />
 
       <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-8  mx-auto">
         {newsData.map((item, index) => (
@@ -51,4 +51,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default TopPlayers;
