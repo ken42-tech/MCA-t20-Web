@@ -4,14 +4,14 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <>
-      <div className="w-full bg-[url('/images/home/hero/heroImgRohitPattern.png')] bg-cover bg-center relative pt-32 overflow-hidden">
+      <div className="w-full bg-[url('/images/home/hero/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden">
         {/* <Image
           src="/images/home/bg2.png"
           alt="background"
           fill
           className="object-cover z-0"
         /> */}
-        <div className="section-width pt-52 pb-32">
+        <div className="section-width lg:pt-52 md:pt-32 sm:pt-24 pb-32">
           <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
             <p className="font-bold text-sm md:text-base xl:text-xl">
               T20 Mumbai Season 3
