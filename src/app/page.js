@@ -19,8 +19,12 @@ export default function Home() {
         <Socials />
         <Gallery />
         <News />
+ 
         {/* <IconPlayers /> */}
         {/* <Sponsorship /> */}
+ 
+        <TopPlayers/>
+ 
         {/* <Fixtures />
         <AboutT2C /> */}
       </div>
