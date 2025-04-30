@@ -11,10 +11,8 @@ const page = () => {
         heading="Standings"
         subheading="Player Profile"
       />
-      <div className=" bg-white section-width">
-        <PlayerProfile />
-        <MeetMyTeam />
-      </div>
+      <PlayerProfile />
+      <MeetMyTeam />
     </>
   );
 };

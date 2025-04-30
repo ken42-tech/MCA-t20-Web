@@ -36,14 +36,14 @@ const wicketKeepers = [
 
 const MeetMyTeam = () => {
   return (
-    <div className="bg-white  py-10">
+    <div className="bg-white  pt-4 pb-10 section-width">
       <TitleComponent title="Meet the Team" />
       <div className="w-full flex flex-col md:flex-row justify-between">
-        <div className=" w-full md:w-[48%] lg:w-[48%] flex flex-col gap-4 mt-6">
+        <div className=" w-full md:w-[48%] lg:w-[48%] flex flex-col gap-10 mt-6">
           <Table role="batsman" PlayerData={batsmen} />
           <Table role="bowlers" PlayerData={bowlers} />
         </div>
-        <div className=" w-full md:w-[48%] lg:w-[48%] flex flex-col gap-4 mt-6">
+        <div className=" w-full md:w-[48%] lg:w-[48%] flex flex-col gap-10 mt-6">
           <Table role="all rounders" PlayerData={allRounders} />
           <Table role="Wicket Keeper" PlayerData={wicketKeepers} />
         </div>
@@ -55,10 +55,10 @@ const MeetMyTeam = () => {
 const Table = ({ role, PlayerData }) => {
   return (
     <div className=" overflow-hidden">
-      <h5 className="bg-[#F28C28] p-3 xl:p-6 font-bold text-black  uppercase">
+      <h5 className="bg-[#F28C28] px-6 py-3 font-bold text-black uppercase">
         {role}
       </h5>
-      <div className="bg-black text-white">
+      <div className="bg-[rgba(15,26,45,1)] text-white">
         {PlayerData.map((player, index) => (
           <div
             key={index}
