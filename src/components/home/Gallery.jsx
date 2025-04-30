@@ -4,82 +4,91 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import Link from "next/link";
+import routes from "@/utilis/route";
 
 const Gallery = () => {
   const tabs = ["All", "View Videos", "View Images"];
   const [activeTab, setActiveTab] = useState("All");
+  const [showModal, setShowModal] = useState(false);
+  const [modalImage, setModalImage] = useState(null);
 
   const items = [
     {
-      type: "video",
+      type: "",
       title: "Final: SS vs NMP",
       date: "27 May, 2025",
-      img: "/images/media/video1.svg",
+      img: "/images/gallery/img3.jpg",
       views: 1289,
     },
     {
       type: "",
       title: "T20 Mumbai Promo",
       date: "",
-      img: "/images/media/image1.svg",
+      img: "/images/gallery/img2.jpg",
       views: 1500,
     },
     {
-      type: "image",
+      type: "",
       title: "Match 19: NBB vs ETS",
       date: "22 May, 2025",
-      img: "/images/media/image2.svg",
+      img: "/images/gallery/img11.jpg",
     },
     {
-      type: "image",
+      type: "",
       title: "Dreams do come true:",
       date: "27 May, 2025",
-      img: "/images/media/g4.svg",
+      img: "/images/gallery/img4.jpg",
     },
     {
-      type: "image",
+      type: "",
       title: "T20 Mumbai Promo",
       date: "",
-      img: "/images/media/g5.jpg",
+      img: "/images/gallery/img12.jpg",
       views: 1500,
     },
     {
-      type: "image",
+      type: "",
       title: "Match 19: NBB vs ETS",
       date: "22 May, 2025",
-      img: "/images/media/g6.jpg",
+      img: "/images/gallery/img10.jpg",
     },
     {
-      type: "video",
+      type: "",
       title: "Dreams do come true:",
       date: "27 May, 2025",
-      img: "/images/media/g7.svg",
+      img: "/images/gallery/img7.jpg",
     },
     {
-      type: "video",
+      type: "",
       title: "Final: SS vs NMP",
       date: "27 May, 2025",
-      img: "/images/media/video1.svg",
+      img: "/images/gallery/img8.jpg",
       views: 1289,
     },
     {
-      type: "image",
+      type: "",
       title: "T20 Mumbai Promo",
       date: "",
-      img: "/images/media/g9.svg",
+      img: "/images/gallery/img9.jpg",
       views: 1500,
     },
     {
-      type: "image",
+      type: "",
       title: "Match 19: NBB vs ETS",
       date: "22 May, 2025",
-      img: "/images/media/g10.svg",
+      img: "/images/gallery/img.10jpg",
     },
     {
-      type: "image",
+      type: "",
       title: "Dreams do come true:",
       date: "27 May, 2025",
-      img: "/images/media/g11.svg",
+      img: "/images/gallery/img11.jpg",
+    },
+    {
+      type: "",
+      title: "Dreams do come true:",
+      date: "27 May, 2025",
+      img: "/images/gallery/img12.jpg",
     },
   ];
 
@@ -91,7 +100,7 @@ const Gallery = () => {
       : items.filter((item) => item.type === "image");
 
   const [layoutConfig, setLayoutConfig] = useState([
-    [1, 3, 1, 2],
+    [2, 3, 1, 2],
     [1, 3, 3],
     [1, 3, 1, 2],
   ]);
@@ -180,6 +189,10 @@ const Gallery = () => {
                     <div
                       key={colIndex}
                       className={`relative col-span-${span} overflow-hidden bg-white/30`}
+                      onClick={() => {
+                        setModalImage(item.img);
+                        setShowModal(true);
+                      }}
                     >
                       <Image
                         src={item.img}
@@ -229,9 +242,8 @@ const Gallery = () => {
     );
   };
 
-  // View Gallery button component
   const ViewGalleryButton = () => (
-    <Link href={"/media"}>
+    <Link href={routes.gallery}>
       <div
         className="w-48  flex items-center justify-between py-3 px-6"
         style={{
@@ -264,7 +276,7 @@ const Gallery = () => {
 
       <div className="flex flex-col gap-6 section-width">
         <div className="w-full bg-black">
-          <div className="w-full flex items-center">
+          {/* <div className="w-full flex items-center">
             {tabs.map((tab, index) => (
               <div
                 key={index}
@@ -278,7 +290,7 @@ const Gallery = () => {
                 {tab}
               </div>
             ))}
-          </div>
+          </div> */}
           <div className="w-full flex items-center justify-center">
             {renderMediaGrid(filteredItems)}
           </div>
@@ -289,6 +301,28 @@ const Gallery = () => {
           <ViewGalleryButton />
         </div>
       </div>
+      {showModal && (
+        <div
+          className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
+          onClick={() => setShowModal(false)}
+        >
+          <div className="relative max-w-4xl w-full max-h-[90vh]">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute -top-5 -right-5 bg-white text-black p-3 py-2 rounded-full text-sm z-50 font-bold"
+            >
+              ✕
+            </button>
+            <Image
+              src={modalImage}
+              alt="popup"
+              width={1000}
+              height={800}
+              className="w-full h-auto object-contain rounded"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,8 +1,13 @@
 import Image from "next/image";
+import { truncateTextSpells } from "@/utilis/helper";
 
-const UpdatesCard = ({ data }) => {
+const UpdatesCard = ({ data, onClick }) => {
+  console.log(onClick, "first");
   return (
-    <div className="w-full h-[370px] rounded-md relative overflow-hidden">
+    <div
+      className="w-full h-[370px] rounded-md relative overflow-hidden"
+      onClick={onClick}
+    >
       {/* Image */}
       <Image
         src={data?.imgUrl}
@@ -17,8 +22,12 @@ const UpdatesCard = ({ data }) => {
       {/* Content */}
       <div className="w-full h-full flex items-end p-8 z-20 text-white justify-between relative">
         <div className="w-[80%] flex flex-col justify-between">
-          <p className="font-bold text-xl">{data?.Title}</p>
-          <p className="text-[#F6F9FF] text-base">{data?.subTitle}</p>
+          <p className="font-bold text-xl">
+            {truncateTextSpells(data?.Title, 30)}
+          </p>
+          <p className="text-[#F6F9FF] text-base">
+            {truncateTextSpells(data?.subTitle, 40)}
+          </p>
         </div>
         <div className="w-10 h-10 lg:w-12 lg:h-12 md:w-11 md:h-11 bg-[#D25F28E5] rounded-full flex items-center justify-center">
           <Image

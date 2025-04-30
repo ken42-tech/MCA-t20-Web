@@ -1,22 +1,26 @@
-const PlayerCard = ({ image, name }) => {
-  return (
-    <div className="relative w-64 h-80 overflow-hidden rounded-lg m-2">
-      {/* Dark blue background */}
-      <div className="absolute inset-0 bg-blue-900"></div>
+import Image from "next/image";
+import TitleComponent from "../common/TitleComponent";
 
-      {/* Image container */}
-      <div className="h-64 w-full overflow-hidden">
-        <img
-          src={image || "/api/placeholder/240/240"}
+const PlayerCard = ({ image, name }) => {
+  console.log(image);
+  return (
+    <div className="relative   overflow-hidden rounded-lg  bg-[url('/images/home/players/bgTexture.png')] bg-cover bg-center bg-no-repeat flex flex-col">
+      <div className=" w-full relative mt-auto">
+        <div className="w-full  absolute bottom-0 left-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
+        <Image
+          width={300}
+          height={400}
+          src={image}
           alt={name}
-          className="w-full h-full object-cover"
+          className="w-full h-full "
         />
       </div>
 
-      {/* Name label */}
-      <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-        <div className="bg-orange-500 text-white px-4 py-1 rounded-md font-medium text-sm">
-          {name}
+      <div className="bg-[#08113F] w-full p-4">
+        <div className="  flex justify-center">
+          <div className="bg-[#BF5800] border border-[#E07E27] text-white px-4 py-1 rounded-sm font-medium text-sm">
+            {name}
+          </div>
         </div>
       </div>
     </div>
@@ -24,21 +28,45 @@ const PlayerCard = ({ image, name }) => {
 };
 
 export default function IconPlayers() {
-  // Sample player data
   const players = [
-    { id: 1, name: "Aditya Tare", image: "/images/home/" },
-    { id: 2, name: "Aditya Tare", image: "/api/placeholder/240/240" },
-    { id: 3, name: "Aditya Tare", image: "/api/placeholder/240/240" },
-    { id: 4, name: "Aditya Tare", image: "/api/placeholder/240/240" },
-    { id: 5, name: "Aditya Tare", image: "/api/placeholder/240/240" },
-    { id: 6, name: "Aditya Tare", image: "/api/placeholder/240/240" },
-    { id: 7, name: "Aditya Tare", image: "/api/placeholder/240/240" },
-    { id: 8, name: "Aditya Tare", image: "/api/placeholder/240/240" },
+    {
+      id: 1,
+      name: "Suryakumar Yadav",
+      image: "/images/home/players/player1.png",
+    },
+    {
+      id: 2,
+      name: "Shivam Dube",
+      image: "/images/home/players/player2.png",
+    },
+    { id: 3, name: "Shreyas Iyer ", image: "/images/home/players/player3.png" },
+    {
+      id: 4,
+      name: "Ajinkya Rahane ",
+      image: "/images/home/players/player4.png",
+    },
+    { id: 5, name: "Prithvi shaw ", image: "/images/home/players/player5.png" },
+    {
+      id: 6,
+      name: "Sarfaraz Khan ",
+      image: "/images/home/players/player6.png",
+    },
+    {
+      id: 7,
+      name: "Tushar Deshpande ",
+      image: "/images/home/players/player7.png",
+    },
+    {
+      id: 8,
+      name: "Shardul Thakur ",
+      image: "/images/home/players/player8.png",
+    },
   ];
 
   return (
-    <div className="p-4">
-      <div className="flex flex-wrap justify-center">
+    <div className="section-width section-padding">
+      <TitleComponent title={"Icon Players"} />
+      <div className="grid  lg:grid-cols-4 lg:gap-8 md:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
         {players.map((player) => (
           <PlayerCard key={player.id} image={player.image} name={player.name} />
         ))}

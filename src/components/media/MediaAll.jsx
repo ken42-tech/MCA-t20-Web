@@ -6,6 +6,9 @@ const MediaAll = ({ items }) => {
   // Check if items is valid and has elements
   const validItems = Array.isArray(items) && items.length > 0 ? items : [];
 
+  const [showModal, setShowModal] = useState(false);
+  const [modalImage, setModalImage] = useState(null);
+
   const [layoutConfig, setLayoutConfig] = useState([
     [1, 3, 1, 2],
     [1, 3, 3],
@@ -78,7 +81,7 @@ const MediaAll = ({ items }) => {
         }
 
         return (
-          <div key={rowIndex} className="h-[30vh] w-full">
+          <div key={rowIndex} className="h-[250px] w-full">
             <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
               {row.map((span, colIndex) => {
                 // Stop rendering if we've shown all items
@@ -102,6 +105,10 @@ const MediaAll = ({ items }) => {
                   <div
                     key={colIndex}
                     className={`relative col-span-${span} overflow-hidden bg-white/30`}
+                    onClick={() => {
+                      setModalImage(item.img);
+                      setShowModal(true);
+                    }}
                   >
                     {/* Use optional chaining and provide fallback for image */}
                     <Image
@@ -160,6 +167,28 @@ const MediaAll = ({ items }) => {
 
       {/* Hidden utility classes to ensure Tailwind includes them in the build */}
       {/* <div className="hidden col-span-1 col-span-2 col-span-3 col-span-4 col-span-5 col-span-6 col-span-7" /> */}
+      {showModal && (
+        <div
+          className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
+          onClick={() => setShowModal(false)}
+        >
+          <div className="relative max-w-4xl w-full max-h-[90vh]">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute -top-5 -right-5 bg-white text-black p-3 py-2 rounded-full text-sm z-50 font-bold"
+            >
+              ✕
+            </button>
+            <Image
+              src={modalImage}
+              alt="popup"
+              width={1000}
+              height={800}
+              className="w-full h-auto object-contain rounded"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

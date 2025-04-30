@@ -1,7 +1,13 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
+import CountdownTimer from "./CountdownTimer";
 
 const Hero = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  const openVideo = () => setShowVideo(true);
+  const closeVideo = () => setShowVideo(false);
   return (
     <>
       <div className="w-full bg-[url('/images/home/hero/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden">
@@ -23,7 +29,10 @@ const Hero = () => {
             <p className="font-bold text-lg md:text-xl xl:text-2xl">
               #AalaReAglaStar
             </p>
-            <button className="btn-primary flex gap-4 items-center">
+            <button
+              className="btn-primary flex gap-4 items-center"
+              onClick={openVideo}
+            >
               View highlights
               <span>
                 <Image
@@ -52,34 +61,32 @@ const Hero = () => {
                   </p>
                 </div>
               </div>
-
-              <div className="w-full flex items-center justify-center gap-1 md:gap-2 xl:gap-4 py-6 bg-[#FDFDFD12]">
-                <p className="font-bold text-xl xl:text-2xl text-[#E07E27]">
-                  37
-                </p>
-                <p className="font-bold text-xl xl:text-xl">:</p>
-                <p className="font-bold text-xl xl:text-2xl text-[#E07E27]">
-                  17
-                </p>
-                <p className="font-bold text-xl xl:text-xl">:</p>
-                <p className="font-bold text-xl xl:text-2xl text-[#E07E27]">
-                  24
-                </p>
-              </div>
-
-              {/* <div
-                className="py-3 w-full flex items-center justify-center rounded-bl-lg"
-                style={{
-                  background:
-                    "linear-gradient(0deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.48) 1.45%, rgba(0, 0, 0, 0.70) 100%), rgba(255, 255, 255, 0.09)",
-                }}
-              >
-                <p className="text-xs xl:text-base">Upcoming Match</p>
-              </div> */}
+              <CountdownTimer targetDate="2025-05-26T00:00:00" />
             </div>
           </div>
         </div>
       </div>
+      {showVideo && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-80">
+          <div className="relative w-[90%] md:w-[70%] lg:w-[60%] aspect-video bg-black rounded-lg overflow-hidden">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/J7K1hZlm7bU?autoplay=1&rel=0"
+              title="YouTube video"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="rounded-lg"
+            ></iframe>
+            <button
+              onClick={closeVideo}
+              className="absolute top-3 right-3 text-white bg-[#E07E27] rounded-full p-2 w-10 h-10 hover:bg-[#c86a1e]"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };

@@ -15,13 +15,13 @@ export default function Home() {
       <div>
         <Hero />
         <HomeTeamSection />
+        <IconPlayers />
         <LatestUpdates />
         <Socials />
-
         <Gallery />
+
         {/* <News /> */}
 
-        {/* <IconPlayers /> */}
         {/* <Sponsorship /> */}
 
         {/* <TopPlayers/> */}

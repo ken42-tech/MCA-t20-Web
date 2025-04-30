@@ -2,10 +2,17 @@
 import Hero from "@/components/hero/Hero";
 import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
 import Image from "next/image";
-import { useState } from "react";
 import { CardData } from "./data";
+import { useRouter } from "next/navigation";
+import { formatTitleForURL } from "@/utilis/helper";
+import routes from "@/utilis/route";
 
 const page = () => {
+  const router = useRouter();
+
+  const handleLatestUpdateClick = (title) => {
+    router.push(`${routes.latestUpdates}/${formatTitleForURL(title)}`);
+  };
   return (
     <div className="w-full h-auto">
       <Hero
@@ -16,7 +23,11 @@ const page = () => {
       <div className="flex flex-col text-black gap-16 section-width section-padding margin-bottom">
         <div className="w-full grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
           {CardData.slice(0, 12).map((item, index) => (
-            <UpdatesCard data={item} key={index} />
+            <UpdatesCard
+              data={item}
+              key={index}
+              onClick={() => handleLatestUpdateClick(item.title)}
+            />
             // <Card item={item} key={index} />
           ))}
         </div>

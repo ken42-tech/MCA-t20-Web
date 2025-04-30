@@ -47,18 +47,18 @@ const teamsDataHomePage = [
   },
   {
     logo: "/images/home/team/shivajiParkLions.png",
-    team: "Shivaji Park Lions",
+    team: "Mumbai South Central Maratha Royals",
     gradient: {
-      from: "#000",
-      to: "#F15A2C",
+      from: "#1000A1",
+      to: "#B84124",
     },
   },
   {
     logo: "/images/home/team/soboSuperSonics.png",
     team: "SoBo SuperSonics",
     gradient: {
-      from: "#010094",
-      to: "#0000FF",
+      from: "#FFF4E9",
+      to: "#882626",
     },
   },
   {

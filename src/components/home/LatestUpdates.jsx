@@ -3,32 +3,42 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import TitleComponent from "../common/TitleComponent";
+import { truncateTextSpells } from "@/utilis/helper";
+import { useRouter } from "next/navigation";
+import path from "path";
 
 const tabs = ["All", "Latest", "Reviews", "NewSection"];
 
 const updateItems = [
   {
-    title: "Two new teams now officially on board T20 Mumbai season 3",
-    date: "22 April, 2025",
+    title:
+      "Mumbai Cricket Association Opens Player Registration for T20 Mumbai League Season 3",
+    date: "Mumbai, April 3, 2025",
     img: "/images/home/latestUpdate1.jpg",
     bordered: true,
+    path: "/latest-updates/mumbai-cricket-association-opens-player-registration-for-t20-mumbai-league-season-3",
   },
   {
-    title: "Introducing the fierce contenders for Season 3",
-    date: "20 April, 2025",
+    title:
+      "Iconic Wankhede Stadium to Host T20 Mumbai League Season 3 from May 26 to June 8",
+    date: "Mumbai, April 22, 2025",
     img: "/images/home/latestUpdate2.jpg",
     bordered: true,
+    path: "/latest-updates/iconic-wankhede-stadium-to-host-t20-mumbai-league-season-3-from-may-26-to-june-8",
   },
   {
-    title: "Opening ceremony to feature Mumbai icons",
-    date: "18 April, 2025",
+    title:
+      "T20 Mumbai League Season 3 Receives Overwhelming Response with 2800-plus Player Registrations",
+    date: "Mumbai, April 14, 2025",
     img: "/images/home/latestUpdate3.jpg",
     bordered: false,
+    path: "/latest-updates/t20-mumbai-league-season-3-receives-overwhelming-response-with-2800-plus-player-registrations",
   },
 ];
 
 const LatestUpdates = () => {
   // plain JS: no <…> after useState
+  const router = useRouter();
   const [tab, setTab] = useState("All");
 
   return (
@@ -40,14 +50,22 @@ const LatestUpdates = () => {
             <div className="relative w-full h-fit">
               <div className="w-full top-0 left-0 lg:flex">
                 {/* Left Block */}
-                <div className="xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/home/latestUpdateImage.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px]">
-                  <div className="p-10 bottom-0 max-w-lg mt-auto">
+                <div
+                  className="xl:flex-[60%] lg:flex-[55%] flex bg-[url('/images/home/latestUpdateImage.jpg')] bg-cover bg-no-repeat bg-center max-lg:h-[400px] cursor-pointer"
+                  onClick={() => {
+                    router.push(
+                      "/latest-updates/mca-adds-star-power-to-t20-mumbai-league-unveils-rohit-sharma-as-face-of-season-3"
+                    );
+                  }}
+                >
+                  <div className="p-10 bottom-0 max-w-2xl mt-auto">
                     <h3 className="text-white xl:text-3xl sm:text-2xl text-xl font-semibold">
-                      Meet the new face <br /> for T20 Mumbai Season 3
+                      MCA Adds Star Power to T20 Mumbai League, Unveils Rohit
+                      Sharma as Face of Season 3
                     </h3>
                     <ul className="list-disc ml-5 text-[#E07E27] xl:text-base text-sm sm:flex gap-8 md:mt-6 mt-2">
                       <li>Launch Event Press Conference</li>
-                      <li>22 April, 2025</li>
+                      <li>Mumbai, April 18, 2025</li>
                     </ul>
                   </div>
                 </div>
@@ -57,13 +75,16 @@ const LatestUpdates = () => {
                   {updateItems.map((item, index) => (
                     <div
                       key={index}
-                      className={`flex-1 flex justify-between items-center bg-[#BB4B24] hover:bg-[#E07E27] ${
+                      className={`flex-1 flex justify-between items-center bg-[#BB4B24] hover:bg-[#E07E27] cursor-pointer ${
                         item.bordered ? "border-b border-[#E07E27]" : ""
                       }`}
+                      onClick={() => {
+                        router.push(item.path);
+                      }}
                     >
-                      <div className="max-w-72 p-4">
+                      <div className="max-w-80 p-4">
                         <h5 className="mb-2 text-white 2xl:text-2xl xl:text-xl lg:text-base text-sm font-medium">
-                          {item.title}
+                          {truncateTextSpells(item.title, 80)}
                         </h5>
                         <p className="text-black xl:text-base sm:text-sm text-xs font-medium">
                           {item.date}
