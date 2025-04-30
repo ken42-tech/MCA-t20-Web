@@ -4,7 +4,7 @@ import TitleComponent from "../common/TitleComponent";
 
 const PlayerProfile = () => {
   return (
-    <div className="w-full py-10 md:py-20">
+    <div className="section-width py-10 md:py-20">
       <div className="w-full text-black flex flex-col gap-3 md:gap-10">
         <div className="w-full flex flex-col gap-4">
           <TitleComponent title="Player Profile" />
