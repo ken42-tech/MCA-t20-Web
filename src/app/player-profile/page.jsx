@@ -1,23 +1,22 @@
-import Hero from '@/components/hero/Hero'
-import PlayerProfile from '@/components/playerProfile/PlayerProfile'
-import MeetMyTeam from '@/components/teams/meetMyTeam/MeetMyTeam'
-import React from 'react'
+import Hero from "@/components/hero/Hero";
+import PlayerProfile from "@/components/playerProfile/PlayerProfile";
+import MeetMyTeam from "@/components/teams/meetMyTeam/MeetMyTeam";
+import React from "react";
 
 const page = () => {
   return (
     <>
-    
-    <Hero
+      <Hero
         imgUrl={"/images/stats/bg.svg"}
         heading="Standings"
         subheading="Player Profile"
       />
-    <div className=" bg-white section-width">
-      <PlayerProfile />
-      <MeetMyTeam />
-    </div>
+      <div className=" bg-white section-width">
+        <PlayerProfile />
+        <MeetMyTeam />
+      </div>
     </>
   );
-}
+};
 
-export default page
+export default page;

@@ -1,25 +1,47 @@
 "use client";
-import Hero from "@/components/hero/Hero";
 import Image from "next/image";
 import React, { useState } from "react";
-
+import PlayerDetailsHero from "@/components/stats/PlayerDetailsHero";
 const Stats = () => {
   const [selected, setSelected] = useState("batting");
+
+  // Get the appropriate data array based on the selected tab
+  const currentData =
+    selected === "batting"
+      ? battingData
+      : selected === "bowling"
+      ? bowlingData
+      : fieldingData;
+
+  // State for the selected player - initially set to the first player in the table
+  const [selectedPlayer, setSelectedPlayer] = useState(currentData[0]);
+
+  // Update selected player when tab changes
+  const handleTabChange = (tab) => {
+    setSelected(tab);
+    // When changing tabs, set the selected player to the first player in the new data array
+    if (tab === "batting") setSelectedPlayer(battingData[0]);
+    else if (tab === "bowling") setSelectedPlayer(bowlingData[0]);
+    else setSelectedPlayer(fieldingData[0]);
+  };
+
   return (
     <div className="w-full">
-      <Hero imgUrl={"/images/stats/bg.svg"} heading=" Stats" />
+      {/* Hero section - show selected player details */}
+      <PlayerDetailsHero player={selectedPlayer} selectedTab={selected} />
+
       <div className="section-width py-12 flex flex-col gap-10 bg-white text-black">
         {/* Tab and Filter Section */}
         <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-4 cursor-pointer">
           {/* Tabs Section */}
-          <div className="w-full md:w-[30%] flex items-center justify-start gap-4 md:gap-2 overflow-x-auto">
+          <div className="w-full md:w-[30%] flex items-center justify-start gap-4 md:gap-6 overflow-x-auto">
             <p
               className={`font-semibold text-xl uppercase pb-2 whitespace-nowrap ${
                 selected == "batting"
                   ? "border-b-4 border-b-[#E07E27]"
                   : "text-[#6A6A6A]"
               }`}
-              onClick={() => setSelected("batting")}
+              onClick={() => handleTabChange("batting")}
             >
               batting
             </p>
@@ -29,7 +51,7 @@ const Stats = () => {
                   ? "border-b-4 border-b-[#E07E27]"
                   : "text-[#6A6A6A]"
               }`}
-              onClick={() => setSelected("bowling")}
+              onClick={() => handleTabChange("bowling")}
             >
               bowling
             </p>
@@ -39,7 +61,7 @@ const Stats = () => {
                   ? "border-b-4 border-b-[#E07E27]"
                   : "text-[#6A6A6A]"
               }`}
-              onClick={() => setSelected("fielding")}
+              onClick={() => handleTabChange("fielding")}
             >
               fielding
             </p>
@@ -83,7 +105,11 @@ const Stats = () => {
 
         {/* Table Section with Horizontal Scroll on Mobile */}
         <div className="w-full overflow-x-auto">
-          <PlayerTable selected={selected} />
+          <PlayerTable
+            selected={selected}
+            onPlayerSelect={setSelectedPlayer}
+            selectedPlayer={selectedPlayer}
+          />
         </div>
       </div>
     </div>
@@ -136,14 +162,13 @@ const DropDown = ({ label, options, bg }) => {
   );
 };
 
-// Batting data
 const battingData = [
   {
     pos: 1,
     player: "Prithvi Shaw",
     team: "North Mumbai Panthers",
     teamLogo: "/images/stats/l1.svg",
-    playerImg: "/images/stats/player-img.svg",
+    playerImg: "/images/stats/player1.svg",
     mat: 6,
     no: 1,
     runs: 249,
@@ -327,7 +352,7 @@ const bowlingData = [
     player: "Prashant Solanki",
     team: "Eagle Thane Strikers",
     teamLogo: "/images/stats/l1.svg",
-    playerImg: "/images/stats/player-img.svg",
+    playerImg: "/images/stats/player2.svg",
     mat: 2,
     overs: 7,
     maidens: 0,
@@ -628,7 +653,7 @@ const fieldingData = [
   },
 ];
 
-const PlayerTable = ({ selected }) => {
+const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer }) => {
   // Determine which data to use based on selected tab
   const playerData =
     selected === "batting"
@@ -692,128 +717,140 @@ const PlayerTable = ({ selected }) => {
 
   // Define table rows based on selected tab
   const getTableRows = () => {
-    return playerData.map((player, index) => (
-      <tr key={index} className="border-b border-[#222222]">
-        <td className="py-2 px-4 border-r text-center border-[#222222]">
-          {player.pos}
-        </td>
-        <td className="py-2 px-4 border-r border-[#222222]">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-slate-900 overflow-hidden relative">
-              <Image
-                src={player.playerImg}
-                width={100}
-                height={100}
-                alt={player.player}
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <p className="font-semibold">{player.player}</p>
-              <div className="flex items-center gap-2 text-xs">
+    return playerData.map((player, index) => {
+      // Check if this is the currently selected player
+      const isSelected = player.player === selectedPlayer.player;
+      const rowClass = isSelected
+        ? "border-b bg-[#15243A] border-[#222222] cursor-pointer"
+        : "border-b bg-[#0F1A2D] border-[#222222] hover:bg-[#15243A] cursor-pointer";
+
+      return (
+        <tr
+          key={index}
+          className={rowClass}
+          onClick={() => onPlayerSelect(player)}
+        >
+          <td className="py-2 px-4 border-r text-center border-[#222222]">
+            {player.pos}
+          </td>
+          <td className="py-2 px-4 border-r border-[#222222]">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-slate-900 overflow-hidden relative">
                 <Image
-                  src={player.teamLogo}
-                  width={16}
-                  height={16}
-                  alt={player.team}
+                  src={player.playerImg}
+                  width={100}
+                  height={100}
+                  alt={player.player}
+                  className="object-cover"
                 />
-                <span className="text-gray-400">{player.team}</span>
+              </div>
+              <div>
+                <p className="font-semibold">{player.player}</p>
+                <div className="flex items-center gap-2 text-xs">
+                  <Image
+                    src={player.teamLogo}
+                    width={16}
+                    height={16}
+                    alt={player.team}
+                  />
+                  <span className="text-gray-400">{player.team}</span>
+                </div>
               </div>
             </div>
-          </div>
-        </td>
-        <td className="py-2 px-4 border-r text-center border-[#222222]">
-          {player.mat}
-        </td>
+          </td>
+          <td className="py-2 px-4 border-r text-center border-[#222222]">
+            {player.mat}
+          </td>
 
-        {selected === "batting" && (
-          <>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.no}
-            </td>
-            <td className="py-2 px-4 border-r text-center bg-[#420202d3] border-[#222222]">
-              {player.runs}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.hs}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.ave}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.sr}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.hundreds}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.fifties}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.fours}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.sixes}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.ducks}
-            </td>
-          </>
-        )}
+          {selected === "batting" && (
+            <>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.no}
+              </td>
+              <td className="py-2 px-4 border-r text-center bg-[#0B1220] border-[#222222]">
+                {player.runs}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.hs}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.ave}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.sr}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.hundreds}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.fifties}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.fours}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.sixes}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.ducks}
+              </td>
+            </>
+          )}
 
-        {selected === "bowling" && (
-          <>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.overs}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.maidens}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.runs}
-            </td>
-            <td className="py-2 px-4 border-r text-center bg-[#420202d3] border-[#222222]">
-              {player.wkts}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.bbi}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.avg}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.econ}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.sr}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.threeW}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.fiveW}
-            </td>
-          </>
-        )}
+          {selected === "bowling" && (
+            <>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.overs}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.maidens}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.runs}
+              </td>
+              <td className="py-2 px-4 border-r text-center  border-[#222222]">
+                {player.wkts}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.bbi}
+              </td>
+              <td className="py-2 px-4 border-r text-center bg-[#0B1220] border-[#222222]">
+                {player.avg}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.econ}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.sr}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.threeW}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.fiveW}
+              </td>
+            </>
+          )}
 
-        {selected === "fielding" && (
-          <>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.catches}
-            </td>
-            <td className="py-2 px-4 border-r text-center bg-[#420202d3] border-[#222222]">
-              {player.dismissals}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.runOuts}
-            </td>
-            <td className="py-2 px-4 border-r text-center border-[#222222]">
-              {player.stumpings}
-            </td>
-          </>
-        )}
-      </tr>
-    ));
+          {selected === "fielding" && (
+            <>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.catches}
+              </td>
+              <td className="py-2 px-4 border-r text-center bg-[#0B1220] border-[#222222]">
+                {player.dismissals}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.runOuts}
+              </td>
+              <td className="py-2 px-4 border-r text-center border-[#222222]">
+                {player.stumpings}
+              </td>
+            </>
+          )}
+        </tr>
+      );
+    });
   };
 
   return (
