@@ -7,66 +7,70 @@ const page = () => {
   const CardData = [
     {
       imgUrl: "/images/latestUpdates/p1.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Investor Spotlight",
+      subTitle: "Insights from top VC leaders across Asia.",
     },
     {
       imgUrl: "/images/latestUpdates/p2.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "T20 Mumbai Returns",
+      subTitle: "Season 3 gets green-lit with new rules.",
     },
     {
       imgUrl: "/images/latestUpdates/p3.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "The Rise of Local Talent",
+      subTitle: "Meet the emerging stars of Mumbai cricket.",
     },
     {
       imgUrl: "/images/latestUpdates/sachin.svg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Sachin’s Legacy",
+      subTitle: "Reflections on 30 years of greatness.",
     },
     {
       imgUrl: "/images/latestUpdates/p1.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Matchday Evolution",
+      subTitle: "How tech is transforming the stadium experience.",
     },
     {
       imgUrl: "/images/latestUpdates/p2.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Pitch Science",
+      subTitle: "Exploring the tech behind smart turf.",
     },
     {
       imgUrl: "/images/latestUpdates/p3.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Sustainability in Sports",
+      subTitle: "Green initiatives powering T20 Mumbai.",
     },
     {
       imgUrl: "/images/latestUpdates/sachin.svg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Legends Meet",
+      subTitle: "Sachin and Lara reunite for a cause.",
     },
     {
       imgUrl: "/images/latestUpdates/p1.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Behind the Scenes",
+      subTitle: "What it takes to run a tournament like T20 Mumbai.",
     },
     {
       imgUrl: "/images/latestUpdates/p2.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "AI + Cricket",
+      subTitle: "How data is shaping modern cricket strategies.",
     },
     {
       imgUrl: "/images/latestUpdates/p3.jpg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Women in League",
+      subTitle: "Celebrating women’s cricket talent and milestones.",
     },
     {
       imgUrl: "/images/latestUpdates/sachin.svg",
-      Title: "Investors",
-      subTitle: "VC funds, Angel Investors and networks",
+      Title: "Youth Academies",
+      subTitle: "Building the next-gen players from the ground up.",
     },
   ];
-  const [selected, setSelected] = useState("news");
+
+  const [selectedTab, setSelectedTab] = useState("news");
+
+  const TABS = ["news", "events", "blogs"];
+  const SORT_OPTIONS = ["This Week", "This Month"];
   return (
     <div className="w-full h-auto">
       <Hero
@@ -74,10 +78,23 @@ const page = () => {
         heading="Latest Updates"
         subheading="Keep Up With Cricket"
       />
-      <div className="w-full  mt-12 p-5 flex flex-col bg-white text-black gap-16 section-width">
+      <div className="flex flex-col text-black gap-16 section-width padding-top">
         <div className="w-full flex items-center justify-between cursor-pointer ">
           <div className="w-[25%] sm:flex gap-5 items-center justify-between">
-            <p
+            {TABS.map((tab) => (
+              <p
+                key={tab}
+                className={`font-semibold text-xl uppercase pb-2 cursor-pointer ${
+                  selectedTab === tab
+                    ? "border-b-4 border-b-[#E07E27]"
+                    : "text-[#6A6A6A]"
+                }`}
+                onClick={() => setSelectedTab(tab)}
+              >
+                {tab}
+              </p>
+            ))}
+            {/* <p
               className={`font-semibold text-xl uppercase pb-2 ${
                 selected == "news"
                   ? "border-b-4 border-b-[#E07E27] "
@@ -106,14 +123,15 @@ const page = () => {
               onClick={() => setSelected("blogs")}
             >
               Blogs
-            </p>
+            </p> */}
           </div>
           <div className=" w-[60%] flex items-center  justify-end">
-            <DropDown
+            {/* <DropDown
               label={"Sort by"}
               options={["This Week", "This Month"]}
               bg={"white"}
-            />
+            /> */}
+            <DropDown label="Sort by" options={SORT_OPTIONS} bg="white" />
           </div>
         </div>
 
