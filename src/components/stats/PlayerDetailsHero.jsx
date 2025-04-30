@@ -34,7 +34,7 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
   const stats = getPlayerStats();
 
   return (
-    <div className="relative w-full h-[28rem] bg-[url('/images/stats/bg.svg')] flex justify-center items-end overflow-hidden">
+    <div className="relative w-full h-[28rem] bg-[url('/images/stats/bg.svg')] bg-no-repeat bg-center bg-cover flex justify-center items-end overflow-hidden">
       {/* Background Number */}
       <div className="absolute left-[20%]  bottom-0 z-0 flex items-start justify-start leading-none">
         <span className="text-[120px]   font-extrabold italic items-start justify-start text-[#3188b1] opacity-70 ">

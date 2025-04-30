@@ -8,6 +8,7 @@ import Socials from "@/components/home/Socials";
 import News from "@/components/home/News";
 import TopPlayers from "@/components/home/TopPlayers";
 import Sponsorship from "@/components/home/Sponsorship";
+import IconPlayers from "@/components/home/Iconplayers";
 export default function Home() {
   return (
     <>
@@ -18,7 +19,12 @@ export default function Home() {
         <Socials />
         <Gallery />
         <News />
+ 
+        {/* <IconPlayers /> */}
+        {/* <Sponsorship /> */}
+ 
         <TopPlayers/>
+ 
         {/* <Fixtures />
         <AboutT2C /> */}
       </div>

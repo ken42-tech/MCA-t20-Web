@@ -102,7 +102,7 @@ const Solutions = () => {
   }, [isAutoPlaying]);
 
   return (
-    <div className="bg-white  pt-6 pb-20 min-h-[80vh] px-0 sm:px-4 section-width">
+    <div className="bg-white  pt-6 pb-20  px-0 sm:px-4 section-width">
       <TitleComponent title={"Sponsorship"} />
 
       <div className="px-4 md:px-6 md:pl-10 flex flex-col gap-[4px]">
