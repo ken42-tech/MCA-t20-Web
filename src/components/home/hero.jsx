@@ -55,11 +55,11 @@ const Hero = () => {
 
               <div className="w-full flex items-center justify-center gap-1 md:gap-2 xl:gap-4 py-6 bg-[#FDFDFD12]">
                 <p className="font-bold text-xl xl:text-2xl text-[#E07E27]">
-                  03
+                  37
                 </p>
                 <p className="font-bold text-xl xl:text-xl">:</p>
                 <p className="font-bold text-xl xl:text-2xl text-[#E07E27]">
-                  10
+                  17
                 </p>
                 <p className="font-bold text-xl xl:text-xl">:</p>
                 <p className="font-bold text-xl xl:text-2xl text-[#E07E27]">
@@ -67,7 +67,7 @@ const Hero = () => {
                 </p>
               </div>
 
-              <div
+              {/* <div
                 className="py-3 w-full flex items-center justify-center rounded-bl-lg"
                 style={{
                   background:
@@ -75,7 +75,7 @@ const Hero = () => {
                 }}
               >
                 <p className="text-xs xl:text-base">Upcoming Match</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

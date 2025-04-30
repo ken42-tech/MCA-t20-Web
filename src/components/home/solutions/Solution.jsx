@@ -105,7 +105,7 @@ const Solutions = () => {
     <div className="bg-white  pt-6 pb-20  px-0 sm:px-4 section-width">
       <TitleComponent title={"Sponsorship"} />
 
-      <div className="px-4 md:px-6 md:pl-10 flex flex-col gap-[4px]">
+      <div className="  flex flex-col gap-[4px]">
         {/* Official Partners - Always centered in mobile */}
         <div className="mt-8 flex flex-col gap-2 w-[213.36] ">
           <p className="font-plusjakarta font-bold text-[13.82px] leading-[22.36px] tracking-normal text-center  text-black ">
@@ -214,7 +214,7 @@ const Solutions = () => {
         </div>
 
         {/* Desktop layout with dividers */}
-        <div className="hidden md:flex md:flex-row justify-between items-center gap-6 md:gap-0 px-4 md:px-12 w-full md:w-[90%]">
+        <div className="hidden md:flex md:flex-row justify-between items-center gap-6 md:gap-0   w-full md:w-[90%]">
           {/* OFFICIAL FANTASY GAME */}
           <div className="flex flex-col items-center text-center">
             <p className="font-plusjakarta font-bold text-[13.82px] leading-[22.36px] tracking-normal text-black mb-4">

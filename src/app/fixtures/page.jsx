@@ -196,7 +196,8 @@ export default async function Page({ searchParams }) {
                       <span>{match.matchInfo.date}</span>
                       <span>{match.matchInfo.location}</span>
                     </div>
-                    <Link href={`/scores/${match.game_id}`}>
+                    <Link href={`#`}>
+                      {/* <Link href={`/scores/${match.game_id}`}> */}
                       <span className="mt-4 inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg font-semibold">
                         Match center
                         <svg
