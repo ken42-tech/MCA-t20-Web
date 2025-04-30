@@ -1,35 +1,37 @@
-import Hero from '@/components/hero/Hero';
-import Image from 'next/image';
-import Script from 'next/script';
-import Link from 'next/link';
-import MatchPage from '../scores/[game_id]/page';
+import Hero from "@/components/hero/Hero";
+import Image from "next/image";
+import Script from "next/script";
+import Link from "next/link";
+// import MatchPage from '../scores/[game_id]/page';
 
 // Base up to `&tournament=`
 const BASE_URL =
-  'https://www.t20mumbai.com/sifeeds/multisport/' +
-  '?methodtype=3&client=42&sport=1&league=indian_domestic' +
-  '&timezone=0530&language=en&tournament=';
+  "https://www.t20mumbai.com/sifeeds/multisport/" +
+  "?methodtype=3&client=42&sport=1&league=indian_domestic" +
+  "&timezone=0530&language=en&tournament=";
 
 // Match your <option> labels exactly
 const TOURNAMENT_IDS = {
-  'Season 1': 876,
-  'Season 2': 1061,
+  "Season 1": 876,
+  "Season 2": 1061,
 };
 
 export default async function Page({ searchParams }) {
   // await the dynamic API
   const sp = await searchParams;
-  const season = sp.season || 'Season 2';
-  const team   = sp.team   || 'All Teams';
+  const season = sp.season || "Season 2";
+  const team = sp.team || "All Teams";
 
   // server‐side fetch
   let json = { matches: [] };
   try {
-    const res = await fetch(BASE_URL + TOURNAMENT_IDS[season], { cache: 'no-store' });
+    const res = await fetch(BASE_URL + TOURNAMENT_IDS[season], {
+      cache: "no-store",
+    });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     json = await res.json();
   } catch (err) {
-    console.error('Failed to load feed:', err);
+    console.error("Failed to load feed:", err);
   }
 
   // map + filter, now including game_id
@@ -37,27 +39,29 @@ export default async function Page({ searchParams }) {
     const game_id = m.game_id;
     const [p1 = {}, p2 = {}] = m.participants || [];
     const fmt = (p) => {
-      const key = (p.short_name || '').toLowerCase();
+      const key = (p.short_name || "").toLowerCase();
       return {
-        name:  p.name || '',
-        logo:  key
-                ? `/images/fixtures/${key}.svg`
-                : '/images/fixtures/default.svg',
-        score: (p.value || '').split(' ')[0] || '',
-        overs: (p.value?.match(/\(([^)]+)\)/)?.[1]) || '',
+        name: p.name || "",
+        logo: key
+          ? `/images/fixtures/${key}.svg`
+          : "/images/fixtures/default.svg",
+        score: (p.value || "").split(" ")[0] || "",
+        overs: p.value?.match(/\(([^)]+)\)/)?.[1] || "",
       };
     };
     return {
       game_id,
-      season:   m.series_name.toUpperCase(),
-      status:   m.event_status.toUpperCase(),
-      team1:    fmt(p1),
-      team2:    fmt(p2),
+      season: m.series_name.toUpperCase(),
+      status: m.event_status.toUpperCase(),
+      team1: fmt(p1),
+      team2: fmt(p2),
       matchInfo: {
-        result:   m.event_sub_status,
-        date:     new Date(m.start_date).toLocaleDateString('en-GB', {
-                    day: '2-digit', month: 'short', year: 'numeric'
-                  }),
+        result: m.event_sub_status,
+        date: new Date(m.start_date).toLocaleDateString("en-GB", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        }),
         location: m.venue_name.toUpperCase(),
       },
     };
@@ -65,7 +69,7 @@ export default async function Page({ searchParams }) {
 
   // apply team filter
   const matches = allMatches.filter((m) => {
-    if (team === 'All Teams') return true;
+    if (team === "All Teams") return true;
     return m.team1.name === team || m.team2.name === team;
   });
 
@@ -83,14 +87,18 @@ export default async function Page({ searchParams }) {
             {season} Fixtures
           </h1>
           <form method="get" className="flex items-center gap-4">
-            <span className="hidden md:inline text-sm text-gray-500">Filter by</span>
+            <span className="hidden md:inline text-sm text-gray-500">
+              Filter by
+            </span>
             <select
               name="season"
               defaultValue={season}
               className="px-4 py-2 border border-orange-500 text-orange-500 rounded"
             >
               {Object.keys(TOURNAMENT_IDS).map((s) => (
-                <option key={s} value={s}>{s}</option>
+                <option key={s} value={s}>
+                  {s}
+                </option>
               ))}
             </select>
             <select
@@ -108,13 +116,18 @@ export default async function Page({ searchParams }) {
         <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
           {matches.length > 0 ? (
             matches.map((match, idx) => (
-              <div key={idx} className="rounded-md border overflow-hidden text-black">
+              <div
+                key={idx}
+                className="rounded-md border overflow-hidden text-black"
+              >
                 {/* header */}
                 <div className="relative bg-[#E07E27] text-white text-sm font-semibold px-4 py-2 flex justify-between items-center">
                   <span>{match.season}</span>
                   <div
                     className="absolute top-0 right-0 h-full w-[120px] md:w-[150px] bg-black flex items-center justify-center text-xs font-bold"
-                    style={{ clipPath: 'polygon(20% 0%,100% 0%,100% 100%,0% 100%)' }}
+                    style={{
+                      clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
+                    }}
                   >
                     {match.status}
                   </div>
@@ -126,8 +139,8 @@ export default async function Page({ searchParams }) {
                     {/* team 1 */}
                     <div className="flex items-center gap-3 w-full md:w-[35%]">
                       <Image
-                          src={`/images/fixtures/${match.team1.name}.svg`}
-                          alt={`${match.team1.name} logo`}
+                        src={`/images/fixtures/${match.team1.name}.svg`}
+                        alt={`${match.team1.name} logo`}
                         width={50}
                         height={60}
                         className="object-contain h-28 w-28"
@@ -159,8 +172,8 @@ export default async function Page({ searchParams }) {
                     {/* team 2 */}
                     <div className="flex items-center gap-3 w-full md:w-[30%]">
                       <Image
-                          src={`/images/fixtures/${match.team2.name}.svg`}
-                          alt={`${match.team2.name} logo`}
+                        src={`/images/fixtures/${match.team2.name}.svg`}
+                        alt={`${match.team2.name} logo`}
                         width={50}
                         height={60}
                         className="object-contain w-28 h-28"
@@ -186,8 +199,19 @@ export default async function Page({ searchParams }) {
                     <Link href={`/scores/${match.game_id}`}>
                       <span className="mt-4 inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg font-semibold">
                         Match center
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                          <path d="M9.33333 3.33333L13.3333 7.33333M13.3333 7.33333L9.33333 11.3333M13.3333 7.33333H2.66667" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path
+                            d="M9.33333 3.33333L13.3333 7.33333M13.3333 7.33333L9.33333 11.3333M13.3333 7.33333H2.66667"
+                            stroke="white"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                       </span>
                     </Link>
