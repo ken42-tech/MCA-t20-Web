@@ -3,9 +3,9 @@ import Image from "next/image";
 import React from "react";
 import TeamCard from "../common/TeamCard";
 import TitleComponent from "../common/TitleComponent";
-import { Carousel } from "../Carousel";
 import useMediaQuery from "@/utilis/useMediaQuery";
 import { SwiperSlide } from "swiper/react";
+import { Carousel } from "../Carousel";
 
 const teamsDataHomePage = [
   {

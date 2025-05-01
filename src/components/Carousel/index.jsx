@@ -5,20 +5,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-fade";
 
-interface CarouselProps {
-  sliderPerView?: number;
-  spaceBetween?: number;
-  loop?: boolean;
-  children: any;
-  sectionName: string;
-  effect?: string;
-  delay?: number;
-  navigation?: boolean;
-}
-interface CarouselStyles {
-  [key: string]: string | number;
-}
-
 export const Carousel = ({
   sliderPerView,
   spaceBetween,
@@ -27,7 +13,7 @@ export const Carousel = ({
   sectionName,
   effect,
   navigation,
-}: CarouselProps) => {
+}) => {
   const sectionAutoPlayConfig = {
     delay: 2500,
     disableOnInteraction: false,
@@ -37,9 +23,9 @@ export const Carousel = ({
     disableOnInteraction: false,
   };
 
-  let moduleConfig: Array<any> = [];
+  let moduleConfig = [];
 
-  let autoPlayConfig: { delay?: number; disableOnInteraction?: boolean } = {};
+  let autoPlayConfig = {};
 
   switch (sectionName) {
     case "blogs":
@@ -70,7 +56,7 @@ export const Carousel = ({
 
   // style for pagination
 
-  const styles: CarouselStyles = {
+  const styles = {
     "--swiper-pagination-color": "green",
     "--swiper-navigation-color": "#FFF",
     "--swiper-pagination-bullet-inactive-color": "white",

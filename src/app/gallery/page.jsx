@@ -63,7 +63,7 @@ const items = [
     type: "",
     title: "T20 Mumbai Promo",
     date: "",
-    img: "/images/gallery/img9.png ",
+    img: "/images/gallery/img9.png",
     views: 1500,
   },
   {

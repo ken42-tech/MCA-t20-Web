@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
-import { Carousel } from "../Carousel";
 import { SwiperSlide } from "swiper/react";
 import useMediaQuery from "@/utilis/useMediaQuery";
+import { Carousel } from "../Carousel";
 
 const PlayerCard = ({ image, name }) => {
   console.log(image);
