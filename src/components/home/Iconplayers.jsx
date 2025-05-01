@@ -1,5 +1,9 @@
+"use client";
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
+import { Carousel } from "../Carousel";
+import { SwiperSlide } from "swiper/react";
+import useMediaQuery from "@/utilis/useMediaQuery";
 
 const PlayerCard = ({ image, name }) => {
   console.log(image);
@@ -28,6 +32,7 @@ const PlayerCard = ({ image, name }) => {
 };
 
 export default function IconPlayers() {
+  const isBelowMediumScreen = useMediaQuery("(max-width: 900px)");
   const players = [
     {
       id: 1,
@@ -66,10 +71,27 @@ export default function IconPlayers() {
   return (
     <div className="section-width section-padding">
       <TitleComponent title={"Icon Players"} />
-      <div className="grid  lg:grid-cols-4 lg:gap-8 md:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1">
+      <div className="sm:grid  lg:grid-cols-4 lg:gap-8 md:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1 hidden">
         {players.map((player) => (
           <PlayerCard key={player.id} image={player.image} name={player.name} />
         ))}
+      </div>
+      <div className="w-full sm:hidden block">
+        <Carousel
+          sectionName="clientLogo"
+          sliderPerView={isBelowMediumScreen ? 1 : 5}
+          spaceBetween={50}
+          loop={true}
+        >
+          {players.map((player, i) => (
+            <SwiperSlide key={i}>
+              <PlayerCard image={player.image} name={player.name} key={i} />
+            </SwiperSlide>
+          ))}
+        </Carousel>
+        {/* {teamsDataHomePage.map((item, i) => {
+                return <TeamCard data={item} key={i} />;
+              })} */}
       </div>
     </div>
   );
