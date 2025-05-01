@@ -33,7 +33,7 @@ const Hero = () => {
               className="btn-primary flex gap-4 items-center"
               onClick={openVideo}
             >
-              View highlights
+              View Details
               <span>
                 <Image
                   src="/images/home/hero/buttonIcon.svg"

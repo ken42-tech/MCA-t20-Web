@@ -21,7 +21,7 @@ const PlayerCard = ({ image, name }) => {
 
       <div className="bg-[#08113F] w-full p-4">
         <div className="  flex justify-center">
-          <div className="bg-[#BF5800] border border-[#E07E27] text-white px-4 py-1 rounded-sm font-medium text-sm">
+          <div className="bg-[#BF5800] border border-[#E07E27] text-white px-4 py-1 rounded-sm font-medium text-sm capitalize">
             {name}
           </div>
         </div>
