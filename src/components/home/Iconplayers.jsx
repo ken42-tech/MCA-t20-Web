@@ -6,7 +6,6 @@ import useMediaQuery from "@/utilis/useMediaQuery";
 import { Carousel } from "../Carousel";
 
 const PlayerCard = ({ image, name }) => {
-  console.log(image);
   return (
     <div className="relative   overflow-hidden rounded-lg  bg-[url('/images/home/players/bgTexture.png')] bg-cover bg-center bg-no-repeat flex flex-col">
       <div className=" w-full relative mt-auto">
@@ -32,7 +31,6 @@ const PlayerCard = ({ image, name }) => {
 };
 
 export default function IconPlayers() {
-  const isBelowMediumScreen = useMediaQuery("(max-width: 900px)");
   const players = [
     {
       id: 1,
@@ -69,7 +67,7 @@ export default function IconPlayers() {
   ];
 
   return (
-    <div className="section-width section-padding">
+    <div className="section-width padding-top">
       <TitleComponent title={"Icon Players"} />
       <div className="sm:grid  lg:grid-cols-4 lg:gap-8 md:grid-cols-3 gap-5 sm:grid-cols-2 grid-cols-1 hidden">
         {players.map((player) => (
@@ -79,7 +77,7 @@ export default function IconPlayers() {
       <div className="w-full sm:hidden block">
         <Carousel
           sectionName="clientLogo"
-          sliderPerView={isBelowMediumScreen ? 1 : 5}
+          sliderPerView={1}
           spaceBetween={50}
           loop={true}
         >

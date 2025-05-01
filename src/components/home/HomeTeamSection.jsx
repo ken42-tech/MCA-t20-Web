@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import TeamCard from "../common/TeamCard";
 import TitleComponent from "../common/TitleComponent";
-import useMediaQuery from "@/utilis/useMediaQuery";
 import { SwiperSlide } from "swiper/react";
 import { Carousel } from "../Carousel";
 
@@ -75,13 +74,12 @@ const teamsDataHomePage = [
 ];
 
 const HomeTeamSection = () => {
-  const isBelowMediumScreen = useMediaQuery("(max-width: 900px)");
   return (
     <>
-      <div className="section-width padding-top">
+      <div className="section-width padding-top padding-bottom">
         <TitleComponent title={"Teams"} />
         <div className="w-full flex flex-col gap-7 relative">
-          <div className="w-full overflow-x-auto py-8 scrollbar-hide">
+          <div className="w-full overflow-x-auto  scrollbar-hide">
             <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 hidden">
               {teamsDataHomePage.map((item, i) => {
                 return <TeamCard data={item} key={i} />;
@@ -90,7 +88,7 @@ const HomeTeamSection = () => {
             <div className="w-full sm:hidden block">
               <Carousel
                 sectionName="clientLogo"
-                sliderPerView={isBelowMediumScreen ? 1 : 5}
+                sliderPerView={1}
                 spaceBetween={50}
                 loop={true}
               >

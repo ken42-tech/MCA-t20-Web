@@ -103,28 +103,13 @@ const Gallery = () => {
     if (typeof window !== "undefined") {
       if (window.innerWidth < 640) {
         // Mobile layout - single column with all 11 images
-        setLayoutConfig([
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-          [7],
-        ]);
+        setLayoutConfig([[7], [7], [7]]);
       } else if (window.innerWidth < 1024) {
         // Tablet layout - simplified grid with all 11 images
         setLayoutConfig([
           [3, 4], // 2 images
           [4, 3], // 2 images
           [3, 4], // 2 images
-          [4, 3], // 2 images
-          [3, 4], // 2 images
-          [7], // 1 image
         ]);
       } else {
         // Desktop layout - original complex grid
