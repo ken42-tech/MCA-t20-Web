@@ -8,6 +8,7 @@ const MediaAll = ({ items }) => {
 
   const [showModal, setShowModal] = useState(false);
   const [modalImage, setModalImage] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(null);
 
   const [layoutConfig, setLayoutConfig] = useState([
     [1, 3, 1, 2],
@@ -70,13 +71,13 @@ const MediaAll = ({ items }) => {
     return <div className="w-full p-3">No media items available</div>;
   }
 
-  let currentIndex = 0;
+  let renderedIndex = 0;
 
   return (
     <div className="w-full flex flex-col gap-3 p-3">
       {layoutConfig.map((row, rowIndex) => {
         // Stop rendering if we've shown all items
-        if (currentIndex >= validItems.length) {
+        if (renderedIndex >= validItems.length) {
           return null;
         }
 
@@ -85,28 +86,26 @@ const MediaAll = ({ items }) => {
             <div className="grid w-full h-full grid-cols-7 gap-2 md:gap-3 lg:gap-4">
               {row.map((span, colIndex) => {
                 // Stop rendering if we've shown all items
-                if (currentIndex >= validItems.length) {
-                  return null;
-                }
-
-                const item = validItems[currentIndex];
-                currentIndex++;
+                if (renderedIndex >= validItems.length) return null;
+                const item = validItems[renderedIndex];
+                const indexForModal = renderedIndex++;
+                if (!item?.img) return null;
 
                 // Safety check
-                if (!item || !item.img) {
-                  console.warn(
-                    "Invalid item or missing image at index:",
-                    currentIndex - 1
-                  );
-                  return null;
-                }
+                // if (!item || !item.img) {
+                //   console.warn(
+                //     "Invalid item or missing image at index:",
+                //     renderedIndex - 1
+                //   );
+                //   return null;
+                // }
 
                 return (
                   <div
                     key={colIndex}
                     className={`relative col-span-${span} overflow-hidden bg-white/30`}
                     onClick={() => {
-                      setModalImage(item.img);
+                      setCurrentIndex(indexForModal);
                       setShowModal(true);
                     }}
                   >
@@ -172,15 +171,37 @@ const MediaAll = ({ items }) => {
           className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-4"
           onClick={() => setShowModal(false)}
         >
-          <div className="relative max-w-4xl w-full max-h-[90vh]">
+          <div
+            className="relative max-w-4xl w-full max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               onClick={() => setShowModal(false)}
               className="absolute -top-5 -right-5 bg-white text-black p-3 py-2 rounded-full text-sm z-50 font-bold"
             >
               ✕
             </button>
+
+            {currentIndex > 0 && (
+              <button
+                className="absolute -left-20 top-1/2 transform -translate-y-1/2 bg-[#ffffff80] hover:bg-white text-black flex justify-center items-center rounded-full z-50 w-14 h-14"
+                onClick={() => setCurrentIndex((prev) => prev - 1)}
+              >
+                ◀
+              </button>
+            )}
+
+            {currentIndex < validItems.length - 1 && (
+              <button
+                className="absolute -right-20 top-1/2 transform -translate-y-1/2 bg-[#ffffff80] hover:bg-white text-black flex justify-center items-center rounded-full z-50 w-14 h-14"
+                onClick={() => setCurrentIndex((prev) => prev + 1)}
+              >
+                ▶
+              </button>
+            )}
+
             <Image
-              src={modalImage}
+              src={validItems[currentIndex]?.img}
               alt="popup"
               width={1000}
               height={800}

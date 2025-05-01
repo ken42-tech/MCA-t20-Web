@@ -15,8 +15,8 @@ export default function Home() {
       <div>
         <Hero />
         <HomeTeamSection />
-        <IconPlayers />
         <LatestUpdates />
+        <IconPlayers />
         <Socials />
         <Gallery />
 

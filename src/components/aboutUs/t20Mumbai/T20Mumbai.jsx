@@ -13,11 +13,11 @@ const T20Mumbai = () => {
           more structure to the cricket scene in the city and endeavour to build
           a platform for bringing the future superstars of the sport together.
         </p>
-        <p className=" text-[#616161]">
+        {/* <p className=" text-[#616161]">
           Conceptualised by the Mumbai Cricket Association (MCA), T20 Mumbai
           will see them partner with Wizcraft International Entertainment Pvt.
           Ltd., India Infoline Ltd. (IIFL) and Probability Sports.
-        </p>
+        </p> */}
       </div>
       <div className=" w-full lg:w-[60%] pt-14 lg:pt-0 ">
         <Image
