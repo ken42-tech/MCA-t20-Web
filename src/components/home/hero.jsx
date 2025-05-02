@@ -8,6 +8,7 @@ const Hero = () => {
 
   const openVideo = () => setShowVideo(true);
   const closeVideo = () => setShowVideo(false);
+
   return (
     <>
       <div className="w-full bg-[url('/images/home/hero/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden">
@@ -61,7 +62,7 @@ const Hero = () => {
                   </p>
                 </div>
               </div>
-              <CountdownTimer targetDate="2025-05-26T00:00:00" />
+              <CountdownTimer targetDate="2025-05-26T00:00:00+05:30" />
             </div>
           </div>
         </div>
@@ -72,7 +73,7 @@ const Hero = () => {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/J7K1hZlm7bU?autoplay=1&rel=0"
+              src="https://www.youtube.com/embed/DFswpwcH68E?autoplay=1&rel=0"
               title="YouTube video"
               allow="autoplay; encrypted-media"
               allowFullScreen
@@ -92,3 +93,4 @@ const Hero = () => {
 };
 
 export default Hero;
+// https://youtu.be/DFswpwcH68E?si=oS6Fp-hBzKS0ds4g

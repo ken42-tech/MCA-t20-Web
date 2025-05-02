@@ -57,7 +57,7 @@ const teamsDataHomePage = [
   },
   {
     logo: "/images/home/team/soboSuperSonics.png",
-    team: "SoBo SuperSonics",
+    team: "SoBo Mumbai Falcons",
     gradient: {
       from: "#FFF4E9",
       to: "#882626",
