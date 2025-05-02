@@ -21,7 +21,7 @@ const T20Mumbai = () => {
       </div>
       <div className=" w-full lg:w-[60%] pt-14 lg:pt-0 ">
         <Image
-          src={"/images/aboutUs/T20Mumbai/image1.svg"}
+          src={"/images/aboutUs/T20Mumbai/image1.jpg"}
           width={1000}
           height={1000}
           className="object-fill h-full"
