@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mca-t20-ui-prod
+  labels:
+    app: mca-t20-ui-prod
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: mca-t20-ui-prod
+  template:
+    metadata:
+      labels:
+        app: mca-t20-ui-prod
+    spec:
+      containers:
+      - name: mca-t20-ui-container-prod
+        image: asia-south1-docker.pkg.dev/ken-cloud-436408/mca-t20-ui-prod/prod:latest
+        ports:
+        - containerPort: 3000
+      
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mca-t20-ui-prod
+  labels:
+    app: mca-t20-ui-prod
+spec:
+  ports:
+    - name: api
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+  selector:
+    app: mca-t20-ui-prod
+  type: ClusterIP
