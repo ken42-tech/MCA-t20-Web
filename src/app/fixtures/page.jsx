@@ -1,41 +1,63 @@
-import Hero from "@/components/hero/Hero";
-import Image from "next/image";
-import Script from "next/script";
-import Link from "next/link";
-// import MatchPage from '../scores/[game_id]/page';
+import Hero from '@/components/hero/Hero';
+import Image from 'next/image';
+import Script from 'next/script';
+import Link from 'next/link';
 
-// Base up to `&tournament=`
 const BASE_URL =
   "https://www.t20mumbai.com/sifeeds/multisport/" +
   "?methodtype=3&client=42&sport=1&league=indian_domestic" +
   "&timezone=0530&language=en&tournament=";
 
-// Match your <option> labels exactly
 const TOURNAMENT_IDS = {
   "Season 1": 876,
   "Season 2": 1061,
 };
 
-export default async function Page({ searchParams }) {
-  // await the dynamic API
-  const sp = await searchParams;
-  const season = sp.season || "Season 2";
-  const team = sp.team || "All Teams";
+const TEAM_NAMES = [
+  "Aakash Tigers Mumbai Western Suburbs",
+  "Triumph Knights Mumbai North East",
+  "ARCS Andheri",
+  "SoBo SuperSonics",
+  "Eagle Thane Strikers",
+  "North Mumbai Panthers",
+  "NaMo Bandra Blasters",
+  "Shivaji Park Lions"
+];
 
-  // server‐side fetch
-  let json = { matches: [] };
-  try {
-    const res = await fetch(BASE_URL + TOURNAMENT_IDS[season], {
-      cache: "no-store",
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    json = await res.json();
-  } catch (err) {
-    console.error("Failed to load feed:", err);
+export async function generateStaticParams() {
+  const seasons = Object.keys(TOURNAMENT_IDS);
+  const teams = ['All Teams', ...TEAM_NAMES];
+
+  const params = [];
+
+  for (const season of seasons) {
+    for (const team of teams) {
+      params.push({
+        season,
+        team
+      });
+    }
+    params.push({ season });
   }
 
-  // map + filter, now including game_id
-  const allMatches = (json.matches || []).map((m) => {
+  params.push({});
+
+  return params;
+}
+
+async function fetchTournamentData(tournamentId) {
+  try {
+    const res = await fetch(BASE_URL + tournamentId);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error('Failed to load feed:', err);
+    return { matches: [] };
+  }
+}
+
+function processMatches(jsonData) {
+  return (jsonData.matches || []).map((m) => {
     const game_id = m.game_id;
     const [p1 = {}, p2 = {}] = m.participants || [];
     const fmt = (p) => {
@@ -46,7 +68,7 @@ export default async function Page({ searchParams }) {
           ? `/images/fixtures/${key}.svg`
           : "/images/fixtures/default.svg",
         score: (p.value || "").split(" ")[0] || "",
-        overs: p.value?.match(/\(([^)]+)\)/)?.[1] || "",
+        overs: p.value?.match(/$([^)]+)$/)?.[1] || "",
       };
     };
     return {
@@ -66,14 +88,30 @@ export default async function Page({ searchParams }) {
       },
     };
   });
+}
 
-  // apply team filter
+export async function generateMetadata() {
+  return {
+    title: 'T20 Mumbai - Fixtures',
+    description: 'View all fixtures for T20 Mumbai tournament',
+  };
+}
+
+export default async function Page({ params, searchParams }) {
+  const resolvedSearchParams = await searchParams;
+
+  const season = resolvedSearchParams?.season || params?.season || 'Season 2';
+  const team = resolvedSearchParams?.team || params?.team || 'All Teams';
+
+  const tournamentId = TOURNAMENT_IDS[season];
+  const tournamentData = await fetchTournamentData(tournamentId);
+
+  const allMatches = processMatches(tournamentData);
+
   const matches = allMatches.filter((m) => {
     if (team === "All Teams") return true;
-    return m.team1.name === team || m.team2.name === team;
+    return TEAM_NAMES.includes(m.team1.name) && (m.team1.name === team || m.team2.name === team);
   });
-
-  console.log(matches, "matches tasdsdata");
 
   return (
     <div className="w-full bg-white">
@@ -82,20 +120,19 @@ export default async function Page({ searchParams }) {
         heading="Fixtures"
         subheading="Player Profile"
       />
-
       <div className="section-width">
-        <div className="flex items-center justify-between py-8 px-4 md:px-0">
-          <h1 className="text-4xl font-bold uppercase text-black">
+        <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0">
+          <h2 className=" uppercase text-black">
             {season} Fixtures
-          </h1>
-          <form method="get" className="flex items-center gap-4">
-            <span className="hidden md:inline text-sm text-gray-500">
+          </h2>
+          <form method="get" className="flex flex-col sm:flex-row items-center gap-4 mt-4 lg:mt-0">
+            <span className="text-sm text-gray-500 sm:inline">
               Filter by
             </span>
             <select
               name="season"
               defaultValue={season}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded"
+              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 sm:mt-0 sm:mr-4"
             >
               {Object.keys(TOURNAMENT_IDS).map((s) => (
                 <option key={s} value={s}>
@@ -106,13 +143,15 @@ export default async function Page({ searchParams }) {
             <select
               name="team"
               defaultValue={team}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded"
+              className=" py-2 border border-orange-500 text-orange-500 rounded mt-2 sm:mt-0"
             >
               <option>All Teams</option>
-              <option>Team A</option>
-              <option>Team B</option>
+              {TEAM_NAMES.map((t) => (
+                <option key={t}>{t}</option>
+              ))}
             </select>
           </form>
+
         </div>
 
         <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
@@ -147,27 +186,27 @@ export default async function Page({ searchParams }) {
                         height={60}
                         className="object-contain h-28 w-28"
                       />
-                      <div className="text-[10px] md:text-base font-semibold uppercase">
+                      <div className="text-[10px] sm:text-base font-semibold uppercase">
                         {match.team1.name}
                       </div>
                     </div>
                     {/* team1 score */}
                     <div className="text-center">
-                      <div className="font-bold text-sm md:text-3xl text-[#894B14AB]">
+                      <div className="font-bold text-sm sm:text-3xl text-[#894B14AB]">
                         {match.team1.score}
                       </div>
-                      <div className="text-[10px] md:text-xs text-[#894B14AB]">
+                      <div className="text-[10px] sm:text-xs text-[#894B14AB]">
                         ({match.team1.overs})
                       </div>
                     </div>
                     {/* vs */}
-                    <div className="text-sm md:text-lg font-semibold">vs</div>
+                    <div className="text-sm sm:text-lg font-semibold">vs</div>
                     {/* team2 score */}
                     <div className="text-center">
-                      <div className="font-bold text-sm md:text-3xl text-[#E07E27]">
+                      <div className="font-bold text-sm sm:text-3xl text-[#E07E27]">
                         {match.team2.score}
                       </div>
-                      <div className="text-[10px] md:text-xs text-[#E07E27]">
+                      <div className="text-[10px] sm:text-xs text-[#E07E27]">
                         ({match.team2.overs})
                       </div>
                     </div>
@@ -180,7 +219,7 @@ export default async function Page({ searchParams }) {
                         height={60}
                         className="object-contain w-28 h-28"
                       />
-                      <div className="text-[10px] md:text-base font-semibold uppercase">
+                      <div className="text-[10px] sm:text-base font-semibold uppercase">
                         {match.team2.name}
                       </div>
                     </div>
@@ -188,7 +227,7 @@ export default async function Page({ searchParams }) {
 
                   {/* match info panel */}
                   <div className="bg-[#F5F5F5] px-12 py-8 flex flex-col justify-center lg:w-1/4">
-                    <div className="text-xs md:text-base font-bold text-[#E07E27]">
+                    <div className="text-xs sm:text-base font-bold text-[#E07E27]">
                       MATCH INFO
                     </div>
                     <div className="text-base font-semibold leading-tight mb-1 pt-2">
@@ -217,11 +256,6 @@ export default async function Page({ searchParams }) {
                         </svg>
                       </span>
                     </Link>
-
-                    {/* Inline match center */}
-                    <div className="mt-4">
-                      {/* <MatchPage params={{ game_id: match.game_id }} /> */}
-                    </div>
                   </div>
                 </div>
               </div>
@@ -234,7 +268,6 @@ export default async function Page({ searchParams }) {
         </div>
       </div>
 
-      {/* Auto-submit selects on change */}
       <Script id="auto-submit" strategy="afterInteractive">
         {`
           document.querySelectorAll('select[name]').forEach(el => {
