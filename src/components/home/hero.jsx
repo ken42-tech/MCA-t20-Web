@@ -72,7 +72,7 @@ const Hero = () => {
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/J7K1hZlm7bU?autoplay=1&rel=0"
+              src="https://www.youtube.com/embed/DFswpwcH68E?autoplay=1&rel=0"
               title="YouTube video"
               allow="autoplay; encrypted-media"
               allowFullScreen
@@ -92,3 +92,4 @@ const Hero = () => {
 };
 
 export default Hero;
+// https://youtu.be/DFswpwcH68E?si=oS6Fp-hBzKS0ds4g
