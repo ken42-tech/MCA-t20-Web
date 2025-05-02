@@ -7,7 +7,7 @@ import React from "react";
 const page = () => {
   return (
     <div>
-      <Hero imgUrl={"/images/teams/hero/bg.svg"} heading={"About us"} />
+      <Hero imgUrl={"/images/banner/banner1.jpg"} heading={"About us"} />
       <div className="flex flex-col gap-28">
         <T20Mumbai />
         <AboutMCA />
