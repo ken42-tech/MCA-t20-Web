@@ -158,4 +158,58 @@ With the much-awaited third edition, the league is poised to set the stage for t
               India Infra Ltd.) and Mumbai South Central Maratha Royals (Royal
               Edge Sports & Entertainment).`,
   },
+  {
+    id: 6,
+    date: "Mumbai, May 2, 2025",
+    imgUrl: "/images/latestUpdates/update6.jpg",
+    title:
+      "T20 Mumbai League 2025: Suryakumar Yadav to play for Triumph Knights Mumbai North East, Shreyas Iyer to feature for SoBo Mumbai Falcons as icon players finalised",
+    subTitle: "Season 3 mega auction to be held in Mumbai on May 7",
+    content: ` The excitement is building as the T20 Mumbai League gears up for its much-awaited third season. In a major development that sets the tone for the tournament, the Mumbai Cricket Association (MCA) officially announced the icon players for all eight franchises in Mumbai on Friday. Leading the star-studded line-up are Team India mainstays Suryakumar Yadav and Shreyas Iyer, who will represent Triumph Knights Mumbai North East and SoBo Mumbai Falcons, respectively.
+<br />
+              <br />
+The announcement marks a key milestone ahead of the Season 3 mega auction, scheduled to take place in Mumbai on May 7. Each franchise has signed one icon player for a fixed price of ₹20 lakh, forming the foundation upon which their squads will be built.<br />
+              <br />
+
+List of the teams and their icon players as follows:<br />
+              <br />
+
+Prithvi Shaw – North Mumbai Panthers (Horizon Sports India Private Limited)<br />
+              <br />
+
+Shivam Dube – ARCS Andheri (Arcs Sports & Entertainment Private Limited)<br />
+              <br />
+
+Suryakumar Yadav – Triumph Knights Mumbai North East (Transcon Triumph Knights Private Limited)<br />
+              <br />
+
+Ajinkya Rahane – Bandra Blasters (PK Sports Ventures Private Limited)<br />
+              <br />
+
+Shardul Thakur – Eagle Thane Strikers (Eagle Infra India Ltd.)<br />
+              <br />
+
+Sarfaraz Khan – Aakash Tigers Mumbai Western Suburbs (World Star Premier League LLP)<br />
+              <br />
+
+Shreyas Iyer – SoBo Mumbai Falcons (Roadway Solutions India Infra Ltd.)<br />
+              <br />
+
+Tushar Deshpande – Mumbai South Central Maratha Royals (Royal Edge Sports & Entertainment)<br />
+              <br />
+
+“Today’s event marks a significant milestone in shaping the core identity and vision of each franchise. With established stars finalised as icon players, teams are now well-positioned to build strong and competitive squads at the upcoming mega auction, which will showcase the finest cricketing talent from the city. The T20 Mumbai League continues to serve as a vital platform for discovering and nurturing emerging players. We remain committed to strengthening grassroots cricket while delivering a world-class experience for both players and fans,” said Ajinkya Naik, President of MCA.<br />
+              <br />
+
+Known for their accomplishments on both international and domestic stages, these icon players bring exceptional skills and star power that will elevate the profile and competitiveness of their respective teams.<br />
+              <br />
+
+Season 3 Mega Auction on May 7<br />
+              <br />
+
+With the icon players now finalised, the focus shifts to the highly anticipated mega auction which is set to take place in Mumbai on May 7. Featuring a pool of talented players, franchises will look to build well-balanced squads and refine their strategies ahead of the much-awaited third season of one of India’s leading franchise-based domestic T20 tournaments. The auction promises to ignite fresh rivalries and set the stage for a fiercely competitive tournament.<br />
+              <br />
+
+Making a grand return after a six-year break, the T20 Mumbai League 2025 will be held at the Wankhede Stadium from May 26 to June 8.`,
+  },
 ];
