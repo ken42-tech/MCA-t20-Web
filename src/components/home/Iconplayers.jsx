@@ -70,8 +70,8 @@ const PlayerCard = ({ data }) => {
       <div className=" w-full relative mt-auto">
         <div className="w-full  absolute bottom-0 left-0 h-1/3 bg-gradient-to-t from-black to-transparent" />
         <Image
-          width={300}
-          height={400}
+          width={200}
+          height={200}
           src={data?.image}
           alt={data?.name}
           className="w-full h-full"
