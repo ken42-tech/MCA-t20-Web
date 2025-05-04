@@ -227,7 +227,7 @@ const Gallery = () => {
   const ViewGalleryButton = () => (
     <Link href={routes.gallery}>
       <div
-        className="w-48  flex items-center justify-between py-3 px-6"
+        className="  flex items-center justify-between py-3 px-6 gap-4"
         style={{
           backgroundImage:
             "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
@@ -235,12 +235,12 @@ const Gallery = () => {
       >
         <p className="text-sm font-bold">View Gallery</p>
         <Image
-          src={"/images/home/whyT2C/octicon_play-24 (1).svg"}
-          width={100}
-          height={100}
-          className="w-6 h-6"
-          alt="img"
-        />
+                                     src="/images/home/hero/buttonIcon.svg"
+                                     alt="button-icon"
+                                     width={24}
+                                     height={24}
+                                     className="w-5 h-5"
+                                   />
       </div>
     </Link>
   );
