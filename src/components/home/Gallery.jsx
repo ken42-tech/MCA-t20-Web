@@ -235,11 +235,11 @@ const Gallery = () => {
       >
         <p className="text-sm font-bold">View Gallery</p>
         <Image
-          src={"/images/home/whyT2C/octicon_play-24 (1).svg"}
-          width={100}
-          height={100}
-          className="w-6 h-6"
-          alt="img"
+          src="/images/home/hero/buttonIcon.svg"
+          alt="button-icon"
+          width={24}
+          height={24}
+          className="w-5 h-5"
         />
       </div>
     </Link>
