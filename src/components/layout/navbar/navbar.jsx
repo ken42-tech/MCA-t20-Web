@@ -40,6 +40,27 @@ const Navbar = () => {
                   </Link>
                 </li>
               ))}
+
+              <a
+                href="https://mca-dev-auction.ken42.com/admin/team-details"
+                className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
+                }}
+              >
+                {" "}
+                Live Auction
+                <span>
+                  <Image
+                    src="/images/home/hero/buttonIcon.svg"
+                    alt="button-icon"
+                    width={24}
+                    height={24}
+                    className="w-5 h-5"
+                  />
+                </span>
+              </a>
             </ul>
           </div>
         </div>
@@ -83,6 +104,28 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+        <div className="w-fit p-6">
+          <a
+            href="https://mca-dev-auction.ken42.com/admin/team-details"
+            className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
+            }}
+          >
+            {" "}
+            Live Auction
+            <span>
+              <Image
+                src="/images/home/hero/buttonIcon.svg"
+                alt="button-icon"
+                width={24}
+                height={24}
+                className="w-5 h-5"
+              />
+            </span>
+          </a>
+        </div>
       </div>
 
       {/* Optional Backdrop */}

@@ -227,7 +227,7 @@ const Gallery = () => {
   const ViewGalleryButton = () => (
     <Link href={routes.gallery}>
       <div
-        className="w-48  flex items-center justify-between py-3 px-6"
+        className="  flex items-center justify-between py-3 px-6 gap-4"
         style={{
           backgroundImage:
             "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
@@ -241,6 +241,7 @@ const Gallery = () => {
           height={24}
           className="w-5 h-5"
         />
+
       </div>
     </Link>
   );
