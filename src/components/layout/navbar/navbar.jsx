@@ -41,7 +41,7 @@ const Navbar = () => {
                 </li>
               ))}
 
-              <a
+              {/* <a
                 href="https://mca-dev-auction.ken42.com/admin/team-details"
                 className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
                 style={{
@@ -60,7 +60,7 @@ const Navbar = () => {
                     className="w-5 h-5"
                   />
                 </span>
-              </a>
+              </a> */}
             </ul>
           </div>
         </div>
@@ -104,7 +104,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <div className="w-fit p-6">
+        {/* <div className="w-fit p-6">
           <a
             href="https://mca-dev-auction.ken42.com/admin/team-details"
             className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
@@ -125,7 +125,7 @@ const Navbar = () => {
               />
             </span>
           </a>
-        </div>
+        </div> */}
       </div>
 
       {/* Optional Backdrop */}
