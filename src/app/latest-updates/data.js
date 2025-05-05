@@ -18,12 +18,8 @@ This presents an excellent opportunity for new stakeholders to become an integra
 
 “T20 Mumbai League has played a pivotal role in identifying, developing and promoting cricketers at the grassroots level. The league has not only served as a launchpad for emerging players but has also significantly contributed to the sport’s growth in Mumbai. As we welcome new franchise owners, we see this as an opportunity to further strengthen the league’s legacy. Their involvement will be instrumental in shaping the next phase of T20 Mumbai League, bringing fresh vision and investment that will enhance opportunities for players, stakeholders, and cricket fans alike. We look forward to engaging with potential bidders who share our vision for the league’s future,” MCA Secretary Abhay Hadap commented.
 <br/><br/>
-Interested and eligible parties can obtain the bid document from the MCA office at Wankhede Stadium in Mumbai upon a non-refundable payment of ₹1 lakh via demand draft in favor of Mumbai Cricket Association. The documents will be available for collection from April 1 to 7, between 11 AM and 6 PM.<br/><br/>
-For further communication,<br/><br/>
-
-Ad factors PR<br/><br/>
-
-Akshay Jagtap  |  akshay.jagtap@adfactorspr.com  |  9769255619
+Interested and eligible parties can obtain the bid document from the MCA office at Wankhede Stadium in Mumbai upon a non-refundable payment of ₹1 lakh via demand draft in favor of Mumbai Cricket Association. The documents will be available for collection from April 1 to 7, between 11 AM and 6 PM.
+ 
     `,
   },
   {
@@ -40,12 +36,7 @@ Akshay Jagtap  |  akshay.jagtap@adfactorspr.com  |  9769255619
 
 Registrations are open to all MCA-registered players above the age of 16 years as they can register on MCA’s official website before April 10. Link to register: <a target="_blank" style="color:blue;" href="https://t20mumbai.mca-registration.com/">https://t20mumbai.mca-registration.com/  </a><br/><br/>
 
-MCA has also issued a tender document inviting bids from interested and eligible parties for the right to operate two teams in the upcoming season. <br/><br/>
-For further communication,<br/><br/>
-
-Ad factors PR<br/><br/>
-
-Akshay Jagtap  |  akshay.jagtap@adfactorspr.com  |  9769255619
+MCA has also issued a tender document inviting bids from interested and eligible parties for the right to operate two teams in the upcoming season. 
 `,
   },
   {
