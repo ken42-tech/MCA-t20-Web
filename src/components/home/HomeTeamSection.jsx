@@ -33,7 +33,7 @@ const teamsDataHomePage = [
   },
   {
     logo: "/images/home/team/bandraBlasters.png",
-    team: "NaMo Bandra Blasters",
+    team: "Bandra Blasters",
     gradient: {
       from: "#4B1C86",
       to: "#E51C21",
