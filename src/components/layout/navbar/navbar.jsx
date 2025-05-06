@@ -4,6 +4,7 @@ import Link from "next/link";
 import { navLinks } from "./data";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useState } from "react";
+import routes from "@/utilis/route";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +30,7 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="items-center md:flex hidden">
           <div className="flex justify-center">
-            <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-[#ffffff1f] px-5 xl:px-10 py-4 rounded-full">
+            <ul className="flex items-center justify-between gap-5 lg:gap-10 bg-[#ffffff1f] px-5 xl:pl-10 py-4 rounded-full">
               {navLinks.map((item, i) => (
                 <li key={i}>
                   <Link
@@ -41,8 +42,9 @@ const Navbar = () => {
                 </li>
               ))}
 
-              {/* <a
-                href="https://mca-dev-auction.ken42.com/admin/team-details"
+              <a
+                href={routes.liveAuction}
+                s
                 className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
                 style={{
                   backgroundImage:
@@ -60,7 +62,7 @@ const Navbar = () => {
                     className="w-5 h-5"
                   />
                 </span>
-              </a> */}
+              </a>
             </ul>
           </div>
         </div>
@@ -104,9 +106,9 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        {/* <div className="w-fit p-6">
+        <div className="w-fit p-6">
           <a
-            href="https://mca-dev-auction.ken42.com/admin/team-details"
+            href={routes.liveAuction}
             className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
             style={{
               backgroundImage:
@@ -125,7 +127,7 @@ const Navbar = () => {
               />
             </span>
           </a>
-        </div> */}
+        </div>
       </div>
 
       {/* Optional Backdrop */}
