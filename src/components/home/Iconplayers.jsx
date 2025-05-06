@@ -35,7 +35,7 @@ const players = [
     name: "Ajinkya Rahane",
     image: "/images/home/players/player4.png",
     teamName: "Bandra Blasters",
-    teamLogo: "/images/home/team/ipBandraBlasters.jpg",
+    teamLogo: "/images/home/team/bandraBlasters.png",
     gradient: {
       from: "#4B1C86",
       to: "#E51C21",
