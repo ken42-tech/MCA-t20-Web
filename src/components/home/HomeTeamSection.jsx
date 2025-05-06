@@ -65,7 +65,7 @@ const teamsDataHomePage = [
   },
   {
     logo: "/images/home/team/triumphKnights.png",
-    team: "Triumph Knights MNE",
+    team: "Triumph Knights Mumbai North East",
     gradient: {
       from: "#E8D273",
       to: "#9E7437",
