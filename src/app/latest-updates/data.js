@@ -12,7 +12,7 @@ export const CardData = [
 
 Returning after six years, the third season of T20 Mumbai League is set to reignite the passion of city’s cricket enthusiasts. Tournament is scheduled to start from May 27.<br/><br/>
 
-Season 3 will feature eight franchises: North Mumbai Panthers, ARCS Andheri, Triumph Knights Mumbai North East, Namo Bandra Blasters, Eagle Thane Strikers, Aakash Tigers Mumbai Western Suburbs and two new teams.<br/><br/>
+Season 3 will feature eight franchises: North Mumbai Panthers, ARCS Andheri, Triumph Knights Mumbai North East, Bandra Blasters, Eagle Thane Strikers, Aakash Tigers Mumbai Western Suburbs and two new teams.<br/><br/>
 
 This presents an excellent opportunity for new stakeholders to become an integral part of this prestigious league.<br/><br/>
 
@@ -55,7 +55,7 @@ Following registrations from every corner of the city, Season 3 is set to reigni
 
 “The response to Season 3 of the T20 Mumbai League has been phenomenal. The fact that over 2800 players have registered speaks volumes about both the popularity of the league and the undying cricket passion of Mumbaikars. We are thrilled to see such enthusiastic participation and remain committed to nurturing the next generation of cricket stars,” said Abhay Hadap, Secretary of the Mumbai Cricket Association.<br/><br/>
 
-The third season of the league will continue to feature eight franchises: North Mumbai Panthers, ARCS Andheri, Triumph Knights Mumbai North East, Namo Bandra Blasters, Eagle Thane Strikers and Aakash Tigers Mumbai Western Suburbs along with two new teams, which will bring fresh energy and rivalries to the league.`,
+The third season of the league will continue to feature eight franchises: North Mumbai Panthers, ARCS Andheri, Triumph Knights Mumbai North East, Bandra Blasters, Eagle Thane Strikers and Aakash Tigers Mumbai Western Suburbs along with two new teams, which will bring fresh energy and rivalries to the league.`,
   },
   {
     id: 4,
@@ -79,7 +79,7 @@ Expressing his excitement for the new role, Rohit Sharma said: “Our domestic s
 <br/><br/>
 While Season 3 will continue to feature eight teams, the MCA has onboarded two new team operators. Roadway Solutions India Infra Ltd. secured the operating rights of Team Sobo Mumbai Falcons for ₹82 crore, while Royal Edge Sports & Entertainment acquired the team representing Mumbai South Central region for ₹57 crore.<br/><br/>
 
-Two new franchises have joined T20 Mumbai League bandwagon which already has North Mumbai Panthers (Horizon Sports India Private Limited), ARCS Andheri (Arcs Sports & Entertainment Private Limited), Triumph Knights Mumbai North East (Transcon Triumph Knights Private Limited), Namo Bandra Blasters (Pk Sports Ventures Private Limited), Eagle Thane Strikers (Eagle Infra India Ltd.) and Aakash Tigers Mumbai Western Suburbs (World Star Premier League LLP).
+Two new franchises have joined T20 Mumbai League bandwagon which already has North Mumbai Panthers (Horizon Sports India Private Limited), ARCS Andheri (Arcs Sports & Entertainment Private Limited), Triumph Knights Mumbai North East (Transcon Triumph Knights Private Limited), Bandra Blasters (Pk Sports Ventures Private Limited), Eagle Thane Strikers (Eagle Infra India Ltd.) and Aakash Tigers Mumbai Western Suburbs (World Star Premier League LLP).
 <br/><br/>
 Launched in 2018 with the aim of identifying and promoting cricketing talent, the league has served as a launchpad for several promising players such as Shivam Dube, Tushar Deshpande and Shams Mulani, who have gone on to make their mark at higher levels. <br/><br/>
 
@@ -142,7 +142,7 @@ With the much-awaited third edition, the league is poised to set the stage for t
               Mumbai Panthers (Horizon Sports India Private Limited), ARCS
               Andheri (Arcs Sports & Entertainment Private Limited), Triumph
               Knights Mumbai North East (Transcon Triumph Knights Private
-              Limited), Namo Bandra Blasters (Pk Sports Ventures Private
+              Limited), Bandra Blasters (Pk Sports Ventures Private
               Limited), Eagle Thane Strikers (Eagle Infra India Ltd.) and Aakash
               Tigers Mumbai Western Suburbs (World Star Premier League LLP)
               along with two new teams SoBo Mumbai Falcons (Roadway Solutions

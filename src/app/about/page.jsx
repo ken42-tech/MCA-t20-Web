@@ -171,7 +171,7 @@ const page = () => {
     {
       POS: 10,
       PLAYER: "Sujit Nayak",
-      team: "NaMo Bandra Blasters",
+      team: "Bandra Blasters",
       teamLogo: "/images/stats/l1.svg",
       playerImg: "/images/stats/player-img.svg",
       mat: 5,
@@ -311,7 +311,7 @@ const page = () => {
     {
       pos: 6,
       player: "Sujit Nayak",
-      team: "NaMo Bandra Blasters",
+      team: "Bandra Blasters",
       teamLogo: "/images/stats/l1.svg",
       playerImg: "/images/stats/player-img.svg",
       mat: 7,
@@ -347,7 +347,7 @@ const page = () => {
     {
       pos: 8,
       player: "Karsh Kothari",
-      team: "NaMo Bandra Blasters",
+      team: "Bandra Blasters",
       teamLogo: "/images/stats/l1.svg",
       playerImg: "/images/stats/player-img.svg",
       mat: 6,

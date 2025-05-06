@@ -1,7 +1,7 @@
-import Hero from '@/components/hero/Hero';
-import Image from 'next/image';
-import Script from 'next/script';
-import Link from 'next/link';
+import Hero from "@/components/hero/Hero";
+import Image from "next/image";
+import Script from "next/script";
+import Link from "next/link";
 
 const BASE_URL =
   "https://www.t20mumbai.com/sifeeds/multisport/" +
@@ -20,13 +20,13 @@ const TEAM_NAMES = [
   "SoBo SuperSonics",
   "Eagle Thane Strikers",
   "North Mumbai Panthers",
-  "NaMo Bandra Blasters",
-  "Shivaji Park Lions"
+  "Bandra Blasters",
+  "Shivaji Park Lions",
 ];
 
 export async function generateStaticParams() {
   const seasons = Object.keys(TOURNAMENT_IDS);
-  const teams = ['All Teams', ...TEAM_NAMES];
+  const teams = ["All Teams", ...TEAM_NAMES];
 
   const params = [];
 
@@ -34,7 +34,7 @@ export async function generateStaticParams() {
     for (const team of teams) {
       params.push({
         season,
-        team
+        team,
       });
     }
     params.push({ season });
@@ -51,7 +51,7 @@ async function fetchTournamentData(tournamentId) {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();
   } catch (err) {
-    console.error('Failed to load feed:', err);
+    console.error("Failed to load feed:", err);
     return { matches: [] };
   }
 }
@@ -92,16 +92,16 @@ function processMatches(jsonData) {
 
 export async function generateMetadata() {
   return {
-    title: 'T20 Mumbai - Fixtures',
-    description: 'View all fixtures for T20 Mumbai tournament',
+    title: "T20 Mumbai - Fixtures",
+    description: "View all fixtures for T20 Mumbai tournament",
   };
 }
 
 export default async function Page({ params, searchParams }) {
   const resolvedSearchParams = await searchParams;
 
-  const season = resolvedSearchParams?.season || params?.season || 'Season 2';
-  const team = resolvedSearchParams?.team || params?.team || 'All Teams';
+  const season = resolvedSearchParams?.season || params?.season || "Season 2";
+  const team = resolvedSearchParams?.team || params?.team || "All Teams";
 
   const tournamentId = TOURNAMENT_IDS[season];
   const tournamentData = await fetchTournamentData(tournamentId);
@@ -110,7 +110,10 @@ export default async function Page({ params, searchParams }) {
 
   const matches = allMatches.filter((m) => {
     if (team === "All Teams") return true;
-    return TEAM_NAMES.includes(m.team1.name) && (m.team1.name === team || m.team2.name === team);
+    return (
+      TEAM_NAMES.includes(m.team1.name) &&
+      (m.team1.name === team || m.team2.name === team)
+    );
   });
 
   return (
@@ -122,13 +125,12 @@ export default async function Page({ params, searchParams }) {
       />
       <div className="section-width">
         <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0">
-          <h2 className=" uppercase text-black">
-            {season} Fixtures
-          </h2>
-          <form method="get" className="flex flex-col sm:flex-row items-center gap-4 mt-4 lg:mt-0">
-            <span className="text-sm text-gray-500 sm:inline">
-              Filter by
-            </span>
+          <h2 className=" uppercase text-black">{season} Fixtures</h2>
+          <form
+            method="get"
+            className="flex flex-col sm:flex-row items-center gap-4 mt-4 lg:mt-0"
+          >
+            <span className="text-sm text-gray-500 sm:inline">Filter by</span>
             <select
               name="season"
               defaultValue={season}
@@ -151,7 +153,6 @@ export default async function Page({ params, searchParams }) {
               ))}
             </select>
           </form>
-
         </div>
 
         <div className="md:py-8 bg-white flex flex-col gap-6 py-8">

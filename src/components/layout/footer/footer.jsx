@@ -40,7 +40,7 @@ const Footer = () => {
                 <li>Aakash Tigers MWS</li>
                 <li>Arcs Andheri</li>
                 <li>Eagle Thane Strikers</li>
-                <li>Namo Bandra Blasters</li>
+                <li>Bandra Blasters</li>
                 <li>Sobo Supersonics</li>
               </ul>
             </div>

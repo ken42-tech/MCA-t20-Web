@@ -328,7 +328,7 @@ const battingData = [
   {
     pos: 10,
     player: "Sujit Nayak",
-    team: "NaMo Bandra Blasters",
+    team: "Bandra Blasters",
     teamLogo: "/images/stats/l1.svg",
     playerImg: "/images/stats/player-img.svg",
     mat: 5,
@@ -440,7 +440,7 @@ const bowlingData = [
   {
     pos: 6,
     player: "Sujit Nayak",
-    team: "NaMo Bandra Blasters",
+    team: "Bandra Blasters",
     teamLogo: "/images/stats/l1.svg",
     playerImg: "/images/stats/player-img.svg",
     mat: 7,
@@ -476,7 +476,7 @@ const bowlingData = [
   {
     pos: 8,
     player: "Karsh Kothari",
-    team: "NaMo Bandra Blasters",
+    team: "Bandra Blasters",
     teamLogo: "/images/stats/l1.svg",
     playerImg: "/images/stats/player-img.svg",
     mat: 6,
@@ -594,7 +594,7 @@ const fieldingData = [
   {
     pos: 6,
     player: "Sujit Nayak",
-    team: "NaMo Bandra Blasters",
+    team: "Bandra Blasters",
     teamLogo: "/images/stats/l1.svg",
     playerImg: "/images/stats/player-img.svg",
     mat: 7,
@@ -618,7 +618,7 @@ const fieldingData = [
   {
     pos: 8,
     player: "Karsh Kothari",
-    team: "NaMo Bandra Blasters",
+    team: "Bandra Blasters",
     teamLogo: "/images/stats/l1.svg",
     playerImg: "/images/stats/player-img.svg",
     mat: 6,
