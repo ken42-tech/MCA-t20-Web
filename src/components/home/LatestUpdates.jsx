@@ -6,7 +6,7 @@ import TitleComponent from "../common/TitleComponent";
 import { truncateTextSpells } from "@/utilis/helper";
 import { useRouter } from "next/navigation";
 import path from "path";
-
+import routes from "@/utilis/route";
 const tabs = ["All", "Latest", "Reviews", "NewSection"];
 
 const updateItems = [
@@ -44,7 +44,32 @@ const LatestUpdates = () => {
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat">
       <div className="section-width section-padding">
-        <TitleComponent title="Latest Updates" orange />
+        <div className=" sm:flex sm:justify-between sm:items-start">
+          <TitleComponent orange title={"Latest Updates"} />
+
+          {/* Only show the button on non-mobile screens */}
+          <div className="hidden sm:block">
+            <Link href={routes.latestUpdates}>
+              <div
+                className="  flex items-center justify-between py-3 px-6 gap-4"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
+                }}
+              >
+                <p className="text-sm font-bold">View All Updates</p>
+                <Image
+                  src="/images/home/hero/buttonIcon.svg"
+                  alt="button-icon"
+                  width={24}
+                  height={24}
+                  className="w-5 h-5"
+                />
+              </div>
+            </Link>{" "}
+          </div>
+        </div>
+
         <div className="w-full flex flex-col gap-7 relative">
           <div className="w-full overflow-x-auto scrollbar-hide">
             <div className="relative w-full h-fit">
