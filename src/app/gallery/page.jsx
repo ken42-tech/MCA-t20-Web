@@ -11,6 +11,48 @@ const items = [
     type: "",
     title: "Final: SS vs NMP",
     date: "27 May, 2025",
+    img: "/images/gallery/new1.jpg",
+    views: 1289,
+  },
+  {
+    type: "",
+    title: "T20 Mumbai Promo",
+    date: "",
+    img: "/images/gallery/new2.jpg",
+    views: 1500,
+  },
+  {
+    type: "",
+    title: "Match 19: NBB vs ETS",
+    date: "22 May, 2025",
+    img: "/images/gallery/new3.jpg",
+  },
+  {
+    type: "",
+    title: "Final: SS vs NMP",
+    date: "27 May, 2025",
+    img: "/images/gallery/new4.jpg",
+    views: 1289,
+  },
+  {
+    type: "",
+    title: "T20 Mumbai Promo",
+    date: "",
+    img: "/images/gallery/new5.jpg",
+    views: 1500,
+  },
+  {
+    type: "",
+    title: "Match 19: NBB vs ETS",
+    date: "22 May, 2025",
+    img: "/images/gallery/new6.jpg",
+  },
+
+  //newly updated galary
+  {
+    type: "",
+    title: "Final: SS vs NMP",
+    date: "27 May, 2025",
     img: "/images/gallery/img3.jpg",
     views: 1289,
   },
@@ -77,12 +119,6 @@ const items = [
     title: "Dreams do come true:",
     date: "27 May, 2025",
     img: "/images/gallery/img11.jpg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/img12.jpg",
   },
 ];
 

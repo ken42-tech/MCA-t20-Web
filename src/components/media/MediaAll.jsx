@@ -11,7 +11,10 @@ const MediaAll = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const [layoutConfig, setLayoutConfig] = useState([
+    [2, 3, 2],
+    [1, 3, 3],
     [1, 3, 1, 2],
+
     [1, 3, 3],
     [1, 3, 1, 2],
   ]);
@@ -47,7 +50,11 @@ const MediaAll = ({ items }) => {
       } else {
         // Desktop layout - original complex grid
         setLayoutConfig([
+          [2, 3, 2], // 4 images
+          [1, 3, 3],
+
           [1, 3, 1, 2], // 4 images
+
           [1, 3, 3], // 3 images
           [1, 3, 1, 2], // 4 images
         ]);

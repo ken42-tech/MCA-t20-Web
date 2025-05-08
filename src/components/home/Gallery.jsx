@@ -11,78 +11,41 @@ const items = [
     type: "",
     title: "Final: SS vs NMP",
     date: "27 May, 2025",
-    img: "/images/gallery/img3.jpg",
+    img: "/images/gallery/new1.jpg",
     views: 1289,
   },
   {
     type: "",
     title: "T20 Mumbai Promo",
     date: "",
-    img: "/images/gallery/img2.jpg",
+    img: "/images/gallery/new2.jpg",
     views: 1500,
   },
   {
     type: "",
     title: "Match 19: NBB vs ETS",
     date: "22 May, 2025",
-    img: "/images/gallery/img11.jpg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/img4.jpg",
-  },
-  {
-    type: "",
-    title: "T20 Mumbai Promo",
-    date: "",
-    img: "/images/gallery/img12.jpg",
-    views: 1500,
-  },
-  {
-    type: "",
-    title: "Match 19: NBB vs ETS",
-    date: "22 May, 2025",
-    img: "/images/gallery/img10.jpg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/img7.jpg",
+    img: "/images/gallery/new3.jpg",
   },
   {
     type: "",
     title: "Final: SS vs NMP",
     date: "27 May, 2025",
-    img: "/images/gallery/img8.jpg",
+    img: "/images/gallery/new4.jpg",
     views: 1289,
   },
   {
     type: "",
     title: "T20 Mumbai Promo",
     date: "",
-    img: "/images/gallery/img9.jpg",
+    img: "/images/gallery/new5.jpg",
     views: 1500,
   },
   {
     type: "",
     title: "Match 19: NBB vs ETS",
     date: "22 May, 2025",
-    img: "/images/gallery/img.10jpg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/img11.jpg",
-  },
-  {
-    type: "",
-    title: "Dreams do come true:",
-    date: "27 May, 2025",
-    img: "/images/gallery/img12.jpg",
+    img: "/images/gallery/new6.jpg",
   },
 ];
 
@@ -94,7 +57,7 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
 
   const [layoutConfig, setLayoutConfig] = useState([
-    [1, 3, 1, 2],
+    [2, 3, 2],
     [1, 3, 3],
   ]);
 
@@ -114,8 +77,8 @@ const Gallery = () => {
       } else {
         // Desktop layout - original complex grid
         setLayoutConfig([
-          [1, 3, 1, 2], // 4 images
-          [1, 3, 3], // 3 images
+          [2, 3, 2],
+          [1, 3, 3],
         ]);
       }
     }
@@ -241,7 +204,6 @@ const Gallery = () => {
           height={24}
           className="w-5 h-5"
         />
-
       </div>
     </Link>
   );
