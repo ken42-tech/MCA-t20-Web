@@ -17,7 +17,7 @@ import AdminTeamSection from "./components/AdminTeamSection";
 const page = () => {
   const [loading, setLoading] = useState(false);
   const [teamDetails, setTeamDetails] = useState(teamDetailsData.data);
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
 
   // useEffect(() => {
