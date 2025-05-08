@@ -12,11 +12,11 @@ const tabs = ["All", "Latest", "Reviews", "NewSection"];
 const updateItems = [
   {
     title:
-      "Mumbai Cricket Association Opens Player Registration for T20 Mumbai League Season 3",
-    date: "Mumbai, April 3, 2025",
-    img: "/images/home/latestUpdate1.jpg",
+      "T20 Mumbai League 2025 Auction: Rising stars Ayush Mhatre, Angkrish Raghuvanshi, Tanush Kotian among key attractions as around 280 players to go under hammer on Wednesday",
+    date: "Mumbai, May 6, 2025",
+    img: "/images/latestUpdates/recent-update-7.jpg",
     bordered: true,
-    path: "/latest-updates/mumbai-cricket-association-opens-player-registration-for-t20-mumbai-league-season-3",
+    path: "latest-updates/t20-mumbai-league-2025-auction-rising-stars-ayush-mhatre-angkrish-raghuvanshi-tanush-kotian-among-key-attractions-as-around-280-players-to-go-under-hammer-on-wednesday",
   },
   {
     title:

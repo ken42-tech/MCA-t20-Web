@@ -1,5 +1,36 @@
 export const CardData = [
   {
+    id: 7,
+    date: "Mumbai, May 6, 2025",
+    imgUrl: "/images/latestUpdates/update7.jpg",
+    title:
+      "T20 Mumbai League 2025 Auction: Rising stars Ayush Mhatre, Angkrish Raghuvanshi, Tanush Kotian among key attractions as around 280 players to go under hammer on Wednesday",
+    subTitle: "Season 3 to be held at Wankhede Stadium from May 26 to June 8",
+    content: `As the T20 Mumbai League — one of India’s leading franchise-based domestic T20 tournaments — gears up for an exciting Season 3 auction, around 280 players are set to go under the hammer in Mumbai on Wednesday.<br /><br />
+
+Among the star attractions are some of the brightest rising stars, including the 17-year-old Ayush Mhatre, who has been making waves with spectacular performances in the ongoing IPL 2025,  Angkrish Raghuvanshi, Tanush Kotian and Musheer Khan as the player pool offers a remarkable blend of emerging talent and seasoned performers.<br /><br />
+
+The T20 Mumbai League 2025, featuring eight teams, will be held at the Wankhede Stadium from May 26 to June 8.<br /><br />
+
+The pool also includes players like Siddhesh Lad and Shams Mulani who are consistent performers in the domestic circuit.  <br /><br />
+
+The auction is expected to feature intense competition and strategic bidding as teams aim to assemble their ideal combinations.
+<br /><br />
+“This exciting player pool reflects the depth and quality of talent that Mumbai cricket has to offer. It features a remarkable mix of emerging stars and established names, giving franchises a great options to build competitive squads. As we aim to uncover and promote the next generation of Indian cricket superstars, the auction will be a game-changer — not just for the teams, but for the players who are eager to make their mark on this grand stage. The T20 Mumbai League will set a new benchmark in domestic T20 cricket,” said Abhay Hadap, Secretary of Mumbai Cricket Association.<br /><br />
+
+The teams have already added icon players to their respective squads which includes Suryakumar Yadav (Triumph Knights Mumbai North East), Ajinkya Rahane (Bandra Blasters), Shreyas Iyer (SoBo Mumbai Falcons), Prithvi Shaw (North Mumbai Panthers), Shivam Dube (ARCS Andheri), Shardul Thakur (Eagle Thane Strikers), Sarfaraz Khan (Aakash Tigers Mumbai Western Suburbs) and Tushar Deshpande (Mumbai South Central Maratha Royals). 
+<br /><br />
+The player pool has been strategically divided into three categories: Senior Player, which includes those who feature in First-Class, List A, or T20 matches, Emerging Player, comprising cricketers who have represented Mumbai at the U-23 or U-19 level in the past three years, and Development Player, which features talented local and club-level players.<br /><br />
+
+The base prices are set at ₹5 lakh for Senior Player, ₹3 lakh for Emerging Player and ₹2 lakh for Development Player. Teams are required to include four senior players, and at least five emerging players and five development players in their final squad of a minimum of 18 members. Icon players have been signed at a fixed price of ₹20 lakh.<br /><br />
+
+Each team is required to spend a minimum of ₹80 lakh from their purse of ₹1 crore for the season.<br /><br />
+
+Additionally, teams are required to buy at least two players born on or after September 1, 2005 and include at least one of these players in their playing XI.<br /><br />
+
+ENDS`,
+  },
+  {
     id: 1,
     date: "Mumbai, April 2, 2025",
     imgUrl: "/images/latestUpdates/update1.jpg",
@@ -202,36 +233,5 @@ With the icon players now finalised, the focus shifts to the highly anticipated 
               <br />
 
 Making a grand return after a six-year break, the T20 Mumbai League 2025 will be held at the Wankhede Stadium from May 26 to June 8.`,
-  },
-  {
-    id: 7,
-    date: "Mumbai, May 6, 2025",
-    imgUrl: "/images/latestUpdates/update7.jpg",
-    title:
-      "T20 Mumbai League 2025 Auction: Rising stars Ayush Mhatre, Angkrish Raghuvanshi, Tanush Kotian among key attractions as around 280 players to go under hammer on Wednesday",
-    subTitle: "Season 3 to be held at Wankhede Stadium from May 26 to June 8",
-    content: `As the T20 Mumbai League — one of India’s leading franchise-based domestic T20 tournaments — gears up for an exciting Season 3 auction, around 280 players are set to go under the hammer in Mumbai on Wednesday.<br /><br />
-
-Among the star attractions are some of the brightest rising stars, including the 17-year-old Ayush Mhatre, who has been making waves with spectacular performances in the ongoing IPL 2025,  Angkrish Raghuvanshi, Tanush Kotian and Musheer Khan as the player pool offers a remarkable blend of emerging talent and seasoned performers.<br /><br />
-
-The T20 Mumbai League 2025, featuring eight teams, will be held at the Wankhede Stadium from May 26 to June 8.<br /><br />
-
-The pool also includes players like Siddhesh Lad and Shams Mulani who are consistent performers in the domestic circuit.  <br /><br />
-
-The auction is expected to feature intense competition and strategic bidding as teams aim to assemble their ideal combinations.
-<br /><br />
-“This exciting player pool reflects the depth and quality of talent that Mumbai cricket has to offer. It features a remarkable mix of emerging stars and established names, giving franchises a great options to build competitive squads. As we aim to uncover and promote the next generation of Indian cricket superstars, the auction will be a game-changer — not just for the teams, but for the players who are eager to make their mark on this grand stage. The T20 Mumbai League will set a new benchmark in domestic T20 cricket,” said Abhay Hadap, Secretary of Mumbai Cricket Association.<br /><br />
-
-The teams have already added icon players to their respective squads which includes Suryakumar Yadav (Triumph Knights Mumbai North East), Ajinkya Rahane (Bandra Blasters), Shreyas Iyer (SoBo Mumbai Falcons), Prithvi Shaw (North Mumbai Panthers), Shivam Dube (ARCS Andheri), Shardul Thakur (Eagle Thane Strikers), Sarfaraz Khan (Aakash Tigers Mumbai Western Suburbs) and Tushar Deshpande (Mumbai South Central Maratha Royals). 
-<br /><br />
-The player pool has been strategically divided into three categories: Senior Player, which includes those who feature in First-Class, List A, or T20 matches, Emerging Player, comprising cricketers who have represented Mumbai at the U-23 or U-19 level in the past three years, and Development Player, which features talented local and club-level players.<br /><br />
-
-The base prices are set at ₹5 lakh for Senior Player, ₹3 lakh for Emerging Player and ₹2 lakh for Development Player. Teams are required to include four senior players, and at least five emerging players and five development players in their final squad of a minimum of 18 members. Icon players have been signed at a fixed price of ₹20 lakh.<br /><br />
-
-Each team is required to spend a minimum of ₹80 lakh from their purse of ₹1 crore for the season.<br /><br />
-
-Additionally, teams are required to buy at least two players born on or after September 1, 2005 and include at least one of these players in their playing XI.<br /><br />
-
-ENDS`,
   },
 ];
