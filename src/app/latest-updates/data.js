@@ -1,5 +1,58 @@
 export const CardData = [
   {
+    id: 8,
+    date: "Mumbai, May 7, 2025",
+    imgUrl: "/images/latestUpdates/update8.jpg",
+    title:
+      "T20 Mumbai League 2025 Auction: Atharva Ankolekar emerges costliest player; Musheer Khan, Sairaj Patil, Ayush Mhatre among top buys as teams spend ₹ 7.79 crores in fierce bidding war",
+    subTitle:
+      "Ankolekar attracted the highest bid of ₹16.25 lakh while IPL 2025 rising stars Ayush Mhatre and Angkrish Raghuvanshi went for ₹14.75 lakh and ₹14.00 lakh respectively",
+    content: `Season 3 to be held at Wankhede Stadium from May 26 to June 8<br /><br />
+
+Mumbai, May 7, 2025: All-rounder Atharva Ankolekar emerged the costliest buy as the T20 Mumbai League 2025 auction witnessed intense bidding wars in Mumbai on Wednesday, as eight teams spent ₹ 7.79 crores to build highly competitive 18-member squads. <br /><br />
+
+The T20 Mumbai League, one of India’s leading franchise-based domestic T20 tournaments, is all set for a highly anticipated third season, scheduled to be played at the Wankhede Stadium from May 26 to June 8. <br /><br />
+
+Around 280 players went under the hammer as each team came up with a strategic approach to assemble a balanced squad comprising of a mix of young upcoming talent and experienced campaigners. The spotlight was on all-rounders, with 24-year-old Ankolekar securing the highest bid of the auction, to join Eagle Thane Strikers for ₹16.25 lakh. During the T20 Syed Mushtaq Ali Trophy final 2024, Ankolekar had played a significant role in Mumbai's victory. Musheer Khan, a member of the Punjab Kings squad, and Sairaj Patil were the other all-rounders who attracted mega deals of ₹15 lakh each. Musheer went to ARCS Andheri, while Sairaj was signed by Eagle Thane Strikers.
+<br /><br />
+Rising stars from IPL 2025, Ayush Mhatre and Angkrish Raghuvanshi, were picked up by Triumph Knights Mumbai North East and SoBo Mumbai Falcons for ₹14.75 lakh and ₹14 lakh respectively. Akash Parkar was the highlight from the ‘Development Players’ category as the all-rounder fetched more than five times his base price (2 lakh) to find  a place in SoBo Mumbai Falcons for an impressive ₹11.25 lakh.
+<br /><br />
+“It’s truly encouraging to see emerging players gaining the recognition they deserve. This league continues to serve as a platform to identify and promote promising cricketing talent. The strategic approach of teams during today’s auction reflects their deep commitment to the league and its vision. With a balanced mix of experienced players and exciting talent, fans can look forward to high-voltage action as we aim to set a new benchmark for domestic T20 cricket," commented MCA President Ajinkya Naik.
+<br /><br />
+India’s T20I captain Suryakumar Yadav, who is also an Icon Player of Triumph Knights Mumbai North East, also attended the auction and spoke about the league’s role as a stepping stone for young cricketers. “You must have seen in 2018, Shivam Dubey had a terrific T20 Mumbai League season and then he went on to make a name for himself. Similarly, having such league for your state is I think a big boost for all the cricketers across categories. So I think it's a good thing and hopefully it [the league] happens every year and we get a lot of players,” said Suryakumar Yadav.
+<br /><br />
+Expressing his happiness after becoming the most expensive buy in the auction, Ankolekar said: “I'm truly excited to play in the T20 Mumbai League and join Eagle Thane Strikers. It's a big moment for me, and I’m grateful for the trust the team has placed in me. I’m looking forward to sharing the field with players like Shardul Thakur. A big thank you to the MCA for bringing this league back—it’s a fantastic platform for Mumbai cricketers. My focus is now to make the most of this opportunity in my debut season and contribute to the team’s success.”
+<br /><br />
+The league also features a star-studded line-up of icon players which includes Suryakumar Yadav (Triumph Knights Mumbai North East), Ajinkya Rahane (Bandra Blasters), Shreyas Iyer (SoBo Mumbai Falcons), Prithvi Shaw (North Mumbai Panthers), Shivam Dube (ARCS Andheri), Shardul Thakur (Eagle Thane Strikers), Sarfaraz Khan (Aakash Tigers Mumbai Western Suburbs) and Tushar Deshpande (Mumbai South Central Maratha Royals). 
+<br /><br />
+Top buys - <br /><br />
+
+•⁠  ⁠Atharva Ankolekar (₹16.25 lakh) - Eagle Thane Strikers<br />
+•⁠  ⁠Musheer Khan (₹15 lakh) - ARCS Andheri<br />
+•⁠  ⁠Sairaj Patil (₹15 lakh) - Eagle Thane Strikers<br />
+•⁠  ⁠Ayush Mhatre (₹14.75 lakh) - Triumph Knights Mumbai North East<br />
+•⁠  ⁠Angkrish Raghuvanshi (₹14 lakh) - SoBo Mumbai Falcons<br />
+•⁠  ⁠Shams Mulani (₹14 lakh) - Aakash Tigers Mumbai Western Suburbs
+<br /><br />
+Complete Squads
+<br /><br />
+Triumph Knights Mumbai North East: Suryakumar Yadav (Icon Player, 20 lakh), Sidhaant Aadhhathrao (7.75 lakh), Ayush Mhatre (14.75 lakh), Suryansh Shedge (13.75 lakh), Parikshit Valsangkar (7.25 lakh), Jigar Rana (2 lakh), Jay Jain (4 lakh), Hrishikesh Gore (3.40 lakh), Akash Pawar (3 lakh), Shreyas Gurav (3 lakh), Bharat Sudam Patil (2 lakh), Makarand Patil (2 lakh), Sagar Mishra (3 lakh), Shikhar Thakur (2 lakh), Shivam Nirupam (2.20 lakh), Parth Naik (3 lakh), Yash Chavan (2 lakh), Minadd Manjrekar (2 lakh)
+ <br /><br />
+Bandra Blasters: Ajinkya Rahane (Icon Player, 20 lakh), Suved Parkar (8.50 lakh), Akash Anand (8.25 lakh), Royston Dias (7 lakh), Karsh Kothari (5 lakh), Tushar Singh (3 lakh), Atharva Poojari (3 lakh), Shyamsundar Keshkamat (3.20 lakh), Dhanit Raut (4.60 lakh), Naman Pushpak (3 lakh), Parth Ankolekar (3 lakh), Atif Attarwala (6.25 lakh), Dhrumil Matkar (7.25 lakh), M Adeeb Usmani (2.70 lakh), Sagarr Chhabriaa (3 lakh), Tatsat Singh (2 lakh), Rishit Patwal (2 lakh), Vikrant Auti (2 lakh)
+<br /><br />
+North Mumbai Panthers: Prithvi Shaw (Icon Player, 20 lakh), Tanush Kotian (10 lakh), Mohit Avasthi (10.50 lakh), Khizar Dafedar (5.50 lakh), Divyaansh Saxena (5.25 lakh), Abhigyan Kundu (5 lakh), Ayush Vartak (6.25 lakh), Sourabh Singh (3.80 lakh), Harshal Jadhav (5 lakh), Prince Badiani (4 lakh), Alim Shaikh (2 lakh), Gaurav Jathar (3.40 lakh), Muzzamil Kadri (2 lakh), Pratik Mishra (6 lakh), Rahul Sawant (3.60 lakh), Pravesh Pal (2 lakh), Swapnil Salvi (2 lakh), Dharsh Murkute (2 lakh)
+<br /><br />
+SoBo Mumbai Falcons: Shreyas Iyer (Icon Player, 20 lakh), Angkrish Raghuvanshi (14 lakh), Vinayak Bhoir (5.75 lakh), Siddharth Raut (7 lakh), Harsh Aghav (5.25 lakh), Kush Kariya (3 lakh), Nikhil Giri (3 lakh), Prem Devkar (3 lakh), Akash Parkar (11.25 lakh), Amol Tarpure (2 lakh), Ishan Mulchandani (3.40 lakh), Mayuresh Tandel (2 lakh), Prathamesh Dake (4.6 lakh), Shreyanssh Rai (2 lakh),  Yash Dicholkar (2 lakh), Amogh Bhatkal (5 lakh), Nishit Balla (3 lakh), Sai Chavan (3 lakh)
+<br /><br />
+ARCS Andheri: Shivam Dube (Icon Player, 20 lakh), Prasad Pawar (13 lakh), Musheer Khan (15 lakh), Himanshu  Singh (5.50 lakh), Akhil Herwadkar (6.50 lakh), Siddid Tiwari (3 lakh), Raza Mirza (3 lakh), Pragnesh Kanpillewar (4.60 lakh), Saksham Jha (3.60 lakh), Prasoon Singh (3 lakh), Aishwary Surve (2 lakh), Ajay Mishra (2 lakh), Badrey Alam (2.50 lakh), M N Khan (2 lakh), Monil Soni (2.20 lakh), Deepak Shetty (2 lakh), Onkar Jadhav (2 lakh), Sandeep Kunchikor (2 lakh)
+<br /><br />
+Eagle Thane Strikers: Shardul Thakur (Icon Player, 20 lakh), Shashank Attarde (6.50 lakh), Sairaj Patil (15 lakh), Atharva Ankolekar (16.25 lakh), Harsh Tanna (7.75 lakh), Varun Lavande (5 lakh), Ajit Yadav (3.80 lakhs), Aryan Chauhan (3 lakh), Harsh Salunkhe (3 lakh), Nutan Goel (3 lakh), Aaryaraj Nikam (2.10 lakh), Amartya Raje (2 lakh), Kaushik Chikhalikar (2 lakh), Shashikant Kadam (2 lakh), Onkar Tarmale (2 lakh), Anish Chaudhery (2 lakh), Ankur Singh (2 lakh), Shivansh Singh (2 lakh)
+<br /><br />
+Aakash Tigers Mumbai Western Suburbs: Sarfaraz Khan (Icon Player, 20 lakh), Hardik Tamore (8.50 lakh), Jay Bista (12 lakh), Shams Mulani (14 lakh), Sylvester Dsouza (5 lakh), Ayaz Ahmed (5.25 lakh), Siddharth Akre (4.60 lakh), Arjun Dani (4.20 lakh), M Yaseen Saudagar (3 lakh), Zaid Patankar (3.60 lakh), Karan Shah (2 lakh), Kruthik Hanagavadi (2 lakh), Sufiyan Shaikh (2.60 lakh), Vasim Khan (2 lakh), Yash Dube (2 lakh), S M Hashim (2 lakh), Ayush Jathwa (3 lakh), Salman Khan (2 lakh)
+<br /><br />
+Mumbai South Central Maratha Royals: Tushar Deshpande (Icon Player, 20 lakh), Siddhessh Lad (10.25 lakh), Sachin Yadav (7 lakh), Aditya Dhumal (7.25 lakh), Awais Khan (4.20 lakh), Sahil Jadhav (3 lakh), Naman Jhawar (3 lakh), Maxwell Swaminathan (4.60 lakh), Varun Rao (3 lakh), Rohan Ghag (3 lakh), Ajay Janu (2.20 lakh), Chinmay Sutar (5 lakh), Irfan Umair (9.25 lakh), Parag Khanapurkar (6 lakh), Arman Jaffar (5 lakh), Vaibhav Mali (2 lakh), Yash Gadia (2 lakh), Shashwat Jagtap (3 Lakh).`,
+  },
+  {
     id: 7,
     date: "Mumbai, May 6, 2025",
     imgUrl: "/images/latestUpdates/update7.jpg",

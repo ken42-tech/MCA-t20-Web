@@ -18,7 +18,7 @@ const items = [
     type: "",
     title: "T20 Mumbai Promo",
     date: "",
-    img: "/images/gallery/new2.jpg",
+    img: "/images/gallery/new-2.jpg",
     views: 1500,
   },
   {
@@ -31,7 +31,7 @@ const items = [
     type: "",
     title: "Final: SS vs NMP",
     date: "27 May, 2025",
-    img: "/images/gallery/new4.jpg",
+    img: "/images/gallery/new-1.jpeg",
     views: 1289,
   },
   {

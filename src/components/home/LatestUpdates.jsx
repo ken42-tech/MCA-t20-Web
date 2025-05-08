@@ -12,6 +12,14 @@ const tabs = ["All", "Latest", "Reviews", "NewSection"];
 const updateItems = [
   {
     title:
+      "T20 Mumbai League 2025 Auction: Atharva Ankolekar emerges costliest player; Musheer Khan, Sairaj Patil, Ayush Mhatre among top buys as teams spend ₹ 7.79 crores in fierce bidding war",
+    date: "Mumbai, May 7, 2025",
+    img: "/images/latestUpdates/latestupdate1.jpg",
+    bordered: false,
+    path: "/latest-updates/t20-mumbai-league-2025-auction-atharva-ankolekar-emerges-costliest-player-musheer-khan-sairaj-patil-ayush-mhatre-among-top-buys-as-teams-spend-7-79-crores-in-fierce-bidding-war",
+  },
+  {
+    title:
       "T20 Mumbai League 2025 Auction: Rising stars Ayush Mhatre, Angkrish Raghuvanshi, Tanush Kotian among key attractions as around 280 players to go under hammer on Wednesday",
     date: "Mumbai, May 6, 2025",
     img: "/images/latestUpdates/recent-update-7.jpg",
@@ -25,14 +33,6 @@ const updateItems = [
     img: "/images/home/latestUpdate2.jpg",
     bordered: true,
     path: "/latest-updates/iconic-wankhede-stadium-to-host-t20-mumbai-league-season-3-from-may-26-to-june-8",
-  },
-  {
-    title:
-      "T20 Mumbai League Season 3 Receives Overwhelming Response with 2800-plus Player Registrations",
-    date: "Mumbai, April 14, 2025",
-    img: "/images/home/latestUpdate3.jpg",
-    bordered: false,
-    path: "/latest-updates/t20-mumbai-league-season-3-receives-overwhelming-response-with-2800-plus-player-registrations",
   },
 ];
 
