@@ -51,8 +51,7 @@ const Navbar = () => {
                     "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
                 }}
               >
-                {" "}
-                Live Auction
+                Auction Info
                 <span>
                   <Image
                     src="/images/home/hero/buttonIcon.svg"
@@ -115,8 +114,7 @@ const Navbar = () => {
                 "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
             }}
           >
-            {" "}
-            Live Auction
+            Auction Info
             <span>
               <Image
                 src="/images/home/hero/buttonIcon.svg"
