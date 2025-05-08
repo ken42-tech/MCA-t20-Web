@@ -6,17 +6,25 @@ import TitleComponent from "../common/TitleComponent";
 import { truncateTextSpells } from "@/utilis/helper";
 import { useRouter } from "next/navigation";
 import path from "path";
-
+import routes from "@/utilis/route";
 const tabs = ["All", "Latest", "Reviews", "NewSection"];
 
 const updateItems = [
   {
     title:
-      "Mumbai Cricket Association Opens Player Registration for T20 Mumbai League Season 3",
-    date: "Mumbai, April 3, 2025",
-    img: "/images/home/latestUpdate1.jpg",
+      "T20 Mumbai League 2025 Auction: Atharva Ankolekar emerges costliest player; Musheer Khan, Sairaj Patil, Ayush Mhatre among top buys as teams spend ₹ 7.79 crores in fierce bidding war",
+    date: "Mumbai, May 7, 2025",
+    img: "/images/latestUpdates/latestupdate1.jpg",
+    bordered: false,
+    path: "/latest-updates/t20-mumbai-league-2025-auction-atharva-ankolekar-emerges-costliest-player-musheer-khan-sairaj-patil-ayush-mhatre-among-top-buys-as-teams-spend-7-79-crores-in-fierce-bidding-war",
+  },
+  {
+    title:
+      "T20 Mumbai League 2025 Auction: Rising stars Ayush Mhatre, Angkrish Raghuvanshi, Tanush Kotian among key attractions as around 280 players to go under hammer on Wednesday",
+    date: "Mumbai, May 6, 2025",
+    img: "/images/latestUpdates/recent-update-7.jpg",
     bordered: true,
-    path: "/latest-updates/mumbai-cricket-association-opens-player-registration-for-t20-mumbai-league-season-3",
+    path: "latest-updates/t20-mumbai-league-2025-auction-rising-stars-ayush-mhatre-angkrish-raghuvanshi-tanush-kotian-among-key-attractions-as-around-280-players-to-go-under-hammer-on-wednesday",
   },
   {
     title:
@@ -25,14 +33,6 @@ const updateItems = [
     img: "/images/home/latestUpdate2.jpg",
     bordered: true,
     path: "/latest-updates/iconic-wankhede-stadium-to-host-t20-mumbai-league-season-3-from-may-26-to-june-8",
-  },
-  {
-    title:
-      "T20 Mumbai League Season 3 Receives Overwhelming Response with 2800-plus Player Registrations",
-    date: "Mumbai, April 14, 2025",
-    img: "/images/home/latestUpdate3.jpg",
-    bordered: false,
-    path: "/latest-updates/t20-mumbai-league-season-3-receives-overwhelming-response-with-2800-plus-player-registrations",
   },
 ];
 
@@ -44,7 +44,32 @@ const LatestUpdates = () => {
   return (
     <div className="bg-[url('/images/home/latestUpdateBg.png')] bg-cover bg-center bg-no-repeat">
       <div className="section-width section-padding">
-        <TitleComponent title="Latest Updates" orange />
+        <div className=" sm:flex sm:justify-between sm:items-start">
+          <TitleComponent orange title={"Latest Updates"} />
+
+          {/* Only show the button on non-mobile screens */}
+          <div className="hidden sm:block">
+            <Link href={routes.latestUpdates}>
+              <div
+                className="  flex items-center justify-between py-3 px-6 gap-4"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(180deg, #142A7C -11.26%, #344CA2 44.6%, #243FA3 100.45%)",
+                }}
+              >
+                <p className="text-sm font-bold">View All Updates</p>
+                <Image
+                  src="/images/home/hero/buttonIcon.svg"
+                  alt="button-icon"
+                  width={24}
+                  height={24}
+                  className="w-5 h-5"
+                />
+              </div>
+            </Link>{" "}
+          </div>
+        </div>
+
         <div className="w-full flex flex-col gap-7 relative">
           <div className="w-full overflow-x-auto scrollbar-hide">
             <div className="relative w-full h-fit">
