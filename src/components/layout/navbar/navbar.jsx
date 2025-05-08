@@ -5,10 +5,13 @@ import { navLinks } from "./data";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useState } from "react";
 import routes from "@/utilis/route";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathName = usePathname();
 
+  if (pathName === "/auction-info") return;
   return (
     <div className="bg-transparent z-50 absolute top-[20px] w-full">
       <nav className="flex justify-between items-center  section-width">
@@ -43,7 +46,7 @@ const Navbar = () => {
               ))}
 
               <a
-                href={routes.liveAuction}
+                href={"/auction-info"}
                 s
                 className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
                 style={{
@@ -107,7 +110,7 @@ const Navbar = () => {
         </ul>
         <div className="w-fit p-6">
           <a
-            href={routes.liveAuction}
+            href={"/auction-info"}
             className="px-4 py-2 md:px-6 md:py-3   rounded-full   text-white text-sm md:text-base text-center cursor-pointer flex gap-4 items-center"
             style={{
               backgroundImage:

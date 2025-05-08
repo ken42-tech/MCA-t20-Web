@@ -1,8 +1,13 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import "./style.css";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathName = usePathname();
+
+  if (pathName === "/auction-info") return;
   return (
     <div className=" w-full bg-black h-auto  flex justify-center items-center gap-[20px]">
       <div className=" flex justify-between items-center section-width flex-col md:flex-row gap-[60px] py-8   ">
