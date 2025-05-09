@@ -122,7 +122,7 @@ const page = () => {
                   count: getCategoryCount(
                     "Mumbai age group team (under 23 or under 19)"
                   ),
-                  minPlayerCount: 6,
+                  minPlayerCount: 5,
                 },
                 {
                   label: "Development",
