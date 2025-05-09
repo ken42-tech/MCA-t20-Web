@@ -99,7 +99,7 @@ const AdminTeamCard = ({ team, index, setStep, setSelectedTeamIndex }) => {
                   : level === "First class, list A, BCCI Senior Men T20"
                   ? 4
                   : level === "Mumbai age group team (under 23 or under 19)"
-                  ? 6
+                  ? 5
                   : 5}
               </div>
               <div className="text-sm text-white font-semibold capitalize">
