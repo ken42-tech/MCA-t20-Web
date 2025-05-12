@@ -81,9 +81,11 @@ const HomeTeamSection = () => {
         <div className="w-full flex flex-col gap-7 relative">
           <div className="w-full overflow-x-auto  scrollbar-hide">
             <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 hidden">
-              {teamsDataHomePage.map((item, i) => {
-                return <TeamCard data={item} key={i} />;
-              })}
+              {[...teamsDataHomePage]
+                .sort((a, b) => a.team.localeCompare(b.team))
+                .map((item, i) => {
+                  return <TeamCard data={item} key={i} />;
+                })}
             </div>
             <div className="w-full sm:hidden block">
               <Carousel
@@ -92,11 +94,13 @@ const HomeTeamSection = () => {
                 spaceBetween={50}
                 loop={true}
               >
-                {teamsDataHomePage.map((item, i) => (
-                  <SwiperSlide key={i}>
-                    <TeamCard data={item} key={i} />
-                  </SwiperSlide>
-                ))}
+                {[...teamsDataHomePage]
+                  .sort((a, b) => a.team.localeCompare(b.team))
+                  .map((item, i) => (
+                    <SwiperSlide key={i}>
+                      <TeamCard data={item} key={i} />
+                    </SwiperSlide>
+                  ))}
               </Carousel>
               {/* {teamsDataHomePage.map((item, i) => {
                 return <TeamCard data={item} key={i} />;

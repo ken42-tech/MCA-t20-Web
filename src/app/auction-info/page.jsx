@@ -20,6 +20,10 @@ const page = () => {
   const [step, setStep] = useState(1);
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
 
+  const [selectedTeamId, setSelectedTeamId] = useState(
+    teamDetails?.[0]?.Id || null
+  );
+
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
@@ -37,7 +41,9 @@ const page = () => {
   //   fetchData();
   // }, []);
 
-  const team = teamDetails?.[selectedTeamIndex];
+  // const team = teamDetails?.[selectedTeamIndex];
+  const team = teamDetails?.find((t) => t.Id === selectedTeamId);
+
   const players = team?.Player_Registrations__r?.records || [];
 
   const getCategoryCount = (level) =>
@@ -60,7 +66,7 @@ const page = () => {
           <AdminTeamSection
             teamDetails={teamDetails}
             setStep={setStep}
-            setSelectedTeamIndex={setSelectedTeamIndex}
+            setSelectedTeamId={setSelectedTeamId}
           />
         </div>
       ) : (
@@ -73,23 +79,27 @@ const page = () => {
           </button>
 
           <div className="flex flex-wrap gap-5 overflow-x-auto pb-6">
-            {teamDetails?.map((team, i) => (
-              <div
-                key={i}
-                onClick={() => setSelectedTeamIndex(i)}
-                className={`flex justify-center rounded-xl  p-2 cursor-pointer  lg:flex-1 bg-[#ffffff80]  ${
-                  selectedTeamIndex === i ? "border-2 border-white" : ""
-                }`}
-              >
-                <img
-                  src={team?.Logo_URL__c || playerTeamLogo}
-                  alt="Team Logo"
-                  width={100}
-                  height={100}
-                  className="object-contain"
-                />
-              </div>
-            ))}
+            {[...teamDetails]
+              .sort((a, b) => a.Name.localeCompare(b.Name))
+              ?.map((team, i) => (
+                <div
+                  key={i}
+                  // onClick={() => setSelectedTeamIndex(i)}
+
+                  onClick={() => setSelectedTeamId(team.Id)}
+                  className={`flex justify-center rounded-xl  p-2 cursor-pointer  lg:flex-1 bg-[#ffffff80]   ${
+                    selectedTeamId === team.Id ? "border-white" : ""
+                  }`}
+                >
+                  <img
+                    src={team?.Logo_URL__c || playerTeamLogo}
+                    alt="Team Logo"
+                    width={100}
+                    height={100}
+                    className="object-contain"
+                  />
+                </div>
+              ))}
           </div>
 
           <div className="grid  lg:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-between bg-black/40 backdrop-blur  rounded-xl mb-10 ">
@@ -177,31 +187,37 @@ const page = () => {
                 </tr>
               </thead>
               <tbody>
-                {players.map((player, index) => (
-                  <tr
-                    key={player.playerId}
-                    className="border-b border-white/20"
-                  >
-                    <td className=" p-5">{index + 1}.</td>
-                    <td className=" p-5">{player.Player__r?.Name}</td>
-                    <td className=" p-5">
-                      {mapHighestLevelToCategory(
-                        player?.Recent_Competitive_Level__c
-                      )}
-                    </td>
-                    <td className=" p-5">{player.Primary_Role__c}</td>
-                    <td className=" p-5">
-                      {player?.Base_Price__c != null
-                        ? `₹${player.Base_Price__c.toLocaleString("en-IN")}`
-                        : "--"}
-                    </td>
-                    <td className=" p-5">
-                      {player?.Winning_Bid__c != null
-                        ? `₹${player.Winning_Bid__c.toLocaleString("en-IN")}`
-                        : "--"}
-                    </td>
-                  </tr>
-                ))}
+                {[...players]
+                  .sort((a, b) =>
+                    (a.Player__r?.Name || "").localeCompare(
+                      b.Player__r?.Name || ""
+                    )
+                  )
+                  .map((player, index) => (
+                    <tr
+                      key={player.playerId}
+                      className="border-b border-white/20"
+                    >
+                      <td className=" p-5">{index + 1}.</td>
+                      <td className=" p-5">{player.Player__r?.Name}</td>
+                      <td className=" p-5">
+                        {mapHighestLevelToCategory(
+                          player?.Recent_Competitive_Level__c
+                        )}
+                      </td>
+                      <td className=" p-5">{player.Primary_Role__c}</td>
+                      <td className=" p-5">
+                        {player?.Base_Price__c != null
+                          ? `₹${player.Base_Price__c.toLocaleString("en-IN")}`
+                          : "--"}
+                      </td>
+                      <td className=" p-5">
+                        {player?.Winning_Bid__c != null
+                          ? `₹${player.Winning_Bid__c.toLocaleString("en-IN")}`
+                          : "--"}
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>

@@ -9,7 +9,7 @@ import { formatToIndianCurrencyWords2, teamGradients } from "@/utilis/helper";
 // } from "@/utils/helperFunctions";
 // import { playerTeamLogo } from "@/assets";
 
-const AdminTeamSection = ({ teamDetails, setStep, setSelectedTeamIndex }) => {
+const AdminTeamSection = ({ teamDetails, setStep, setSelectedTeamId }) => {
   return (
     <div className="w-full">
       <Link
@@ -19,21 +19,23 @@ const AdminTeamSection = ({ teamDetails, setStep, setSelectedTeamIndex }) => {
         Go Back
       </Link>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10  mx-auto">
-        {teamDetails?.map((team, i) => (
-          <AdminTeamCard
-            key={i}
-            team={team}
-            index={i}
-            setStep={setStep}
-            setSelectedTeamIndex={setSelectedTeamIndex}
-          />
-        ))}
+        {[...teamDetails]
+          .sort((a, b) => a.Name.localeCompare(b.Name))
+          ?.map((team, i) => (
+            <AdminTeamCard
+              key={i}
+              team={team}
+              index={i}
+              setStep={setStep}
+              setSelectedTeamId={setSelectedTeamId}
+            />
+          ))}
       </div>
     </div>
   );
 };
 
-const AdminTeamCard = ({ team, index, setStep, setSelectedTeamIndex }) => {
+const AdminTeamCard = ({ team, index, setStep, setSelectedTeamId }) => {
   const players = team?.Player_Registrations__r?.records || [];
   const gradient = teamGradients[team?.Name] || { from: "#1e1e1e", to: "#444" };
 
@@ -53,7 +55,8 @@ const AdminTeamCard = ({ team, index, setStep, setSelectedTeamIndex }) => {
       }}
       onClick={() => {
         setStep(2);
-        setSelectedTeamIndex(index);
+        // setSelectedTeamIndex(index);
+        setSelectedTeamId(team.Id);
       }}
     >
       <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-[65px] h-[65px] rounded-full bg-white flex items-center justify-center p-3 z-10">

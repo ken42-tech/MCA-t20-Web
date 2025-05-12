@@ -166,9 +166,11 @@ export default function IconPlayers() {
     <div className="section-width padding-top">
       <TitleComponent title={"Icon Players"} />
       <div className="sm:grid  lg:grid-cols-4 xl:gap-x-8 xl:gap-y-16  md:grid-cols-3 gap-x-5 gap-y-10 sm:grid-cols-2 grid-cols-1 hidden  pt-8">
-        {players.map((player) => (
-          <PlayerCard data={player} key={player.id} />
-        ))}
+        {[...players]
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((player) => (
+            <PlayerCard data={player} key={player.id} />
+          ))}
       </div>
       <div className="w-full sm:hidden block">
         <Carousel
@@ -177,11 +179,13 @@ export default function IconPlayers() {
           spaceBetween={50}
           loop={true}
         >
-          {players.map((player, i) => (
-            <SwiperSlide key={i} style={{ paddingTop: "20px" }}>
-              <PlayerCard data={player} key={i} />
-            </SwiperSlide>
-          ))}
+          {[...players]
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((player, i) => (
+              <SwiperSlide key={i} style={{ paddingTop: "20px" }}>
+                <PlayerCard data={player} key={i} />
+              </SwiperSlide>
+            ))}
         </Carousel>
         {/* {teamsDataHomePage.map((item, i) => {
                 return <TeamCard data={item} key={i} />;
