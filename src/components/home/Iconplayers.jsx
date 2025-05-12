@@ -167,7 +167,7 @@ export default function IconPlayers() {
       <TitleComponent title={"Icon Players"} />
       <div className="sm:grid  lg:grid-cols-4 xl:gap-x-8 xl:gap-y-16  md:grid-cols-3 gap-x-5 gap-y-10 sm:grid-cols-2 grid-cols-1 hidden  pt-8">
         {[...players]
-          .sort((a, b) => a.name.localeCompare(b.name))
+          .sort((a, b) => a.teamName.localeCompare(b.teamName))
           .map((player) => (
             <PlayerCard data={player} key={player.id} />
           ))}
@@ -180,7 +180,7 @@ export default function IconPlayers() {
           loop={true}
         >
           {[...players]
-            .sort((a, b) => a.name.localeCompare(b.name))
+            .sort((a, b) => a.teamName.localeCompare(b.teamName))
             .map((player, i) => (
               <SwiperSlide key={i} style={{ paddingTop: "20px" }}>
                 <PlayerCard data={player} key={i} />
