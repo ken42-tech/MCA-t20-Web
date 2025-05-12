@@ -21,12 +21,12 @@ const UpdatesCard = ({ data, onClick }) => {
       {/* Content */}
       <div className="w-full h-full flex items-end p-5 z-20 text-white justify-between relative">
         <div className="w- flex flex-col justify-between">
-          <p className="font-bold text-lg">
-            {truncateTextSpells(data?.title, 30)}
+          <p className="font-bold xl:text-xl lg:text-lg text-base">
+            {truncateTextSpells(data?.title, 50)}
           </p>
-          <p className="text-[#F6F9FF] text-base">
+          {/* <p className="text-[#F6F9FF] text-base">
             {truncateTextSpells(data?.subTitle, 30)}
-          </p>
+          </p> */}
         </div>
         {/* <div className="w-10 h-10 lg:w-12 lg:h-12 md:w-11 md:h-11 bg-[#D25F28E5] rounded-full flex items-center justify-center">
           <Image
