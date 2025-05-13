@@ -2,15 +2,12 @@ import Hero from "@/components/hero/Hero";
 import Image from "next/image";
 import Script from "next/script";
 import Link from "next/link";
-
-const BASE_URL =
-  "https://www.t20mumbai.com/sifeeds/multisport/" +
-  "?methodtype=3&client=42&sport=1&league=indian_domestic" +
-  "&timezone=0530&language=en&tournament=";
+import fixtures1 from "@/utilis/fixtures/fixtures1.js"; 
+import fixtures2 from "@/utilis/fixtures/fixtures2.js"; 
 
 const TOURNAMENT_IDS = {
-  "Season 1": 876,
-  "Season 2": 1061,
+  "Season 1": fixtures1,  // Use the imported Season 1 fixture
+  "Season 2": fixtures2,  // Use the imported Season 2 fixture
 };
 
 const TEAM_NAMES = [
@@ -20,7 +17,7 @@ const TEAM_NAMES = [
   "SoBo SuperSonics",
   "Eagle Thane Strikers",
   "North Mumbai Panthers",
-  "Bandra Blasters",
+  "NaMo Bandra Blasters",
   "Shivaji Park Lions",
 ];
 
@@ -45,35 +42,25 @@ export async function generateStaticParams() {
   return params;
 }
 
-async function fetchTournamentData(tournamentId) {
-  try {
-    const res = await fetch(BASE_URL + tournamentId);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.json();
-  } catch (err) {
-    console.error("Failed to load feed:", err);
-    return { matches: [] };
-  }
-}
-
 function processMatches(jsonData) {
   return (jsonData.matches || []).map((m) => {
     const game_id = m.game_id;
     const [p1 = {}, p2 = {}] = m.participants || [];
-    const fmt = (p) => {
-      const key = (p.short_name || "").toLowerCase();
-      return {
-        name: p.name || "",
-        logo: key
-          ? `/images/fixtures/${key}.svg`
-          : "/images/fixtures/default.svg",
-        score: (p.value || "").split(" ")[0] || "",
-        overs: p.value?.match(/$([^)]+)$/)?.[1] || "",
-      };
-    };
+const fmt = (p) => {
+  const key = (p.short_name || "").toLowerCase();
+  return {
+    name: p.name || "",
+    logo: key
+      ? `/images/fixtures/${key}.svg`
+      : "/images/fixtures/default.svg",
+    score: (p.value || "").split(" ")[0] || "",
+    overs: (p.value?.match(/\(([^)]+)\)/)?.[1]) || "", // Extracting overs from the format "148/5 (19.3)"
+  };
+};
+
     return {
       game_id,
-      season: m.series_name.toUpperCase(),
+      // season: m.series_name.toUpperCase(),
       status: m.event_status.toUpperCase(),
       team1: fmt(p1),
       team2: fmt(p2),
@@ -84,7 +71,7 @@ function processMatches(jsonData) {
           month: "short",
           year: "numeric",
         }),
-        location: m.venue_name.toUpperCase(),
+        // location: m.venue_name.toUpperCase(),
       },
     };
   });
@@ -97,14 +84,13 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Page({ params, searchParams }) {
-  const resolvedSearchParams = await searchParams;
+export default function Page({ params, searchParams }) {
+  const resolvedSearchParams = searchParams;
 
   const season = resolvedSearchParams?.season || params?.season || "Season 2";
   const team = resolvedSearchParams?.team || params?.team || "All Teams";
 
-  const tournamentId = TOURNAMENT_IDS[season];
-  const tournamentData = await fetchTournamentData(tournamentId);
+  const tournamentData = TOURNAMENT_IDS[season];
 
   const allMatches = processMatches(tournamentData);
 
