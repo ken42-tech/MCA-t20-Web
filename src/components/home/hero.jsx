@@ -47,7 +47,7 @@ const Hero = () => {
             </button>
           </div>
 
-          <div className="absolute bottom-40 -right-0 hidden sm:block">
+          {/* <div className="absolute bottom-40 -right-0 hidden sm:block">
             <div className="w-full rounded-l-xl md:rounded-l-xl border-y-2 border-l-2  border-[#E07E27] shadow-2xl overflow-hidden">
               <div
                 className="  w-full flex overflow-hidden items-center justify-evenly rounded-tl-lg gap-4"
@@ -62,9 +62,9 @@ const Hero = () => {
                   </p>
                 </div>
               </div>
-              <CountdownTimer targetDate="2025-05-26T00:00:00+05:30" />
+               <CountdownTimer targetDate="2025-05-26T00:00:00+05:30" />   
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       {showVideo && (
