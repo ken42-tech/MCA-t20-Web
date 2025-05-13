@@ -92,7 +92,7 @@ const players = [
     name: "Shardul Thakur",
     image: "/images/home/players/player8.png",
     teamName: "Eagle Thane Strikers",
-    teamLogo: "/images/home/team/ipEagleThaneStrikers.jpg",
+    teamLogo: "/images/home/team/ipEagleThaneStrikers.png",
     gradient: {
       from: "#FBC92E",
       to: "#262262",
