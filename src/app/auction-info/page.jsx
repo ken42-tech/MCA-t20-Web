@@ -8,11 +8,11 @@ import Image from "next/image";
 // } from "@/utils/helper";
 // import { playerTeamLogo } from "@/assets";
 import { teamDetailsData } from "./data";
-import teamDetailsDataSeason3 from "../../constant/teamDetailsDataSeason3.json";
+import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
 import {
   formatToIndianCurrencyWords2,
   mapHighestLevelToCategory,
-} from "@/utils/helper";
+} from "@/utilis/helper";
 import AdminTeamSection from "./components/AdminTeamSection";
 
 const page = () => {

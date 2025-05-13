@@ -5,9 +5,9 @@ import Image from "next/image";
 import { CardData } from "../data";
 import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
 import { useEffect, useState } from "react";
-import { formatTitleForURL } from "@/utils/helper";
+import { formatTitleForURL } from "@/utilis/helper";
 import { useParams, useRouter } from "next/navigation";
-import routes from "@/utils/route";
+import routes from "@/utilis/route";
 
 const page = () => {
   const params = useParams();

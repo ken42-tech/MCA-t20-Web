@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { truncateTextSpells } from "@/utils/helper";
+import { truncateTextSpells } from "@/utilis/helper";
 
 const UpdatesCard = ({ data, onClick }) => {
   return (

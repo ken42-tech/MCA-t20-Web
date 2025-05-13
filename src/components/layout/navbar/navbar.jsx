@@ -4,7 +4,7 @@ import Link from "next/link";
 import { navLinks } from "./data";
 import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 import { useState } from "react";
-import routes from "@/utils/route";
+import routes from "@/utilis/route";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import { SwiperSlide } from "swiper/react";
-import useMediaQuery from "@/utils/useMediaQuery";
+import useMediaQuery from "@/utilis/useMediaQuery";
 import { Carousel } from "../Carousel";
 
 const players = [
