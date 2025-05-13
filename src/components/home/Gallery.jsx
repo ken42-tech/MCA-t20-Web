@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TitleComponent from "../common/TitleComponent";
 import Link from "next/link";
-import routes from "@/utilis/route";
+import routes from "@/utils/route";
 
 const items = [
   {

@@ -1,4 +1,4 @@
-import { formatPathToTitle } from "@/utilis/helper";
+import { formatPathToTitle } from "@/utils/helper";
 
 export default function DashboardLayout({ children }) {
   return (

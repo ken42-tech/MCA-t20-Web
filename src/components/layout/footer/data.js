@@ -1,5 +1,3 @@
-// import routes from "@/utilis/route.js";
-
 export const footerLinks = [
   {
     title: "Product",
@@ -21,7 +19,4 @@ export const footerLinks = [
       { title: "Team", path: "/team" },
     ],
   },
-  
-  
-]
-
+];

@@ -3,8 +3,8 @@ import Hero from "@/components/hero/Hero";
 import UpdatesCard from "@/components/LatestUpdateComponents/UpdatesCard";
 import { CardData } from "./data";
 import { useRouter } from "next/navigation";
-import { formatTitleForURL } from "@/utilis/helper";
-import routes from "@/utilis/route";
+import { formatTitleForURL } from "@/utils/helper";
+import routes from "@/utils/route";
 
 const page = () => {
   const router = useRouter();

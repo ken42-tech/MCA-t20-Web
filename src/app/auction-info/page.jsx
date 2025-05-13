@@ -8,15 +8,16 @@ import Image from "next/image";
 // } from "@/utils/helper";
 // import { playerTeamLogo } from "@/assets";
 import { teamDetailsData } from "./data";
+import teamDetailsDataSeason3 from "../../constant/teamDetailsDataSeason3.json";
 import {
   formatToIndianCurrencyWords2,
   mapHighestLevelToCategory,
-} from "@/utilis/helper";
+} from "@/utils/helper";
 import AdminTeamSection from "./components/AdminTeamSection";
 
 const page = () => {
   const [loading, setLoading] = useState(false);
-  const [teamDetails, setTeamDetails] = useState(teamDetailsData.data);
+  const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason3.data);
   const [step, setStep] = useState(1);
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
 

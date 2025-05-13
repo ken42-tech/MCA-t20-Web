@@ -4,12 +4,12 @@ import { useRouter } from "next/navigation";
 const TeamCard = ({ data }) => {
   const router = useRouter();
 
-  // const handleClick = () => {
-  //   router.push({
-  //     pathname: "/team/[teamName]",
-  //     query: { teamName: data.team },
-  //   });
-  // };
+  const handleClick = () => {
+    router.push({
+      pathname: "/team/[teamName]",
+      query: { teamName: data.team },
+    });
+  };
   return (
     <div
       // bg-gradient-to-b from-[${item.gradient.from}] to-[${item.gradient.to}]
@@ -17,7 +17,7 @@ const TeamCard = ({ data }) => {
       style={{
         background: `linear-gradient(to bottom, ${data.gradient.from}, ${data.gradient.to})`,
       }}
-      // onClick={handleClick}
+      onClick={handleClick}
     >
       <Image
         src={"/images/elements/teamCardRoundElement.png"}

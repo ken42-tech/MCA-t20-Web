@@ -3,10 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import TitleComponent from "../common/TitleComponent";
-import { truncateTextSpells } from "@/utilis/helper";
+import { truncateTextSpells } from "@/utils/helper";
 import { useRouter } from "next/navigation";
 import path from "path";
-import routes from "@/utilis/route";
+import routes from "@/utils/route";
 const tabs = ["All", "Latest", "Reviews", "NewSection"];
 
 const updateItems = [

@@ -1,4 +1,4 @@
-import routes from "@/utilis/route.js";
+import routes from "@/utils/route.js";
 
 export const navLinks = [
   {

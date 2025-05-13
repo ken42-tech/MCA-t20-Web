@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { formatToIndianCurrencyWords2, teamGradients } from "@/utilis/helper";
+import { formatToIndianCurrencyWords2, teamGradients } from "@/utils/helper";
 // import {
 //   formatToIndianCurrencyWords2,
 //   teamGradients,
