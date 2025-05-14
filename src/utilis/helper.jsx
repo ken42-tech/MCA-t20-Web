@@ -122,6 +122,6 @@ export const teamGradients = {
   "Bandra Blasters": { from: "#4B1C86", to: "#E51C21" },
   "North Mumbai Panthers": { from: "#FEB713", to: "#5F4200" },
   "MSC Maratha Royals": { from: "#1000A1", to: "#B84124" },
-  "SoBo Mumbai Falcons": { from: "#F47B06", to: "#882626" },
+  "SoBo Mumbai Falcons": { from: "#fff4e9", to: "#882626" },
   "Triumph Knights Mumbai North East": { from: "#E8D273", to: "#9E7437" },
 };

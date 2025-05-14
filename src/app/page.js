@@ -9,6 +9,7 @@ import News from "@/components/home/News";
 import TopPlayers from "@/components/home/TopPlayers";
 import Sponsorship from "@/components/home/Sponsorship";
 import IconPlayers from "@/components/home/Iconplayers";
+import HomeStandingsSection from "@/components/home/HomeStandingsSection";
 export default function Home() {
   return (
     <>
@@ -19,15 +20,15 @@ export default function Home() {
         <IconPlayers />
         <Socials />
         <Gallery />
+        <TopPlayers />
+        <HomeStandingsSection />
 
         {/* <News /> */}
 
         {/* <Sponsorship /> */}
 
-        {/* <TopPlayers/> */}
-
-        {/* <Fixtures />
-        <AboutT2C /> */}
+        {/* <Fixtures /> */}
+        {/*    <AboutT2C /> */}
       </div>
     </>
   );

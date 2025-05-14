@@ -1,10 +1,13 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import TeamCard from "../common/TeamCard";
 import TitleComponent from "../common/TitleComponent";
 import { SwiperSlide } from "swiper/react";
 import { Carousel } from "../Carousel";
+
+import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
+import { teamGradients } from "@/utilis/helper";
 
 const teamsDataHomePage = [
   {
@@ -74,6 +77,8 @@ const teamsDataHomePage = [
 ];
 
 const HomeTeamSection = () => {
+  const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason3.data);
+
   return (
     <>
       <div className="section-width padding-top padding-bottom">
@@ -81,9 +86,9 @@ const HomeTeamSection = () => {
         <div className="w-full flex flex-col gap-7 relative">
           <div className="w-full overflow-x-auto  scrollbar-hide">
             <div className="sm:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-8 gap-5 hidden">
-              {[...teamsDataHomePage]
-                .sort((a, b) => a.team.localeCompare(b.team))
-                .map((item, i) => {
+              {[...teamDetails]
+                .sort((a, b) => a.Name.localeCompare(b.Name))
+                ?.map((item, i) => {
                   return <TeamCard data={item} key={i} />;
                 })}
             </div>
@@ -94,8 +99,8 @@ const HomeTeamSection = () => {
                 spaceBetween={50}
                 loop={true}
               >
-                {[...teamsDataHomePage]
-                  .sort((a, b) => a.team.localeCompare(b.team))
+                {[...teamDetails]
+                  .sort((a, b) => a.Name.localeCompare(b.Name))
                   .map((item, i) => (
                     <SwiperSlide key={i}>
                       <TeamCard data={item} key={i} />
