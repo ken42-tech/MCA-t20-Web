@@ -110,34 +110,41 @@ export default function Page({ params, searchParams }) {
         subheading="Player Profile"
       />
       <div className="section-width">
-        <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0">
-          <h2 className=" uppercase text-black">{season} Fixtures</h2>
+        <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0 overflow-visible">
+          <h2 className="uppercase text-black">{season} Fixtures</h2>
           <form
             method="get"
-            className="flex flex-col sm:flex-row items-center gap-4 mt-4 lg:mt-0"
+            className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0"
           >
-            <span className="text-sm text-gray-500 sm:inline">Filter by</span>
-            <select
-              name="season"
-              defaultValue={season}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 sm:mt-0 sm:mr-4"
-            >
-              {Object.keys(TOURNAMENT_IDS).map((s) => (
-                <option key={s} value={s}>
-                  {s}
-                </option>
-              ))}
-            </select>
-            <select
-              name="team"
-              defaultValue={team}
-              className=" py-2 border border-orange-500 text-orange-500 rounded mt-2 sm:mt-0"
-            >
-              <option>All Teams</option>
-              {TEAM_NAMES.map((t) => (
-                <option key={t}>{t}</option>
-              ))}
-            </select>
+            <span className="text-sm text-gray-500 md:inline">Filter by</span>
+
+            {/* wrap each select in a relative container with a high z-index */}
+            <div className="relative z-10">
+              <select
+                name="season"
+                defaultValue={season}
+                className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
+              >
+                {Object.keys(TOURNAMENT_IDS).map((s) => (
+                  <option key={s} value={s}>
+                    {s}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="relative z-10">
+              <select
+                name="team"
+                defaultValue={team}
+                className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
+              >
+                <option>All Teams</option>
+                {TEAM_NAMES.map((t) => (
+                  <option key={t}>{t}</option>
+                ))}
+              </select>
+            </div>
           </form>
         </div>
 
