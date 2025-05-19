@@ -269,7 +269,6 @@ function ScoreCard({ match }) {
         </div>
 
         <div className="sm:my-20 my-10">
-          {/* Fall of Wickets */}
           {fallOfWickets.length > 0 && (
             <div className="bg-[#E5EBFF] px-4 rounded-lg pb-5">
               <div className="flex items-center">
