@@ -9,8 +9,8 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
         { label: "Runs", value: player.runs },
         { label: "Matches", value: player.mat },
         { label: "Average", value: player.ave },
-        { label: "Strike rate", value: player.sr },
-        { label: "H.S Score", value: player.hs?.split(" ")[0] || "" },
+        { label: "Strike Rate", value: player.sr },
+        { label: "H.S. Score", value: player.hs ?? "" },
       ];
     } else if (selectedTab === "bowling") {
       return [
@@ -18,7 +18,7 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
         { label: "Matches", value: player.mat },
         { label: "Economy", value: player.econ },
         { label: "Average", value: player.avg },
-        { label: "Best", value: player.bbi?.split(" ")[0] || "" },
+        { label: "Best", value: player.bbi ?? "" },
       ];
     } else {
       return [
@@ -35,12 +35,12 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
 
   return (
     <div className="relative w-full h-[28rem] bg-[url('/images/stats/bg.svg')] bg-no-repeat bg-center bg-cover flex justify-center items-end overflow-hidden">
-      {/* Background Number */}
-      <div className="absolute left-[20%]  bottom-0 z-0 flex items-start justify-start leading-none">
-        <span className="text-[120px]   font-extrabold italic items-start justify-start text-[#3188b1] opacity-70 ">
+      {/* Background Position Number */}
+      <div className="absolute left-[20%] bottom-0 z-0 flex items-start leading-none">
+        <span className="text-[120px] font-extrabold italic text-[#3188b1] opacity-70">
           #
         </span>
-        <span className="text-[350px] h-full flex justify-end items-end font-extrabold italic text-[#3188b1]  opacity-70">
+        <span className="text-[350px] h-full flex justify-end items-end font-extrabold italic text-[#3188b1] opacity-70">
           {player.pos}
         </span>
       </div>
@@ -56,27 +56,28 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
         />
       </div>
 
-      {/* Player Details */}
-      <div className="relative z-20 ml-[20rem] mb-6 text-white text-left">
+      {/* Player Details and Stats */}
+      <div className="relative z-20 ml-[20rem] mb-6 text-white">
         <h1 className="text-5xl font-bold mb-2">{player.player}</h1>
         <div className="flex items-center gap-3 mb-8">
-          <Image
-            src={player.teamLogo || "/images/stats/l1.svg"}
-            width={24}
-            height={24}
-            alt={player.team}
-          />
+          {player.teamLogo && (
+            <Image
+              src={player.teamLogo}
+              width={24}
+              height={24}
+              alt={player.team}
+            />
+          )}
           <p className="text-xl">{player.team}</p>
         </div>
 
-        {/* Stats */}
         <div className="flex flex-wrap rounded-lg overflow-hidden border border-gray-700 divide-x divide-gray-600 bg-black bg-opacity-60">
-          {stats.map((stat, index) => (
+          {stats.map((stat, idx) => (
             <div
-              key={index}
-              className="py-3 px-6 min-w-24 flex flex-col items-center justify-center text-white"
+              key={idx}
+              className="py-3 px-6 min-w-[6rem] flex flex-col items-center justify-center"
             >
-              <p className="text-2xl font-bold">{stat.value}</p>
+              <p className="text-2xl font-bold text-white">{stat.value}</p>
               <p className="text-xs text-gray-300">{stat.label}</p>
             </div>
           ))}
@@ -87,4 +88,3 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
 };
 
 export default PlayerDetailsHero;
-//ginal
