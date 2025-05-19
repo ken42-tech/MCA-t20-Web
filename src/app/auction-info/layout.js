@@ -1,4 +1,4 @@
-import { formatPathToTitle } from "@/utilis/helper";
+import Link from "next/link";
 
 export default function DashboardLayout({ children }) {
   return (
@@ -44,11 +44,13 @@ export default function DashboardLayout({ children }) {
           }}
         >
           <div>
-            <img
-              src={"/images/home/mca-logo.png"}
-              style={{ height: "50px", width: "auto" }}
-              alt="logo"
-            />
+            <Link href="/">
+              <img
+                src={"/images/home/mca-logo.png"}
+                style={{ height: "50px", width: "auto" }}
+                alt="logo"
+              />
+            </Link>
           </div>
           <div>
             <h3
@@ -63,13 +65,11 @@ export default function DashboardLayout({ children }) {
             </h3>
           </div>
           <div>
-            <Link href="/">
-              <img
-                src={"/images/home/mcaI20Logo.svg"}
-                className="sm:h-[100px] h-[50px] w-auto"
-                alt="logo"
-              />
-            </Link>
+            <img
+              src={"/images/home/mcaI20Logo.svg"}
+              className="sm:h-[100px] h-[50px] w-auto"
+              alt="logo"
+            />
           </div>
         </div>
       </div>
