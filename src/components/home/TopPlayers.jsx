@@ -106,7 +106,8 @@ const topPlayersData = {
 const TopPlayers = () => {
   return (
     <div className="section-width section-padding">
-      <TitleComponent title="Top Players" button buttonLink={routes.stats} />
+      <TitleComponent title="Top Players" />
+      {/* <TitleComponent title="Top Players" button buttonLink={routes.stats} /> */}
       <div className="flex flex-col lg:flex-row justify-center gap-6 sm:gap-10">
         <TopPlayerCard
           type="batsman"
