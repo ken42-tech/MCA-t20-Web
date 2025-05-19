@@ -1,4 +1,6 @@
 import { formatPathToTitle } from "@/utilis/helper";
+import routes from "@/utilis/route";
+import Link from "next/link";
 
 export default function DashboardLayout({ children }) {
   return (
@@ -44,11 +46,13 @@ export default function DashboardLayout({ children }) {
           }}
         >
           <div>
-            <img
-              src={"/images/home/mca-logo.png"}
-              style={{ height: "50px", width: "auto" }}
-              alt="logo"
-            />
+            <Link href={routes.home}>
+              <img
+                src={"/images/home/mca-logo.png"}
+                style={{ height: "50px", width: "auto" }}
+                alt="logo"
+              />
+            </Link>
           </div>
           <div>
             <h3
