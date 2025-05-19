@@ -63,11 +63,13 @@ export default function DashboardLayout({ children }) {
             </h3>
           </div>
           <div>
-            <img
-              src={"/images/home/mcaI20Logo.svg"}
-              className="sm:h-[100px] h-[50px] w-auto"
-              alt="logo"
-            />
+            <Link href="/">
+              <img
+                src={"/images/home/mcaI20Logo.svg"}
+                className="sm:h-[100px] h-[50px] w-auto"
+                alt="logo"
+              />
+            </Link>
           </div>
         </div>
       </div>
