@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import PlayerDetailsHero from "@/components/stats/PlayerDetailsHero";
-import TablePagination from "@mui/material/TablePagination";
+import PaginationControls from "./components/PaginationControls";
 import { stats } from "@/utilis/stats/statsdata";
 
 // Extract available seasons
@@ -516,30 +516,15 @@ export default function Stats() {
         </div>{" "}
       </div>
       <div className="section-width">
-        <TablePagination
-          rowsPerPageOptions={[15, 30, 50]}
-          component="div"
+        <PaginationControls
           count={data.length}
-          rowsPerPage={rowsPerPage}
           page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-          sx={{
-            "& .MuiTablePagination-toolbar": {
-              backgroundColor: "#0F1A2D",
-              color: "#E07E27",
-            },
-            "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows":
-              {
-                color: "#E07E27",
-              },
-            "& .MuiIconButton-root": {
-              color: "#E07E27",
-            },
-            "& .MuiTablePagination-selectIcon": {
-              color: "#E07E27",
-            },
+          rowsPerPage={rowsPerPage}
+          onPageChange={(newPage) => setPage(newPage)}
+          onRowsPerPageChange={(newRPP) => {
+            setRowsPerPage(newRPP);
           }}
+          rowsPerPageOptions={[15, 30, 50]}
         />
       </div>
     </div>
