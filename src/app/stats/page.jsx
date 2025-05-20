@@ -165,7 +165,7 @@ const sortData = (data, category, sortBy) => {
 
 // Reusable dropdown component
 const DropDown = ({ label, options, value, onChange, bg = "white" }) => (
-  <div className="flex flex-col md:flex-row md:items-center gap-2 w-full md:w-60 relative">
+  <div className="flex flex-col md:flex-row md:items-center gap-2 w-full md:w-72 relative">
     <label className="text-sm font-semibold uppercase text-[#6A6A6A] mb-1 md:mb-2 w-full md:w-[50%]">
       {label}
     </label>
@@ -468,40 +468,39 @@ export default function Stats() {
                   ? [
                       "Most Runs",
                       "Highest Individual Score",
-                      "Highest Strike Rate (T)",
-                      "Highest Strike Rate (I)",
-                      "Highest Averages",
+                      // "Highest Strike Rate",
+                      "Highest Strike Rate",
+                      // "Highest Averages",
                       "Most Sixes",
-                      "Most Sixes (Innings)",
+                      // "Most Sixes (Innings)",
                       "Most Fours",
-                      "Most Fours (Innings)",
+                      // "Most Fours (Innings)",
                       "Most Fifties",
-                      "Most Centuries",
-                      "Fastest Fifties",
-                      "Fastest Centuries",
+                      // "Most Centuries",
+                      // "Fastest Fifties",
+                      // "Fastest Centuries",
                     ]
                   : selected === "bowling"
                   ? [
                       "Most Wickets",
-                      "Best Economy",
-                      "Best Economy (Innings)",
-                      "Best Average",
-                      "Best Strike Rate",
-                      "Best Strike Rate (Innings)",
+                      // "Best Economy",
+                      // "Best Economy (Innings)",
+                      // "Best Average",
+                      // "Best Strike Rate",
+                      // "Best Strike Rate (Innings)",
                       "Most Runs Conceded (Innings)",
-                      "Most Dot Balls Bowled",
-                      "Most Dot Balls Bowled (Innings)",
+                      // "Most Dot Balls Bowled",
+                      // "Most Dot Balls Bowled (Innings)",
                       "Most Maiden Overs Bowled",
                     ]
-                  : ["Most Catches", "Most Run Outs", "Most Stumpings"]
+                  : [
+                      // "Most Catches",
+                      "Most Run Outs",
+                      "Most Stumpings",
+                    ]
               }
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              bg="white"
-            />
-            <DropDown
-              label="Team"
-              options={["All", "Team 1", "Team 2", "Team 3"]}
               bg="white"
             />
           </div>
