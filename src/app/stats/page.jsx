@@ -3,6 +3,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import PlayerDetailsHero from "@/components/stats/PlayerDetailsHero";
+import TablePagination from "@mui/material/TablePagination";
 import { stats } from "@/utilis/stats/statsdata";
 
 // Extract available seasons
@@ -88,7 +89,6 @@ const sortData = (data, category, sortBy) => {
         break;
       case "Highest Strike Rate (T)":
       case "Highest Strike Rate (I)":
-        // assuming `sr` holds the strike rate you want to rank on
         sorted.sort((a, b) => b.sr - a.sr);
         break;
       case "Highest Averages":
@@ -98,8 +98,6 @@ const sortData = (data, category, sortBy) => {
         sorted.sort((a, b) => b.sixes - a.sixes);
         break;
       case "Most Sixes (Innings)":
-        // if you track per-innings sixes, sort by that field instead;
-        // otherwise this will fall back to total sixes
         sorted.sort((a, b) => b.sixes - a.sixes);
         break;
       case "Most Fours":
@@ -115,12 +113,9 @@ const sortData = (data, category, sortBy) => {
         sorted.sort((a, b) => b.hundreds - a.hundreds);
         break;
       case "Fastest Fifties":
-        // if you have a `fastest_fifty` time field, use that
-        // otherwise I'll demo it using SR as a proxy
         sorted.sort((a, b) => b.sr - a.sr);
         break;
       case "Fastest Centuries":
-        // similarly, swap in your actual `fastest_century` field
         sorted.sort((a, b) => b.sr - a.sr);
         break;
     }
@@ -131,7 +126,6 @@ const sortData = (data, category, sortBy) => {
         break;
       case "Best Economy":
       case "Best Economy (Innings)":
-        // lower economy is better
         sorted.sort((a, b) => a.econ - b.econ);
         break;
       case "Best Average":
@@ -139,7 +133,6 @@ const sortData = (data, category, sortBy) => {
         break;
       case "Best Strike Rate":
       case "Best Strike Rate (Innings)":
-        // lower SR is better for bowlers
         sorted.sort((a, b) => a.sr - b.sr);
         break;
       case "Most Runs Conceded (Innings)":
@@ -270,9 +263,9 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
           <td className="py-2 px-4 border-r text-center border-[#222222]">
             {player.pos}
           </td>
-          <td className="py-2 px-4 border-r border-[#222222]">
+          <td className="py-5 px-4 border-r border-[#222222]">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-slate-900 overflow-hidden relative">
+              {/* <div className="w-12 h-12 rounded-full bg-slate-900 overflow-hidden relative">
                 {player.playerImg && (
                   <Image
                     src={player.playerImg}
@@ -282,7 +275,7 @@ const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
                     className="object-cover"
                   />
                 )}
-              </div>
+              </div> */}
               <div>
                 <p className="font-semibold">{player.player}</p>
                 {player.team && (
@@ -410,9 +403,8 @@ export default function Stats() {
   const [season, setSeason] = useState(seasons[0]);
   const [sortBy, setSortBy] = useState("Most Runs");
   const [page, setPage] = useState(0);
-  const pageSize = 15;
+  const [rowsPerPage, setRowsPerPage] = useState(15);
 
-  // raw and sorted data as before
   const rawData = useMemo(
     () => makeCategoryData(selected, season),
     [selected, season]
@@ -422,37 +414,19 @@ export default function Stats() {
     [rawData, selected, sortBy]
   );
 
-  const [displayedData, setDisplayedData] = useState(() =>
-    data.slice(0, pageSize)
+  const displayedData = useMemo(
+    () => data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
+    [data, page, rowsPerPage]
   );
 
-  // Reset to first page when data changes
-  useEffect(() => {
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
-    setDisplayedData(data.slice(0, pageSize));
-  }, [data]);
-
-  const handlePrevPage = () => {
-    // if you still want a “remove last page” on Prev:
-    if (page > 0) {
-      setPage((p) => p - 1);
-      setDisplayedData((prev) => prev.slice(0, prev.length - pageSize));
-    }
   };
-
-  const handleNextPage = () => {
-    const nextPage = page + 1;
-    const nextSlice = data.slice(
-      nextPage * pageSize,
-      nextPage * pageSize + pageSize
-    );
-
-    // append the next slice
-    setDisplayedData((prev) => [...prev, ...nextSlice]);
-    setPage(nextPage);
-  };
-
-  const startIdx = page * pageSize;
 
   // Selected player within current page
   const [selectedPlayer, setSelectedPlayer] = useState(displayedData[0] || {});
@@ -461,101 +435,112 @@ export default function Stats() {
   }, [displayedData]);
 
   return (
-    <div className="w-full">
-      <PlayerDetailsHero player={selectedPlayer} selectedTab={selected} />
+    <div className="w-full overflow-x-auto pb-12">
+      <div className="w-full">
+        <PlayerDetailsHero player={selectedPlayer} selectedTab={selected} />
+        <div className="section-width pt-12 flex flex-col gap-10 bg-white text-black min-w-[1000px]">
+          {/* Tabs + Season Selector */}
+          <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            {["batting", "bowling", "fielding"].map((tab) => (
+              <p
+                key={tab}
+                onClick={() => setSelected(tab)}
+                className={`font-semibold text-xl uppercase pb-2 whitespace-nowrap cursor-pointer ${
+                  selected === tab
+                    ? "border-b-4 border-[#E07E27]"
+                    : "text-[#6A6A6A]"
+                }`}
+              >
+                {tab}
+              </p>
+            ))}
+            <DropDown
+              label="Season"
+              options={seasons}
+              value={season}
+              onChange={(e) => setSeason(e.target.value)}
+              bg="white"
+            />
+            <DropDown
+              label="Sort by"
+              options={
+                selected === "batting"
+                  ? [
+                      "Most Runs",
+                      "Highest Individual Score",
+                      "Highest Strike Rate (T)",
+                      "Highest Strike Rate (I)",
+                      "Highest Averages",
+                      "Most Sixes",
+                      "Most Sixes (Innings)",
+                      "Most Fours",
+                      "Most Fours (Innings)",
+                      "Most Fifties",
+                      "Most Centuries",
+                      "Fastest Fifties",
+                      "Fastest Centuries",
+                    ]
+                  : selected === "bowling"
+                  ? [
+                      "Most Wickets",
+                      "Best Economy",
+                      "Best Economy (Innings)",
+                      "Best Average",
+                      "Best Strike Rate",
+                      "Best Strike Rate (Innings)",
+                      "Most Runs Conceded (Innings)",
+                      "Most Dot Balls Bowled",
+                      "Most Dot Balls Bowled (Innings)",
+                      "Most Maiden Overs Bowled",
+                    ]
+                  : ["Most Catches", "Most Run Outs", "Most Stumpings"]
+              }
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              bg="white"
+            />
+            <DropDown
+              label="Team"
+              options={["All", "Team 1", "Team 2", "Team 3"]}
+              bg="white"
+            />
+          </div>
 
-      <div className="section-width py-12 flex flex-col gap-10 bg-white text-black">
-        {/* Tabs + Season Selector */}
-        <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          {["batting", "bowling", "fielding"].map((tab) => (
-            <p
-              key={tab}
-              onClick={() => setSelected(tab)}
-              className={`font-semibold text-xl uppercase pb-2 whitespace-nowrap cursor-pointer ${
-                selected === tab
-                  ? "border-b-4 border-[#E07E27]"
-                  : "text-[#6A6A6A]"
-              }`}
-            >
-              {tab}
-            </p>
-          ))}
-          <DropDown
-            label="Season"
-            options={seasons}
-            value={season}
-            onChange={(e) => setSeason(e.target.value)}
-            bg="white"
+          {/* Stats Table */}
+          <PlayerTable
+            selected={selected}
+            onPlayerSelect={setSelectedPlayer}
+            selectedPlayer={selectedPlayer}
+            data={displayedData}
           />
-          <DropDown
-            label="Sort by"
-            options={
-              selected === "batting"
-                ? [
-                    "Most Runs",
-                    "Highest Individual Score",
-                    "Highest Strike Rate (T)",
-                    "Highest Strike Rate (I)",
-                    "Highest Averages",
-                    "Most Sixes",
-                    "Most Sixes (Innings)",
-                    "Most Fours",
-                    "Most Fours (Innings)",
-                    "Most Fifties",
-                    "Most Centuries",
-                    "Fastest Fifties",
-                    "Fastest Centuries",
-                  ]
-                : selected === "bowling"
-                ? [
-                    "Most Wickets",
-                    "Best Economy",
-                    "Best Economy (Innings)",
-                    "Best Average",
-                    "Best Strike Rate",
-                    "Best Strike Rate (Innings)",
-                    "Most Runs Conceded (Innings)",
-                    "Most Dot Balls Bowled",
-                    "Most Dot Balls Bowled (Innings)",
-                    "Most Maiden Overs Bowled",
-                  ]
-                : ["Most Catches", "Most Run Outs", "Most Stumpings"]
-            }
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            bg="white"
-          />
-          <DropDown
-            label="Team"
-            options={["All", "Team 1", "Team 2", "Team 3"]}
-            bg="white"
-          />
-        </div>
-
-        {/* Stats Table */}
-        <PlayerTable
-          selected={selected}
-          onPlayerSelect={setSelectedPlayer}
-          selectedPlayer={selectedPlayer}
-          data={displayedData}
-        />
+        </div>{" "}
       </div>
-      {/* pagination buttons */}
-      <div className="flex justify-between pb-12 section-width">
-        <button
-          onClick={handlePrevPage}
-          disabled={page === 0}
-          className="px-4 py-2 bg-[#E07E27] text-white rounded disabled:opacity-50"
-        >
-          Prev
-        </button>
-        <button
-          onClick={handleNextPage}
-          disabled={displayedData.length >= data.length}
-          className="px-4 py-2 bg-[#E07E27] text-white rounded disabled:opacity-50"
-        >
-          Next
-        </button>
+      <div className="section-width">
+        <TablePagination
+          rowsPerPageOptions={[15, 30, 50]}
+          component="div"
+          count={data.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+          sx={{
+            "& .MuiTablePagination-toolbar": {
+              backgroundColor: "#0F1A2D",
+              color: "#E07E27",
+            },
+            "& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows":
+              {
+                color: "#E07E27",
+              },
+            "& .MuiIconButton-root": {
+              color: "#E07E27",
+            },
+            "& .MuiTablePagination-selectIcon": {
+              color: "#E07E27",
+            },
+          }}
+        />
       </div>
     </div>
   );
