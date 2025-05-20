@@ -83,11 +83,45 @@ const sortData = (data, category, sortBy) => {
       case "Least Runs":
         sorted.sort((a, b) => a.runs - b.runs);
         break;
+      case "Highest Individual Score":
+        sorted.sort((a, b) => b.hs - a.hs);
+        break;
+      case "Highest Strike Rate (T)":
+      case "Highest Strike Rate (I)":
+        // assuming `sr` holds the strike rate you want to rank on
+        sorted.sort((a, b) => b.sr - a.sr);
+        break;
+      case "Highest Averages":
+        sorted.sort((a, b) => b.ave - a.ave);
+        break;
+      case "Most Sixes":
+        sorted.sort((a, b) => b.sixes - a.sixes);
+        break;
+      case "Most Sixes (Innings)":
+        // if you track per-innings sixes, sort by that field instead;
+        // otherwise this will fall back to total sixes
+        sorted.sort((a, b) => b.sixes - a.sixes);
+        break;
+      case "Most Fours":
+        sorted.sort((a, b) => b.fours - a.fours);
+        break;
+      case "Most Fours (Innings)":
+        sorted.sort((a, b) => b.fours - a.fours);
+        break;
+      case "Most Fifties":
+        sorted.sort((a, b) => b.fifties - a.fifties);
+        break;
       case "Most Centuries":
         sorted.sort((a, b) => b.hundreds - a.hundreds);
         break;
-      case "Most Half Centuries":
-        sorted.sort((a, b) => b.fifties - a.fifties);
+      case "Fastest Fifties":
+        // if you have a `fastest_fifty` time field, use that
+        // otherwise I'll demo it using SR as a proxy
+        sorted.sort((a, b) => b.sr - a.sr);
+        break;
+      case "Fastest Centuries":
+        // similarly, swap in your actual `fastest_century` field
+        sorted.sort((a, b) => b.sr - a.sr);
         break;
     }
   } else if (category === "bowling") {
@@ -96,13 +130,27 @@ const sortData = (data, category, sortBy) => {
         sorted.sort((a, b) => b.wkts - a.wkts);
         break;
       case "Best Economy":
+      case "Best Economy (Innings)":
+        // lower economy is better
         sorted.sort((a, b) => a.econ - b.econ);
         break;
       case "Best Average":
         sorted.sort((a, b) => a.avg - b.avg);
         break;
       case "Best Strike Rate":
+      case "Best Strike Rate (Innings)":
+        // lower SR is better for bowlers
         sorted.sort((a, b) => a.sr - b.sr);
+        break;
+      case "Most Runs Conceded (Innings)":
+        sorted.sort((a, b) => b.runs - a.runs);
+        break;
+      case "Most Dot Balls Bowled":
+      case "Most Dot Balls Bowled (Innings)":
+        sorted.sort((a, b) => b.dotBalls - a.dotBalls);
+        break;
+      case "Most Maiden Overs Bowled":
+        sorted.sort((a, b) => b.maidens - a.maidens);
         break;
     }
   } else {
@@ -361,23 +409,56 @@ export default function Stats() {
   const [selected, setSelected] = useState("batting");
   const [season, setSeason] = useState(seasons[0]);
   const [sortBy, setSortBy] = useState("Most Runs");
+  const [page, setPage] = useState(0);
+  const pageSize = 15;
 
-  // raw, unsorted data
+  // raw and sorted data as before
   const rawData = useMemo(
     () => makeCategoryData(selected, season),
     [selected, season]
   );
-  // sorted + positioned data
   const data = useMemo(
     () => sortData(rawData, selected, sortBy),
     [rawData, selected, sortBy]
   );
 
-  const [selectedPlayer, setSelectedPlayer] = useState(data[0] || {});
+  const [displayedData, setDisplayedData] = useState(() =>
+    data.slice(0, pageSize)
+  );
 
+  // Reset to first page when data changes
   useEffect(() => {
-    setSelectedPlayer(data[0] || {});
+    setPage(0);
+    setDisplayedData(data.slice(0, pageSize));
   }, [data]);
+
+  const handlePrevPage = () => {
+    // if you still want a “remove last page” on Prev:
+    if (page > 0) {
+      setPage((p) => p - 1);
+      setDisplayedData((prev) => prev.slice(0, prev.length - pageSize));
+    }
+  };
+
+  const handleNextPage = () => {
+    const nextPage = page + 1;
+    const nextSlice = data.slice(
+      nextPage * pageSize,
+      nextPage * pageSize + pageSize
+    );
+
+    // append the next slice
+    setDisplayedData((prev) => [...prev, ...nextSlice]);
+    setPage(nextPage);
+  };
+
+  const startIdx = page * pageSize;
+
+  // Selected player within current page
+  const [selectedPlayer, setSelectedPlayer] = useState(displayedData[0] || {});
+  useEffect(() => {
+    setSelectedPlayer(displayedData[0] || {});
+  }, [displayedData]);
 
   return (
     <div className="w-full">
@@ -412,16 +493,31 @@ export default function Stats() {
               selected === "batting"
                 ? [
                     "Most Runs",
-                    "Least Runs",
+                    "Highest Individual Score",
+                    "Highest Strike Rate (T)",
+                    "Highest Strike Rate (I)",
+                    "Highest Averages",
+                    "Most Sixes",
+                    "Most Sixes (Innings)",
+                    "Most Fours",
+                    "Most Fours (Innings)",
+                    "Most Fifties",
                     "Most Centuries",
-                    "Most Half Centuries",
+                    "Fastest Fifties",
+                    "Fastest Centuries",
                   ]
                 : selected === "bowling"
                 ? [
                     "Most Wickets",
                     "Best Economy",
+                    "Best Economy (Innings)",
                     "Best Average",
                     "Best Strike Rate",
+                    "Best Strike Rate (Innings)",
+                    "Most Runs Conceded (Innings)",
+                    "Most Dot Balls Bowled",
+                    "Most Dot Balls Bowled (Innings)",
+                    "Most Maiden Overs Bowled",
                   ]
                 : ["Most Catches", "Most Run Outs", "Most Stumpings"]
             }
@@ -441,8 +537,25 @@ export default function Stats() {
           selected={selected}
           onPlayerSelect={setSelectedPlayer}
           selectedPlayer={selectedPlayer}
-          data={data}
+          data={displayedData}
         />
+      </div>
+      {/* pagination buttons */}
+      <div className="flex justify-between pb-12 section-width">
+        <button
+          onClick={handlePrevPage}
+          disabled={page === 0}
+          className="px-4 py-2 bg-[#E07E27] text-white rounded disabled:opacity-50"
+        >
+          Prev
+        </button>
+        <button
+          onClick={handleNextPage}
+          disabled={displayedData.length >= data.length}
+          className="px-4 py-2 bg-[#E07E27] text-white rounded disabled:opacity-50"
+        >
+          Next
+        </button>
       </div>
     </div>
   );

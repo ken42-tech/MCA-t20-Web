@@ -36,17 +36,17 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
   return (
     <div className="relative w-full h-[28rem] bg-[url('/images/stats/bg.svg')] bg-no-repeat bg-center bg-cover flex justify-center items-end overflow-hidden">
       {/* Background Position Number */}
-      <div className="absolute left-[20%] bottom-0 z-0 flex items-start leading-none">
+      {/* <div className="absolute left-[20%] bottom-0 z-0 flex items-start leading-none">
         <span className="text-[120px] font-extrabold italic text-[#3188b1] opacity-70">
           #
         </span>
         <span className="text-[350px] h-full flex justify-end items-end font-extrabold italic text-[#3188b1] opacity-70">
           {player.pos}
         </span>
-      </div>
+      </div> */}
 
       {/* Player Image */}
-      <div className="absolute left-[27%] bottom-0 z-10">
+      {/* <div className="absolute left-[27%] bottom-0 z-10">
         <Image
           src={player.playerImg || "/images/stats/player-img.svg"}
           width={300}
@@ -54,12 +54,12 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
           alt={player.player}
           className="object-contain"
         />
-      </div>
+      </div> */}
 
       {/* Player Details and Stats */}
       <div className="relative z-20 ml-[20rem] mb-6 text-white">
-        <h1 className="text-5xl font-bold mb-2">{player.player}</h1>
-        <div className="flex items-center gap-3 mb-8">
+        {/* <h1 className="text-5xl font-bold mb-2">{player.player}</h1> */}
+        {/* <div className="flex items-center gap-3 mb-8">
           {player.teamLogo && (
             <Image
               src={player.teamLogo}
@@ -69,8 +69,8 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
             />
           )}
           <p className="text-xl">{player.team}</p>
-        </div>
-
+        </div> */}
+        {/* 
         <div className="flex flex-wrap rounded-lg overflow-hidden border border-gray-700 divide-x divide-gray-600 bg-black bg-opacity-60">
           {stats.map((stat, idx) => (
             <div
@@ -81,7 +81,7 @@ const PlayerDetailsHero = ({ player, selectedTab }) => {
               <p className="text-xs text-gray-300">{stat.label}</p>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
