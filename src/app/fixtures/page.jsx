@@ -1,66 +1,32 @@
+"use client";
+import React from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Hero from "@/components/hero/Hero";
 import Image from "next/image";
-import Script from "next/script";
 import Link from "next/link";
 import fixtures1 from "@/utilis/fixtures/fixtures1.js";
 import fixtures2 from "@/utilis/fixtures/fixtures2.js";
 
 const TOURNAMENT_IDS = {
-  "Season 1": fixtures1, // Use the imported Season 1 fixture
-  "Season 2": fixtures2, // Use the imported Season 2 fixture
+  "Season 1": fixtures1,
+  "Season 2": fixtures2,
 };
-
-const TEAM_NAMES = [
-  "Aakash Tigers Mumbai Western Suburbs",
-  "Triumph Knights Mumbai North East",
-  "ARCS Andheri",
-  "SoBo SuperSonics",
-  "Eagle Thane Strikers",
-  "North Mumbai Panthers",
-  "NaMo Bandra Blasters",
-  "Shivaji Park Lions",
-];
-
-export async function generateStaticParams() {
-  const seasons = Object.keys(TOURNAMENT_IDS);
-  const teams = ["All Teams", ...TEAM_NAMES];
-
-  const params = [];
-
-  for (const season of seasons) {
-    for (const team of teams) {
-      params.push({
-        season,
-        team,
-      });
-    }
-    params.push({ season });
-  }
-
-  params.push({});
-
-  return params;
-}
 
 function processMatches(jsonData) {
   return (jsonData.matches || []).map((m) => {
     const game_id = m.game_id;
     const [p1 = {}, p2 = {}] = m.participants || [];
-    const fmt = (p) => {
-      const key = (p.short_name || "").toLowerCase();
-      return {
-        name: p.name || "",
-        logo: key
-          ? `/images/fixtures/${key}.svg`
-          : "/images/fixtures/default.svg",
-        score: (p.value || "").split(" ")[0] || "",
-        overs: p.value?.match(/\(([^)]+)\)/)?.[1] || "", // Extracting overs from the format "148/5 (19.3)"
-      };
-    };
+    const fmt = (p) => ({
+      name: p.name || "",
+      logo: p.short_name
+        ? `/images/fixtures/${p.short_name.toLowerCase()}.svg`
+        : "/images/fixtures/default.svg",
+      score: (p.value || "").split(" ")[0] || "",
+      overs: p.value?.match(/\(([^)]+)\)/)?.[1] || "",
+    });
 
     return {
       game_id,
-      // season: m.series_name.toUpperCase(),
       status: m.event_status.toUpperCase(),
       team1: fmt(p1),
       team2: fmt(p2),
@@ -71,36 +37,59 @@ function processMatches(jsonData) {
           month: "short",
           year: "numeric",
         }),
-        // location: m.venue_name.toUpperCase(),
+        location: m.venue_name?.toUpperCase() || "",
       },
     };
   });
 }
 
-export async function generateMetadata() {
-  return {
-    title: "T20 Mumbai - Fixtures",
-    description: "View all fixtures for T20 Mumbai tournament",
-  };
-}
+export default function Page() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialSeason = searchParams.get("season") || "Season 2";
+  const initialTeam = searchParams.get("team") || "All Teams";
 
-export default function Page({ params, searchParams }) {
-  const resolvedSearchParams = searchParams;
+  const [season, setSeason] = React.useState(initialSeason);
+  const [team, setTeam] = React.useState(initialTeam);
 
-  const season = resolvedSearchParams?.season || params?.season || "Season 2";
-  const team = resolvedSearchParams?.team || params?.team || "All Teams";
+  // Sync URL params when filters change
+  React.useEffect(() => {
+    const params = new URLSearchParams();
+    params.set("season", season);
+    params.set("team", team);
+    router.push(`?${params.toString()}`, { shallow: true });
+  }, [season, team, router]);
 
-  const tournamentData = TOURNAMENT_IDS[season];
+  // Reset team filter whenever season changes
+  React.useEffect(() => {
+    setTeam("All Teams");
+  }, [season]);
 
-  const allMatches = processMatches(tournamentData);
+  // Process all matches for the selected season
+  const allMatches = React.useMemo(
+    () => processMatches(TOURNAMENT_IDS[season]),
+    [season]
+  );
 
-  const matches = allMatches.filter((m) => {
-    if (team === "All Teams") return true;
-    return (
-      TEAM_NAMES.includes(m.team1.name) &&
-      (m.team1.name === team || m.team2.name === team)
-    );
-  });
+  // Filter matches by team
+  const matches = React.useMemo(
+    () =>
+      allMatches.filter(
+        (m) =>
+          team === "All Teams" || m.team1.name === team || m.team2.name === team
+      ),
+    [allMatches, team]
+  );
+
+  // Build dynamic list of team options for the dropdown
+  const teamOptions = React.useMemo(() => {
+    const names = new Set();
+    allMatches.forEach((m) => {
+      names.add(m.team1.name);
+      names.add(m.team2.name);
+    });
+    return ["All Teams", ...Array.from(names)];
+  }, [allMatches]);
 
   return (
     <div className="w-full bg-white">
@@ -112,17 +101,13 @@ export default function Page({ params, searchParams }) {
       <div className="section-width">
         <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0 overflow-visible">
           <h2 className="uppercase text-black">{season} Fixtures</h2>
-          <form
-            method="get"
-            className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0"
-          >
+          <div className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0">
             <span className="text-sm text-gray-500 md:inline">Filter by</span>
-
-            {/* wrap each select in a relative container with a high z-index */}
             <div className="relative z-10">
               <select
                 name="season"
-                defaultValue={season}
+                value={season}
+                onChange={(e) => setSeason(e.target.value)}
                 className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
               >
                 {Object.keys(TOURNAMENT_IDS).map((s) => (
@@ -132,20 +117,21 @@ export default function Page({ params, searchParams }) {
                 ))}
               </select>
             </div>
-
             <div className="relative z-10">
               <select
                 name="team"
-                defaultValue={team}
+                value={team}
+                onChange={(e) => setTeam(e.target.value)}
                 className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
               >
-                <option>All Teams</option>
-                {TEAM_NAMES.map((t) => (
-                  <option key={t}>{t}</option>
+                {teamOptions.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
                 ))}
               </select>
             </div>
-          </form>
+          </div>
         </div>
 
         <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
@@ -155,9 +141,9 @@ export default function Page({ params, searchParams }) {
                 key={idx}
                 className="rounded-md border overflow-hidden text-black"
               >
-                {/* header */}
+                {/* Header */}
                 <div className="relative bg-[#E07E27] text-white text-sm font-semibold px-4 py-2 flex justify-between items-center">
-                  <span>{match.season}</span>
+                  <span>{season}</span>
                   <div
                     className="absolute top-0 right-0 h-full w-[120px] md:w-[150px] bg-black flex items-center justify-center text-xs font-bold"
                     style={{
@@ -167,11 +153,10 @@ export default function Page({ params, searchParams }) {
                     {match.status}
                   </div>
                 </div>
-
-                {/* teams & info */}
+                {/* Teams & Scores */}
                 <div className="flex flex-col lg:flex-row w-full">
                   <div className="flex-1 flex flex-col md:flex-row items-center justify-between p-3">
-                    {/* team 1 */}
+                    {/* Team 1 */}
                     <div className="flex items-center gap-3 w-full md:w-[35%]">
                       <Image
                         src={`/images/fixtures/${match.team1.name}.svg`}
@@ -184,7 +169,7 @@ export default function Page({ params, searchParams }) {
                         {match.team1.name}
                       </div>
                     </div>
-                    {/* team1 score */}
+                    {/* Score 1 */}
                     <div className="text-center">
                       <div className="font-bold text-sm sm:text-3xl text-[#894B14AB]">
                         {match.team1.score}
@@ -195,7 +180,7 @@ export default function Page({ params, searchParams }) {
                     </div>
                     {/* vs */}
                     <div className="text-sm sm:text-lg font-semibold">vs</div>
-                    {/* team2 score */}
+                    {/* Score 2 */}
                     <div className="text-center">
                       <div className="font-bold text-sm sm:text-3xl text-[#E07E27]">
                         {match.team2.score}
@@ -204,22 +189,21 @@ export default function Page({ params, searchParams }) {
                         ({match.team2.overs})
                       </div>
                     </div>
-                    {/* team 2 */}
+                    {/* Team 2 */}
                     <div className="flex items-center gap-3 w-full md:w-[30%]">
                       <Image
                         src={`/images/fixtures/${match.team2.name}.svg`}
                         alt={`${match.team2.name} logo`}
                         width={50}
                         height={60}
-                        className="object-contain w-28 h-28"
+                        className="object-contain h-28 w-28"
                       />
                       <div className="text-[10px] sm:text-base font-semibold uppercase">
                         {match.team2.name}
                       </div>
                     </div>
                   </div>
-
-                  {/* match info panel */}
+                  {/* Match Info */}
                   <div className="bg-[#F5F5F5] px-12 py-8 flex flex-col justify-center lg:w-1/4">
                     <div className="text-xs sm:text-base font-bold text-[#E07E27]">
                       MATCH INFO
@@ -262,13 +246,13 @@ export default function Page({ params, searchParams }) {
         </div>
       </div>
 
-      <Script id="auto-submit" strategy="afterInteractive">
+      {/* <Script id="auto-submit" strategy="afterInteractive">
         {`
           document.querySelectorAll('select[name]').forEach(el => {
             el.addEventListener('change', () => el.form.submit())
           });
         `}
-      </Script>
+      </Script> */}
     </div>
   );
 }

@@ -7,8 +7,9 @@ import PaginationControls from "./components/PaginationControls";
 import { stats } from "@/utilis/stats/statsdata";
 
 // Extract available seasons
-const seasons = Object.keys(stats[Object.keys(stats)[0]].seasons);
-
+const seasons = Object.keys(stats[Object.keys(stats)[0]].seasons).filter(
+  (s) => s.toLowerCase() !== "overall"
+);
 // Build raw data (unsorted) for a category + season
 const makeCategoryData = (category, season) => {
   return Object.values(stats)
