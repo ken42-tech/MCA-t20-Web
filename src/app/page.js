@@ -21,7 +21,7 @@ export default function Home() {
         <Socials />
         <Gallery />
         <TopPlayers />
-        <HomeStandingsSection />
+    {/* <HomeStandingsSection /> */}
 
         {/* <News /> */}
 
