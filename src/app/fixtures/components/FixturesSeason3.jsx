@@ -131,11 +131,9 @@ const FixturesSeason3 = () => {
                 </div>
 
                 <div className="flex flex-col justify-center items-center">
-                  {/* vs */}
                   <div className="text-sm sm:text-lg font-semibold">vs</div>
 
-                  {/* Match Number Display */}
-                  <p>{`${match.game_id}/20`}</p>
+                  {/* <p>{`${match.game_id}/20`}</p> */}
                 </div>
 
                 {/* Team 2 */}
