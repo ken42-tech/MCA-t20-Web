@@ -14,10 +14,10 @@ export const navLinks = [
     title: "Gallery",
     path: `${routes.gallery}`,
   },
-  // {
-  //   title: "Fixtures",
-  //   path: `${routes.fixtures}`,
-  // },
+  {
+    title: "Fixtures",
+    path: `${routes.fixtures}`,
+  },
   // {
   //   title: "Statistics",
   //   path: `${routes.stats}`,

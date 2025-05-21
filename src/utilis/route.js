@@ -12,6 +12,7 @@ const routes = {
   media: "/media",
   gallery: "/gallery",
   liveAuction: "https://mca-auction.ken42.com/admin/team-details",
+  standing: "/standings",
 
   // navbar buttons
   signIn: "#",

@@ -8,21 +8,29 @@ import Image from "next/image";
 // } from "@/utils/helper";
 // import { playerTeamLogo } from "@/assets";
 import { teamDetailsData } from "./data";
+import teamDetailsDataSeason3 from "../../constant/team/teamDetailsDataSeason3.json";
 import {
   formatToIndianCurrencyWords2,
   mapHighestLevelToCategory,
 } from "@/utilis/helper";
 import AdminTeamSection from "./components/AdminTeamSection";
+import { useSearchParams } from "next/navigation";
 
 const page = () => {
+  const searchParams = useSearchParams();
+  const teamId = searchParams.get("teamId");
+  const setStepValue = searchParams.get("setStepValue");
   const [loading, setLoading] = useState(false);
-  const [teamDetails, setTeamDetails] = useState(teamDetailsData.data);
-  const [step, setStep] = useState(1);
+  const [teamDetails, setTeamDetails] = useState(teamDetailsDataSeason3.data);
+  const [step, setStep] = useState(setStepValue || 1);
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
 
   const [selectedTeamId, setSelectedTeamId] = useState(
-    teamDetails?.[0]?.Id || null
+    teamId || teamDetails?.[0]?.Id || null
   );
+
+  const [isNameSortedAsc, setIsNameSortedAsc] = useState(true);
+  const [sortByName, setSortByName] = useState(false);
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -42,6 +50,7 @@ const page = () => {
   // }, []);
 
   // const team = teamDetails?.[selectedTeamIndex];
+
   const team = teamDetails?.find((t) => t.Id === selectedTeamId);
 
   const players = team?.Player_Registrations__r?.records || [];
@@ -54,6 +63,33 @@ const page = () => {
   );
   const totalFundFormatted = formatToIndianCurrencyWords2(team?.Total_Fund__c);
   const totalPlayers = players.length;
+
+  const sortedPlayers = [...players].sort((a, b) => {
+    const aCategory = mapHighestLevelToCategory(a?.Recent_Competitive_Level__c);
+    const bCategory = mapHighestLevelToCategory(b?.Recent_Competitive_Level__c);
+
+    if (sortByName) {
+      const nameA = a.Player__r?.Name || "";
+      const nameB = b.Player__r?.Name || "";
+      return isNameSortedAsc
+        ? nameA.localeCompare(nameB)
+        : nameB.localeCompare(nameA);
+    }
+
+    const categoryOrder = {
+      "Icon Player": 1,
+      "Senior Player": 2,
+      "Emerging Player": 3,
+      "Development Player": 4,
+      Unknown: 5,
+    };
+
+    const orderDiff = categoryOrder[aCategory] - categoryOrder[bCategory];
+    if (orderDiff !== 0) return orderDiff;
+
+    // fallback alphabetical within category
+    return (a.Player__r?.Name || "").localeCompare(b.Player__r?.Name || "");
+  });
 
   if (loading) {
     return <div className="text-white text-center py-10">Loading...</div>;
@@ -81,25 +117,27 @@ const page = () => {
           <div className="flex flex-wrap gap-5 overflow-x-auto pb-6">
             {[...teamDetails]
               .sort((a, b) => a.Name.localeCompare(b.Name))
-              ?.map((team, i) => (
-                <div
-                  key={i}
-                  // onClick={() => setSelectedTeamIndex(i)}
+              ?.map((team, i) => {
+                return (
+                  <div
+                    key={i}
+                    // onClick={() => setSelectedTeamIndex(i)}
 
-                  onClick={() => setSelectedTeamId(team.Id)}
-                  className={`flex justify-center rounded-xl  p-2 cursor-pointer  lg:flex-1 bg-[#ffffff80]   ${
-                    selectedTeamId === team.Id ? "border-white" : ""
-                  }`}
-                >
-                  <img
-                    src={team?.Logo_URL__c || playerTeamLogo}
-                    alt="Team Logo"
-                    width={100}
-                    height={100}
-                    className="object-contain"
-                  />
-                </div>
-              ))}
+                    onClick={() => setSelectedTeamId(team.Id)}
+                    className={`flex justify-center rounded-xl  p-2 cursor-pointer  lg:flex-1 bg-[#ffffff80]   ${
+                      selectedTeamId === team.Id ? "border-white border" : ""
+                    }`}
+                  >
+                    <img
+                      src={team?.Logo_URL__c || playerTeamLogo}
+                      alt="Team Logo"
+                      width={100}
+                      height={100}
+                      className="object-contain"
+                    />
+                  </div>
+                );
+              })}
           </div>
 
           <div className="grid  lg:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-between bg-black/40 backdrop-blur  rounded-xl mb-10 ">
@@ -179,7 +217,24 @@ const page = () => {
               <thead className="bg-[#1c2c66d6]">
                 <tr>
                   <th className="text-left p-5">SI.No</th>
-                  <th className="text-left p-5">Name of the player</th>
+                  <th
+                    className="text-left p-5"
+                    onClick={() => {
+                      if (!sortByName) {
+                        setSortByName(true);
+                        setIsNameSortedAsc(true);
+                      } else if (isNameSortedAsc) {
+                        setIsNameSortedAsc(false);
+                      } else {
+                        setSortByName(false); // Reset to category sort
+                      }
+                    }}
+                  >
+                    Name of the player{" "}
+                    <span className="text-xs">
+                      {sortByName ? (isNameSortedAsc ? "▲" : "▼") : "↕"}
+                    </span>
+                  </th>
                   <th className="text-left p-5">Category</th>
                   <th className="text-left p-5">Role</th>
                   <th className="text-left p-5">Base price</th>
@@ -187,37 +242,38 @@ const page = () => {
                 </tr>
               </thead>
               <tbody>
-                {[...players]
+                {/* {[...players]
                   .sort((a, b) =>
                     (a.Player__r?.Name || "").localeCompare(
                       b.Player__r?.Name || ""
                     )
                   )
-                  .map((player, index) => (
-                    <tr
-                      key={player.playerId}
-                      className="border-b border-white/20"
-                    >
-                      <td className=" p-5">{index + 1}.</td>
-                      <td className=" p-5">{player.Player__r?.Name}</td>
-                      <td className=" p-5">
-                        {mapHighestLevelToCategory(
-                          player?.Recent_Competitive_Level__c
-                        )}
-                      </td>
-                      <td className=" p-5">{player.Primary_Role__c}</td>
-                      <td className=" p-5">
-                        {player?.Base_Price__c != null
-                          ? `₹${player.Base_Price__c.toLocaleString("en-IN")}`
-                          : "--"}
-                      </td>
-                      <td className=" p-5">
-                        {player?.Winning_Bid__c != null
-                          ? `₹${player.Winning_Bid__c.toLocaleString("en-IN")}`
-                          : "--"}
-                      </td>
-                    </tr>
-                  ))}
+                  .map((player, index) => ( */}
+                {sortedPlayers.map((player, index) => (
+                  <tr
+                    key={player.playerId}
+                    className="border-b border-white/20"
+                  >
+                    <td className=" p-5">{index + 1}.</td>
+                    <td className=" p-5">{player.Player__r?.Name}</td>
+                    <td className=" p-5">
+                      {mapHighestLevelToCategory(
+                        player?.Recent_Competitive_Level__c
+                      )}
+                    </td>
+                    <td className=" p-5">{player.Primary_Role__c}</td>
+                    <td className=" p-5">
+                      {player?.Base_Price__c != null
+                        ? `₹${player.Base_Price__c.toLocaleString("en-IN")}`
+                        : "--"}
+                    </td>
+                    <td className=" p-5">
+                      {player?.Winning_Bid__c != null
+                        ? `₹${player.Winning_Bid__c.toLocaleString("en-IN")}`
+                        : "--"}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

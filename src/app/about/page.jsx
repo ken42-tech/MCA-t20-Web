@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/navbar/navbar";
 import React from "react";
 import AboutHero from "@/components/about/AboutHero";
-import Table from "@/components/common/Table";
+import Table from "@/components/common/CustomTable";
 import Image from "next/image";
 
 const page = () => {
