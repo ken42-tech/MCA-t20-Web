@@ -147,7 +147,7 @@ const MatchCard = ({ date, time, status, team1, team2 }) => {
 
       {/* Content */}
       <div className="flex h-3/4 flex-row justify-center gap-10 text-center items-center p-10">
-        <div className="w-[33%] flex flex-col justify-center items-center gap-6">
+        <div className="w-[33%] flex flex-col justify-center items-center gap-2">
           <img src={team1.logo} alt={team1.name} />
           <span className="text-sm font-semibold text-black">{team1.name}</span>
         </div>
@@ -155,11 +155,11 @@ const MatchCard = ({ date, time, status, team1, team2 }) => {
           <span className="text-[rgba(224,126,39,1)] font-bold italic tracking-widest">
             VS
           </span>
-          <span className="text-[rgba(134,134,134,1)] text-xs font-semibold">
+          {/* <span className="text-[rgba(134,134,134,1)] text-xs font-semibold">
             MATCH 25/74
-          </span>
+          </span> */}
         </div>
-        <div className="w-[33%] flex flex-col justify-center items-center gap-6">
+        <div className="w-[33%] flex flex-col justify-center items-center gap-2">
           <img src={team2.logo} alt={team2.name} />
           <span className="text-sm font-semibold text-black">{team2.name}</span>
         </div>
