@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Hero from "@/components/hero/Hero";
@@ -6,20 +7,33 @@ import Image from "next/image";
 import Link from "next/link";
 import fixtures1 from "@/utilis/fixtures/fixtures1.js";
 import fixtures2 from "@/utilis/fixtures/fixtures2.js";
+import fixtures3 from "@/utilis/fixtures/fixtures3.js"; // Add Season 3 fixtures
+import FixturesSeason3 from "./components/FixturesSeason3"; // Import FixturesSeason3
+
+function parseStaticDate(dateStr, timeStr = "") {
+  const dayOnly = dateStr.replace(/(\d+)(st|nd|rd|th)/, "$1");
+  return new Date(`${dayOnly} June 2025 ${timeStr}`);
+}
 
 const TOURNAMENT_IDS = {
   "Season 1": fixtures1,
   "Season 2": fixtures2,
+  "Season 3": fixtures3, // Add Season 3
 };
 
 function processMatches(jsonData) {
-  return (jsonData.matches || []).map((m) => {
+  // Ensure jsonData and jsonData.matches are defined
+  if (!jsonData || !jsonData.matches) {
+    return [];
+  }
+
+  return jsonData.matches.map((m) => {
     const game_id = m.game_id;
     const [p1 = {}, p2 = {}] = m.participants || [];
     const fmt = (p) => ({
       name: p.name || "",
       logo: p.short_name
-        ? `/images/fixtures/${p.short_name.toLowerCase()}.svg`
+        ? `/images/fixtures/${p.short_name}.svg`
         : "/images/fixtures/default.svg",
       score: (p.value || "").split(" ")[0] || "",
       overs: p.value?.match(/\(([^)]+)\)/)?.[1] || "",
@@ -46,13 +60,12 @@ function processMatches(jsonData) {
 export default function Page() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialSeason = searchParams.get("season") || "Season 2";
+  const initialSeason = searchParams.get("season") || "Season 3"; // Default to "Season 3"
   const initialTeam = searchParams.get("team") || "All Teams";
 
   const [season, setSeason] = React.useState(initialSeason);
   const [team, setTeam] = React.useState(initialTeam);
 
-  // Sync URL params when filters change
   React.useEffect(() => {
     const params = new URLSearchParams();
     params.set("season", season);
@@ -60,18 +73,16 @@ export default function Page() {
     router.push(`?${params.toString()}`, { shallow: true });
   }, [season, team, router]);
 
-  // Reset team filter whenever season changes
   React.useEffect(() => {
     setTeam("All Teams");
   }, [season]);
 
-  // Process all matches for the selected season
+  // Ensure safe access to the season data
   const allMatches = React.useMemo(
-    () => processMatches(TOURNAMENT_IDS[season]),
+    () => processMatches(TOURNAMENT_IDS[season] || {}),
     [season]
   );
 
-  // Filter matches by team
   const matches = React.useMemo(
     () =>
       allMatches.filter(
@@ -81,15 +92,27 @@ export default function Page() {
     [allMatches, team]
   );
 
-  // Build dynamic list of team options for the dropdown
   const teamOptions = React.useMemo(() => {
     const names = new Set();
     allMatches.forEach((m) => {
       names.add(m.team1.name);
       names.add(m.team2.name);
     });
+
+    // Adding teams for Season 3
+    if (season === "Season 3") {
+      names.add("Arcs Andheri");
+      names.add("Sobo Mumbai Falcons");
+      names.add("Maratha Royals");
+      names.add("Aakash Tigers");
+      names.add("Eagle Thane Strikers");
+      names.add("Triumph Knights");
+      names.add("Bandra Blasters");
+      names.add("North Mumbai Panthers");
+    }
+
     return ["All Teams", ...Array.from(names)];
-  }, [allMatches]);
+  }, [allMatches, season]); // Recalculate when the season or matches change
 
   return (
     <div className="w-full bg-white">
@@ -99,41 +122,40 @@ export default function Page() {
         subheading="Player Profile"
       />
       <div className="section-width">
-        <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0 overflow-visible">
+        <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0">
           <h2 className="uppercase text-black">{season} Fixtures</h2>
-          <div className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0">
-            <span className="text-sm text-gray-500 md:inline">Filter by</span>
-            <div className="relative z-10">
-              <select
-                name="season"
-                value={season}
-                onChange={(e) => setSeason(e.target.value)}
-                className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
-              >
-                {Object.keys(TOURNAMENT_IDS).map((s) => (
-                  <option key={s} value={s}>
-                    {s}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="relative z-10">
-              <select
-                name="team"
-                value={team}
-                onChange={(e) => setTeam(e.target.value)}
-                className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
-              >
-                {teamOptions.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="flex gap-10">
+            {/* Season Filter */}
+            <select
+              name="season"
+              value={season}
+              onChange={(e) => setSeason(e.target.value)}
+              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
+            >
+              <option value="Season 1">Season 1</option>
+              <option value="Season 2">Season 2</option>
+              <option value="Season 3">Season 3</option>
+            </select>
+            {/* Team Filter */}
+            <select
+              name="team"
+              value={team}
+              onChange={(e) => setTeam(e.target.value)}
+              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
+            >
+              {teamOptions.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 
+        {/* Conditional Rendering based on Season */}
+        {season === "Season 3" && <FixturesSeason3 />}
+
+        {/* Fixtures List */}
         <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
           {matches.length > 0 ? (
             matches.map((match, idx) => (
@@ -239,20 +261,12 @@ export default function Page() {
               </div>
             ))
           ) : (
-            <div className="text-center py-12 text-gray-500">
-              No fixtures found.
+            <div className="text-center text-gray-500">
+              {/* No fixtures found. */}
             </div>
           )}
         </div>
       </div>
-
-      {/* <Script id="auto-submit" strategy="afterInteractive">
-        {`
-          document.querySelectorAll('select[name]').forEach(el => {
-            el.addEventListener('change', () => el.form.submit())
-          });
-        `}
-      </Script> */}
     </div>
   );
 }
