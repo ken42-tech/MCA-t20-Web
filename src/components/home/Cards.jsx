@@ -6,6 +6,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import TitleComponent from "../common/TitleComponent";
+import routes from "@/utilis/route";
 
 const TeamSection = () => {
   const [selectedTeamIndex, setSelectedTeamIndex] = useState(0);
@@ -62,7 +63,11 @@ const TeamSection = () => {
       {/* Background & Header */}
       <div className="w-full bg-cover bg-center pt-24 pb-40 overflow-x-auto md:overflow-visible md:pt-28 md:pb-40 flex flex-col gap-8 relative scrollbar-hide">
         <div className="section-width">
-          <TitleComponent title={"Upcoming Matches"} />
+          <TitleComponent
+            title={"Upcoming Matches"}
+            button
+            buttonLink={routes.fixtures}
+          />
 
           {/* Upcoming Matches Heading */}
           <div className="text-xl sm:text-2xl font-semibold my-8 sm:my-16 text-white">
