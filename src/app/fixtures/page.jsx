@@ -119,7 +119,7 @@ export default function Page() {
       <Hero
         imgUrl="/images/teams/hero/bg.svg"
         heading="Fixtures"
-        subheading="Player Profile"
+        // subheading="Player Profile"
       />
       <div className="section-width">
         <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0">
