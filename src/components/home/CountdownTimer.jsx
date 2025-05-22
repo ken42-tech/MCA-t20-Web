@@ -44,7 +44,7 @@ const CountdownTimer = ({ targetDate }) => {
         <Separator />
         <TimeBlock label="Minutes" value={timeLeft.minutes} />
       </div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center bg-[#00000080]">
         <img
           src="/images/teams/hero/teamLogo/arcs.svg"
           alt="arcs"
@@ -55,7 +55,7 @@ const CountdownTimer = ({ targetDate }) => {
           <p className="text-xs">MATCH 1/20</p>
         </div>
         <img
-          src="/images/teams/hero/teamLogo/sobo.svg"
+          src="/images/home/team/soboSuperSonics.png"
           alt="arcs"
           className="w-28 p-5"
         />
