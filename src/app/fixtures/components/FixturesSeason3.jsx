@@ -1,21 +1,12 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import fixtures3 from "@/utilis/fixtures/fixtures3.js";
 import { teamLogoBN } from "@/utilis/helper";
 
 const FixturesSeason3 = () => {
-  console.log(fixtures3);
   return (
     <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
-      {/* Display the current match out of total
-      {upcomingMatches > 0 && (
-        <div className="text-center py-4 text-gray-500">
-          <strong>{upcomingMatches}</strong> / <strong>{totalMatches}</strong>{" "}
-          match(es) remaining.
-        </div>
-      )} */}
       {fixtures3.slice(0, -3).map((match, idx) => {
         const teamLogo1 = teamLogoBN[match?.home_team];
         const teamLogo2 = teamLogoBN[match?.away_team];
@@ -81,27 +72,7 @@ const FixturesSeason3 = () => {
                 <div className="text-base font-semibold leading-tight mb-1 pt-2">
                   <p>{match.date}</p>
                   <p>{match.time}</p>
-                  {/* {match.matchInfo.result.split(" @").map((part, idx) => (
-                    <span key={idx} className={idx === 0 ? "" : "block"}>
-                      <p>{part}</p>
-                    </span>
-                  ))} */}
                 </div>
-                {/* 
-                <Link href={`/scores/${match.game_id}`}>
-                  <span className="mt-4 inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg font-semibold">
-                    Match center
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path
-                        d="M9.33333 3.33333L13.3333 7.33333M13.3333 7.33333L9.33333 11.3333M13.3333 7.33333H2.66667"
-                        stroke="white"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </Link> */}
               </div>
             </div>
           </div>
