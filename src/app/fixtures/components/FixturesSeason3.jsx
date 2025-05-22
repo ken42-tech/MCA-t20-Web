@@ -1,13 +1,88 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import fixtures3 from "@/utilis/fixtures/fixtures3.js";
 import { teamLogoBN } from "@/utilis/helper";
 
 const FixturesSeason3 = () => {
+  const [selectedTeam, setSelectedTeam] = useState("");
+
+  const cleanedFixtures = fixtures3.filter((match) => {
+    const team = match.home_team?.toLowerCase() || "";
+    return (
+      team !== "rest" &&
+      !team.includes("semi final 1") &&
+      !team.includes("semi final 2")
+    );
+  });
+
+  const allTeams = Array.from(
+    new Set(
+      cleanedFixtures.flatMap((match) => [match.home_team, match.away_team])
+    )
+  )
+    .filter(Boolean)
+    .sort();
+
+  // const filteredFixtures = selectedTeam
+  //   ? fixtures3.filter(
+  //       (match) =>
+  //         match.home_team === selectedTeam || match.away_team === selectedTeam
+  //     )
+  //   : fixtures3.slice(0, -3); // same logic as before
+  const filteredFixtures = cleanedFixtures.filter((match) =>
+    selectedTeam
+      ? match.home_team === selectedTeam || match.away_team === selectedTeam
+      : true
+  );
+
   return (
     <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
-      {fixtures3.slice(0, -3).map((match, idx) => {
+      <div className="flex flex-col md:flex-row items-center md:justify-between justify-center pt-8 pb-4 px-4 md:px-0">
+        <h2 className="uppercase text-black">Season 3 Fixtures</h2>
+        <div className="w-full max-w-xs md:ml-auto max-md:mt-4 flex flex-row gap-2 items-center">
+          <p className="text-black w-28">Filter by:</p>
+          <select
+            value={selectedTeam}
+            onChange={(e) => setSelectedTeam(e.target.value)}
+            className="w-full border border-gray-300 text-black rounded px-4 py-2 text-sm"
+          >
+            <option value="">All Teams</option>
+            {allTeams.map((team) => (
+              <option key={team} value={team}>
+                {team}
+              </option>
+            ))}
+          </select>
+        </div>
+        {/* <h2 className="uppercase text-black">{season} Fixtures</h2> */}
+        {/* <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
+            <select
+              name="season"
+              value={season}
+              onChange={(e) => setSeason(e.target.value)}
+              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0 relative"
+            >
+              <option value="Season 1">Season 1</option>
+              <option value="Season 2">Season 2</option>
+              <option value="Season 3">Season 3</option>
+            </select>
+            <select
+              name="team"
+              value={team}
+              onChange={(e) => setTeam(e.target.value)}
+              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
+            >
+              {teamOptions.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </div> */}
+      </div>
+
+      {filteredFixtures.map((match, idx) => {
         const teamLogo1 = teamLogoBN[match?.home_team];
         const teamLogo2 = teamLogoBN[match?.away_team];
         return (

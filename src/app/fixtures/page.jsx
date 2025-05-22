@@ -127,10 +127,10 @@ export default function Page() {
         </div>
       </div>
       <div className="section-width">
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 px-4 md:px-0">
+        {/* <div className="flex flex-col md:flex-row items-center justify-between pt-8 px-4 md:px-0">
           <h2 className="uppercase text-black">Season 3 Fixtures</h2>
-          {/* <h2 className="uppercase text-black">{season} Fixtures</h2> */}
-          {/* <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
+          <h2 className="uppercase text-black">{season} Fixtures</h2>  
+          <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
             <select
               name="season"
               value={season}
@@ -153,8 +153,8 @@ export default function Page() {
                 </option>
               ))}
             </select>
-          </div> */}
-        </div>
+          </div> 
+        </div> */}
 
         {/* Conditional Rendering based on Season */}
         <FixturesSeason3 />
