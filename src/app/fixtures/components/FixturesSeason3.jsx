@@ -125,17 +125,17 @@ const FixturesSeason3 = () => {
             </div>
             {/* Teams & Scores */}
             <div className="flex flex-col lg:flex-row w-full">
-              <div className="flex-1 flex flex-col md:flex-row items-center justify-between p-3">
+              <div className="lg:w-[calc(100%-250px)] flex  flex-row items-center justify-between p-3">
                 {/* Team 1 */}
-                <div className="flex items-center gap-3 w-full md:w-[35%]">
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3  md:w-[35%]">
                   <img
                     src={teamLogo1 || "/images/fixtures/logoPlaceHolder.png"}
                     // alt={`${match.team1.name} logo`}
                     width={50}
                     height={60}
-                    className="object-contain h-28 w-28"
+                    className="object-contain md:h-28  md:w-28  h-16 w-16"
                   />
-                  <div className="text-[10px] sm:text-base font-semibold uppercase">
+                  <div className="text-[10px] lg:text-left text-center sm:text-base font-semibold uppercase">
                     {match.home_team}
                   </div>
                 </div>
@@ -147,13 +147,13 @@ const FixturesSeason3 = () => {
                 </div>
 
                 {/* Team 2 */}
-                <div className="flex lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 w-full md:w-[30%]">
+                <div className="flex max-md:flex-1 lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 w-full md:w-[40%]">
                   <img
                     src={teamLogo2 || "/images/fixtures/logoPlaceHolder.png"}
                     alt={teamLogo2}
                     width={50}
                     height={60}
-                    className="object-contain h-28 w-28"
+                    className="object-contain md:h-28 h-16 w-16 md:w-28"
                   />
                   <div className="text-[10px] sm:text-base lg:text-left text-center font-semibold uppercase">
                     {match.away_team}
@@ -161,7 +161,7 @@ const FixturesSeason3 = () => {
                 </div>
               </div>
               {/* Match Info */}
-              <div className="bg-[#F5F5F5] lg:px-12 lg:py-8 sm:p-6 p-4 flex lg:flex-col lg:justify-center justify-between lg:w-1/4">
+              <div className="bg-[#F5F5F5] lg:px-12 lg:py-8 sm:p-6 p-4 flex lg:flex-col lg:justify-center justify-between lg:w-[250px]">
                 <div className="text-xs sm:text-base font-bold text-[#E07E27]">
                   MATCH INFO
                 </div>
