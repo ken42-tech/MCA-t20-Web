@@ -26,7 +26,7 @@ const FixturesSeason3 = () => {
           >
             {/* Header */}
             <div className="relative bg-[#E07E27] text-white text-sm font-semibold px-4 py-2 flex justify-between items-center">
-              <span>T20 Match {match.match_no} of 23</span>
+              <span>Match {match.match_no} of 23</span>
               <div
                 className="absolute top-0 right-0 h-full w-[120px] md:w-[150px] bg-black flex items-center justify-center text-xs font-bold"
                 style={{
