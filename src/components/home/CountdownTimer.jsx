@@ -54,11 +54,13 @@ const CountdownTimer = ({ targetDate }) => {
           <p className="text-[#E07E27]">VS</p>
           <p className="text-xs">MATCH 1/20</p>
         </div>
-        <img
-          src="/images/home/team/soboSuperSonics.png"
-          alt="arcs"
-          className="w-28 p-5"
-        />
+        <div className="p-5">
+          <img
+            src="/images/home/team/soboSuperSonics.png"
+            alt="arcs"
+            className="w-28  bg-white"
+          />
+        </div>
       </div>
     </div>
   );
