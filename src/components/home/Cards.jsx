@@ -63,26 +63,17 @@ const TeamSection = () => {
   ];
 
   return (
-    <div className="w-full">
+    <div className="section-width  padding-top">
       {/* Background & Header */}
-      <div className="w-full bg-cover bg-center pt-24 pb-40 overflow-x-auto md:overflow-visible md:pt-28 md:pb-40 flex flex-col gap-8 relative scrollbar-hide">
-        <div className="section-width">
-          <TitleComponent
-            title={"Upcoming Matches"}
-            button
-            buttonLink={routes.fixtures}
-          />
-
-          {/* Upcoming Matches Heading */}
-          <div className="text-xl sm:text-2xl font-semibold my-8 sm:my-16 text-white">
-            UPCOMING MATCHES
-          </div>
-        </div>
-      </div>
 
       {/* Match Cards Section */}
       <div className="relative w-full bg-white pt-3 pb-2">
-        <div className="flex flex-col items-center gap-8 section-width -mt-[320px]">
+        <TitleComponent
+          title={"Upcoming Matches"}
+          button
+          buttonLink={routes.fixtures}
+        />
+        <div className="flex flex-col items-center gap-8   ">
           {/* Mobile View - Carousel */}
           <div className="block 2xl:hidden w-full">
             <Swiper
@@ -110,7 +101,10 @@ const TeamSection = () => {
             })}
           </div>
         </div>
-        <Link href={routes.fixtures || "#"} className="btn-blue md:hidden flex">
+        <Link
+          href={routes.fixtures || "#"}
+          className="btn-blue md:hidden flex w-fit mx-auto mt-6"
+        >
           View All
           <Image
             src="/images/home/hero/buttonIcon.svg"
@@ -129,11 +123,11 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
   const teamLogo1 = teamLogoBN[home_team] || "";
   const teamLogo2 = teamLogoBN[away_team] || "";
   return (
-    <div className="bg-white shadow-lg rounded-xl justify-between border-[rgba(194,194,194,1)] border-[2px]   h-80 flex flex-col">
+    <div className="bg-white shadow-lg rounded-xl justify-between border-[rgba(194,194,194,1)] border-[2px]     flex flex-col">
       {/* Header */}
-      <div className="relative h-1/4 w-full rounded-t-xl flex overflow-hidden bg-[#e07e27]">
+      <div className="relative   w-full rounded-t-xl flex overflow-hidden bg-[#e07e27]">
         <div
-          className="flex flex-col justify-center p-6 text-white w-[55%] h-full z-10  gap-1"
+          className="flex flex-col justify-center p-4 text-white w-[55%] h-full z-10  gap-1"
           // style={{
           //   backgroundColor: "rgba(0, 0, 0, 1)",
           //   clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",

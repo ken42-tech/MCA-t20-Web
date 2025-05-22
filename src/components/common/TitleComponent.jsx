@@ -28,18 +28,20 @@ const TitleComponent = ({ title, orange = false, button, buttonLink }) => {
             />
             <h2 className="text-white capitalize">{title}</h2>
           </div>
-          {button && (
-            <Link href={buttonLink || "#"} className="btn-blue md:flex hidden">
-              View All
-              <Image
-                src="/images/home/hero/buttonIcon.svg"
-                alt="button-icon"
-                width={24}
-                height={24}
-                className="w-5 h-5"
-              />
-            </Link>
-          )}
+          <div className="md:flex hidden">
+            {button && (
+              <Link href={buttonLink || "#"} className="btn-blue ">
+                View All
+                <Image
+                  src="/images/home/hero/buttonIcon.svg"
+                  alt="button-icon"
+                  width={24}
+                  height={24}
+                  className="w-5 h-5"
+                />
+              </Link>
+            )}
+          </div>
         </div>
       )}
     </>
