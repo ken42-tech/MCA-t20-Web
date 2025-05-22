@@ -8,12 +8,25 @@ const FixturesSeason3 = () => {
   const [selectedTeam, setSelectedTeam] = useState("");
 
   const cleanedFixtures = fixtures3.filter((match) => {
-    const team = match.home_team?.toLowerCase() || "";
-    return (
-      team !== "rest" &&
-      !team.includes("semi final 1") &&
-      !team.includes("semi final 2")
+    const home = match.home_team?.toLowerCase() || "";
+    const away = match.away_team?.toLowerCase() || "";
+
+    const blockedPatterns = [
+      "rest",
+      "semi final",
+      "position - 1 (tbd)",
+      "position - 2 (tbd)",
+      "position - 3 (tbd)",
+      "position - 4 (tbd)",
+      "sf winner 1",
+      "sf winner 2",
+    ];
+
+    const isBlocked = blockedPatterns.some(
+      (pattern) => home.includes(pattern) || away.includes(pattern)
     );
+
+    return !isBlocked;
   });
 
   const allTeams = Array.from(
@@ -39,7 +52,7 @@ const FixturesSeason3 = () => {
   return (
     <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
       <div className="flex flex-col md:flex-row items-center md:justify-between justify-center pt-8 pb-4 px-4 md:px-0">
-        <h2 className="uppercase text-black">Season 3 Fixtures</h2>
+        <h2 className="uppercase text-black">Season 3</h2>
         <div className="w-full max-w-xs md:ml-auto max-md:mt-4 flex flex-row gap-2 items-center">
           <p className="text-black w-28">Filter by:</p>
           <select
@@ -92,7 +105,15 @@ const FixturesSeason3 = () => {
           >
             {/* Header */}
             <div className="relative bg-[#E07E27] text-white text-sm md:text-base lg:text-lg  font-semibold px-4 py-2 flex justify-between items-center">
-              <span>Match {match.match_no} of 23</span>
+              {match.match_no === 23 ? (
+                "Final"
+              ) : match.match_no === 22 ? (
+                "Semi Final 2"
+              ) : match.match_no === 21 ? (
+                "Semi Final 1"
+              ) : (
+                <span>Match {match.match_no} of 23</span>
+              )}
               <div
                 className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-black flex items-center justify-center text-xs md:text-sm lg:text-base  font-bold"
                 style={{
@@ -108,7 +129,7 @@ const FixturesSeason3 = () => {
                 {/* Team 1 */}
                 <div className="flex items-center gap-3 w-full md:w-[35%]">
                   <img
-                    src={teamLogo1}
+                    src={teamLogo1 || "/images/fixtures/logoPlaceHolder.png"}
                     // alt={`${match.team1.name} logo`}
                     width={50}
                     height={60}
@@ -120,31 +141,31 @@ const FixturesSeason3 = () => {
                 </div>
 
                 <div className="flex flex-col justify-center items-center">
-                  <div className="text-sm sm:text-lg  font-semibold">vs</div>
+                  <div className="text-base sm:text-2xl font-semibold">vs</div>
 
-                  <p>{`${match.match_no}/23`}</p>
+                  {/* <p>{`${match.match_no}/23`}</p> */}
                 </div>
 
                 {/* Team 2 */}
-                <div className="flex items-center gap-3 w-full md:w-[30%]">
+                <div className="flex lg:flex-row flex-col lg:justify-start justify-center items-center gap-3 w-full md:w-[30%]">
                   <img
-                    src={teamLogo2}
+                    src={teamLogo2 || "/images/fixtures/logoPlaceHolder.png"}
                     alt={teamLogo2}
                     width={50}
                     height={60}
                     className="object-contain h-28 w-28"
                   />
-                  <div className="text-[10px] sm:text-base font-semibold uppercase">
+                  <div className="text-[10px] sm:text-base lg:text-left text-center font-semibold uppercase">
                     {match.away_team}
                   </div>
                 </div>
               </div>
               {/* Match Info */}
-              <div className="bg-[#F5F5F5] px-12 py-8 flex flex-col justify-center lg:w-1/4">
+              <div className="bg-[#F5F5F5] lg:px-12 lg:py-8 sm:p-6 p-4 flex lg:flex-col lg:justify-center justify-between lg:w-1/4">
                 <div className="text-xs sm:text-base font-bold text-[#E07E27]">
                   MATCH INFO
                 </div>
-                <div className="text-base font-semibold leading-tight mb-1 pt-2">
+                <div className="text-base font-semibold leading-tight mb-1 lg:pt-2 flex lg:flex-col flex-row gap-2">
                   <p>{match.date}</p>
                   <p>{match.time}</p>
                 </div>

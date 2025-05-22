@@ -123,8 +123,10 @@ export default function Page() {
       /> */}
       <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/fixture.jpg')] bg-cover  bg-center bg-no-repeat ">
         {/* <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/mobileBgFixture.jpg')]  sm:bg-[url('/images/banner/fixture.jpg')] bg-cover sm:bg-right bg-center bg-no-repeat "> */}
-        <div className="relative z-10  pt-8 h-full  flex-col overflow-hidden justify-between text-white flex gap-24 mt-52 section-width">
-          <div className="w-full flex flex-col items-start justify-between bg-transparent gap-20"></div>
+        <div className="relative z-10  pt-8 h-full  flex-col overflow-hidden justify-between text-white flex gap-24  mt-20 section-width">
+          <div className="w-full flex flex-col items-start justify-between bg-transparent gap-20">
+            <h1>Fixtures</h1>
+          </div>
         </div>
       </div>
       <div className="section-width">
