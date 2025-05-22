@@ -28,13 +28,12 @@ const FixturesSeason3 = () => {
             <div className="relative bg-[#E07E27] text-white text-sm font-semibold px-4 py-2 flex justify-between items-center">
               <span>Match {match.match_no} of 23</span>
               <div
-                className="absolute top-0 right-0 h-full w-[120px] md:w-[150px] bg-black flex items-center justify-center text-xs font-bold"
+                className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-black flex items-center justify-center text-xs font-bold"
                 style={{
                   clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
                 }}
               >
-                Upcoming
-                {/* {match.status} */}
+                {match.venue}
               </div>
             </div>
             {/* Teams & Scores */}
