@@ -125,3 +125,21 @@ export const teamGradients = {
   "SoBo Mumbai Falcons": { from: "#fff4e9", to: "#882626" },
   "Triumph Knights Mumbai North East": { from: "#E8D273", to: "#9E7437" },
 };
+export const teamLogoBN = {
+  "Aakash Tigers MWS":
+    "https://mcadirectory.blob.core.windows.net/dev/8336676908636103-Group 1.png",
+  "Arcs Andheri":
+    "https://turbostart.blob.core.windows.net/turbostart/7423173046036597-arcsAndheri.png",
+  "Eagle Thane Strikers":
+    "https://t20mumbai.com/images/home/team/eagleThaneStrikers.png",
+  "Bandra Blasters":
+    "https://turbostart.blob.core.windows.net/turbostart/1044990513729378-LOGO - BANDRA BLASTERS copy.png",
+  "North Mumbai Panthers":
+    "https://turbostart.blob.core.windows.net/turbostart/7886630352212134-northMumbaiPanthers.png",
+  "MSC Maratha Royals":
+    "https://t20mumbai.com/images/home/team/shivajiParkLions.png",
+  "SoBo Mumbai Falcons":
+    "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
+  "Triumph Knights Mumbai North East":
+    "https://mcadirectory.blob.core.windows.net/dev/630539656646887-8. Triumph Knights Mumbai North East PNG v1 1.png",
+};

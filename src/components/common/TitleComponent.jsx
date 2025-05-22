@@ -29,7 +29,7 @@ const TitleComponent = ({ title, orange = false, button, buttonLink }) => {
             <h2 className="text-white capitalize">{title}</h2>
           </div>
           {button && (
-            <Link href={buttonLink || "#"} className="btn-blue">
+            <Link href={buttonLink || "#"} className="btn-blue md:flex hidden">
               View All
               <Image
                 src="/images/home/hero/buttonIcon.svg"

@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import fixtures3Raw from "@/utilis/fixtures/fixtures3.js";
 
-// normalize to an actual array
 const fixtures3Array = Array.isArray(fixtures3Raw)
   ? fixtures3Raw
   : Array.isArray(fixtures3Raw.default)
@@ -14,7 +13,6 @@ const fixtures3Array = Array.isArray(fixtures3Raw)
   ? fixtures3Raw.matches
   : [];
 
-// Calculate the total number of matches and number of upcoming matches
 const totalMatches = fixtures3Array.filter(
   (match) => match.match_no !== null
 ).length;
@@ -133,7 +131,7 @@ const FixturesSeason3 = () => {
                 <div className="flex flex-col justify-center items-center">
                   <div className="text-sm sm:text-lg font-semibold">vs</div>
 
-                  {/* <p>{`${match.game_id}/20`}</p> */}
+                  <p>{`${match.game_id}/20`}</p>
                 </div>
 
                 {/* Team 2 */}

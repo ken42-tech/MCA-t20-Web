@@ -124,13 +124,13 @@ export default function Page() {
       <div className="section-width">
         <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0">
           <h2 className="uppercase text-black">{season} Fixtures</h2>
-          <div className="flex gap-10">
+          <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
             {/* Season Filter */}
             <select
               name="season"
               value={season}
               onChange={(e) => setSeason(e.target.value)}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
+              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0 relative"
             >
               <option value="Season 1">Season 1</option>
               <option value="Season 2">Season 2</option>
@@ -156,7 +156,7 @@ export default function Page() {
         {season === "Season 3" && <FixturesSeason3 />}
 
         {/* Fixtures List */}
-        <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
+        <div className="md:py-8 bg-white flex flex-col gap-6 pb-8">
           {matches.length > 0 ? (
             matches.map((match, idx) => (
               <div
