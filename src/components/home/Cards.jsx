@@ -122,6 +122,23 @@ const TeamSection = () => {
 const MatchCard = ({ date, time, home_team, away_team, venue }) => {
   const teamLogo1 = teamLogoBN[home_team] || "";
   const teamLogo2 = teamLogoBN[away_team] || "";
+  const isAfter5PM = (() => {
+    if (!time) return false;
+    const match = time.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+    if (!match) return false;
+
+    let [_, hours, minutes, meridiem] = match;
+    hours = parseInt(hours, 10);
+    minutes = parseInt(minutes, 10);
+    meridiem = meridiem.toUpperCase();
+
+    if (meridiem === "PM" && hours < 12) hours += 12;
+    if (meridiem === "AM" && hours === 12) hours = 0;
+
+    // Check if the match is scheduled after 5 PM (17:00)
+    return hours > 17 || (hours === 17 && minutes > 0);
+  })();
+
   return (
     <div className="bg-white shadow-lg rounded-xl justify-between border-[rgba(194,194,194,1)] border-[2px]     flex flex-col">
       {/* Header */}
@@ -134,12 +151,17 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
           // }}
         >
           <span className="text-lg font-semibold">{date}</span>
-          <div className="flex flex-row gap-2">
+          <div className="flex items-center flex-row gap-2">
             <img
-              src="/images/elements/moon.svg"
-              alt="moon"
-              style={{ height: "15px", marginTop: "1.5px" }}
+              src={
+                isAfter5PM
+                  ? "/images/elements/moon.svg"
+                  : "/images/elements/sun.svg"
+              }
+              alt={isAfter5PM ? "moon" : "sun"}
+              style={{ height: "15px" }}
             />
+
             <span className="text-sm">{time}</span>
           </div>
         </div>
