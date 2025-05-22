@@ -123,9 +123,9 @@ export default function Page() {
       />
       <div className="section-width">
         <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0">
-          <h2 className="uppercase text-black">{season} Fixtures</h2>
-          <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
-            {/* Season Filter */}
+          <h2 className="uppercase text-black">Season 3 Fixtures</h2>
+          {/* <h2 className="uppercase text-black">{season} Fixtures</h2> */}
+          {/* <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
             <select
               name="season"
               value={season}
@@ -136,7 +136,6 @@ export default function Page() {
               <option value="Season 2">Season 2</option>
               <option value="Season 3">Season 3</option>
             </select>
-            {/* Team Filter */}
             <select
               name="team"
               value={team}
@@ -149,123 +148,11 @@ export default function Page() {
                 </option>
               ))}
             </select>
-          </div>
+          </div> */}
         </div>
 
         {/* Conditional Rendering based on Season */}
-        {season === "Season 3" && <FixturesSeason3 />}
-
-        {/* Fixtures List */}
-        <div className="md:py-8 bg-white flex flex-col gap-6 pb-8">
-          {matches.length > 0 ? (
-            matches.map((match, idx) => (
-              <div
-                key={idx}
-                className="rounded-md border overflow-hidden text-black"
-              >
-                {/* Header */}
-                <div className="relative bg-[#E07E27] text-white text-sm font-semibold px-4 py-2 flex justify-between items-center">
-                  <span>{season}</span>
-                  <div
-                    className="absolute top-0 right-0 h-full w-[120px] md:w-[150px] bg-black flex items-center justify-center text-xs font-bold"
-                    style={{
-                      clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
-                    }}
-                  >
-                    {match.status}
-                  </div>
-                </div>
-                {/* Teams & Scores */}
-                <div className="flex flex-col lg:flex-row w-full">
-                  <div className="flex-1 flex flex-col md:flex-row items-center justify-between p-3">
-                    {/* Team 1 */}
-                    <div className="flex items-center gap-3 w-full md:w-[35%]">
-                      <Image
-                        src={`/images/fixtures/${match.team1.name}.svg`}
-                        alt={`${match.team1.name} logo`}
-                        width={50}
-                        height={60}
-                        className="object-contain h-28 w-28"
-                      />
-                      <div className="text-[10px] sm:text-base font-semibold uppercase">
-                        {match.team1.name}
-                      </div>
-                    </div>
-                    {/* Score 1 */}
-                    <div className="text-center">
-                      <div className="font-bold text-sm sm:text-3xl text-[#894B14AB]">
-                        {match.team1.score}
-                      </div>
-                      <div className="text-[10px] sm:text-xs text-[#894B14AB]">
-                        ({match.team1.overs})
-                      </div>
-                    </div>
-                    {/* vs */}
-                    <div className="text-sm sm:text-lg font-semibold">vs</div>
-                    {/* Score 2 */}
-                    <div className="text-center">
-                      <div className="font-bold text-sm sm:text-3xl text-[#E07E27]">
-                        {match.team2.score}
-                      </div>
-                      <div className="text-[10px] sm:text-xs text-[#E07E27]">
-                        ({match.team2.overs})
-                      </div>
-                    </div>
-                    {/* Team 2 */}
-                    <div className="flex items-center gap-3 w-full md:w-[30%]">
-                      <Image
-                        src={`/images/fixtures/${match.team2.name}.svg`}
-                        alt={`${match.team2.name} logo`}
-                        width={50}
-                        height={60}
-                        className="object-contain h-28 w-28"
-                      />
-                      <div className="text-[10px] sm:text-base font-semibold uppercase">
-                        {match.team2.name}
-                      </div>
-                    </div>
-                  </div>
-                  {/* Match Info */}
-                  <div className="bg-[#F5F5F5] px-12 py-8 flex flex-col justify-center lg:w-1/4">
-                    <div className="text-xs sm:text-base font-bold text-[#E07E27]">
-                      MATCH INFO
-                    </div>
-                    <div className="text-base font-semibold leading-tight mb-1 pt-2">
-                      {match.matchInfo.result}
-                    </div>
-                    <div className="text-xs text-black flex flex-col sm:flex-row justify-between gap-1">
-                      <span>{match.matchInfo.date}</span>
-                      <span>{match.matchInfo.location}</span>
-                    </div>
-                    <Link href={`/scores/${match.game_id}`}>
-                      <span className="mt-4 inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg font-semibold">
-                        Match center
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                        >
-                          <path
-                            d="M9.33333 3.33333L13.3333 7.33333M13.3333 7.33333L9.33333 11.3333M13.3333 7.33333H2.66667"
-                            stroke="white"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="text-center text-gray-500">
-              {/* No fixtures found. */}
-            </div>
-          )}
-        </div>
+        <FixturesSeason3 />
       </div>
     </div>
   );

@@ -127,7 +127,7 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
       {/* Header */}
       <div className="relative   w-full rounded-t-xl flex overflow-hidden bg-[#e07e27]">
         <div
-          className="flex flex-col justify-center p-4 text-white w-[55%] h-full z-10  gap-1"
+          className="flex flex-row justify-between items-center p-4 text-white  w-full h-full z-10  gap-1"
           // style={{
           //   backgroundColor: "rgba(0, 0, 0, 1)",
           //   clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",
@@ -146,9 +146,11 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
       </div>
 
       {/* Content */}
-      <div className="flex h-3/4 flex-row justify-center gap-10 text-center items-center p-10">
+      <div className="flex  flex-row justify-center gap-10 text-center items-center p-6">
         <div className="w-[33%] flex flex-col justify-center items-center gap-2">
-          <img src={teamLogo1} className="h-20 w-auto" alt={home_team} />
+          <div className=" flex justify-center items-center">
+            <img src={teamLogo1} className="h-auto w-full" alt={home_team} />
+          </div>
           <span className="text-sm font-semibold text-black">{home_team}</span>
         </div>
         <div className="w-[33%] flex flex-col justify-center items-center gap-6">
@@ -160,7 +162,9 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
           </span> */}
         </div>
         <div className="w-[33%] flex flex-col justify-center items-center gap-2">
-          <img src={teamLogo2} className="h-20 w-auto" alt={away_team} />
+          <div className=" flex justify-center items-center">
+            <img src={teamLogo2} className="h-auto w-full" alt={away_team} />
+          </div>
           <span className="text-sm font-semibold text-black">
             {truncateTextSpells(away_team, 18)}
           </span>
