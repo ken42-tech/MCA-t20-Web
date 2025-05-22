@@ -140,16 +140,10 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
   })();
 
   return (
-    <div className="bg-white shadow-lg rounded-xl justify-between border-[rgba(194,194,194,1)] border-[2px]     flex flex-col">
+    <div className="bg-white rounded-xl justify-between border-[rgba(194,194,194,1)] border     flex flex-col">
       {/* Header */}
-      <div className="relative   w-full rounded-t-xl flex overflow-hidden bg-[#e07e27]">
-        <div
-          className="flex flex-row justify-between items-center p-4 text-white  w-full h-full z-10  gap-1"
-          // style={{
-          //   backgroundColor: "rgba(0, 0, 0, 1)",
-          //   clipPath: "polygon(0% 0%, 80% 0%, 100% 100%, 0% 100%)",
-          // }}
-        >
+      <div className="relative   w-full rounded-t-lg flex overflow-hidden bg-[#e07e27]">
+        <div className="flex flex-row justify-between items-center p-4 text-white  w-full h-full   gap-1">
           <span className="text-lg font-semibold">{date}</span>
           <div className="flex items-center flex-row gap-2">
             <img
@@ -193,7 +187,7 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
         </div>
       </div>
       <div>
-        <p className="text-[#E07E27] text-sm text-center p-4 border-t border-[#C2C2C2]">
+        <p className="text-[#E07E27] text-sm text-center p-4 border-t border-[#C2C2C2] font-semibold">
           {venue}
         </p>
       </div>

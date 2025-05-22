@@ -16,10 +16,10 @@ const FixturesSeason3 = () => {
             className="rounded-md border overflow-hidden text-black"
           >
             {/* Header */}
-            <div className="relative bg-[#E07E27] text-white text-sm font-semibold px-4 py-2 flex justify-between items-center">
+            <div className="relative bg-[#E07E27] text-white text-sm md:text-base lg:text-lg  font-semibold px-4 py-2 flex justify-between items-center">
               <span>Match {match.match_no} of 23</span>
               <div
-                className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-black flex items-center justify-center text-xs font-bold"
+                className="absolute top-0 right-0 h-full w-[200px] md:w-[250px] bg-black flex items-center justify-center text-xs md:text-sm lg:text-base  font-bold"
                 style={{
                   clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
                 }}
@@ -45,7 +45,7 @@ const FixturesSeason3 = () => {
                 </div>
 
                 <div className="flex flex-col justify-center items-center">
-                  <div className="text-sm sm:text-lg font-semibold">vs</div>
+                  <div className="text-sm sm:text-lg  font-semibold">vs</div>
 
                   <p>{`${match.match_no}/23`}</p>
                 </div>

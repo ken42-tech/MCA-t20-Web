@@ -116,11 +116,23 @@ export default function Page() {
 
   return (
     <div className="w-full bg-white">
-      <Hero
-        imgUrl="/images/latestUpdates/update5.jpg"
+      {/* <Hero
+        imgUrl="/images/banner/fixture.jpg"
         // heading="Season 3 Fixtures"
         // subheading="Player Profile"
-      />
+      /> */}
+      <div className="w-full relative flex justify-end py-36 ">
+        <Image
+          src={"/images/banner/fixture.jpg"}
+          alt="background"
+          fill
+          className=" object-cover z-0 "
+        />
+        <div className="w-full h-full bg-[#00000080] absolute left-0 top-0 "></div>
+        <div className="relative z-10  pt-8 h-full  flex-col overflow-hidden justify-between text-white flex gap-24 mt-52 section-width">
+          <div className="w-full flex flex-col items-start justify-between bg-transparent gap-20"></div>
+        </div>
+      </div>
       <div className="section-width">
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 px-4 md:px-0">
           <h2 className="uppercase text-black">Season 3 Fixtures</h2>
