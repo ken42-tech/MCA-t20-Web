@@ -159,14 +159,7 @@ const fixtures3 = [
     away_team: "SoBo Mumbai Falcons",
     venue: "Wankhede Stadium",
   },
-  {
-    match_no: null,
-    time: null,
-    date: "9th June",
-    home_team: "REST",
-    away_team: null,
-    venue: null,
-  },
+
   {
     match_no: 21,
     time: "2:30 PM",

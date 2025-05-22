@@ -7,6 +7,17 @@ import { teamLogoBN } from "@/utilis/helper";
 const FixturesSeason3 = () => {
   const [selectedTeam, setSelectedTeam] = useState("");
 
+  const blockedPatterns = [
+    "rest",
+    "semi final",
+    "position - 1 (tbd)",
+    "position - 2 (tbd)",
+    "position - 3 (tbd)",
+    "position - 4 (tbd)",
+    "sf winner 1",
+    "sf winner 2",
+  ];
+
   const cleanedFixtures = fixtures3.filter((match) => {
     const home = match.home_team?.toLowerCase() || "";
     const away = match.away_team?.toLowerCase() || "";
@@ -30,11 +41,13 @@ const FixturesSeason3 = () => {
   });
 
   const allTeams = Array.from(
-    new Set(
-      cleanedFixtures.flatMap((match) => [match.home_team, match.away_team])
-    )
+    new Set(fixtures3.flatMap((match) => [match.home_team, match.away_team]))
   )
     .filter(Boolean)
+    .filter((team) => {
+      const lower = team.toLowerCase();
+      return !blockedPatterns.some((pattern) => lower.includes(pattern));
+    })
     .sort();
 
   // const filteredFixtures = selectedTeam
@@ -43,7 +56,12 @@ const FixturesSeason3 = () => {
   //         match.home_team === selectedTeam || match.away_team === selectedTeam
   //     )
   //   : fixtures3.slice(0, -3); // same logic as before
-  const filteredFixtures = cleanedFixtures.filter((match) =>
+  // const filteredFixtures = cleanedFixtures.filter((match) =>
+  //   selectedTeam
+  //     ? match.home_team === selectedTeam || match.away_team === selectedTeam
+  //     : true
+  // );
+  const filteredFixtures = fixtures3.filter((match) =>
     selectedTeam
       ? match.home_team === selectedTeam || match.away_team === selectedTeam
       : true
