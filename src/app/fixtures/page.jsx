@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Hero from "@/components/hero/Hero";
@@ -6,20 +7,33 @@ import Image from "next/image";
 import Link from "next/link";
 import fixtures1 from "@/utilis/fixtures/fixtures1.js";
 import fixtures2 from "@/utilis/fixtures/fixtures2.js";
+import fixtures3 from "@/utilis/fixtures/fixtures3.js"; // Add Season 3 fixtures
+import FixturesSeason3 from "./components/FixturesSeason3"; // Import FixturesSeason3
+
+function parseStaticDate(dateStr, timeStr = "") {
+  const dayOnly = dateStr.replace(/(\d+)(st|nd|rd|th)/, "$1");
+  return new Date(`${dayOnly} June 2025 ${timeStr}`);
+}
 
 const TOURNAMENT_IDS = {
   "Season 1": fixtures1,
   "Season 2": fixtures2,
+  "Season 3": fixtures3, // Add Season 3
 };
 
 function processMatches(jsonData) {
-  return (jsonData.matches || []).map((m) => {
+  // Ensure jsonData and jsonData.matches are defined
+  if (!jsonData || !jsonData.matches) {
+    return [];
+  }
+
+  return jsonData.matches.map((m) => {
     const game_id = m.game_id;
     const [p1 = {}, p2 = {}] = m.participants || [];
     const fmt = (p) => ({
       name: p.name || "",
       logo: p.short_name
-        ? `/images/fixtures/${p.short_name.toLowerCase()}.svg`
+        ? `/images/fixtures/${p.short_name}.svg`
         : "/images/fixtures/default.svg",
       score: (p.value || "").split(" ")[0] || "",
       overs: p.value?.match(/\(([^)]+)\)/)?.[1] || "",
@@ -46,13 +60,12 @@ function processMatches(jsonData) {
 export default function Page() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const initialSeason = searchParams.get("season") || "Season 2";
+  const initialSeason = searchParams.get("season") || "Season 3"; // Default to "Season 3"
   const initialTeam = searchParams.get("team") || "All Teams";
 
   const [season, setSeason] = React.useState(initialSeason);
   const [team, setTeam] = React.useState(initialTeam);
 
-  // Sync URL params when filters change
   React.useEffect(() => {
     const params = new URLSearchParams();
     params.set("season", season);
@@ -60,18 +73,16 @@ export default function Page() {
     router.push(`?${params.toString()}`, { shallow: true });
   }, [season, team, router]);
 
-  // Reset team filter whenever season changes
   React.useEffect(() => {
     setTeam("All Teams");
   }, [season]);
 
-  // Process all matches for the selected season
+  // Ensure safe access to the season data
   const allMatches = React.useMemo(
-    () => processMatches(TOURNAMENT_IDS[season]),
+    () => processMatches(TOURNAMENT_IDS[season] || {}),
     [season]
   );
 
-  // Filter matches by team
   const matches = React.useMemo(
     () =>
       allMatches.filter(
@@ -81,178 +92,76 @@ export default function Page() {
     [allMatches, team]
   );
 
-  // Build dynamic list of team options for the dropdown
   const teamOptions = React.useMemo(() => {
     const names = new Set();
     allMatches.forEach((m) => {
       names.add(m.team1.name);
       names.add(m.team2.name);
     });
+
+    // Adding teams for Season 3
+    if (season === "Season 3") {
+      names.add("Arcs Andheri");
+      names.add("Sobo Mumbai Falcons");
+      names.add("Maratha Royals");
+      names.add("Aakash Tigers");
+      names.add("Eagle Thane Strikers");
+      names.add("Triumph Knights");
+      names.add("Bandra Blasters");
+      names.add("North Mumbai Panthers");
+    }
+
     return ["All Teams", ...Array.from(names)];
-  }, [allMatches]);
+  }, [allMatches, season]); // Recalculate when the season or matches change
 
   return (
     <div className="w-full bg-white">
-      <Hero
-        imgUrl="/images/teams/hero/bg.svg"
-        heading="Fixtures"
-        subheading="Player Profile"
-      />
-      <div className="section-width">
-        <div className="flex flex-col md:flex-row items-center justify-between py-8 px-4 md:px-0 overflow-visible">
-          <h2 className="uppercase text-black">{season} Fixtures</h2>
-          <div className="flex flex-col md:flex-row items-center gap-4 mt-4 md:mt-0">
-            <span className="text-sm text-gray-500 md:inline">Filter by</span>
-            <div className="relative z-10">
-              <select
-                name="season"
-                value={season}
-                onChange={(e) => setSeason(e.target.value)}
-                className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
-              >
-                {Object.keys(TOURNAMENT_IDS).map((s) => (
-                  <option key={s} value={s}>
-                    {s}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="relative z-10">
-              <select
-                name="team"
-                value={team}
-                onChange={(e) => setTeam(e.target.value)}
-                className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
-              >
-                {teamOptions.map((t) => (
-                  <option key={t} value={t}>
-                    {t}
-                  </option>
-                ))}
-              </select>
-            </div>
+      {/* <Hero
+        imgUrl="/images/banner/fixture.jpg"
+        // heading="Season 3 Fixtures"
+        // subheading="Player Profile"
+      /> */}
+      <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/fixture.jpg')] bg-cover  bg-center bg-no-repeat ">
+        {/* <div className="w-full relative flex justify-end lg:py-36 py-20 bg-[url('/images/banner/mobileBgFixture.jpg')]  sm:bg-[url('/images/banner/fixture.jpg')] bg-cover sm:bg-right bg-center bg-no-repeat "> */}
+        <div className="relative z-10  pt-8 h-full  flex-col overflow-hidden justify-between text-white flex gap-24  mt-20 section-width">
+          <div className="w-full flex flex-col items-start justify-between bg-transparent gap-20">
+            <h1>Fixtures</h1>
           </div>
         </div>
-
-        <div className="md:py-8 bg-white flex flex-col gap-6 py-8">
-          {matches.length > 0 ? (
-            matches.map((match, idx) => (
-              <div
-                key={idx}
-                className="rounded-md border overflow-hidden text-black"
-              >
-                {/* Header */}
-                <div className="relative bg-[#E07E27] text-white text-sm font-semibold px-4 py-2 flex justify-between items-center">
-                  <span>{season}</span>
-                  <div
-                    className="absolute top-0 right-0 h-full w-[120px] md:w-[150px] bg-black flex items-center justify-center text-xs font-bold"
-                    style={{
-                      clipPath: "polygon(20% 0%,100% 0%,100% 100%,0% 100%)",
-                    }}
-                  >
-                    {match.status}
-                  </div>
-                </div>
-                {/* Teams & Scores */}
-                <div className="flex flex-col lg:flex-row w-full">
-                  <div className="flex-1 flex flex-col md:flex-row items-center justify-between p-3">
-                    {/* Team 1 */}
-                    <div className="flex items-center gap-3 w-full md:w-[35%]">
-                      <Image
-                        src={`/images/fixtures/${match.team1.name}.svg`}
-                        alt={`${match.team1.name} logo`}
-                        width={50}
-                        height={60}
-                        className="object-contain h-28 w-28"
-                      />
-                      <div className="text-[10px] sm:text-base font-semibold uppercase">
-                        {match.team1.name}
-                      </div>
-                    </div>
-                    {/* Score 1 */}
-                    <div className="text-center">
-                      <div className="font-bold text-sm sm:text-3xl text-[#894B14AB]">
-                        {match.team1.score}
-                      </div>
-                      <div className="text-[10px] sm:text-xs text-[#894B14AB]">
-                        ({match.team1.overs})
-                      </div>
-                    </div>
-                    {/* vs */}
-                    <div className="text-sm sm:text-lg font-semibold">vs</div>
-                    {/* Score 2 */}
-                    <div className="text-center">
-                      <div className="font-bold text-sm sm:text-3xl text-[#E07E27]">
-                        {match.team2.score}
-                      </div>
-                      <div className="text-[10px] sm:text-xs text-[#E07E27]">
-                        ({match.team2.overs})
-                      </div>
-                    </div>
-                    {/* Team 2 */}
-                    <div className="flex items-center gap-3 w-full md:w-[30%]">
-                      <Image
-                        src={`/images/fixtures/${match.team2.name}.svg`}
-                        alt={`${match.team2.name} logo`}
-                        width={50}
-                        height={60}
-                        className="object-contain h-28 w-28"
-                      />
-                      <div className="text-[10px] sm:text-base font-semibold uppercase">
-                        {match.team2.name}
-                      </div>
-                    </div>
-                  </div>
-                  {/* Match Info */}
-                  <div className="bg-[#F5F5F5] px-12 py-8 flex flex-col justify-center lg:w-1/4">
-                    <div className="text-xs sm:text-base font-bold text-[#E07E27]">
-                      MATCH INFO
-                    </div>
-                    <div className="text-base font-semibold leading-tight mb-1 pt-2">
-                      {match.matchInfo.result}
-                    </div>
-                    <div className="text-xs text-black flex flex-col sm:flex-row justify-between gap-1">
-                      <span>{match.matchInfo.date}</span>
-                      <span>{match.matchInfo.location}</span>
-                    </div>
-                    <Link href={`/scores/${match.game_id}`}>
-                      <span className="mt-4 inline-flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg font-semibold">
-                        Match center
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                        >
-                          <path
-                            d="M9.33333 3.33333L13.3333 7.33333M13.3333 7.33333L9.33333 11.3333M13.3333 7.33333H2.66667"
-                            stroke="white"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="text-center py-12 text-gray-500">
-              No fixtures found.
-            </div>
-          )}
-        </div>
       </div>
+      <div className="section-width">
+        {/* <div className="flex flex-col md:flex-row items-center justify-between pt-8 px-4 md:px-0">
+          <h2 className="uppercase text-black">Season 3 Fixtures</h2>
+          <h2 className="uppercase text-black">{season} Fixtures</h2>  
+          <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
+            <select
+              name="season"
+              value={season}
+              onChange={(e) => setSeason(e.target.value)}
+              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0 relative"
+            >
+              <option value="Season 1">Season 1</option>
+              <option value="Season 2">Season 2</option>
+              <option value="Season 3">Season 3</option>
+            </select>
+            <select
+              name="team"
+              value={team}
+              onChange={(e) => setTeam(e.target.value)}
+              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
+            >
+              {teamOptions.map((t) => (
+                <option key={t} value={t}>
+                  {t}
+                </option>
+              ))}
+            </select>
+          </div> 
+        </div> */}
 
-      {/* <Script id="auto-submit" strategy="afterInteractive">
-        {`
-          document.querySelectorAll('select[name]').forEach(el => {
-            el.addEventListener('change', () => el.form.submit())
-          });
-        `}
-      </Script> */}
+        {/* Conditional Rendering based on Season */}
+        <FixturesSeason3 />
+      </div>
     </div>
   );
 }

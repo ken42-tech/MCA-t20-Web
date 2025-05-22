@@ -36,12 +36,30 @@ const CountdownTimer = ({ targetDate }) => {
   }, [targetDate]);
 
   return (
-    <div className="w-full flex items-start justify-center gap-2 md:gap-4 py-6 bg-[#FDFDFD12]">
-      <TimeBlock label="Days" value={timeLeft.days} />
-      <Separator />
-      <TimeBlock label="Hours" value={timeLeft.hours} />
-      <Separator />
-      <TimeBlock label="Minutes" value={timeLeft.minutes} />
+    <div>
+      <div className="w-full flex items-start justify-center gap-2 md:gap-4 py-6 bg-[#FDFDFD12]">
+        <TimeBlock label="Days" value={timeLeft.days} />
+        <Separator />
+        <TimeBlock label="Hours" value={timeLeft.hours} />
+        <Separator />
+        <TimeBlock label="Minutes" value={timeLeft.minutes} />
+      </div>
+      <div className="flex justify-between items-center">
+        <img
+          src="/images/teams/hero/teamLogo/arcs.svg"
+          alt="arcs"
+          className="w-28 p-5"
+        />
+        <div className="flex flex-col items-center">
+          <p className="text-[#E07E27]">VS</p>
+          <p className="text-xs">MATCH 1/20</p>
+        </div>
+        <img
+          src="/images/teams/hero/teamLogo/sobo.svg"
+          alt="arcs"
+          className="w-28 p-5"
+        />
+      </div>
     </div>
   );
 };
