@@ -11,13 +11,6 @@ import TopPlayers from "@/components/home/TopPlayers";
 import Sponsorship from "@/components/home/Sponsorship";
 import IconPlayers from "@/components/home/Iconplayers";
 import HomeStandingsSection from "@/components/home/HomeStandingsSection";
-import mixpanel from "mixpanel-browser";
-
-mixpanel.init("7efcdff383b20dd11013e3914fe0df66", {
-  debug: true,
-  track_pageview: true,
-  persistence: "localStorage",
-});
 
 export default function Home() {
   return (

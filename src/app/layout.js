@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/footer/footer";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar/navbar";
+import MixpanelProvider from "@/components/tracking/MixpanelProvider";
 
 export const metadata = {
   title: "T20 Mumbai League - Season 3 2025",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <MixpanelProvider />
         <Navbar />
         {children}
         <Footer />
