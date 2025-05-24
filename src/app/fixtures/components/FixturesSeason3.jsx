@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import fixtures3 from "@/utilis/fixtures/fixtures3.js";
 import { teamLogoBN } from "@/utilis/helper";
+import routes from "@/utilis/route";
+import Image from "next/image";
 
 const FixturesSeason3 = () => {
   const [selectedTeam, setSelectedTeam] = useState("");
@@ -187,6 +189,24 @@ const FixturesSeason3 = () => {
                   <p>{match.date}</p>
                   <p>{match.time}</p>
                 </div>
+                {match.ticketLink && (
+                  <div>
+                    <a
+                      href={match.ticketLink}
+                      target="_blank"
+                      className="btn-black"
+                    >
+                      Buy Tickets
+                      <Image
+                        src="/images/home/hero/buttonIcon.svg"
+                        alt="button-icon"
+                        width={24}
+                        height={24}
+                        className="w-5 h-5"
+                      />
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>

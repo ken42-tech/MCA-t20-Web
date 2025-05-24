@@ -87,15 +87,19 @@ const Hero = () => {
                   </h3>
                   <div className="flex items-center gap-2 md:mt-3 mt-1">
                     <FaLocationDot />
-                    <h3 className="  font-extrabold max-w-3xl  uppercase">
-                      wankhede stadium, MUMBAI
-                    </h3>
+                    <a href={routes.wankhedeTicket} target="_blank">
+                      <h3 className="  font-extrabold max-w-3xl  uppercase">
+                        wankhede stadium, MUMBAI
+                      </h3>
+                    </a>
                   </div>
                   <div className="flex items-center gap-2 md:mt-3 mt-1">
                     <FaLocationDot />
-                    <h3 className="  font-extrabold max-w-3xl ">
-                      DY PATIL STADIUM, NAVI MUMBAI
-                    </h3>
+                    <a href={routes.DYPatilTicket} target="_blank">
+                      <h3 className="  font-extrabold max-w-3xl ">
+                        DY PATIL STADIUM, NAVI MUMBAI
+                      </h3>
+                    </a>
                   </div>
                   <div className="flex items-center gap-4 md:mt-5 mt-3">
                     <h3 className="  font-extrabold max-w-3xl ">

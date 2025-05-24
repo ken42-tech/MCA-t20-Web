@@ -1,3 +1,5 @@
+import routes from "../route";
+
 const fixtures3 = [
   {
     match_no: 1,
@@ -6,6 +8,7 @@ const fixtures3 = [
     home_team: "Arcs Andheri",
     away_team: "SoBo Mumbai Falcons",
     venue: "Dr DY Patil Stadium",
+    ticketLink: routes.DYPatilTicket,
   },
   {
     match_no: 2,
@@ -14,6 +17,7 @@ const fixtures3 = [
     home_team: "Aakash Tigers MWS",
     away_team: "MSC Maratha Royals",
     venue: "Wankhede Stadium",
+    ticketLink: routes.wankhedeTicket,
   },
   {
     match_no: 3,
@@ -22,6 +26,7 @@ const fixtures3 = [
     home_team: "Eagle Thane Strikers",
     away_team: "Triumph Knights Mumbai North East",
     venue: "Dr DY Patil Stadium",
+    ticketLink: routes.DYPatilTicket,
   },
   {
     match_no: 4,
@@ -30,6 +35,7 @@ const fixtures3 = [
     home_team: "Bandra Blasters",
     away_team: "North Mumbai Panthers",
     venue: "Wankhede Stadium",
+    ticketLink: routes.wankhedeTicket,
   },
   {
     match_no: 5,

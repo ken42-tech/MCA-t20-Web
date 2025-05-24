@@ -90,6 +90,9 @@ body {
   .btn-blue {
     @apply flex items-center justify-between px-4 py-2 lg:px-6 lg:py-3 gap-4  text-sm md:text-base bg-gradient-to-b rounded-none from-[#142a7c] via-[#344ca2] to-[#243fa3];
   }
+  .btn-black {
+    @apply flex items-center justify-between px-4 py-2 lg:px-4 lg:py-3 gap-2  text-sm md:text-sm bg-gradient-to-r rounded-none from-[#000] via-[#000] to-[#203376] text-white rounded-md;
+  }
   .sub-heading {
     @apply text-red-600 text-sm lg:text-base xl:text-lg font-normal;
   }

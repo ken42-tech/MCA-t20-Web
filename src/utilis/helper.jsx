@@ -127,7 +127,7 @@ export const teamGradients = {
 };
 export const teamLogoBN = {
   "Aakash Tigers MWS":
-    "https://mcadirectory.blob.core.windows.net/dev/8336676908636103-Group 1.png",
+    "https://turbostart.blob.core.windows.net/turbostart/48447191083078844-aakashTigers.png",
   "Arcs Andheri":
     "https://turbostart.blob.core.windows.net/turbostart/7423173046036597-arcsAndheri.png",
   "Eagle Thane Strikers":
