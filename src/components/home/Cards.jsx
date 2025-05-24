@@ -172,8 +172,8 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
       {/* Content */}
       <div className="flex  flex-row justify-center gap-10 text-center items-center p-6">
         <div className="w-[33%] flex flex-col justify-center items-center gap-2">
-          <div className=" flex justify-center items-center">
-            <img src={teamLogo1} className="h-auto w-full" alt={home_team} />
+          <div className=" flex justify-center items-center h-20 w-20">
+            <img src={teamLogo1} className="object-contain" alt={home_team} />
           </div>
           <span className="text-sm font-semibold text-black">{home_team}</span>
         </div>
@@ -186,8 +186,12 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
           </span> */}
         </div>
         <div className="w-[33%] flex flex-col justify-center items-center gap-2">
-          <div className=" flex justify-center items-center">
-            <img src={teamLogo2} className="h-auto w-full" alt={away_team} />
+          <div className=" flex justify-center items-center h-20 w-20">
+            <img
+              src={teamLogo2}
+              className="object-contain max-h-24 max-w-24"
+              alt={away_team}
+            />
           </div>
           <span className="text-sm font-semibold text-black">
             {truncateTextSpells(away_team, 18)}

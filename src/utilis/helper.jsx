@@ -141,5 +141,5 @@ export const teamLogoBN = {
   "SoBo Mumbai Falcons":
     "https://t20mumbai.com/images/home/team/soboSuperSonics.png",
   "Triumph Knights Mumbai North East":
-    "https://mcadirectory.blob.core.windows.net/dev/630539656646887-8. Triumph Knights Mumbai North East PNG v1 1.png",
+    "https://mcadirectory.blob.core.windows.net/dev/007792959990218895-triumphKnights.png",
 };
