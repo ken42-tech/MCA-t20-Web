@@ -18,22 +18,29 @@ const Hero = () => {
     <div className="xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
       <Swiper
         modules={[Autoplay]}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 300000 }}
         pagination={{ clickable: true }}
         loop
         className="h-full"
       >
         <SwiperSlide>
-          <div className="w-full h-full bg-[url('/images/home/hero/slider2.jpg')] bg-cover bg-center  relative md:pt-32 pt-10 overflow-hidden flex justify-center items-center">
+          <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/slider2.jpg')] bg-cover bg-center  relative md:pt-32 pt-10 overflow-hidden flex justify-center items-center">
             <div className="section-width  ">
-              <div className="flex md:flex-row flex-col items-start gap-3 lg:gap-6 h-full w-fit">
-                <div className="lg:flex-[40%] flex-1 md:border-r-2 border-white">
-                  <div className="md:w-[80%] max-md:max-w-[150px]  ml-auto">
-                    <img
+              <div className="flex md:flex-row flex-col items-start gap-3 lg:gap-6 h-full w-full xl:pr-32 lg:pr-40">
+                <div className=" flex-1 md:border-r-2 border-white md:py-8 flex">
+                  <div className="ml-auto">
+                    {/* <img
                       src="/images/home/hero/ticketlivetext.png"
                       className="md:w-5/6 lg:w-full h-auto "
                       alt="text"
-                    />
+                    /> */}
+                    <h1 className="oswald-font xl:max-w-sm md:max-w-xs max-w-60 xl:text-[100px] md:text-[80px] text-[60px] tracking-[0px] leading-[90%] font-bold mb-4 ">
+                      TICKETS
+                      <span className=" xl:text-[90px] md:text-[75px] text-[58px] tracking-[-4px] text-[#fdcf53]">
+                        {" "}
+                        NOW LIVE
+                      </span>
+                    </h1>
                     <button
                       className="btn-primary  gap-4 items-center text-xs md:flex hidden"
                       // onClick={openVideo}
@@ -51,7 +58,7 @@ const Hero = () => {
                     </button>
                   </div>
                 </div>
-                <div className="lg:flex-[60%] flex-1 my-auto oswald-font">
+                <div className=" flex-1 my-auto oswald-font">
                   <h3 className="  font-extrabold max-w-3xl  uppercase">
                     From june 4th to June 12TH
                   </h3>
@@ -67,7 +74,7 @@ const Hero = () => {
                       DY PATIL STADIUM, NAVI MUMBAI
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 md:mt-3 mt-2">
+                  <div className="flex items-center gap-4 md:mt-5 mt-3">
                     <h3 className="  font-extrabold max-w-3xl ">
                       OFFICIALLY AT
                     </h3>
@@ -118,7 +125,7 @@ const Hero = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide className="h-full">
-          <div className="w-full h-full bg-[url('/images/home/hero/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
+          <div className="w-full h-full bg-[url('https://storage.googleapis.com/mca_images/website/banner_img/heroImgRohitPattern.png')] bg-cover bg-center  relative pt-32 overflow-hidden flex justify-center items-center">
             <div className="section-width ">
               <div className="flex flex-col items-center sm:items-start gap-3 lg:gap-6">
                 <p className="font-bold text-sm md:text-base xl:text-xl">
