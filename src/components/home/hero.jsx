@@ -7,6 +7,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { FaLocationDot } from "react-icons/fa6";
+import routes from "@/utilis/route";
+import Link from "next/link";
 
 const Hero = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -43,9 +45,10 @@ const Hero = () => {
                       </span>
                     </h1>
                     <div className="flex md:flex-row flex-col gap-4">
-                      <button
+                      <a
+                        href={routes.wankhedeTicket}
+                        target="_blank"
                         className="btn-primary  flex-1 gap-4 items-center text-xs md:flex hidden justify-center text-left"
-                        // onClick={openVideo}
                       >
                         Wankhede Tickets <br /> Click Here
                         <span>
@@ -57,8 +60,10 @@ const Hero = () => {
                             className="w-5 h-5"
                           />
                         </span>
-                      </button>
-                      <button
+                      </a>
+                      <a
+                        href={routes.DYPatilTicket}
+                        target="_blank"
                         className="btn-blue rounded-lg flex-1  gap-4 items-center text-xs md:flex hidden justify-center text-left"
                         // onClick={openVideo}
                       >
@@ -72,7 +77,7 @@ const Hero = () => {
                             className="w-5 h-5"
                           />
                         </span>
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -104,7 +109,9 @@ const Hero = () => {
                   </div>
                 </div>
                 <div className="flex md:flex-row flex-col gap-4 md:hidden ">
-                  <button
+                  <a
+                    href={routes.wankhedeTicket}
+                    target="_blank"
                     className="btn-primary  flex-1 gap-4 items-center text-xs flex justify-center text-left"
                     // onClick={openVideo}
                   >
@@ -118,8 +125,10 @@ const Hero = () => {
                         className="w-5 h-5"
                       />
                     </span>
-                  </button>
-                  <button
+                  </a>
+                  <a
+                    href={routes.DYPatilTicket}
+                    target="_blank"
                     className="btn-blue rounded-lg flex-1  gap-4 items-center text-xs   justify-center text-left"
                     // onClick={openVideo}
                   >
@@ -133,7 +142,7 @@ const Hero = () => {
                         className="w-5 h-5"
                       />
                     </span>
-                  </button>
+                  </a>
                 </div>
               </div>
 
