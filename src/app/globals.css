@@ -88,7 +88,7 @@ body {
     @apply px-6 py-3 rounded-full border-2 border-white bg-white text-blue-600 font-medium text-base;
   }
   .btn-blue {
-    @apply flex items-center justify-between py-3 px-6 gap-4  text-sm md:text-base bg-gradient-to-b rounded-none from-[#142a7c] via-[#344ca2] to-[#243fa3];
+    @apply flex items-center justify-between px-4 py-2 lg:px-6 lg:py-3 gap-4  text-sm md:text-base bg-gradient-to-b rounded-none from-[#142a7c] via-[#344ca2] to-[#243fa3];
   }
   .sub-heading {
     @apply text-red-600 text-sm lg:text-base xl:text-lg font-normal;
