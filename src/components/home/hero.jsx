@@ -8,7 +8,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { FaLocationDot } from "react-icons/fa6";
 import routes from "@/utilis/route";
-import Link from "next/link";
 
 const Hero = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -22,6 +21,7 @@ const Hero = () => {
         modules={[Autoplay]}
         autoplay={{ delay: 3000 }}
         pagination={{ clickable: true }}
+        speed={800}
         loop
         className="h-full"
       >
