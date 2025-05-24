@@ -88,31 +88,6 @@ const FixturesSeason3 = () => {
             ))}
           </select>
         </div>
-        {/* <h2 className="uppercase text-black">{season} Fixtures</h2> */}
-        {/* <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
-            <select
-              name="season"
-              value={season}
-              onChange={(e) => setSeason(e.target.value)}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0 relative"
-            >
-              <option value="Season 1">Season 1</option>
-              <option value="Season 2">Season 2</option>
-              <option value="Season 3">Season 3</option>
-            </select>
-            <select
-              name="team"
-              value={team}
-              onChange={(e) => setTeam(e.target.value)}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
-            >
-              {teamOptions.map((t) => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
-          </div> */}
       </div>
 
       {filteredFixtures.map((match, idx) => {
@@ -181,15 +156,18 @@ const FixturesSeason3 = () => {
                 </div>
               </div>
               {/* Match Info */}
-              <div className="bg-[#F5F5F5] lg:px-12 lg:py-8 sm:p-6 p-4 flex lg:flex-col lg:justify-center justify-between lg:w-[250px]">
-                <div className="text-xs sm:text-base font-bold text-[#E07E27]">
-                  MATCH INFO
-                </div>
-                <div className="text-base font-semibold leading-tight mb-1 lg:pt-2 flex lg:flex-col flex-row gap-2">
-                  <p>{match.date}</p>
-                  <p>{match.time}</p>
-                </div>
-                {match.ticketLink && (
+              {match.ticketLink ? (
+                <div className="bg-[#F5F5F5] flex lg:flex-col items-center md:items-start text-left lg:px-12 lg:py-8 sm:p-6 p-4 lg:w-[250px] lg:justify-start justify-between">
+                  <div className="flex lg:flex-col sm:flex-row flex-col sm:gap-8 lg:gap-0 items-center md:items-start">
+                    <div className="text-xs sm:text-base font-bold text-[#E07E27]">
+                      MATCH INFO
+                    </div>
+                    <div className="text-base font-semibold leading-tight mb-1 lg:pt-2 flex lg:flex-col flex-row gap-2">
+                      <p>{match.date}</p>
+                      <p>{match.time}</p>
+                    </div>
+                  </div>
+
                   <div>
                     <a
                       href={match.ticketLink}
@@ -206,8 +184,20 @@ const FixturesSeason3 = () => {
                       />
                     </a>
                   </div>
-                )}
-              </div>
+                </div>
+              ) : (
+                <div className="bg-[#F5F5F5] flex lg:flex-col items-center md:items-start text-left lg:px-12 lg:py-8 sm:p-6 p-4 lg:w-[250px] lg:justify-start justify-between">
+                  <div className="flex lg:flex-col  justify-between w-full">
+                    <div className="text-xs sm:text-base font-bold text-[#E07E27]">
+                      MATCH INFO
+                    </div>
+                    <div className="text-base font-semibold leading-tight mb-1 lg:pt-2 flex lg:flex-col flex-row gap-2">
+                      <p>{match.date}</p>
+                      <p>{match.time}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         );
