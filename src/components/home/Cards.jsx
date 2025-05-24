@@ -64,22 +64,31 @@ const TeamSection = () => {
 
   return (
     <div className="section-width  padding-top">
-      {/* Background & Header */}
-
-      {/* Match Cards Section */}
       <div className="relative w-full bg-white pt-3 pb-2">
         <TitleComponent
           title={"Upcoming Matches"}
           button
           buttonLink={routes.fixtures}
         />
-        <div className="flex flex-col items-center gap-8   ">
-          {/* Mobile View - Carousel */}
-          <div className="block 2xl:hidden w-full">
+        <div className="flex flex-col items-center gap-8">
+          <div className="block xl:hidden w-full h-full">
             <Swiper
               modules={[Autoplay]}
               spaceBetween={20}
-              slidesPerView={1}
+              // slidesPerView={2}
+              breakpoints={{
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+              }}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
@@ -87,15 +96,14 @@ const TeamSection = () => {
               loop={true}
             >
               {fixtures3.slice(0, 3).map((match, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={index} className="h-full">
                   <MatchCard {...match} />
                 </SwiperSlide>
               ))}
             </Swiper>
           </div>
 
-          {/* Desktop View - Grid */}
-          <div className="hidden 2xl:grid grid-cols-1 2xl:grid-cols-3 gap-6 sm:gap-8 2xl:gap-12 w-full">
+          <div className="hidden xl:grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8 2xl:gap-12 w-full">
             {fixtures3.slice(0, 3).map((match, index) => {
               return <MatchCard key={index} {...match} />;
             })}
@@ -140,7 +148,7 @@ const MatchCard = ({ date, time, home_team, away_team, venue }) => {
   })();
 
   return (
-    <div className="bg-white rounded-xl justify-between border-[rgba(194,194,194,1)] border     flex flex-col">
+    <div className="bg-white rounded-xl justify-between border-[rgba(194,194,194,1)] border     flex flex-col h-full">
       {/* Header */}
       <div className="relative   w-full rounded-t-lg flex overflow-hidden bg-[#e07e27]">
         <div className="flex flex-row justify-between items-center p-4 text-white  w-full h-full   gap-1">

@@ -14,7 +14,7 @@ const TitleComponent = ({ title, orange = false, button, buttonLink }) => {
             className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
             alt="Logo"
           />
-          <h2 className="text-white capitalize">{title}</h2>
+          <h3 className="text-white capitalize">{title}</h3>
         </div>
       ) : (
         <div className="flex items-center justify-between">
@@ -26,7 +26,7 @@ const TitleComponent = ({ title, orange = false, button, buttonLink }) => {
               className="w-auto absolute h-full top-0 -left-0 rounded-l-md"
               alt="Logo"
             />
-            <h2 className="text-white capitalize">{title}</h2>
+            <h3 className="text-white capitalize">{title}</h3>
           </div>
           <div className="md:flex hidden">
             {button && (

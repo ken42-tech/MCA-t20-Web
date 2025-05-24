@@ -48,9 +48,9 @@ const CountdownTimer = ({ targetDate }) => {
         <img
           src="/images/teams/hero/teamLogo/arcs.svg"
           alt="arcs"
-          className="w-28 p-5"
+          className="w-20 p-5"
         />
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           <p className="text-[#E07E27]">VS</p>
           <p className="text-xs">MATCH 1/20</p>
         </div>
@@ -58,7 +58,7 @@ const CountdownTimer = ({ targetDate }) => {
           <img
             src="/images/home/team/soboSuperSonics.png"
             alt="arcs"
-            className="w-28  bg-white"
+            className="w-20  bg-white"
           />
         </div>
       </div>
