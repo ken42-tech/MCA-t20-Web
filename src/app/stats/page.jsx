@@ -6,14 +6,69 @@ import PlayerDetailsHero from "@/components/stats/PlayerDetailsHero";
 import PaginationControls from "./components/PaginationControls";
 import { stats } from "@/utilis/stats/statsdata";
 
-// Extract available seasons
+const Cell = ({ children, className = "" }) => (
+  <td
+    className={`py-2 px-4 border-r text-center border-[#222222] ${className}`}
+  >
+    {children}
+  </td>
+);
+
+const HeaderCell = ({ children, className = "" }) => (
+  <th className={`py-4 px-4 text-center bg-[#E07E27] ${className}`}>
+    {children}
+  </th>
+);
+
+const columnMap = {
+  batting: [
+    "POS",
+    "PLAYER",
+    "MAT",
+    "NO",
+    "RUNS",
+    "HS",
+    "AVE",
+    "S/R",
+    "100S",
+    "50S",
+    "4S",
+    "6S",
+    "DUCKS",
+  ],
+  bowling: [
+    "POS",
+    "PLAYER",
+    "MAT",
+    "OVERS",
+    "MAIDENS",
+    "RUNS",
+    "WKTS",
+    "BBI",
+    "AVG",
+    "ECON",
+    "S/R",
+    "3W",
+    "5W",
+  ],
+  fielding: [
+    "POS",
+    "PLAYER",
+    "MAT",
+    "CATCHES",
+    "DISMISSALS",
+    "RUN OUTS",
+    "STUMPINGS",
+  ],
+};
+
 const seasons = Object.keys(stats[Object.keys(stats)[0]].seasons).filter(
   (s) => s.toLowerCase() !== "overall"
 );
-// Build raw data (unsorted) for a category + season
 const makeCategoryData = (category, season) => {
   return Object.values(stats)
     .map((p) => {
+      // const t = p.seasons[season] || {}:
       const s = p.seasons[season]?.[category] || {};
       if (category === "batting") {
         return {
@@ -73,7 +128,6 @@ const makeCategoryData = (category, season) => {
     .filter(Boolean);
 };
 
-// Sort the raw data based on selected sort option and category, then assign positions
 const sortData = (data, category, sortBy) => {
   const sorted = [...data];
 
@@ -193,206 +247,102 @@ const DropDown = ({ label, options, value, onChange, bg = "white" }) => (
     </div>
   </div>
 );
-
-// Table component driven by `data` prop instead of hardcoded arrays
 const PlayerTable = ({ selected, onPlayerSelect, selectedPlayer, data }) => {
-  // Table headers based on category
-  const getTableHeaders = () => {
-    if (selected === "batting")
-      return (
-        <tr>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">POS</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27] w-80">PLAYER</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">MAT</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">NO</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">RUNS</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">HS</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">AVE</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">S/R</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">100S</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">50S</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">4S</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">6S</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">DUCKS</th>
-        </tr>
-      );
-    if (selected === "bowling")
-      return (
-        <tr>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">POS</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27] w-80">PLAYER</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">MAT</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">OVERS</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">MAIDENS</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">RUNS</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">WKTS</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">BBI</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">AVG</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">ECON</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">S/R</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">3W</th>
-          <th className="py-4 px-4 text-center bg-[#E07E27]">5W</th>
-        </tr>
-      );
-    return (
-      <tr>
-        <th className="py-4 px-4 text-center bg-[#E07E27]">POS</th>
-        <th className="py-4 px-4 text-center bg-[#E07E27] w-80">PLAYER</th>
-        <th className="py-4 px-4 text-center bg-[#E07E27]">MAT</th>
-        <th className="py-4 px-4 text-center bg-[#E07E27]">CATCHES</th>
-        <th className="py-4 px-4 text-center bg-[#E07E27]">DISMISSALS</th>
-        <th className="py-4 px-4 text-center bg-[#E07E27]">RUN OUTS</th>
-        <th className="py-4 px-4 text-center bg-[#E07E27]">STUMPINGS</th>
-      </tr>
-    );
-  };
+  const headers = columnMap[selected];
 
-  // Table rows based on passed-in data
-  const getTableRows = () =>
-    data.map((player) => {
-      const isSelected = player.player === selectedPlayer.player;
-      const rowClass = isSelected
-        ? "border-b bg-[#15243A] border-[#222222] cursor-pointer"
-        : "border-b bg-[#0F1A2D] border-[#222222] hover:bg-[#15243A] cursor-pointer";
-
-      return (
-        <tr
-          key={player.pos}
-          className={rowClass}
-          onClick={() => onPlayerSelect(player)}
-        >
-          <td className="py-2 px-4 border-r text-center border-[#222222]">
-            {player.pos}
-          </td>
-          <td className="py-5 px-4 border-r border-[#222222]">
-            <div className="flex items-center gap-3">
-              {/* <div className="w-12 h-12 rounded-full bg-slate-900 overflow-hidden relative">
-                {player.playerImg && (
-                  <Image
-                    src={player.playerImg}
-                    width={100}
-                    height={100}
-                    alt={player.player}
-                    className="object-cover"
-                  />
-                )}
-              </div> */}
-              <div>
-                <p className="font-semibold">{player.player}</p>
-                {player.team && (
-                  <div className="flex items-center gap-2 text-xs">
-                    <Image
-                      src={player.teamLogo}
-                      width={16}
-                      height={16}
-                      alt={player.team}
-                    />
-                    <span className="text-gray-400">{player.team}</span>
-                  </div>
-                )}
+  const getCellValue = (player, key) => {
+    const map = {
+      POS: player.pos,
+      PLAYER: (
+        <div className="flex items-center gap-3">
+          <div>
+            <p className="font-normal text-xs">{player.player}</p>
+            {player.team && (
+              <div className="flex items-center gap-2 text-sm">
+                <Image
+                  src={player.teamLogo}
+                  width={16}
+                  height={16}
+                  alt={player.team}
+                />
+                <span className="text-gray-400">{player.team}</span>
               </div>
-            </div>
-          </td>
-          <td className="py-2 px-4 border-r text-center border-[#222222]">
-            {player.mat}
-          </td>
-
-          {selected === "batting" && (
-            <>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.no}
-              </td>
-              <td className="py-2 px-4 border-r text-center bg-[#0B1220] border-[#222222]">
-                {player.runs}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.hs}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.ave}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.sr}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.hundreds}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.fifties}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.fours}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.sixes}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.ducks}
-              </td>
-            </>
-          )}
-
-          {selected === "bowling" && (
-            <>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.overs}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.maidens}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.runs}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.wkts}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.bbi}
-              </td>
-              <td className="py-2 px-4 border-r text-center bg-[#0B1220] border-[#222222]">
-                {player.avg}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.econ}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.sr}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.threeW}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.fiveW}
-              </td>
-            </>
-          )}
-
-          {selected === "fielding" && (
-            <>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.catches}
-              </td>
-              <td className="py-2 px-4 border-r text-center bg-[#0B1220] border-[#222222]">
-                {player.dismissals}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.runOuts}
-              </td>
-              <td className="py-2 px-4 border-r text-center border-[#222222]">
-                {player.stumpings}
-              </td>
-            </>
-          )}
-        </tr>
-      );
-    });
+            )}
+          </div>
+        </div>
+      ),
+      MAT: player.mat,
+      NO: player.no,
+      RUNS: player.runs,
+      HS: player.hs,
+      AVE: player.ave,
+      "S/R": player.sr,
+      "100S": player.hundreds,
+      "50S": player.fifties,
+      "4S": player.fours,
+      "6S": player.sixes,
+      DUCKS: player.ducks,
+      OVERS: player.overs,
+      MAIDENS: player.maidens,
+      WKTS: player.wkts,
+      BBI: player.bbi,
+      AVG: player.avg,
+      ECON: player.econ,
+      "3W": player.threeW,
+      "5W": player.fiveW,
+      CATCHES: player.catches,
+      DISMISSALS: player.dismissals,
+      "RUN OUTS": player.runOuts,
+      STUMPINGS: player.stumpings,
+    };
+    return map[key];
+  };
 
   return (
     <div className="w-full">
       <div className="min-w-[1000px]">
         <table className="w-full table-auto bg-black border-collapse text-sm">
-          <thead className="text-black">{getTableHeaders()}</thead>
-          <tbody className="text-[#D8D8D8]">{getTableRows()}</tbody>
+          <thead className="text-black">
+            <tr>
+              {headers.map((h) => (
+                <HeaderCell key={h} className={h === "PLAYER" ? "w-80" : ""}>
+                  {h}
+                </HeaderCell>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="text-[#D8D8D8]">
+            {data.map((player) => {
+              const isSelected = player.player === selectedPlayer?.player;
+              const rowClass = isSelected
+                ? "border-b bg-[#15243A] border-[#222222] cursor-pointer"
+                : "border-b bg-[#0F1A2D] border-[#222222] hover:bg-[#15243A] cursor-pointer";
+              return (
+                <tr
+                  key={player.pos}
+                  className={rowClass}
+                  onClick={() => onPlayerSelect(player)}
+                >
+                  {headers.map((key) => (
+                    <Cell
+                      key={key}
+                      className={
+                        key === "PLAYER"
+                          ? "text-left"
+                          : key === "RUNS" ||
+                            key === "AVG" ||
+                            key === "DISMISSALS"
+                          ? "bg-[#0B1220]"
+                          : ""
+                      }
+                    >
+                      {getCellValue(player, key)}
+                    </Cell>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
         </table>
       </div>
     </div>
