@@ -82,7 +82,7 @@ body {
     @apply mb-14 md:mb-20 lg:mb-24;
   }
   .btn-primary {
-    @apply px-4 py-2 md:px-6 md:py-3 rounded-lg bg-[#E07E27]   text-white text-sm md:text-base text-center cursor-pointer;
+    @apply px-4 py-2 lg:px-6 lg:py-3 rounded-lg bg-[#E07E27]   text-white text-sm md:text-base text-center cursor-pointer;
   }
   .btn-secondary {
     @apply px-6 py-3 rounded-full border-2 border-white bg-white text-blue-600 font-medium text-base;
@@ -136,4 +136,8 @@ body {
   aspect-ratio: 5/2;
   clip-path: polygon(0 0, calc(100% - var(--p)) 0, 100% 100%, var(--p) 100%);
   background: #d95b43;
+}
+
+.oswald-font {
+  font-family: "Oswald", sans-serif;
 }
