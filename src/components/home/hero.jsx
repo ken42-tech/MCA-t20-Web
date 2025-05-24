@@ -18,7 +18,7 @@ const Hero = () => {
     <div className="xl:h-[800px] lg:h-[700px] md:h-[600px] h-[500px]">
       <Swiper
         modules={[Autoplay]}
-        autoplay={{ delay: 300000 }}
+        autoplay={{ delay: 3000 }}
         pagination={{ clickable: true }}
         loop
         className="h-full"
