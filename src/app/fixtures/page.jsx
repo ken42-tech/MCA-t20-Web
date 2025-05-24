@@ -116,6 +116,7 @@ export default function Page() {
 
   return (
     <div className="w-full bg-white">
+       
       {/* <Hero
         imgUrl="/images/banner/fixture.jpg"
         // heading="Season 3 Fixtures"
@@ -129,38 +130,41 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="section-width">
-        {/* <div className="flex flex-col md:flex-row items-center justify-between pt-8 px-4 md:px-0">
-          <h2 className="uppercase text-black">Season 3 Fixtures</h2>
-          <h2 className="uppercase text-black">{season} Fixtures</h2>  
-          <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
-            <select
-              name="season"
-              value={season}
-              onChange={(e) => setSeason(e.target.value)}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0 relative"
-            >
-              <option value="Season 1">Season 1</option>
-              <option value="Season 2">Season 2</option>
-              <option value="Season 3">Season 3</option>
-            </select>
-            <select
-              name="team"
-              value={team}
-              onChange={(e) => setTeam(e.target.value)}
-              className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
-            >
-              {teamOptions.map((t) => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
-          </div> 
-        </div> */}
-
-        {/* Conditional Rendering based on Season */}
-        <FixturesSeason3 />
+      <div className="relative">
+         <img src="/images/elements/section-element.png" className="absolute right-0 top-0" alt="element" />
+        <img src="/images/elements/section-element.png" className="absolute left-0 bottom-0 rotate-180" alt="element" />
+        <div className="section-width">
+          {/* <div className="flex flex-col md:flex-row items-center justify-between pt-8 px-4 md:px-0">
+            <h2 className="uppercase text-black">Season 3 Fixtures</h2>
+            <h2 className="uppercase text-black">{season} Fixtures</h2>
+            <div className="flex md:flex-row flex-col lg:gap-10 gap-4">
+              <select
+                name="season"
+                value={season}
+                onChange={(e) => setSeason(e.target.value)}
+                className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0 relative"
+              >
+                <option value="Season 1">Season 1</option>
+                <option value="Season 2">Season 2</option>
+                <option value="Season 3">Season 3</option>
+              </select>
+              <select
+                name="team"
+                value={team}
+                onChange={(e) => setTeam(e.target.value)}
+                className="px-4 py-2 border border-orange-500 text-orange-500 rounded mt-2 md:mt-0"
+              >
+                {teamOptions.map((t) => (
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div> */}
+          {/* Conditional Rendering based on Season */}
+          <FixturesSeason3 />
+        </div>
       </div>
     </div>
   );
